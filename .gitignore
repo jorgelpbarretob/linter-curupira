@@ -1,0 +1,16 @@
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+
+# The official ASD-STE100 vocabulary and compiled derivatives are BYO resources.
+.ste-lint/
+*.ste-dict
+*.ste-dict.bin

@@ -1,0 +1,110 @@
+from collections.abc import Iterable
+from dataclasses import dataclass
+from typing import Literal
+
+import pytest
+
+from ste_lint.domain import (
+    Diagnostic,
+    RuleContext,
+    RuleId,
+    RuleKind,
+    RuleMetadata,
+    RuleRegistry,
+    Severity,
+    SourceReference,
+)
+from ste_lint.engine import (
+    ConfigurationError,
+    RuleOverrides,
+    parse_project_config,
+    resolve_enabled_rule_ids,
+)
+
+
+def metadata(rule_id: str, *, status: Literal["preview", "stable"] = "stable") -> RuleMetadata:
+    return RuleMetadata(
+        rule_id=RuleId(rule_id),
+        title="Synthetic project rule",
+        source=SourceReference(standard="PROJECT", issue="1", locator="local-test"),
+        kind=RuleKind.DETERMINISTIC,
+        default_severity=Severity.WARNING,
+        summary="A synthetic configuration test.",
+        implementation_status=status,
+    )
+
+
+@dataclass(frozen=True)
+class StubRule:
+    metadata: RuleMetadata
+
+    def check(self, context: RuleContext) -> Iterable[Diagnostic]:
+        del context
+        return ()
+
+
+def registry_with(*entries: RuleMetadata) -> RuleRegistry:
+    registry = RuleRegistry(entries)
+    for entry in entries:
+        registry.register(StubRule(entry))
+    registry.validate_startup()
+    return registry
+
+
+def test_project_config_parses_strict_toml_contract() -> None:
+    configuration = parse_project_config(
+        'schema_version = 1\n[rules]\nenable = ["PROJECT-TEST-001"]\ndisable = []\n'
+    )
+
+    assert configuration == RuleOverrides(enable=(RuleId("PROJECT-TEST-001"),))
+
+
+@pytest.mark.parametrize(
+    ("text", "message"),
+    [
+        ("schema_version = 2\n", "schema_version"),
+        ("schema_version = true\n", "schema_version"),
+        ("schema_version = 1\nunknown = true\n", "unknown configuration keys"),
+        ("schema_version = 1\n[rules]\nother = []\n", "unknown rules keys"),
+        ("schema_version = 1\n[rules]\nenable = 'bad'\n", "array of rule IDs"),
+        (
+            "schema_version = 1\n[rules]\n"
+            'enable = ["PROJECT-TEST-001"]\n'
+            'disable = ["PROJECT-TEST-001"]\n',
+            "both enabled and disabled",
+        ),
+    ],
+)
+def test_project_config_rejects_invalid_or_ambiguous_input(text: str, message: str) -> None:
+    with pytest.raises(ConfigurationError, match=message):
+        parse_project_config(text)
+
+
+def test_stable_rules_are_enabled_and_preview_rules_are_disabled_by_default() -> None:
+    stable = metadata("PROJECT-TEST-001")
+    preview = metadata("PROJECT-TEST-002", status="preview")
+
+    enabled = resolve_enabled_rule_ids(registry_with(stable, preview))
+
+    assert enabled == (stable.rule_id,)
+
+
+def test_cli_overrides_project_file_rule_selection() -> None:
+    stable = metadata("PROJECT-TEST-001")
+    preview = metadata("PROJECT-TEST-002", status="preview")
+    project = RuleOverrides(enable=(preview.rule_id,), disable=(stable.rule_id,))
+    cli = RuleOverrides(enable=(stable.rule_id,), disable=(preview.rule_id,))
+
+    enabled = resolve_enabled_rule_ids(registry_with(stable, preview), project=project, cli=cli)
+
+    assert enabled == (stable.rule_id,)
+
+
+def test_unknown_rule_id_fails_before_execution() -> None:
+    stable = metadata("PROJECT-TEST-001")
+
+    with pytest.raises(ConfigurationError, match="unknown rule_id"):
+        resolve_enabled_rule_ids(
+            registry_with(stable),
+            cli=RuleOverrides(enable=(RuleId("PROJECT-UNKNOWN-999"),)),
+        )
