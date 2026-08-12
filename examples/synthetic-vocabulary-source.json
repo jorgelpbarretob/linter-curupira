@@ -1,0 +1,20 @@
+{
+  "format": "ste-lint-vocabulary-source",
+  "schema_version": 1,
+  "standard": "ASD-STE100",
+  "issue": "9",
+  "entries": [
+    {
+      "term": "flux valve",
+      "part_of_speech": "synthetic-noun",
+      "meaning_id": "synthetic-1",
+      "case_sensitive": false
+    },
+    {
+      "term": "ZX-4",
+      "part_of_speech": "synthetic-identifier",
+      "meaning_id": "synthetic-2",
+      "case_sensitive": true
+    }
+  ]
+}

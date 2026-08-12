@@ -61,12 +61,15 @@ def test_project_config_parses_strict_toml_contract() -> None:
         "disable = []\n"
         "[glossary]\n"
         'terms = ["bleed-air valve", "ZX-4 controller"]\n'
+        "[vocabulary]\n"
+        'path = ".ste-lint/vocabulary.json"\n'
     )
 
     assert configuration == ProjectConfiguration(
         rules=RuleOverrides(enable=(RuleId("PROJECT-TEST-001"),)),
         text_type="procedural",
         technical_terms=("bleed-air valve", "ZX-4 controller"),
+        vocabulary_path=".ste-lint/vocabulary.json",
     )
 
 
@@ -80,6 +83,8 @@ def test_project_config_parses_strict_toml_contract() -> None:
         ("schema_version = 1\n[rules]\nenable = 'bad'\n", "array of rule IDs"),
         ('schema_version = 1\ntext_type = "automatic"\n', "text_type"),
         ("schema_version = 1\n[glossary]\nterms = 'bad'\n", "array of terms"),
+        ("schema_version = 1\n[vocabulary]\npath = ''\n", "vocabulary.path"),
+        ("schema_version = 1\n[vocabulary]\nunknown = 'bad'\n", "unknown vocabulary"),
         (
             'schema_version = 1\n[glossary]\nterms = ["Bleed-air valve", "bleed-air valve"]\n',
             "duplicate",

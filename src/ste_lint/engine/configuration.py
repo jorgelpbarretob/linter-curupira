@@ -37,6 +37,7 @@ class ProjectConfiguration:
     rules: RuleOverrides = RuleOverrides()
     text_type: TextType | None = None
     technical_terms: tuple[str, ...] = ()
+    vocabulary_path: str | None = None
 
 
 def parse_project_config(text: str) -> ProjectConfiguration:
@@ -47,7 +48,7 @@ def parse_project_config(text: str) -> ProjectConfiguration:
 
     _reject_unknown_keys(
         raw,
-        {"schema_version", "text_type", "rules", "glossary"},
+        {"schema_version", "text_type", "rules", "glossary", "vocabulary"},
         "configuration",
     )
     schema_version = raw.get("schema_version")
@@ -67,10 +68,16 @@ def parse_project_config(text: str) -> ProjectConfiguration:
     if not isinstance(raw_glossary, dict):
         raise ConfigurationError("glossary must be a TOML table")
     _reject_unknown_keys(raw_glossary, {"terms"}, "glossary")
+
+    raw_vocabulary = raw.get("vocabulary", {})
+    if not isinstance(raw_vocabulary, dict):
+        raise ConfigurationError("vocabulary must be a TOML table")
+    _reject_unknown_keys(raw_vocabulary, {"path"}, "vocabulary")
     return ProjectConfiguration(
         rules=rules,
         text_type=_parse_text_type(raw.get("text_type")),
         technical_terms=_parse_technical_terms(raw_glossary.get("terms", [])),
+        vocabulary_path=_parse_vocabulary_path(raw_vocabulary.get("path")),
     )
 
 
@@ -128,6 +135,14 @@ def _parse_technical_terms(value: object) -> tuple[str, ...]:
     if len(set(normalized)) != len(normalized):
         raise ConfigurationError("glossary.terms must not contain duplicate terms")
     return tuple(value)
+
+
+def _parse_vocabulary_path(value: object) -> str | None:
+    if value is None:
+        return None
+    if not isinstance(value, str) or not value or value != value.strip():
+        raise ConfigurationError("vocabulary.path must be a non-empty path")
+    return value
 
 
 def _validate_known_rule_ids(registry: RuleRegistry, layer: RuleOverrides) -> None:

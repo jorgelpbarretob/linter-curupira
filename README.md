@@ -5,9 +5,10 @@ carefully selected, traceable subset of detectable ASD-STE100 Issue 9 concerns.
 It is an authoring aid: it does not certify documents, replace the official
 standard, or claim ASD/STEMG approval.
 
-Phases 1–4 are complete. Phase 4 provides five deterministic Issue 9 rules as
-explicitly opt-in `preview` checks. No rule is `stable` yet, and absence of
-diagnostics does not mean full compliance.
+Phases 1–5 are complete. Phase 4 provides five deterministic Issue 9 rules as
+explicitly opt-in `preview` checks. Phase 5 adds an external, versioned
+Vocabulary Engine without shipping normative data. No rule is `stable` yet, and
+absence of diagnostics does not mean full compliance.
 
 ## Requirements
 
@@ -51,6 +52,9 @@ disable = []
 
 [glossary]
 terms = ["bleed-air valve", "ZX-4 controller"]
+
+[vocabulary]
+path = "C:/local/ste-vocabulary-cache/<source_sha256>.json"
 ```
 
 CLI `--enable-rule ID` and `--disable-rule ID` override the file. There is no
@@ -58,6 +62,21 @@ implicit or global configuration. Unknown keys and IDs are operational errors.
 `--text-type` overrides the file. The local glossary is passed to rules as a
 project allowlist. It is not the official STE vocabulary and does not enable a
 vocabulary-compliance claim.
+
+Import only source JSON that you are authorized to process:
+
+```powershell
+uv run ste vocabulary import-json authorized-source.json `
+  --cache-dir C:\local\ste-vocabulary-cache `
+  --confirm-authorized
+uv run ste lint manual.md --vocabulary `
+  C:\local\ste-vocabulary-cache\<source_sha256>.json
+```
+
+The importer accepts the project-defined JSON source format only. It does not
+extract PDF/DOCX files, access a network, retain source bytes, or authorize
+redistribution. See [`docs/vocabulary-contract.md`](docs/vocabulary-contract.md).
+Phase 5 gate evidence is in [`docs/f5-validation.md`](docs/f5-validation.md).
 
 All five rules remain disabled by default because they are `preview`. Enable
 only the rules you want to evaluate:

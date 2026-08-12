@@ -6,5 +6,8 @@ Os ADRs deste diretório usam os estados `Proposed`, `Accepted`, `Superseded` e
 mantenedor no gate inicial da Fase 3, na mesma data. O ADR-010 foi aceito
 explicitamente pelo mantenedor no checkpoint de baseline da Fase 4.
 
+O ADR-013 foi aceito explicitamente pelo mantenedor no checkpoint inicial da
+Fase 5, após revisão independente com `cursor-agent` e `composer-2.5-fast`.
+
 Uma mudança difícil de reverter não pode ser implementada enquanto o ADR
 correspondente não estiver `Accepted`.

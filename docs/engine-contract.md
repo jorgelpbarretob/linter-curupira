@@ -1,13 +1,12 @@
 # Contrato do engine, configuração e reporting
 
-Status: implementado na Fase 3
+Status: atualizado até a Fase 5
 Data: 2026-08-12
 
 ## Catálogo e registry
 
-O catálogo executável é uma tupla explícita de `RuleMetadata`. Na Fase 3 ela
-permanece vazia: as candidatas normativas não recebem ID nem implementação antes
-do incremento individual da Fase 4.
+O catálogo executável é uma tupla explícita de `RuleMetadata`. As cinco regras
+da Fase 4 permanecem `preview` e desabilitadas por default.
 
 O registry valida namespace e fonte conforme ADR-007, rejeita IDs duplicados,
 implementação ausente, metadados divergentes e implementação para regra
@@ -27,6 +26,13 @@ de executar regras.
 `--text-type`. `[glossary].terms` preserva uma allowlist local explícita; ela não
 é vocabulário oficial e ainda não ativa uma regra de vocabulário. Não existe
 descoberta de configuração, estado global ou supressão inline.
+
+`[vocabulary].path` seleciona um recurso canônico explícito;
+`--vocabulary PATH` tem precedência. Caminho relativo ao TOML usa o diretório do
+arquivo, enquanto caminho CLI usa o diretório atual. Um recurso configurado é
+carregado e validado integralmente antes das regras e entra em
+`RuleContext.capabilities["vocabulary"]`. Sem caminho, a capacidade não existe e
+consumidores devem se abster. O overlay continua em `[glossary].terms`.
 
 ## Execução e validação
 
@@ -66,3 +72,12 @@ validação de todas as regras. Os modos são mutuamente exclusivos.
 O fingerprint segue ADR-010 e usa `rule_id`, URI, texto normalizado do span,
 contexto normalizado e ordinal entre achados idênticos. Não usa offsets,
 linha/coluna, mensagem ou severidade e não armazena trechos em claro.
+
+## Vocabulary Engine
+
+`ste vocabulary import-json` exige `--confirm-authorized` e um `--cache-dir`
+explícito. O cache usa nome derivado do SHA-256 da fonte e escrita atômica. O
+loader rejeita JSON duplicado, schema, norma ou issue incompatível, colisões de
+entrada e falhas de integridade. O lookup retorna estados fechados e preserva
+classe gramatical e meaning; nenhuma regra normativa de vocabulário foi
+adicionada na Fase 5.

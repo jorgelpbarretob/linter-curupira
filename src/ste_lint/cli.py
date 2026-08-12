@@ -7,6 +7,7 @@ import os
 import sys
 import tempfile
 from collections.abc import Sequence
+from dataclasses import replace
 from pathlib import Path
 
 from ste_lint.catalog import build_registry
@@ -43,6 +44,12 @@ from ste_lint.reporting import (
     format_rule_list,
     format_text,
 )
+from ste_lint.vocabulary import (
+    Vocabulary,
+    VocabularyError,
+    import_source_file,
+    load_resource_file,
+)
 
 EXIT_OK = 0
 EXIT_DIAGNOSTICS = 1
@@ -71,6 +78,10 @@ def build_parser() -> argparse.ArgumentParser:
     lint_parser.add_argument("--format", choices=("text", "json"), default="text")
     lint_parser.add_argument("--config", help="explicit project TOML configuration")
     lint_parser.add_argument(
+        "--vocabulary",
+        help="explicit canonical vocabulary resource; overrides project configuration",
+    )
+    lint_parser.add_argument(
         "--text-type",
         choices=("procedural", "descriptive", "procedural-note"),
         help="explicit text type; overrides the project configuration",
@@ -83,6 +94,22 @@ def build_parser() -> argparse.ArgumentParser:
     )
     baseline_group.add_argument(
         "--write-baseline", help="atomically write a baseline from current diagnostics"
+    )
+    vocabulary_parser = subparsers.add_parser(
+        "vocabulary",
+        help="Manage explicit external vocabulary resources.",
+    )
+    vocabulary_subparsers = vocabulary_parser.add_subparsers(dest="vocabulary_command")
+    import_parser = vocabulary_subparsers.add_parser(
+        "import-json",
+        help="Import one authorized source JSON into an explicit local cache.",
+    )
+    import_parser.add_argument("source", help="authorized source JSON")
+    import_parser.add_argument("--cache-dir", required=True, help="explicit local cache directory")
+    import_parser.add_argument(
+        "--confirm-authorized",
+        action="store_true",
+        help="confirm the right to process this source; does not authorize redistribution",
     )
     return parser
 
@@ -113,6 +140,8 @@ def main(
             print("No stable rules are available yet.")
             return EXIT_OK
         return _lint(arguments, active_registry)
+    if arguments.command == "vocabulary":
+        return _vocabulary(arguments)
 
     parser.print_help()
     return EXIT_OK
@@ -126,6 +155,14 @@ def _lint(arguments: argparse.Namespace, registry: RuleRegistry) -> int:
             disable=tuple(RuleId(value) for value in arguments.disable_rule),
         )
         enabled_rule_ids = resolve_enabled_rule_ids(registry, project=project.rules, cli=cli)
+        capabilities: dict[str, object] = {}
+        vocabulary_path = arguments.vocabulary or project.vocabulary_path
+        if vocabulary_path is not None:
+            resource = load_resource_file(Path(vocabulary_path))
+            capabilities["vocabulary"] = Vocabulary(
+                resource,
+                technical_terms=project.technical_terms,
+            )
         source_text = _read_utf8(Path(arguments.path))
         document = parse_document(arguments.path, source_text)
         text_type = arguments.text_type or project.text_type
@@ -135,7 +172,8 @@ def _lint(arguments: argparse.Namespace, registry: RuleRegistry) -> int:
         if text_type is not None:
             rule_configuration["text_type"] = text_type
         diagnostics = LintEngine(registry).lint(
-            RuleContext(document, rule_configuration), enabled_rule_ids=enabled_rule_ids
+            RuleContext(document, rule_configuration, capabilities),
+            enabled_rule_ids=enabled_rule_ids,
         )
         if arguments.write_baseline is not None:
             baseline = build_baseline(document, diagnostics)
@@ -158,6 +196,7 @@ def _lint(arguments: argparse.Namespace, registry: RuleRegistry) -> int:
         UnicodeError,
         UnknownRuleIdError,
         UnsupportedFormatError,
+        VocabularyError,
     ) as error:
         print(f"ste: operational error: {error}", file=sys.stderr)
         return EXIT_OPERATIONAL_ERROR
@@ -173,7 +212,31 @@ def _lint(arguments: argparse.Namespace, registry: RuleRegistry) -> int:
 def _load_project_config(path: str | None) -> ProjectConfiguration:
     if path is None:
         return ProjectConfiguration()
-    return parse_project_config(_read_utf8(Path(path)))
+    config_path = Path(path)
+    configuration = parse_project_config(_read_utf8(config_path))
+    if configuration.vocabulary_path is None:
+        return configuration
+    vocabulary_path = Path(configuration.vocabulary_path)
+    if not vocabulary_path.is_absolute():
+        vocabulary_path = (config_path.parent / vocabulary_path).resolve()
+    return replace(configuration, vocabulary_path=str(vocabulary_path))
+
+
+def _vocabulary(arguments: argparse.Namespace) -> int:
+    if arguments.vocabulary_command != "import-json":
+        print("ste: operational error: a vocabulary subcommand is required", file=sys.stderr)
+        return EXIT_OPERATIONAL_ERROR
+    try:
+        target = import_source_file(
+            Path(arguments.source),
+            Path(arguments.cache_dir),
+            confirmed_authorized=arguments.confirm_authorized,
+        )
+    except (OSError, UnicodeError, VocabularyError) as error:
+        print(f"ste: operational error: {error}", file=sys.stderr)
+        return EXIT_OPERATIONAL_ERROR
+    print(f"Imported authorized vocabulary resource to {target}.")
+    return EXIT_OK
 
 
 def _read_utf8(path: Path) -> str:
