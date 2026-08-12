@@ -16,6 +16,7 @@ from ste_lint.domain import (
 )
 from ste_lint.engine import (
     ConfigurationError,
+    ProjectConfiguration,
     RuleOverrides,
     parse_project_config,
     resolve_enabled_rule_ids,
@@ -53,10 +54,20 @@ def registry_with(*entries: RuleMetadata) -> RuleRegistry:
 
 def test_project_config_parses_strict_toml_contract() -> None:
     configuration = parse_project_config(
-        'schema_version = 1\n[rules]\nenable = ["PROJECT-TEST-001"]\ndisable = []\n'
+        "schema_version = 1\n"
+        'text_type = "procedural"\n'
+        "[rules]\n"
+        'enable = ["PROJECT-TEST-001"]\n'
+        "disable = []\n"
+        "[glossary]\n"
+        'terms = ["bleed-air valve", "ZX-4 controller"]\n'
     )
 
-    assert configuration == RuleOverrides(enable=(RuleId("PROJECT-TEST-001"),))
+    assert configuration == ProjectConfiguration(
+        rules=RuleOverrides(enable=(RuleId("PROJECT-TEST-001"),)),
+        text_type="procedural",
+        technical_terms=("bleed-air valve", "ZX-4 controller"),
+    )
 
 
 @pytest.mark.parametrize(
@@ -67,6 +78,12 @@ def test_project_config_parses_strict_toml_contract() -> None:
         ("schema_version = 1\nunknown = true\n", "unknown configuration keys"),
         ("schema_version = 1\n[rules]\nother = []\n", "unknown rules keys"),
         ("schema_version = 1\n[rules]\nenable = 'bad'\n", "array of rule IDs"),
+        ('schema_version = 1\ntext_type = "automatic"\n', "text_type"),
+        ("schema_version = 1\n[glossary]\nterms = 'bad'\n", "array of terms"),
+        (
+            'schema_version = 1\n[glossary]\nterms = ["Bleed-air valve", "bleed-air valve"]\n',
+            "duplicate",
+        ),
         (
             "schema_version = 1\n[rules]\n"
             'enable = ["PROJECT-TEST-001"]\n'

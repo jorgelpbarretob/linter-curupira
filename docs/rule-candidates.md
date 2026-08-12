@@ -7,18 +7,22 @@ Origem: https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf
 Consulta: 2026-08-12
 
 Este documento contém locators e paráfrases autorais curtas. Não reproduz
-exemplos, tabelas, vocabulário ou texto extenso da norma. IDs definitivos
-permanecem `TBD` até aprovação do ADR de estabilidade de IDs.
+exemplos, tabelas, vocabulário ou texto extenso da norma. Os IDs foram
+congelados na Fase 4 após a aprovação do ADR-007.
 
 ## Resumo da seleção
 
-| Prioridade | Candidata | Locator Issue 9 | Classe | Automação | Estado inicial |
-|---:|---|---|---|---|---|
-| 1 | Semicolon in lintable prose | Part 1, Section 8, Rule 8.1 | deterministic | full | planned |
-| 2 | Procedural sentence length | Part 1, Section 5, Rule 5.1; contagem em 8.4–8.7 | deterministic | full | planned |
-| 3 | Descriptive sentence length | Part 1, Section 6, Rule 6.3; contagem em 8.4–8.7 | deterministic | full | planned |
-| 4 | Descriptive paragraph length | Part 1, Section 6, Rule 6.6 | deterministic | full | planned |
-| 5 | Vertical-list lead-in colon | Part 1, Section 4, Rule 4.3 | deterministic | partial | planned |
+| ID | Candidata | Locator Issue 9 | Automação | Estado |
+|---|---|---|---|---|
+| `STE-I9-PUNCT-001` | Semicolon in lintable prose | Part 1, Section 8, Rule 8.1 | full | preview |
+| `STE-I9-SENT-001` | Procedural sentence length | Part 1, Section 5, Rule 5.1; contagem em 8.4–8.7 | full conservador | preview |
+| `STE-I9-SENT-002` | Descriptive sentence length | Part 1, Section 6, Rule 6.3; contagem em 8.4–8.7 | full conservador | preview |
+| `STE-I9-PARA-001` | Descriptive paragraph length | Part 1, Section 6, Rule 6.6 | full conservador | preview |
+| `STE-I9-LIST-001` | Vertical-list lead-in colon | Part 1, Section 4, Rule 4.3 | partial | preview |
+
+Revisão normativa: `approved`, revisor `project-maintainer`, data 2026-08-12.
+As labels dos 65 casos sintéticos também foram aprovadas pelo mantenedor. Esse
+registro autoriza implementação rastreável; não equivale a aprovação ASD.
 
 ## 1. Semicolon in lintable prose
 
@@ -131,6 +135,6 @@ O mantenedor confirmou em 2026-08-12 que:
 3. nenhum ID definitivo será congelado nesta etapa;
 4. exemplos futuros serão sintéticos e escritos para o projeto.
 
-Cada candidata deve agora receber exemplos autorais e registro de revisão antes
-de qualquer implementação. Esta aprovação não promove regra a `stable`, não
-aprova IDs definitivos e não autoriza iniciar a Fase 1.
+As cinco candidatas foram implementadas como `preview/info` na Fase 4. Nenhuma
+foi promovida a `stable`, pois o corpus pequeno não produz intervalo de precisão
+suficientemente estreito.

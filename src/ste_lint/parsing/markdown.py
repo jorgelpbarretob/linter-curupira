@@ -15,6 +15,7 @@ _LIST_MARKER = re.compile(r"^[ ]{0,3}(?:[-+*]|\d+[.)])[ \t]+")
 _BLOCKQUOTE = re.compile(r"^[ ]{0,3}>[ \t]?")
 _REFERENCE_DEFINITION = re.compile(r"^[ ]{0,3}\[[^]]+\]:[ \t]*\S+")
 _HTML_TAG = re.compile(r"</?[A-Za-z][^>]*>")
+_HTML_ENTITY = re.compile(r"&(?:#[0-9]+|#[xX][0-9A-Fa-f]+|[A-Za-z][A-Za-z0-9]+);")
 _AUTOLINK = re.compile(r"<(?:https?://|mailto:)[^>]+>")
 _IMAGE = re.compile(r"!\[[^]\n]*]\([^\n)]*\)")
 _LINK = re.compile(r"\[([^]\n]+)]\(([^\n)]*)\)")
@@ -144,7 +145,7 @@ def _is_table_delimiter(value: str) -> bool:
 def _mark_inline_markup(text: str, lines: tuple[_Line, ...], ignored: bytearray) -> None:
     for line in lines:
         content = _content(text, line)
-        for pattern in (_AUTOLINK, _IMAGE, _HTML_TAG):
+        for pattern in (_AUTOLINK, _IMAGE, _HTML_TAG, _HTML_ENTITY):
             for match in pattern.finditer(content):
                 _mark(ignored, line.start + match.start(), line.start + match.end())
         for match in _LINK.finditer(content):

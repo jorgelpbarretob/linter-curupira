@@ -1,6 +1,6 @@
 # ste-lint — plano de desenvolvimento
 
-Status: Fases 1–3 concluídas em 2026-08-12; Fase 4 aguarda aprovação
+Status: Fases 1–4 concluídas em 2026-08-12; Fase 5 aguarda aprovação
 Base normativa pretendida: ASD-STE100 Simplified Technical English, Issue 9 (2025-01-15)
 Última revisão: 2026-08-12
 
@@ -16,8 +16,8 @@ O comando deve produzir diagnósticos estáveis e rastreáveis para regras da Is
 
 O planejamento e a Fase 1 foram aprovados explicitamente pelo mantenedor em
 2026-08-12; autorizações posteriores liberaram as Fases 2 e 3. Os ADRs 007,
-008, 009 e 011 foram aprovados no gate da Fase 3. As fases seguintes continuam
-sujeitas aos respectivos gates.
+008, 009 e 011 foram aprovados no gate da Fase 3; o ADR-010 foi aprovado no
+gate da Fase 4. As fases seguintes continuam sujeitas aos respectivos gates.
 
 ### Restrições inegociáveis
 

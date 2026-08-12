@@ -54,6 +54,15 @@ def test_inline_code_and_link_destination_do_not_enter_lintable_text() -> None:
     assert "the guide" in lintable
 
 
+def test_html_entity_is_ignored_but_surrounding_prose_is_lintable() -> None:
+    text = "The nominal clearance is 5&nbsp;mm."
+    document = parse_markdown("manual.md", text)
+
+    assert kind_at(text, document, "&nbsp;") is RegionKind.IGNORED
+    assert kind_at(text, document, "nominal clearance") is RegionKind.LINTABLE
+    assert kind_at(text, document, "mm") is RegionKind.LINTABLE
+
+
 def test_unclosed_fence_is_ignored_to_end_of_document() -> None:
     text = "Before.\n```text\nsynthetic; code\nstill code"
     document = parse_markdown("manual.md", text)

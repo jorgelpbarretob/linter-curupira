@@ -1,13 +1,27 @@
 """Executable catalog composition for the current release."""
 
 from ste_lint.domain import RuleMetadata, RuleRegistry
+from ste_lint.rules import (
+    DescriptiveParagraphLengthRule,
+    DescriptiveSentenceLengthRule,
+    ProceduralSentenceLengthRule,
+    SemicolonRule,
+    VerticalListLeadInColonRule,
+)
 
-# Phase 3 publishes the strict catalog mechanism but no executable normative rule.
-# Candidate IDs remain unfrozen until their individual Phase 4 increments.
-RULE_CATALOG: tuple[RuleMetadata, ...] = ()
+_RULES = (
+    SemicolonRule(),
+    ProceduralSentenceLengthRule(),
+    DescriptiveSentenceLengthRule(),
+    DescriptiveParagraphLengthRule(),
+    VerticalListLeadInColonRule(),
+)
+RULE_CATALOG: tuple[RuleMetadata, ...] = tuple(rule.metadata for rule in _RULES)
 
 
 def build_registry() -> RuleRegistry:
     registry = RuleRegistry(RULE_CATALOG)
+    for rule in _RULES:
+        registry.register(rule)
     registry.validate_startup()
     return registry

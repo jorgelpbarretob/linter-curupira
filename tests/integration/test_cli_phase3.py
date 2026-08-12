@@ -37,11 +37,13 @@ class CliRule:
     emit: bool = True
     error: Exception | None = None
     seen_text: str | None = field(default=None, init=False)
+    seen_configuration: dict[str, object] | None = field(default=None, init=False)
     calls: int = field(default=0, init=False)
 
     def check(self, context: RuleContext) -> Iterable[Diagnostic]:
         self.calls += 1
         self.seen_text = context.document.text
+        self.seen_configuration = dict(context.configuration)
         if self.error is not None:
             raise self.error
         if not self.emit:
@@ -117,6 +119,38 @@ def test_cli_config_can_disable_rule_before_execution(
     assert exit_code == 0
     assert rule.calls == 0
     assert capsys.readouterr().out == "No executable rules are enabled.\n"
+
+
+def test_cli_passes_text_type_and_local_glossary_to_rules(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    source = tmp_path / "manual.txt"
+    config = tmp_path / "ste-lint.toml"
+    write_utf8(source, "Synthetic text.\n")
+    write_utf8(
+        config,
+        'schema_version = 1\ntext_type = "procedural"\n[glossary]\nterms = ["bleed-air valve"]\n',
+    )
+    rule = CliRule(metadata(), emit=False)
+
+    exit_code = main(
+        [
+            "lint",
+            str(source),
+            "--config",
+            str(config),
+            "--text-type",
+            "descriptive",
+        ],
+        registry=registry_with(rule),
+    )
+
+    assert exit_code == 0
+    assert rule.seen_configuration == {
+        "text_type": "descriptive",
+        "technical_terms": ("bleed-air valve",),
+    }
+    assert "No violations" in capsys.readouterr().out
 
 
 @pytest.mark.parametrize(

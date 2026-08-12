@@ -22,8 +22,11 @@ mesma camada, um ID não pode aparecer simultaneamente em `enable` e `disable`.
 IDs/chaves desconhecidos, tipos inválidos e versão diferente de `1` falham antes
 de executar regras.
 
-`--enable-rule ID` e `--disable-rule ID` são repetíveis. Não existe descoberta
-de configuração, estado global, supressão inline ou baseline nesta fase.
+`--enable-rule ID` e `--disable-rule ID` são repetíveis. `text_type` aceita
+`procedural`, `descriptive` ou `procedural-note`, e pode ser sobrescrito por
+`--text-type`. `[glossary].terms` preserva uma allowlist local explícita; ela não
+é vocabulário oficial e ainda não ativa uma regra de vocabulário. Não existe
+descoberta de configuração, estado global ou supressão inline.
 
 ## Execução e validação
 
@@ -53,3 +56,13 @@ estado dependente do ambiente.
 
 Erros operacionais vão para stderr. Diagnósticos e resultados válidos vão para
 stdout. Arquivos são lidos como UTF-8 com newline original preservado.
+
+## Baseline
+
+`--write-baseline PATH` grava atomicamente JSON `1.0` com fingerprints SHA-256
+ordenados. `--baseline PATH` aplica uma baseline existente depois da execução e
+validação de todas as regras. Os modos são mutuamente exclusivos.
+
+O fingerprint segue ADR-010 e usa `rule_id`, URI, texto normalizado do span,
+contexto normalizado e ordinal entre achados idênticos. Não usa offsets,
+linha/coluna, mensagem ou severidade e não armazena trechos em claro.
