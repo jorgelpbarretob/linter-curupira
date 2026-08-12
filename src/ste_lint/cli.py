@@ -15,6 +15,7 @@ from ste_lint.domain import (
     CatalogMismatchError,
     RuleContext,
     RuleId,
+    RuleKind,
     RuleRegistry,
     UnknownRuleIdError,
 )
@@ -33,6 +34,7 @@ from ste_lint.engine import (
     resolve_enabled_rule_ids,
     serialize_baseline,
 )
+from ste_lint.nlp import NlpSetupError
 from ste_lint.parsing import (
     DocumentTooLargeError,
     UnsupportedFormatError,
@@ -156,6 +158,10 @@ def _lint(arguments: argparse.Namespace, registry: RuleRegistry) -> int:
         )
         enabled_rule_ids = resolve_enabled_rule_ids(registry, project=project.rules, cli=cli)
         capabilities: dict[str, object] = {}
+        if any(registry.get(rule_id).metadata.kind is RuleKind.NLP for rule_id in enabled_rule_ids):
+            if project.nlp is None:
+                raise ConfigurationError("an enabled NLP rule requires an [nlp] configuration")
+            capabilities["nlp"] = _load_nlp_backend(project.nlp)
         vocabulary_path = arguments.vocabulary or project.vocabulary_path
         if vocabulary_path is not None:
             resource = load_resource_file(Path(vocabulary_path))
@@ -197,6 +203,7 @@ def _lint(arguments: argparse.Namespace, registry: RuleRegistry) -> int:
         UnknownRuleIdError,
         UnsupportedFormatError,
         VocabularyError,
+        NlpSetupError,
     ) as error:
         print(f"ste: operational error: {error}", file=sys.stderr)
         return EXIT_OPERATIONAL_ERROR
@@ -220,6 +227,15 @@ def _load_project_config(path: str | None) -> ProjectConfiguration:
     if not vocabulary_path.is_absolute():
         vocabulary_path = (config_path.parent / vocabulary_path).resolve()
     return replace(configuration, vocabulary_path=str(vocabulary_path))
+
+
+def _load_nlp_backend(configuration: object) -> object:
+    from ste_lint.engine.configuration import NlpConfiguration
+    from ste_lint.nlp.spacy_backend import load_spacy_backend
+
+    if not isinstance(configuration, NlpConfiguration):
+        raise NlpSetupError("invalid NLP configuration")
+    return load_spacy_backend(configuration)
 
 
 def _vocabulary(arguments: argparse.Namespace) -> int:

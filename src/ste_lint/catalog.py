@@ -4,6 +4,8 @@ from ste_lint.domain import RuleMetadata, RuleRegistry
 from ste_lint.rules import (
     DescriptiveParagraphLengthRule,
     DescriptiveSentenceLengthRule,
+    NoteImperativeRule,
+    PassiveVoiceRule,
     ProceduralSentenceLengthRule,
     SemicolonRule,
     VerticalListLeadInColonRule,
@@ -15,6 +17,8 @@ _RULES = (
     DescriptiveSentenceLengthRule(),
     DescriptiveParagraphLengthRule(),
     VerticalListLeadInColonRule(),
+    PassiveVoiceRule(),
+    NoteImperativeRule(),
 )
 RULE_CATALOG: tuple[RuleMetadata, ...] = tuple(rule.metadata for rule in _RULES)
 

@@ -16,6 +16,7 @@ from ste_lint.domain import (
 )
 from ste_lint.engine import (
     ConfigurationError,
+    NlpConfiguration,
     ProjectConfiguration,
     RuleOverrides,
     parse_project_config,
@@ -63,6 +64,10 @@ def test_project_config_parses_strict_toml_contract() -> None:
         'terms = ["bleed-air valve", "ZX-4 controller"]\n'
         "[vocabulary]\n"
         'path = ".ste-lint/vocabulary.json"\n'
+        "[nlp]\n"
+        'backend = "spacy"\n'
+        'model_package = "en_core_web_sm"\n'
+        'model_version = "3.8.0"\n'
     )
 
     assert configuration == ProjectConfiguration(
@@ -70,6 +75,7 @@ def test_project_config_parses_strict_toml_contract() -> None:
         text_type="procedural",
         technical_terms=("bleed-air valve", "ZX-4 controller"),
         vocabulary_path=".ste-lint/vocabulary.json",
+        nlp=NlpConfiguration(),
     )
 
 
@@ -85,6 +91,21 @@ def test_project_config_parses_strict_toml_contract() -> None:
         ("schema_version = 1\n[glossary]\nterms = 'bad'\n", "array of terms"),
         ("schema_version = 1\n[vocabulary]\npath = ''\n", "vocabulary.path"),
         ("schema_version = 1\n[vocabulary]\nunknown = 'bad'\n", "unknown vocabulary"),
+        ("schema_version = 1\n[nlp]\nunknown = 'bad'\n", "unknown nlp"),
+        (
+            "schema_version = 1\n[nlp]\n"
+            'backend = "other"\nmodel_package = "en_core_web_sm"\nmodel_version = "3.8.0"\n',
+            "nlp.backend",
+        ),
+        (
+            "schema_version = 1\n[nlp]\n"
+            'backend = "spacy"\nmodel_package = "en_core_web_sm"\nmodel_version = "latest"\n',
+            "nlp.model_version",
+        ),
+        (
+            'schema_version = 1\n[nlp]\nbackend = "spacy"\n',
+            "requires backend, model_package, and model_version",
+        ),
         (
             'schema_version = 1\n[glossary]\nterms = ["Bleed-air valve", "bleed-air valve"]\n',
             "duplicate",

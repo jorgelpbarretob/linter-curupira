@@ -10,6 +10,7 @@ from ste_lint.engine.baseline import (
 )
 from ste_lint.engine.configuration import (
     ConfigurationError,
+    NlpConfiguration,
     ProjectConfiguration,
     RuleOverrides,
     parse_project_config,
@@ -23,6 +24,7 @@ __all__ = [
     "ConfigurationError",
     "InvalidDiagnosticError",
     "LintEngine",
+    "NlpConfiguration",
     "ProjectConfiguration",
     "RuleExecutionError",
     "RuleOverrides",

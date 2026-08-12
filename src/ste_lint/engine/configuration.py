@@ -33,11 +33,19 @@ TextType = Literal["procedural", "descriptive", "procedural-note"]
 
 
 @dataclass(frozen=True, slots=True)
+class NlpConfiguration:
+    backend: Literal["spacy"] = "spacy"
+    model_package: Literal["en_core_web_sm"] = "en_core_web_sm"
+    model_version: Literal["3.8.0"] = "3.8.0"
+
+
+@dataclass(frozen=True, slots=True)
 class ProjectConfiguration:
     rules: RuleOverrides = RuleOverrides()
     text_type: TextType | None = None
     technical_terms: tuple[str, ...] = ()
     vocabulary_path: str | None = None
+    nlp: NlpConfiguration | None = None
 
 
 def parse_project_config(text: str) -> ProjectConfiguration:
@@ -48,7 +56,7 @@ def parse_project_config(text: str) -> ProjectConfiguration:
 
     _reject_unknown_keys(
         raw,
-        {"schema_version", "text_type", "rules", "glossary", "vocabulary"},
+        {"schema_version", "text_type", "rules", "glossary", "vocabulary", "nlp"},
         "configuration",
     )
     schema_version = raw.get("schema_version")
@@ -73,11 +81,13 @@ def parse_project_config(text: str) -> ProjectConfiguration:
     if not isinstance(raw_vocabulary, dict):
         raise ConfigurationError("vocabulary must be a TOML table")
     _reject_unknown_keys(raw_vocabulary, {"path"}, "vocabulary")
+    nlp = _parse_nlp_configuration(raw.get("nlp"))
     return ProjectConfiguration(
         rules=rules,
         text_type=_parse_text_type(raw.get("text_type")),
         technical_terms=_parse_technical_terms(raw_glossary.get("terms", [])),
         vocabulary_path=_parse_vocabulary_path(raw_vocabulary.get("path")),
+        nlp=nlp,
     )
 
 
@@ -143,6 +153,24 @@ def _parse_vocabulary_path(value: object) -> str | None:
     if not isinstance(value, str) or not value or value != value.strip():
         raise ConfigurationError("vocabulary.path must be a non-empty path")
     return value
+
+
+def _parse_nlp_configuration(value: object) -> NlpConfiguration | None:
+    if value is None:
+        return None
+    if not isinstance(value, dict):
+        raise ConfigurationError("nlp must be a TOML table")
+    _reject_unknown_keys(value, {"backend", "model_package", "model_version"}, "nlp")
+    required = {"backend", "model_package", "model_version"}
+    if set(value) != required:
+        raise ConfigurationError("nlp requires backend, model_package, and model_version")
+    if value["backend"] != "spacy":
+        raise ConfigurationError("nlp.backend must be spacy")
+    if value["model_package"] != "en_core_web_sm":
+        raise ConfigurationError("nlp.model_package must be en_core_web_sm")
+    if value["model_version"] != "3.8.0":
+        raise ConfigurationError("nlp.model_version must be 3.8.0")
+    return NlpConfiguration()
 
 
 def _validate_known_rule_ids(registry: RuleRegistry, layer: RuleOverrides) -> None:

@@ -126,6 +126,19 @@ não fornecer associação confiável entre introdução e lista.
 - **Vocabulário aprovado:** parte do discurso e significado impedem um detector
   bloqueante simples no primeiro MVP.
 
+## Candidatas propostas para a Fase 6
+
+Duas candidatas NLP foram verificadas na Issue 9 e propostas em
+[`docs/f6-candidate-labels.md`](f6-candidate-labels.md):
+
+- `STE-I9-VOICE-001`, Part 1, Section 3, Rule 3.6, detecção conservadora de voz
+  passiva com abstenção para a exceção descritiva;
+- `STE-I9-NOTE-001`, Part 1, Section 5, Rule 5.5, imperativo em texto declarado
+  como nota procedural.
+
+As duas candidatas, seus IDs e as labels sintéticas revisadas foram aprovados
+explicitamente pelo mantenedor em 2026-08-12 para implementação `preview/info`.
+
 ## Aprovação registrada
 
 O mantenedor confirmou em 2026-08-12 que:

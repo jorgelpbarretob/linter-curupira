@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {"rule_id": "STE-I9-VOICE-001", "truth": "violation", "expected": "emit", "text_type": "procedural", "text": "The access panel is removed by the technician."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "violation", "expected": "emit", "text_type": "procedural", "text": "The pressure must be adjusted before the test."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "violation", "expected": "emit", "text_type": "descriptive", "text": "The signal is processed by the control unit."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "procedural", "text": "Remove the access panel."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "descriptive", "text": "The control unit processes the signal."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "indeterminate", "expected": "abstain", "text_type": "descriptive", "text": "The data was corrupted during transmission."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "descriptive", "text": "The installed valve is blue."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "procedural", "text": "If the pressure is high, open the valve."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "indeterminate", "expected": "abstain", "text_type": "procedural-note", "text": "The panel is installed in the bay."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "indeterminate", "expected": "abstain", "text_type": "procedural", "text": "The valve is closed."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "violation", "expected": "emit", "text_type": "procedural", "text": "The retaining bolts shall be tightened by the mechanic."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "descriptive", "text": "The mechanic tightens the retaining bolts."},
+    {"rule_id": "STE-I9-VOICE-001", "truth": "indeterminate", "expected": "abstain", "text_type": "descriptive", "text": "The connector was damaged."},
+
+    {"rule_id": "STE-I9-NOTE-001", "truth": "violation", "expected": "emit", "text_type": "procedural-note", "text": "Remove the access cover."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "violation", "expected": "emit", "text_type": "procedural-note", "text": "Do not touch the hot surface."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "violation", "expected": "emit", "text_type": "procedural-note", "text": "If the indicator flashes, stop the test."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "procedural-note", "text": "The access cover is open."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "procedural-note", "text": "You can use an equivalent tool."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "procedural-note", "text": "The indicator will become stable after ten seconds."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "violation", "expected": "emit", "text_type": "procedural-note", "text": "To remove the cover, use tool ZX-4."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "procedural-note", "text": "Removal of the cover is not necessary."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "indeterminate", "expected": "abstain", "text_type": "procedural-note", "text": "Access cover removal."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "violation", "expected": "emit", "text_type": "procedural-note", "text": "See section 3 for dimensions."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "violation", "expected": "emit", "text_type": "procedural-note", "text": "Keep the vent open."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "non-violation", "expected": "no-emit", "text_type": "procedural-note", "text": "The vent must remain open."},
+    {"rule_id": "STE-I9-NOTE-001", "truth": "indeterminate", "expected": "abstain", "text_type": "procedural-note", "text": "Fuel pump inspection."}
+  ]
+}

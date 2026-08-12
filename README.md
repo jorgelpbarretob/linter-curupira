@@ -5,9 +5,10 @@ carefully selected, traceable subset of detectable ASD-STE100 Issue 9 concerns.
 It is an authoring aid: it does not certify documents, replace the official
 standard, or claim ASD/STEMG approval.
 
-Phases 1–5 are complete. Phase 4 provides five deterministic Issue 9 rules as
+Phases 1–6 are complete. Phase 4 provides five deterministic Issue 9 rules as
 explicitly opt-in `preview` checks. Phase 5 adds an external, versioned
-Vocabulary Engine without shipping normative data. No rule is `stable` yet, and
+Vocabulary Engine without shipping normative data. Phase 6 adds two optional
+NLP preview rules backed by a pinned local model. No rule is `stable` yet, and
 absence of diagnostics does not mean full compliance.
 
 ## Requirements
@@ -15,8 +16,9 @@ absence of diagnostics does not mean full compliance.
 - Python 3.12 or newer; the local environment is pinned by `.python-version`
 - `uv` 0.11.14; `pyproject.toml` rejects a different uv version
 
-The base package has no runtime dependencies. NLP, LLM SDKs, the official
-vocabulary, and network access are not part of the default lint path.
+The base package has no runtime dependencies. NLP is an explicit extra; LLM
+SDKs, the official vocabulary, and network access are not part of the default
+lint path.
 
 ## Development
 
@@ -28,6 +30,13 @@ uv run ruff format --check .
 uv run mypy src
 uv run ste --help
 uv run ste lint
+```
+
+Install the reproducible optional NLP environment only when evaluating NLP
+rules:
+
+```powershell
+uv sync --locked --extra nlp --group nlp-model
 ```
 
 Lint one UTF-8 document with deterministic text or JSON output:
@@ -55,6 +64,11 @@ terms = ["bleed-air valve", "ZX-4 controller"]
 
 [vocabulary]
 path = "C:/local/ste-vocabulary-cache/<source_sha256>.json"
+
+[nlp]
+backend = "spacy"
+model_package = "en_core_web_sm"
+model_version = "3.8.0"
 ```
 
 CLI `--enable-rule ID` and `--disable-rule ID` override the file. There is no
@@ -88,6 +102,8 @@ only the rules you want to evaluate:
 | `STE-I9-SENT-002` | unambiguously countable descriptive sentences above 25 words |
 | `STE-I9-PARA-001` | unambiguous descriptive paragraphs above six sentences |
 | `STE-I9-LIST-001` | narrow direct Markdown list lead-ins containing `these` |
+| `STE-I9-VOICE-001` | conservative parser-confirmed passive constructions |
+| `STE-I9-NOTE-001` | imperative roots in declared procedural notes |
 
 Sentence and paragraph rules abstain when `text_type` is missing or does not
 match. Ambiguous counting constructs also cause abstention.
@@ -120,6 +136,8 @@ The engine, configuration, reporting schema, and failure model are documented in
 [`docs/engine-contract.md`](docs/engine-contract.md).
 Corpus metrics and limitations are in
 [`docs/f4-evaluation.md`](docs/f4-evaluation.md).
+Phase 6 NLP metrics and limitations are in
+[`docs/f6-evaluation.md`](docs/f6-evaluation.md).
 
 ## Licensing and normative data
 

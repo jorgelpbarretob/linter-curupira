@@ -1,6 +1,6 @@
 # ste-lint — plano de desenvolvimento
 
-Status: Fases 1–5 concluídas em 2026-08-12; Fase 6 aguarda aprovação
+Status: Fases 1–6 concluídas em 2026-08-12; Fase 7 aguarda aprovação
 Base normativa pretendida: ASD-STE100 Simplified Technical English, Issue 9 (2025-01-15)
 Última revisão: 2026-08-12
 
@@ -18,8 +18,10 @@ O planejamento e a Fase 1 foram aprovados explicitamente pelo mantenedor em
 2026-08-12; autorizações posteriores liberaram as Fases 2 e 3. Os ADRs 007,
 008, 009 e 011 foram aprovados no gate da Fase 3; o ADR-010 foi aprovado no
 gate da Fase 4. O ADR-013 foi aprovado no gate inicial da Fase 5 após revisão
-independente com `cursor-agent` e `composer-2.5-fast`. As fases seguintes
-continuam sujeitas aos respectivos gates.
+independente com `cursor-agent` e `composer-2.5-fast`. O ADR-014, as candidatas
+NLP, IDs e labels foram aprovados no gate inicial da Fase 6 após duas rodadas
+de revisão independente com o mesmo revisor. As fases seguintes continuam
+sujeitas aos respectivos gates.
 
 ### Restrições inegociáveis
 

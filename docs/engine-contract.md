@@ -1,12 +1,13 @@
 # Contrato do engine, configuração e reporting
 
-Status: atualizado até a Fase 5
+Status: atualizado até a Fase 6
 Data: 2026-08-12
 
 ## Catálogo e registry
 
 O catálogo executável é uma tupla explícita de `RuleMetadata`. As cinco regras
-da Fase 4 permanecem `preview` e desabilitadas por default.
+da Fase 4 e as duas regras NLP da Fase 6 permanecem `preview` e desabilitadas
+por default.
 
 O registry valida namespace e fonte conforme ADR-007, rejeita IDs duplicados,
 implementação ausente, metadados divergentes e implementação para regra
@@ -33,6 +34,14 @@ arquivo, enquanto caminho CLI usa o diretório atual. Um recurso configurado é
 carregado e validado integralmente antes das regras e entra em
 `RuleContext.capabilities["vocabulary"]`. Sem caminho, a capacidade não existe e
 consumidores devem se abster. O overlay continua em `[glossary].terms`.
+
+`[nlp]` aceita somente `backend = "spacy"`,
+`model_package = "en_core_web_sm"` e `model_version = "3.8.0"`. A capacidade
+é carregada localmente e de forma preguiçosa somente quando uma regra `nlp`
+está habilitada. Regra NLP habilitada sem configuração, extra, modelo ou
+metadados pinados falha com código `2`; não existe download em runtime nem
+silêncio para uma regra solicitada. Tokens externos são convertidos para os
+contratos imutáveis de `ste_lint.nlp` antes de chegar à regra.
 
 ## Execução e validação
 
@@ -81,3 +90,11 @@ loader rejeita JSON duplicado, schema, norma ou issue incompatível, colisões d
 entrada e falhas de integridade. O lookup retorna estados fechados e preserva
 classe gramatical e meaning; nenhuma regra normativa de vocabulário foi
 adicionada na Fase 5.
+
+## NLP opcional
+
+O extra `nlp` fixa spaCy 3.8.15 e o grupo local `nlp-model` fixa o wheel oficial
+`en_core_web_sm` 3.8.0 por URL e SHA-256. O pacote base permanece sem dependência
+de runtime. As regras conservadoras `STE-I9-VOICE-001` e `STE-I9-NOTE-001`
+analisam somente sentenças completas e contíguas, usam `emit/clear/abstain`
+internamente e publicam apenas casos de alta confiança como `preview/info`.

@@ -19,10 +19,12 @@ def test_rules_lists_all_preview_rules_in_rule_id_order(
     lines = capsys.readouterr().out.splitlines()
     assert [line.split("\t", 1)[0] for line in lines] == [
         "STE-I9-LIST-001",
+        "STE-I9-NOTE-001",
         "STE-I9-PARA-001",
         "STE-I9-PUNCT-001",
         "STE-I9-SENT-001",
         "STE-I9-SENT-002",
+        "STE-I9-VOICE-001",
     ]
     assert all("preview" in line for line in lines)
 
