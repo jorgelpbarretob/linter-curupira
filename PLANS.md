@@ -1,8 +1,8 @@
 # ste-lint — plano de desenvolvimento
 
-Status: Fases 1–6 concluídas em 2026-08-12; Fase 7 aguarda aprovação
+Status: Fases 1–6 concluídas; contrato da Fase 7 aceito, implementação bloqueada
 Base normativa pretendida: ASD-STE100 Simplified Technical English, Issue 9 (2025-01-15)
-Última revisão: 2026-08-12
+Última revisão: 2026-08-13
 
 ## 1. Objetivo e limites
 
@@ -70,7 +70,7 @@ Parser / source adapter ----> Document + spans + ignored regions
                             text / JSON / SARIF
 
 Later: NLP Engine -> NLP rules
-       Fixer -> explicit safe edits
+       Fixer boundary -> explicit safe edits
        Semantic Reviewer -> suggestions/review queue only
 ```
 
@@ -87,6 +87,7 @@ src/ste_lint/
   cli/             composição e códigos de saída
   nlp/             opcional e fora do núcleo inicial
   semantic/        opcional, sem import no caminho offline
+  fixer/           providers puros e planejamento; I/O somente na borda CLI
 ```
 
 O catálogo contém metadados e inventário; a lógica não será uma linguagem declarativa genérica no MVP. Regex simples pode ser dado, mas algoritmos permanecem Python tipado. Isso evita criar prematuramente uma DSL difícil de depurar.
@@ -347,13 +348,28 @@ Aceite:
 
 Entregáveis: edições estruturadas e `ste fix --check|--apply` somente para correções unívocas.
 
+Contrato aceito em 2026-08-13: [`docs/f7-fixer-spec.md`](docs/f7-fixer-spec.md) e
+[`ADR-015`](docs/adr/0015-safe-fixer-contract.md), após duas revisões
+independentes. O aceite é somente documental. Implementação e TDD continuam
+bloqueados até os gates abaixo. Nenhuma regra atual é elegível: as sete
+permanecem `preview` e `safe_autofix = false`.
+
 Aceite:
 
 - preview/diff por padrão e backup antes de `--apply`;
 - idempotência;
 - edição limitada ao span esperado;
-- lint após fix remove o diagnóstico alvo e não cria regressões conhecidas;
+- em runtime, lint após fix remove os diagnósticos alvo e o replanejamento não
+  encontra edição elegível; regressões conhecidas de outras regras são gate do
+  corpus e da suíte completa;
 - regras sem correção inequívoca nunca têm autofix.
+
+Definition of Ready adicional:
+
+- ADR-015 e spec aceitos pelo mantenedor em 2026-08-13;
+- uma regra determinística promovida a `stable` com evidência suficiente;
+- precondição e substituição exata do primeiro provider aprovadas;
+- autorização explícita para iniciar TDD.
 
 ### Fase 8 — Semantic Reviewer opcional
 

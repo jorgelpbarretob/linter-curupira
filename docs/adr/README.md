@@ -13,5 +13,10 @@ O ADR-014 foi aceito explicitamente pelo mantenedor no checkpoint inicial da
 Fase 6, após duas revisões independentes com `cursor-agent` e
 `composer-2.5-fast`.
 
+O ADR-015 foi aceito explicitamente pelo mantenedor em 2026-08-13 após duas
+revisões independentes com `cursor-agent` e `composer-2.5-fast`. Ele preserva o
+fixer como somente `stable`; implementação/TDD continuam bloqueados até promoção
+de uma regra, aprovação do primeiro provider e nova autorização explícita.
+
 Uma mudança difícil de reverter não pode ser implementada enquanto o ADR
 correspondente não estiver `Accepted`.
