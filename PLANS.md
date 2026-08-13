@@ -389,6 +389,90 @@ Entregáveis candidatos: SARIF, stdin, diretórios, ignore files, editor/CI e ad
 
 Aceite individual por adapter: fidelidade de spans, regiões excluídas explícitas, testes com arquivos reais legalmente redistribuíveis e nenhuma mudança no domínio.
 
+### Fase 10 — derivação para português brasileiro assistida pela Sabiá
+
+Objetivo: derivar o linter para português brasileiro, com destino planejado no
+projeto `hemes-STL-IA-PT`, reutilizando somente componentes independentes de
+idioma. A derivação terá catálogo, corpus, perfil linguístico e alegações de
+cobertura próprios; não será apresentada como tradução, certificação ou
+conformidade com a ASD-STE100.
+
+A Sabiá será uma capacidade `semantic` remota, opcional e explicitamente
+habilitada. Regras locais determinísticas permanecem a autoridade para achados
+reprodutíveis. Respostas do modelo serão somente `info`/sugestão para revisão
+humana: nunca `error`, fonte normativa, ground truth ou autofix.
+
+Entregáveis propostos:
+
+- ADR para separar o núcleo compartilhado dos perfis `en` e `pt-BR`, sem
+  inferência silenciosa do idioma;
+- ADR de provedor, privacidade e egress da Sabiá, com porta no módulo
+  `semantic` e sem tipo de SDK no domínio;
+- especificação autoral de linguagem técnica controlada em pt-BR, taxonomia de
+  regras e namespace próprios, sujeitos a revisão de proveniência e licença;
+- parser/tokenização pt-BR, corpus legalmente redistribuível e rótulos feitos
+  por revisores nativos;
+- adapter para a Responses API da Maritaca, atualmente recomendada para novos
+  projetos, com modelo, prompt, schema e versão registráveis no resultado;
+- avaliação comparativa contra o baseline local, incluindo precisão, recall,
+  abstenções, matriz de erros, custo e latência.
+
+Invariantes de segurança e produto:
+
+- o lint padrão continua offline e sem dependência obrigatória de LLM;
+- chamadas remotas exigem opt-in explícito por execução e por documento, com
+  aviso de egress; documentos confidenciais são recusados por padrão;
+- somente o nome `MARITACA_API_KEY` aparece em configuração e documentação; o
+  valor fica em variável de ambiente ou secret manager e nunca entra em Git,
+  arquivos de configuração, fixtures, cassettes, prompts persistidos ou logs;
+- conteúdo enviado é minimizado e redigido quando possível; política de
+  retenção, residência de dados e termos do provedor são aprovados antes do
+  primeiro uso real;
+- CI e testes públicos usam doubles/cassettes sanitizados e permanecem offline;
+- indisponibilidade, timeout ou ausência da chave afetam apenas a capacidade
+  Sabiá opt-in e produzem falha explícita, sem degradar o lint local;
+- nenhum resultado semântico promove regra, altera diagnóstico determinístico
+  ou gera edição automaticamente.
+
+Definition of Ready:
+
+- relação, licença e fronteira de código/dados entre este repositório e
+  `hemes-STL-IA-PT` decididas;
+- nome do produto, namespace das regras e fonte normativa/autoral pt-BR
+  aprovados;
+- casos de uso, classes de documentos permitidas para egress e responsáveis
+  pela revisão humana definidos;
+- modelo Sabiá e região escolhidos após avaliação; os candidatos iniciais são
+  `sabia-4` e, se residência no Brasil for requisito, `sabia-4-br-sp`;
+- modelo, prompt, schema estruturado, limites de custo/latência, política de
+  redaction e critérios de abstenção documentados e aprovados;
+- corpus inicial diverso, redistribuível e rotulado por falantes nativos;
+- chave exposta anteriormente revogada/rotacionada; uma nova credencial é
+  configurada fora do repositório somente quando os gates anteriores estiverem
+  verdes;
+- autorização humana explícita para iniciar o TDD da derivação.
+
+Aceite do primeiro incremento:
+
+- selecionar `pt-BR` é explícito e não muda os resultados do perfil inglês;
+- desabilitar o adapter Sabiá restaura exatamente o baseline local;
+- nenhum segredo ou conteúdo documental aparece em artefatos, logs ou replay;
+- a avaliação reporta incerteza e tipos de falha, sem promoção baseada apenas
+  em exemplos sintéticos ou autocorreção do próprio modelo;
+- sugestões Sabiá mostram proveniência técnica suficiente para reprodução e
+  exigem decisão humana;
+- revisão de segurança, privacidade, licença e gate offline aprovados.
+
+Fora do primeiro incremento: tradução integral da ASD-STE100, alegação de
+certificação pt-BR, detecção automática de documentos multilíngues, treinamento
+ou fine-tuning, uso do LLM como rotulador único e qualquer fixer gerado por LLM.
+
+Referências operacionais consultadas em 2026-08-13:
+
+- [Modelos Sabiá disponíveis](https://docs.maritaca.ai/pt/modelos)
+- [Responses API da Maritaca](https://docs.maritaca.ai/pt/responses-api)
+- [Compatibilidade com a API da OpenAI e variável de ambiente](https://docs.maritaca.ai/pt/api/openai-compatibilidade)
+
 ## 8. Decisões difíceis de alterar depois
 
 Registrar como ADR antes ou durante a Fase 0:
