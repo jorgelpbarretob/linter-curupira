@@ -1,6 +1,6 @@
 # ste-lint — plano de desenvolvimento
 
-Status: Fases 1–6 concluídas; contrato da Fase 7 aceito, implementação bloqueada
+Status: Fases 1–6 concluídas; evidência da Fase 7 em expansão, fixer bloqueado
 Base normativa pretendida: ASD-STE100 Simplified Technical English, Issue 9 (2025-01-15)
 Última revisão: 2026-08-13
 
@@ -353,6 +353,12 @@ Contrato aceito em 2026-08-13: [`docs/f7-fixer-spec.md`](docs/f7-fixer-spec.md) 
 independentes. O aceite é somente documental. Implementação e TDD continuam
 bloqueados até os gates abaixo. Nenhuma regra atual é elegível: as sete
 permanecem `preview` e `safe_autofix = false`.
+
+O gate de evidência do primeiro provider está em andamento. As Emendas 1–2 do
+[`plano de expansão`](docs/f7-list-evidence-expansion-plan.md) e o primeiro
+challenge de 17 labels foram aprovados em 2026-08-13. O suporte `preview` a
+exatamente uma linha vazia foi validado por TDD, mas isso não promove a regra e
+não autoriza nenhuma implementação do fixer.
 
 Aceite:
 

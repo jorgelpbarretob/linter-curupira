@@ -64,9 +64,15 @@ class VerticalListLeadInColonRule:
             while run_end < len(lines) and _is_lintable_list_item(document, lines[run_end]):
                 run_end += 1
             if run_end - index >= 2:
-                diagnostic = _diagnostic_for_lead_in(document, lines[index - 1], self.metadata)
-                if diagnostic is not None:
-                    diagnostics.append(diagnostic)
+                lead_in_index = index - 1
+                if _is_blank_line(document, lines[lead_in_index]):
+                    lead_in_index -= 1
+                if lead_in_index >= 0:
+                    diagnostic = _diagnostic_for_lead_in(
+                        document, lines[lead_in_index], self.metadata
+                    )
+                    if diagnostic is not None:
+                        diagnostics.append(diagnostic)
             index = run_end
         return tuple(diagnostics)
 
@@ -90,6 +96,10 @@ def _is_lintable_list_item(document: Document, line: _Line) -> bool:
         return False
     prose_offset = line.start + marker.end()
     return prose_offset < line.content_end and document.kind_at(prose_offset) is RegionKind.LINTABLE
+
+
+def _is_blank_line(document: Document, line: _Line) -> bool:
+    return not document.text[line.start : line.content_end].strip()
 
 
 def _diagnostic_for_lead_in(

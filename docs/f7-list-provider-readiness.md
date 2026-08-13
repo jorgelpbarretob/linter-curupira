@@ -61,11 +61,13 @@ Além dos controles atuais, emitir somente quando:
 4. todo o lead-in e o ponto final são lintáveis;
 5. a lista Markdown direta contém pelo menos dois itens.
 
-O comportamento é deliberadamente estreito. Multiword heads, pronome nu,
-postmodifiers, markup no head, uma linha com duas sentenças e lista de um item
-abstêm-se. Uma linha em branco entre o lead-in e a lista e marcadores com mais
-de três espaços ou indentação por tab também ficam fora da associação direta.
-Essa escolha troca recall por uma precondição de edição auditável.
+O comportamento validado nesta rodada foi deliberadamente estreito. Multiword
+heads, pronome nu, postmodifiers, markup no head, uma linha com duas sentenças e
+lista de um item abstêm-se. Naquele baseline, uma linha em branco entre o
+lead-in e a lista e marcadores com mais de três espaços ou indentação por tab
+também ficavam fora da associação direta. A Emenda 1 do plano de expansão,
+aprovada depois deste baseline, autoriza testar exatamente uma linha vazia por
+TDD sem alterar as demais barreiras.
 
 ## Tranche de labels proposta
 
@@ -125,7 +127,8 @@ Os quatro primeiros gates foram concluídos em 2026-08-13. A revisão independen
 pós-implementação aprovou o endurecimento para commit sem bloqueio material e
 reiterou que não aprova promoção, `safe_autofix` ou fixer. O trabalho seguinte é:
 
-1. expansão diversificada e nova avaliação de promoção/provider;
+1. aprovar e executar o
+   [`plano de expansão de evidência`](f7-list-evidence-expansion-plan.md);
 2. novo gate humano antes de promoção ou código de fixer.
 
 Nenhum item acima autoriza `FixEdit`, registry de providers, `ste fix` ou

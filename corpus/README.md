@@ -33,3 +33,11 @@ Cada linha de `seed/*.jsonl` é um objeto JSON independente com:
 
 O formato é interno e provisório. Não é contrato público nem schema de saída da
 CLI.
+
+## Tranches da Fase 7
+
+Arquivos em `f7/` podem conter tranches de desenvolvimento e avaliação. O
+estado de cada label continua explícito por linha. Em particular,
+`vertical-list-blank-line-challenge.jsonl` é uma tranche autoral aprovada pelo
+mantenedor em 2026-08-13 e pode ser executada como ground truth do TDD limitado
+à associação por exatamente uma linha vazia.

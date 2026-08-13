@@ -34,6 +34,25 @@ def test_vertical_list_rule_reports_clear_lead_in_without_colon(lead_in: str) ->
     assert diagnostics[0].suggestion is None
 
 
+def test_vertical_list_rule_reports_across_one_blank_line() -> None:
+    lead_in = "Inspect these fasteners."
+    text = f"{lead_in}\n\n- The upper bolt\n- The lower bolt."
+    document = parse_document("manual.md", text)
+
+    diagnostics = tuple(VerticalListLeadInColonRule().check(RuleContext(document)))
+
+    assert len(diagnostics) == 1
+    assert diagnostics[0].location.start_offset == len(lead_in) - 1
+    assert diagnostics[0].location.end_offset == len(lead_in)
+
+
+def test_vertical_list_rule_abstains_across_two_blank_lines() -> None:
+    text = "Inspect these hinges.\n\n\n- The upper hinge\n- The lower hinge."
+    document = parse_document("manual.md", text)
+
+    assert tuple(VerticalListLeadInColonRule().check(RuleContext(document))) == ()
+
+
 @pytest.mark.parametrize(
     "lead_in",
     [
