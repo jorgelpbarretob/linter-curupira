@@ -5,6 +5,10 @@ Data: 2026-08-13
 Python: CPython 3.12.13
 Gerenciador: uv 0.11.14 executado isoladamente por `uvx`
 
+Nota histórica: este documento registra o baseline do commit `0c5bee6`. A
+Emenda 3 posterior substitui a restrição de uma única sentença; resultados e
+comandos abaixo não foram reescritos retroativamente.
+
 ## Escopo
 
 Esta tranche endurece somente o detector `preview` existente para exigir:

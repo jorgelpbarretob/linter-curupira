@@ -365,6 +365,17 @@ A avaliação congelada produziu 13/30 emissões corretas no holdout e
 de promoção falharam; a regra permanece `preview` e o fixer continua bloqueado.
 Resultado: [`docs/f7-list-frozen-evaluation.md`](docs/f7-list-frozen-evaluation.md).
 
+Uma segunda iteração de recall foi autorizada em 2026-08-13. A Emenda 3 trata
+os 17 FN consumidos como challenge e exige outro holdout independente antes de
+qualquer nova decisão de promoção. Esta autorização não muda os gates do fixer.
+
+O holdout v2 congelado passou com 30 TP, 0 FP, 0 FN e 30 TN. O conjunto
+combinado chegou a 104 TP, 0 FP, 9 FN e 82 TN, com Wilson inferior 0,964 e zero
+emissões ambíguas. Os gates quantitativos passaram, mas `STE-I9-LIST-001`
+permanece `preview/info`: revisão independente e decisão humana de promoção são
+gates separados. Resultado:
+[`docs/f7-list-recall-v2-validation.md`](docs/f7-list-recall-v2-validation.md).
+
 Aceite:
 
 - preview/diff por padrão e backup antes de `--apply`;

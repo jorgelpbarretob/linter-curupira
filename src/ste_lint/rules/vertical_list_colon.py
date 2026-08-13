@@ -98,10 +98,12 @@ def _lintable_list_item_indent(document: Document, line: _Line) -> int | None:
     marker = _LIST_MARKER.match(content)
     if marker is None:
         return None
-    prose_offset = line.start + marker.end()
-    if prose_offset >= line.content_end:
-        return None
-    if document.kind_at(prose_offset) is not RegionKind.LINTABLE:
+    visible_start = line.start + marker.end()
+    has_visible_prose = any(
+        not document.text[offset].isspace() and document.kind_at(offset) is RegionKind.LINTABLE
+        for offset in range(visible_start, line.content_end)
+    )
+    if not has_visible_prose:
         return None
     return len(marker.group("indent"))
 
@@ -117,7 +119,7 @@ def _diagnostic_for_lead_in(
     stripped = content.rstrip()
     if not stripped or not _CLEAR_ASSOCIATION.search(stripped):
         return None
-    if not _is_single_complete_sentence(document, line):
+    if not _is_complete_sentence_line(document, line):
         return None
     if not _all_lintable(document, TextSpan(line.start, line.content_end)):
         return None
@@ -142,7 +144,7 @@ def _diagnostic_for_lead_in(
     )
 
 
-def _is_single_complete_sentence(document: Document, line: _Line) -> bool:
+def _is_complete_sentence_line(document: Document, line: _Line) -> bool:
     content = document.text[line.start : line.content_end]
     trimmed_start = line.start + len(content) - len(content.lstrip(" \t"))
     trimmed_end = line.start + len(content.rstrip(" \t"))
@@ -157,11 +159,21 @@ def _is_single_complete_sentence(document: Document, line: _Line) -> bool:
             for part in sentence.parts
         )
     )
-    return (
-        len(overlapping) == 1
-        and overlapping[0].is_complete
-        and overlapping[0].parts == (TextSpan(trimmed_start, trimmed_end),)
-    )
+    if not overlapping or any(not sentence.is_complete for sentence in overlapping):
+        return False
+
+    cursor = trimmed_start
+    for sentence in overlapping:
+        if len(sentence.parts) != 1:
+            return False
+        part = sentence.parts[0]
+        if part.start_offset < cursor:
+            return False
+        gap = document.text[cursor : part.start_offset]
+        if gap and not gap.isspace():
+            return False
+        cursor = part.end_offset
+    return cursor == trimmed_end
 
 
 def _all_lintable(document: Document, span: TextSpan) -> bool:

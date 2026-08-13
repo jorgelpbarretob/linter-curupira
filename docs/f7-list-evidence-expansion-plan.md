@@ -1,6 +1,6 @@
 # Plano técnico: expansão de evidência de `STE-I9-LIST-001`
 
-Status: Executed; promotion gate failed
+Status: Recall v2 evaluated; quantitative gates passed; promotion decision pending
 Data: 2026-08-13
 Regra: `STE-I9-LIST-001`
 Escopo: evidência para decisão de promoção; nenhum fixer ou mudança de metadata
@@ -8,6 +8,7 @@ Approved by: project maintainer, 2026-08-13
 Amendment 1 approved by: project maintainer, 2026-08-13
 Amendment 2 and small challenge approved by: project maintainer, 2026-08-13
 Full challenge and holdout approved by: project maintainer, 2026-08-13
+Recall iteration 2 authorized by: project maintainer, 2026-08-13
 
 ## Escopo deste plano
 
@@ -103,7 +104,8 @@ As violações elegíveis devem variar, sem replicar frases da norma:
 Os controles devem incluir ao menos:
 
 - pronome nu, postmodifier, head multiword e plural irregular;
-- duas sentenças na linha, sentença incompleta e pontuação diferente;
+- prefixo incompleto ou com gap não-whitespace, sentença incompleta e
+  pontuação diferente;
 - linha em branco antes da lista, item único e run interrompido;
 - lista aninhada, tab ou mais de três espaços, blockquote e plain text;
 - heading, fence, inline code, link, tabela e região ignorada;
@@ -196,6 +198,65 @@ FN e 30 TN. No conjunto combinado, TP = 56 e o Wilson inferior = 0,936. Assim,
 os mínimos de 73 emissões, Wilson 0,95 e 30 emissões no holdout falharam. A
 decisão reproduzível está em
 [`f7-list-frozen-evaluation.md`](f7-list-frozen-evaluation.md).
+
+## Emenda 3 — recall após consumo do holdout v1
+
+O mantenedor autorizou em 2026-08-13 uma nova iteração de recall com holdout
+independente. O holdout v1 permanece imutável e seus 17 FN passam a ser
+challenge conhecido; seus resultados históricos continuam vinculados ao commit
+`7bfd610`.
+
+O diagnóstico pré-implementação separou os 17 FN em duas famílias:
+
+1. doze listas têm marcador Markdown válido, mas o primeiro conteúdo do item é
+   markup (`**`, link ou inline code); existe prosa visível lintável depois do
+   delimitador;
+2. cinco lead-ins são segmentados em mais de uma sentença pelo parser: dois por
+   `.NET` e três por uma frase completa antes da frase terminal que introduz a
+   lista.
+
+Comportamento aprovado para esta iteração:
+
+- um item conta para o run quando, depois do marcador, existe ao menos um code
+  point não-whitespace em região lintável na mesma linha; markup inicial não
+  invalida o item, mas uma linha sem prosa visível lintável continua fora;
+- todos os itens peer continuam obrigados a ter a mesma indentação;
+- o lead-in pode conter uma ou mais sentenças completas quando seus spans
+  cobrem todo o conteúdo aparado da linha, com somente whitespace entre spans,
+  e o fim da linha preserva `these <head>.`;
+- permanecem iguais: Markdown somente, zero ou uma linha vazia, ao menos dois
+  itens peer, head regular único/hifenizado, linha inteiramente lintável e
+  ponto final como único span diagnosticado.
+
+TDD será vertical: primeiro markup inicial de item; depois segmentação múltipla
+do lead-in. O holdout v1 vira regressão somente depois dos dois ciclos verdes.
+Nenhuma falha do futuro holdout v2 poderá orientar tuning da mesma versão.
+
+O holdout v2 deve conter pelo menos 30 violações mutadas e 30 controles
+naturais, usar ocorrências não presentes no v1, preservar três famílias de
+fonte e ter heads positivos distintos dos casos anteriores. Labels começam
+`pending-human-review`, são aprovadas e hasheadas antes da primeira execução.
+
+Trade-off: a cobertura de Markdown real aumenta ao custo de aceitar frases
+prefixas completas. O guardrail é estrutural — linha integralmente lintável,
+terminal estreito e lista peer direta — e a decisão de promoção continua
+exigindo zero FP natural e o gate quantitativo completo.
+
+Non-goals: alterar o parser global, aceitar head multiword/irregular, inferir
+semântica do item, promover a regra ou implementar qualquer parte do fixer.
+
+### Holdout v2 aprovado e congelado, ainda não executado
+
+`corpus/f7/vertical-list-holdout-v2.jsonl` contém 60 labels aprovadas pelo
+mantenedor em 2026-08-13: 30 mutações mínimas e seus 30 controles naturais. A
+distribuição é GitHub Docs 4, Kubernetes Website 4, VS Code Docs 1, .NET Docs
+11 e Pulumi Docs 10. Essa distribuição troca tamanho mínimo por estrato por
+maior número de produtos independentes; nenhum estrato excede 11 positivos.
+
+Os 30 heads e as 30 referências `repo/path/line` são novos em relação ao corpus
+anterior. A seleção foi feita por estrutura e licença, sem executar
+`STE-I9-LIST-001`. Antes da primeira execução, o arquivo foi congelado em
+`b91d6c6c1bd7f5955332e86e80504c1890e3437531ce352781084ab74cd07ca2`.
 
 ## Emenda 1 aprovada — uma linha vazia e mutação mínima
 
@@ -340,6 +401,49 @@ Status: concluída em 2026-08-13; gate falhou sem tuning pós-output.
 
 Status: promoção bloqueada pelos critérios quantitativos; revisão de promoção
 não iniciada.
+
+### T6 — consumir FN e executar recall TDD
+
+- DoD: Emenda 3 registrada; duas famílias de FN cobertas por ciclos Red/Green;
+  nenhuma mudança de parser global ou metadata.
+- Bloqueada por: autorização humana da iteração 2.
+- Estimativa: 0,5–1 dia.
+- Owner: Codex.
+
+Status: concluída em 2026-08-13; 16/17 FN recuperados, um abstido por itens
+somente em inline code.
+
+### T7 — preparar e aprovar holdout v2
+
+- DoD: 30 pares novos, provenance/licença, labels humanas e hash antes da
+  primeira execução.
+- Bloqueada por: T6.
+- Estimativa: 1–2 dias.
+- Owner: maintainer para labels; Codex para preparação mecânica.
+
+Status: concluída em 2026-08-13; 60 labels aprovadas e hash congelado antes da
+primeira execução.
+
+### T8 — executar avaliação v2
+
+- DoD: hash verificado, matriz por fonte e combinada, Wilson, recall e zero
+  tuning pós-output.
+- Bloqueada por: T7.
+- Estimativa: até 1 dia.
+- Owner: Codex.
+
+Status: concluída em 2026-08-13; v2 = 30 TP, 0 FP, 0 FN e 30 TN; combinado =
+104 TP, 0 FP, 9 FN e 82 TN; Wilson inferior combinado = 0,964.
+
+### T9 — decidir promoção v2
+
+- DoD: revisão independente e decisão humana separada.
+- Bloqueada por: T8 e todos os gates quantitativos.
+- Estimativa: até 1 dia.
+- Owner: project maintainer.
+
+Status: pronta para revisão independente e decisão humana separada; nenhuma
+metadata foi alterada.
 
 Critical path: T1 → T1A → T3 → T4 → T5. T2 pode avançar em paralelo com a
 preparação do holdout depois de T1A.

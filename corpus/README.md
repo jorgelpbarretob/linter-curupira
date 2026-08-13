@@ -2,9 +2,10 @@
 
 Status: seed-v0, revisão humana concluída em 2026-08-12
 
-O corpus contém somente exemplos sintéticos em inglês escritos para este
-projeto. Ele não contém exemplos, regras ou entradas de dicionário copiadas da
-ASD-STE100, nem documentos corporativos.
+O seed contém somente exemplos sintéticos em inglês escritos para este projeto.
+As tranches F7 também incluem recortes técnicos curtos e atribuídos sob licença
+aberta, conforme `f7/SOURCES.md`. O corpus não contém exemplos, regras ou
+entradas de dicionário copiadas da ASD-STE100, nem documentos corporativos.
 
 ## Estados de revisão
 
@@ -48,3 +49,10 @@ mutações mínimas e 30 controles naturais provenientes das três famílias
 registradas em `f7/SOURCES.md`. As 107 labels foram aprovadas pelo mantenedor em
 2026-08-13. O holdout foi congelado antes da primeira execução; seu SHA-256 está
 em `vertical-list-holdout.sha256`.
+
+Após o consumo do primeiro holdout, a Emenda 3 recuperou 16 dos 17 FN como
+challenge de desenvolvimento; o caso de itens somente em inline code permanece
+abstenção. `vertical-list-holdout-v2.jsonl` contém 30 novos pares independentes,
+com 30 heads e 30 referências de origem não usados anteriormente. Suas 60
+labels foram aprovadas pelo mantenedor em 2026-08-13 e congeladas antes da
+primeira execução; seu SHA-256 está em `vertical-list-holdout-v2.sha256`.

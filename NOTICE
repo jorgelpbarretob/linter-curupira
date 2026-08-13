@@ -6,6 +6,7 @@ approved, certified, authorized, or endorsed by ASD or STEMG. The official
 standard, examples, and vocabulary are not included in this distribution.
 
 The optional Phase 7 evaluation corpus includes short attributed excerpts from
-GitHub Docs and .NET Docs under CC BY 4.0, and from Visual Studio Code Docs
-under CC BY 3.0 US. Exact provenance, license links, snapshots, and changes are
-listed in corpus/f7/SOURCES.md.
+GitHub Docs, .NET Docs, and Kubernetes Website under CC BY 4.0; Visual Studio
+Code Docs under CC BY 3.0 US; and Pulumi Docs under Apache-2.0. Exact
+provenance, license links, snapshots, and changes are listed in
+corpus/f7/SOURCES.md.

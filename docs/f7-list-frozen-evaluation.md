@@ -93,3 +93,10 @@ Os quatro skips são os mesmos caminhos NLP opcionais do ambiente base. O
 `xfail` estrito preserva de forma executável a falha conhecida do holdout; um
 futuro passe integral vira `XPASS` e exige uma nova decisão explícita, enquanto
 um teste separado mantém os 30 controles naturais protegidos contra FP.
+
+Após a autorização da iteração de recall, o holdout v1 deixou de ser evidência
+independente e virou regressão de desenvolvimento. A Emenda 3 recuperou 16 dos
+17 FN; o caso com dois itens formados somente por inline code permanece como
+abstenção conservadora. O resultado histórico acima não foi recalculado.
+A avaliação independente v2 está registrada em
+[`f7-list-recall-v2-validation.md`](f7-list-recall-v2-validation.md).

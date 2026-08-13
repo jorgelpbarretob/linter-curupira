@@ -60,6 +60,28 @@ def test_vertical_list_rule_does_not_count_nested_item_as_a_peer() -> None:
     assert tuple(VerticalListLeadInColonRule().check(RuleContext(document))) == ()
 
 
+def test_vertical_list_rule_accepts_visible_item_text_after_markdown_markup() -> None:
+    text = "The tool has these fields.\n\n- **Name:** The tool name.\n- **Type:** The tool type."
+    document = parse_document("manual.md", text)
+
+    diagnostics = tuple(VerticalListLeadInColonRule().check(RuleContext(document)))
+
+    assert len(diagnostics) == 1
+
+
+def test_vertical_list_rule_accepts_complete_prefix_sentence_on_lead_in_line() -> None:
+    text = (
+        "The tabs are read-only. Open an item in one of these ways.\n\n"
+        "- Select the item.\n"
+        "- Open the menu."
+    )
+    document = parse_document("manual.md", text)
+
+    diagnostics = tuple(VerticalListLeadInColonRule().check(RuleContext(document)))
+
+    assert len(diagnostics) == 1
+
+
 @pytest.mark.parametrize(
     "lead_in",
     [
@@ -101,8 +123,10 @@ def test_vertical_list_rule_abstains_when_these_is_a_bare_pronoun() -> None:
     assert tuple(VerticalListLeadInColonRule().check(RuleContext(document))) == ()
 
 
-def test_vertical_list_rule_abstains_for_two_sentences_on_the_lead_in_line() -> None:
+def test_vertical_list_rule_accepts_complete_prefix_on_the_lead_in_line() -> None:
     text = "The tools are clean. Prepare these tools.\n- A wrench\n- A gauge."
     document = parse_document("manual.md", text)
 
-    assert tuple(VerticalListLeadInColonRule().check(RuleContext(document))) == ()
+    diagnostics = tuple(VerticalListLeadInColonRule().check(RuleContext(document)))
+
+    assert len(diagnostics) == 1

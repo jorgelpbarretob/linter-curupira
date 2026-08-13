@@ -69,6 +69,11 @@ também ficavam fora da associação direta. A Emenda 1 do plano de expansão,
 aprovada depois deste baseline, autoriza testar exatamente uma linha vazia por
 TDD sem alterar as demais barreiras.
 
+A Emenda 3, autorizada após o consumo do holdout v1, substitui também a barreira
+de uma única sentença: frases prefixas completas passaram a ser aceitas quando
+os spans cobrem toda a linha e a frase terminal mantém o padrão estreito. Este
+documento preserva o contrato histórico que motivou o primeiro hardening.
+
 ## Tranche de labels proposta
 
 [`corpus/f7/vertical-list-provider-readiness.jsonl`](../corpus/f7/vertical-list-provider-readiness.jsonl)
@@ -104,9 +109,9 @@ host; nenhum pacote ou ambiente do projeto foi alterado para substituí-los.
 
 ## Resultado após o Red/Green
 
-O detector `preview` agora exige o terminal lexical estreito e uma sentença
-parser-backed que cubra a linha. A tranche F7 passou 16/16 e o seed anterior
-passou 13/13.
+Na rodada histórica, o detector `preview` exigia o terminal lexical estreito e
+uma sentença parser-backed que cobrisse a linha. A tranche F7 passou 16/16 e o
+seed anterior passou 13/13.
 
 No conjunto aprovado combinado de 29 casos:
 
