@@ -153,13 +153,15 @@ Nenhuma regra atual satisfaz o gate. A única candidata mecânica plausível é
 de um lead-in diretamente associado à lista, e o provider proposto substituiria
 exatamente `.` por `:`. Isto é uma recomendação para avaliação, não promoção:
 
-- a regra ainda é `preview/info`, com limite inferior Wilson de precisão 0,566;
+- a regra ainda é `preview/info`; após o endurecimento F7, o conjunto aprovado
+  combinado tem 11/11 emissões corretas e limite inferior Wilson de precisão
+  0,741;
 - `docs/f4-evaluation.md` e `docs/rule-candidates.md` registram que nenhuma
   correção atual foi aprovada como inequívoca;
 - sem falsos positivos, são necessárias pelo menos 73 emissões corretas no total
-  para o limite inferior Wilson bilateral de 95% alcançar 0,95; o seed atual tem
-  5, portanto o piso aritmético seria mais 68, além de diversidade e revisão
-  independente suficientes;
+  para o limite inferior Wilson bilateral de 95% alcançar 0,95; o conjunto
+  aprovado atual tem 11, portanto faltam no mínimo 62, além de diversidade e
+  revisão independente suficientes;
 - a revisão normativa precisa confirmar que a troca de pontuação, sem reescrita
   do lead-in, é uma correção válida para toda a subclasse detectada.
 

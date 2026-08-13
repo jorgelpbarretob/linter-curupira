@@ -20,7 +20,10 @@ from ste_lint.domain import (
 )
 
 _LIST_MARKER = re.compile(r"^[ ]{0,3}(?:[-+*]|\d+[.)])[ \t]+")
-_CLEAR_ASSOCIATION = re.compile(r"\bthese\b", re.IGNORECASE)
+_CLEAR_ASSOCIATION = re.compile(
+    r"\bthese[ \t]+[^\W\d_]+(?:-[^\W\d_]+)*s\.$",
+    re.IGNORECASE,
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -96,6 +99,8 @@ def _diagnostic_for_lead_in(
     stripped = content.rstrip()
     if not stripped or not _CLEAR_ASSOCIATION.search(stripped):
         return None
+    if not _is_single_complete_sentence(document, line):
+        return None
     if not _all_lintable(document, TextSpan(line.start, line.content_end)):
         return None
     if stripped.endswith(":"):
@@ -113,9 +118,31 @@ def _diagnostic_for_lead_in(
         message="Clear vertical-list lead-in does not end with a colon.",
         explanation=(
             "This preview rule covers direct Markdown lists introduced by a line "
-            "that contains the word 'these'."
+            "that ends with 'these' and one plural head word."
         ),
         evidence="direct-list-lead-in",
+    )
+
+
+def _is_single_complete_sentence(document: Document, line: _Line) -> bool:
+    content = document.text[line.start : line.content_end]
+    trimmed_start = line.start + len(content) - len(content.lstrip(" \t"))
+    trimmed_end = line.start + len(content.rstrip(" \t"))
+    if trimmed_start >= trimmed_end:
+        return False
+
+    overlapping = tuple(
+        sentence
+        for sentence in document.sentences
+        if any(
+            part.start_offset < trimmed_end and part.end_offset > trimmed_start
+            for part in sentence.parts
+        )
+    )
+    return (
+        len(overlapping) == 1
+        and overlapping[0].is_complete
+        and overlapping[0].parts == (TextSpan(trimmed_start, trimmed_end),)
     )
 
 

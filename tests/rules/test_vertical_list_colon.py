@@ -5,6 +5,14 @@ from ste_lint.parsing import parse_document
 from ste_lint.rules.vertical_list_colon import VerticalListLeadInColonRule
 
 
+def test_vertical_list_rule_remains_preview_without_autofix() -> None:
+    metadata = VerticalListLeadInColonRule.metadata
+
+    assert metadata.implementation_status == "preview"
+    assert metadata.default_severity is Severity.INFO
+    assert metadata.safe_autofix is False
+
+
 @pytest.mark.parametrize(
     "lead_in",
     [
@@ -50,6 +58,25 @@ def test_vertical_list_rule_accepts_clear_lead_in_with_colon(lead_in: str) -> No
     ],
 )
 def test_vertical_list_rule_abstains_without_direct_clear_association(text: str) -> None:
+    document = parse_document("manual.md", text)
+
+    assert tuple(VerticalListLeadInColonRule().check(RuleContext(document))) == ()
+
+
+def test_vertical_list_rule_abstains_when_these_is_a_bare_pronoun() -> None:
+    text = (
+        "These tools are serviceable.\n"
+        "Store these.\n"
+        "- Close the access panel\n"
+        "- Record the inspection result."
+    )
+    document = parse_document("manual.md", text)
+
+    assert tuple(VerticalListLeadInColonRule().check(RuleContext(document))) == ()
+
+
+def test_vertical_list_rule_abstains_for_two_sentences_on_the_lead_in_line() -> None:
+    text = "The tools are clean. Prepare these tools.\n- A wrench\n- A gauge."
     document = parse_document("manual.md", text)
 
     assert tuple(VerticalListLeadInColonRule().check(RuleContext(document))) == ()
