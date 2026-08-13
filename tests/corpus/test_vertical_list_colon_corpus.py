@@ -1,5 +1,8 @@
+import hashlib
 import json
 from pathlib import Path
+
+import pytest
 
 from ste_lint.domain import RuleContext
 from ste_lint.parsing import parse_document
@@ -68,3 +71,63 @@ def test_vertical_list_rule_matches_approved_blank_line_challenge() -> None:
             end = diagnostic.location.end_offset
             assert document.text[start:end] == ".", case["case_id"]
             assert case["expected_replacement"] == ":", case["case_id"]
+
+
+def test_vertical_list_rule_matches_approved_evidence_challenge() -> None:
+    cases = [
+        json.loads(line)
+        for line in Path("corpus/f7/vertical-list-evidence-challenge.jsonl")
+        .read_text(encoding="utf-8")
+        .splitlines()
+    ]
+
+    assert len(cases) == 47
+    assert all(case["review_status"] == "approved" for case in cases)
+    for case in cases:
+        suffix = "md" if case["source_format"] == "markdown" else "txt"
+        document = parse_document(f"{case['case_id']}.{suffix}", case["text"])
+        diagnostics = tuple(VerticalListLeadInColonRule().check(RuleContext(document)))
+        assert len(diagnostics) == case["expected_diagnostics"], case["case_id"]
+        for diagnostic in diagnostics:
+            start = diagnostic.location.start_offset
+            end = diagnostic.location.end_offset
+            assert document.text[start:end] == ".", case["case_id"]
+            assert case["expected_replacement"] == ":", case["case_id"]
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason="Frozen holdout recorded 17 conservative false negatives",
+)
+def test_vertical_list_rule_matches_frozen_holdout() -> None:
+    path = Path("corpus/f7/vertical-list-holdout.jsonl")
+    frozen_hash = "30d30b0ab2377983f33329a032286ed6f31cfab7b92cd168fc335a66d34b1cc7"
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == frozen_hash
+    cases = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+
+    assert len(cases) == 60
+    assert all(case["review_status"] == "approved" for case in cases)
+    mismatches: list[str] = []
+    for case in cases:
+        document = parse_document(f"{case['case_id']}.md", case["text"])
+        diagnostics = tuple(VerticalListLeadInColonRule().check(RuleContext(document)))
+        if len(diagnostics) != case["expected_diagnostics"]:
+            mismatches.append(case["case_id"])
+        for diagnostic in diagnostics:
+            start = diagnostic.location.start_offset
+            end = diagnostic.location.end_offset
+            assert document.text[start:end] == ".", case["case_id"]
+            assert case["expected_replacement"] == ":", case["case_id"]
+    assert mismatches == []
+
+
+def test_frozen_holdout_controls_have_no_false_positives() -> None:
+    path = Path("corpus/f7/vertical-list-holdout.jsonl")
+    cases = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+
+    controls = [case for case in cases if case["truth"] == "non_violation"]
+    assert len(controls) == 30
+    for case in controls:
+        document = parse_document(f"{case['case_id']}.md", case["text"])
+        diagnostics = tuple(VerticalListLeadInColonRule().check(RuleContext(document)))
+        assert diagnostics == (), case["case_id"]

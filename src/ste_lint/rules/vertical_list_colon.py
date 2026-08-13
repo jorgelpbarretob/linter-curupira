@@ -19,7 +19,7 @@ from ste_lint.domain import (
     TextSpan,
 )
 
-_LIST_MARKER = re.compile(r"^[ ]{0,3}(?:[-+*]|\d+[.)])[ \t]+")
+_LIST_MARKER = re.compile(r"^(?P<indent>[ ]{0,3})(?:[-+*]|\d+[.)])[ \t]+")
 _CLEAR_ASSOCIATION = re.compile(
     r"\bthese[ \t]+[^\W\d_]+(?:-[^\W\d_]+)*s\.$",
     re.IGNORECASE,
@@ -57,11 +57,15 @@ class VerticalListLeadInColonRule:
         diagnostics: list[Diagnostic] = []
         index = 1
         while index < len(lines):
-            if not _is_lintable_list_item(document, lines[index]):
+            item_indent = _lintable_list_item_indent(document, lines[index])
+            if item_indent is None:
                 index += 1
                 continue
             run_end = index + 1
-            while run_end < len(lines) and _is_lintable_list_item(document, lines[run_end]):
+            while (
+                run_end < len(lines)
+                and _lintable_list_item_indent(document, lines[run_end]) == item_indent
+            ):
                 run_end += 1
             if run_end - index >= 2:
                 lead_in_index = index - 1
@@ -89,13 +93,17 @@ def _lines(text: str) -> tuple[_Line, ...]:
     return tuple(result)
 
 
-def _is_lintable_list_item(document: Document, line: _Line) -> bool:
+def _lintable_list_item_indent(document: Document, line: _Line) -> int | None:
     content = document.text[line.start : line.content_end]
     marker = _LIST_MARKER.match(content)
     if marker is None:
-        return False
+        return None
     prose_offset = line.start + marker.end()
-    return prose_offset < line.content_end and document.kind_at(prose_offset) is RegionKind.LINTABLE
+    if prose_offset >= line.content_end:
+        return None
+    if document.kind_at(prose_offset) is not RegionKind.LINTABLE:
+        return None
+    return len(marker.group("indent"))
 
 
 def _is_blank_line(document: Document, line: _Line) -> bool:

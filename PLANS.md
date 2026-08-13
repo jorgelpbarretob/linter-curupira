@@ -354,11 +354,16 @@ independentes. O aceite é somente documental. Implementação e TDD continuam
 bloqueados até os gates abaixo. Nenhuma regra atual é elegível: as sete
 permanecem `preview` e `safe_autofix = false`.
 
-O gate de evidência do primeiro provider está em andamento. As Emendas 1–2 do
+O gate de evidência do primeiro provider foi executado. As Emendas 1–2 do
 [`plano de expansão`](docs/f7-list-evidence-expansion-plan.md) e o primeiro
 challenge de 17 labels foram aprovados em 2026-08-13. O suporte `preview` a
 exatamente uma linha vazia foi validado por TDD, mas isso não promove a regra e
 não autoriza nenhuma implementação do fixer.
+
+A avaliação congelada produziu 13/30 emissões corretas no holdout e
+56 emissões corretas combinadas, com zero FP e Wilson inferior 0,936. Os mínimos
+de promoção falharam; a regra permanece `preview` e o fixer continua bloqueado.
+Resultado: [`docs/f7-list-frozen-evaluation.md`](docs/f7-list-frozen-evaluation.md).
 
 Aceite:
 

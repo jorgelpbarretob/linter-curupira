@@ -53,6 +53,13 @@ def test_vertical_list_rule_abstains_across_two_blank_lines() -> None:
     assert tuple(VerticalListLeadInColonRule().check(RuleContext(document))) == ()
 
 
+def test_vertical_list_rule_does_not_count_nested_item_as_a_peer() -> None:
+    text = "Check these brackets.\n\n- The support assembly\n  - The upper bracket"
+    document = parse_document("manual.md", text)
+
+    assert tuple(VerticalListLeadInColonRule().check(RuleContext(document))) == ()
+
+
 @pytest.mark.parametrize(
     "lead_in",
     [

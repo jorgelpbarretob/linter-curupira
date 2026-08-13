@@ -4,3 +4,8 @@ Copyright 2026 Jorge Barreto
 ASD-STE100 Simplified Technical English is owned by ASD. This project is not
 approved, certified, authorized, or endorsed by ASD or STEMG. The official
 standard, examples, and vocabulary are not included in this distribution.
+
+The optional Phase 7 evaluation corpus includes short attributed excerpts from
+GitHub Docs and .NET Docs under CC BY 4.0, and from Visual Studio Code Docs
+under CC BY 3.0 US. Exact provenance, license links, snapshots, and changes are
+listed in corpus/f7/SOURCES.md.

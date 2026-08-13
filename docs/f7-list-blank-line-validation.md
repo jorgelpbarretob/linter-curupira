@@ -2,7 +2,7 @@
 
 Data: 2026-08-13
 Regra: `STE-I9-LIST-001`
-Status: challenge pequeno aprovado e validado; holdout ainda não congelado
+Status: challenge pequeno aprovado e validado; avaliação posterior concluída
 
 ## Escopo autorizado
 
@@ -79,3 +79,7 @@ do corpus passaram 17/17.
 `safe_autofix = false`. O próximo trabalho permitido é preparar o challenge
 completo e o holdout com labels `pending-human-review`; nenhum deles pode ser
 executado antes de aprovação humana e congelamento do hash.
+
+Esse passo posterior foi concluído e falhou o gate de promoção sem falso
+positivo. Consulte
+[`f7-list-frozen-evaluation.md`](f7-list-frozen-evaluation.md).

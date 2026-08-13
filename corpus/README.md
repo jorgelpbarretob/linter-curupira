@@ -41,3 +41,10 @@ estado de cada label continua explícito por linha. Em particular,
 `vertical-list-blank-line-challenge.jsonl` é uma tranche autoral aprovada pelo
 mantenedor em 2026-08-13 e pode ser executada como ground truth do TDD limitado
 à associação por exatamente uma linha vazia.
+
+`vertical-list-evidence-challenge.jsonl` completa a meta de desenvolvimento com
+24 violações e 23 controles adicionais. `vertical-list-holdout.jsonl` contém 30
+mutações mínimas e 30 controles naturais provenientes das três famílias
+registradas em `f7/SOURCES.md`. As 107 labels foram aprovadas pelo mantenedor em
+2026-08-13. O holdout foi congelado antes da primeira execução; seu SHA-256 está
+em `vertical-list-holdout.sha256`.

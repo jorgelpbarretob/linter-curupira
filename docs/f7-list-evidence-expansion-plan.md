@@ -1,12 +1,13 @@
 # Plano técnico: expansão de evidência de `STE-I9-LIST-001`
 
-Status: Approved, including Amendments 1 and 2
+Status: Executed; promotion gate failed
 Data: 2026-08-13
 Regra: `STE-I9-LIST-001`
 Escopo: evidência para decisão de promoção; nenhum fixer ou mudança de metadata
 Approved by: project maintainer, 2026-08-13
 Amendment 1 approved by: project maintainer, 2026-08-13
 Amendment 2 and small challenge approved by: project maintainer, 2026-08-13
+Full challenge and holdout approved by: project maintainer, 2026-08-13
 
 ## Escopo deste plano
 
@@ -172,6 +173,30 @@ A aprovação conjunta da Emenda 2 e dessas 17 labels autoriza somente o TDD
 incremental da associação com uma linha vazia enquanto a regra permanece
 `preview`. Não aprova o holdout, promoção, provider, fixer ou `safe_autofix`.
 
+## Gate aprovado: challenge completo e holdout congelado
+
+Após o Red/Green do challenge pequeno, foram preparados sem executar o detector:
+
+- `vertical-list-evidence-challenge.jsonl`: 24 violações e 23 controles
+  autorais adicionais, completando 32/32 no challenge combinado;
+- `vertical-list-holdout.jsonl`: 30 mutações mínimas e 30 controles naturais,
+  com dez pares por fonte e 30 heads positivos distintos;
+- `corpus/f7/SOURCES.md`: atribuição, licença, snapshots e declaração das
+  alterações.
+
+As 107 labels novas deste gate foram aprovadas pelo mantenedor em 2026-08-13.
+Antes da primeira execução, o holdout foi congelado com SHA-256
+`30d30b0ab2377983f33329a032286ed6f31cfab7b92cd168fc335a66d34b1cc7`.
+A aprovação autoriza a avaliação congelada, mas não promove a regra nem
+autoriza fixer.
+
+Resultado: o challenge passou após um Red/Green pré-holdout para não contar
+sublista indentada como item peer. O holdout congelado produziu 13 TP, 0 FP, 17
+FN e 30 TN. No conjunto combinado, TP = 56 e o Wilson inferior = 0,936. Assim,
+os mínimos de 73 emissões, Wilson 0,95 e 30 emissões no holdout falharam. A
+decisão reproduzível está em
+[`f7-list-frozen-evaluation.md`](f7-list-frozen-evaluation.md).
+
 ## Emenda 1 aprovada — uma linha vazia e mutação mínima
 
 Antes de T2/T3, alterar o contrato de evidência e a subclasse `preview` assim:
@@ -283,6 +308,8 @@ Status: concluída em 2026-08-13.
 - Estimativa: 1–2 dias.
 - Owner: Codex.
 
+Status: concluída em 2026-08-13; challenge combinado 32/32 aprovado.
+
 ### T3 — obter e congelar holdout
 
 - DoD: fontes aprovadas, no mínimo 30 violações e 30 controles, labels humanas,
@@ -290,6 +317,8 @@ Status: concluída em 2026-08-13.
 - Bloqueada por: T1A.
 - Estimativa: 1–2 dias após acesso às fontes.
 - Owner: maintainer para fontes/labels; Codex para preparação mecânica.
+
+Status: concluída em 2026-08-13; 60 labels aprovadas e SHA-256 congelado.
 
 ### T4 — executar avaliação congelada
 
@@ -299,6 +328,8 @@ Status: concluída em 2026-08-13.
 - Estimativa: até 1 dia.
 - Owner: Codex.
 
+Status: concluída em 2026-08-13; gate falhou sem tuning pós-output.
+
 ### T5 — revisar e decidir promoção
 
 - DoD: revisão independente concluída e decisão humana registrada. Se aprovada,
@@ -306,6 +337,9 @@ Status: concluída em 2026-08-13.
 - Bloqueada por: T4.
 - Estimativa: até 1 dia.
 - Owner: project maintainer.
+
+Status: promoção bloqueada pelos critérios quantitativos; revisão de promoção
+não iniciada.
 
 Critical path: T1 → T1A → T3 → T4 → T5. T2 pode avançar em paralelo com a
 preparação do holdout depois de T1A.
