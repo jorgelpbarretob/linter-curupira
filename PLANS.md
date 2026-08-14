@@ -1,7 +1,6 @@
 # Hermes — plano de desenvolvimento do linter pt-BR
 
-Status: PT3 autorizado; implementação local concluída; revisão externa e
-congelamento do detector pendentes
+Status: PT3 e avaliação holdout concluídos; HERMES-PT-PONT-001 em `preview`
 Base pretendida: especificação autoral e aberta de português técnico controlado
 Última revisão: 2026-08-14
 
@@ -60,13 +59,10 @@ sendo a autoridade final dos conjuntos rotulados.
 WIP permanece igual a 1. PT1 foi aceito pelo mantenedor em 2026-08-13 e o lado
 de corpus de PT2 foi concluído em 2026-08-14. O mantenedor autorizou PT3 em
 2026-08-14 com o recorte de contratos independentes de idioma e TDD de
-`HERMES-PT-PONT-001`. A implementação local está concluída, mas nenhuma
-execução no holdout é permitida antes de:
-
-- concluir a revisão Grok do código com autorização explícita de egress;
-- resolver achados bloqueantes e repetir as validações offline;
-- gerar o manifesto canônico e congelar o detector;
-- emitir autorização explícita para a primeira execução isolada.
+`HERMES-PT-PONT-001`. A implementação, a revisão Grok do código, a regressão
+local e o congelamento do detector foram concluídos. Nenhuma execução no
+holdout ocorreu antes da autorização explícita separada. A primeira execução e
+a avaliação foram concluídas em 2026-08-14; o holdout agora está consumido.
 
 Os artefatos aceitos de PT1 são:
 
@@ -92,17 +88,15 @@ e 73 documentos de controle, SHA-256
 `3eaf4069017593c4f9e0d0c573736899ccbf137e3792ba97161e94d0663f86e7`.
 Fonte, contrato, exclusões, seleção e comando de reprodução estão em
 [`docs/hermes-pt2-holdout-source-assessment.md`](docs/hermes-pt2-holdout-source-assessment.md).
-O próximo gate de PT2 é a revisão humana integral e cega ao detector; a
-migração de código e qualquer execução continuam bloqueadas. O pacote editável
-para essa revisão foi preparado fora do repositório com 409 decisões
+O pacote editável para revisão foi preparado fora do repositório com 409 decisões
 `pending-human-review`, SHA-256 do CSV
 `b3fcb6214c5fc2eff295b4b7906d558f00770f1159a079648a64ac081e30fad4`.
 O mantenedor aceitou o pacote e autorizou a continuidade em 2026-08-14, mas o
 CSV ainda contém zero `truth`: esse aceite não substitui o preenchimento e a
 confirmação humana de cada decisão.
 
-O mantenedor em seguida autorizou o Grok como revisor delegado e pediu somente
-aprovações críticas. A emenda aceita está em
+O mantenedor em seguida autorizou o Grok como revisor delegado. A emenda aceita
+para os labels está em
 [`docs/hermes-pt2-grok-review-protocol.md`](docs/hermes-pt2-grok-review-protocol.md).
 O modelo solicitado `grok-4.6` respondeu como `grok-4.6-build` para 409/409
 unidades, sem fila crítica, com prompt/schema e respostas sob custódia separada.
@@ -113,10 +107,30 @@ foram congelados sob custódia externa com 409 registros; labels e texto-fonte
 não entraram no Git. Em seguida, PT3 foi autorizado e implementado em TDD. O
 pacote `hermes_lint` não importa a linha inglesa, o catálogo expõe somente
 `HERMES-PT-PONT-001` e os 36 casos adjudicados do conjunto de desenvolvimento
-passam; os quatro casos `ambiguous` continuam fora da asserção. O detector não
-está congelado: falta a revisão Grok do código, bloqueada até autorização
-explícita para transmitir os paths PT3. A primeira execução no holdout continua
-exigindo outro gate depois do congelamento.
+passam; os quatro casos `ambiguous` continuam fora da asserção. O mantenedor
+autorizou o envio isolado dos paths PT3 ao Grok. O parecer estruturado final foi
+`approve`, sem achados bloqueantes; um risco residual reproduzível na interação
+entre inline code e matemática foi corrigido em TDD antes do congelamento. O
+manifesto canônico tem SHA-256
+`29bfebaeab126a33d7d0f4aaae44f83d53dd22f03496e30758693d0d9212bae8` e o
+detector, SHA-256
+`972a1c67e14d4316afc388df523838f4338a60d5866ab13710d19bda1fc016b9`.
+Detalhes estão em
+[`docs/hermes-pt3-grok-code-review.md`](docs/hermes-pt3-grok-code-review.md).
+O mantenedor autorizou a primeira execução isolada e determinou que o Grok
+fizesse as aprovações operacionais seguintes sem novas interrupções. A execução
+cega foi selada antes da abertura dos labels. O Grok aprovou a abertura e, após
+score e auditoria independente, decidiu `preview`: 148 TP, 4 FP, 15 FN e
+242 TN; precisão 0,973684; limite inferior Wilson 95% 0,934296; recall
+0,907975. O gate Wilson e o gate de zero FP falharam. O relatório canônico está
+em
+[`docs/hermes-pont-001-holdout-evaluation-v1.md`](docs/hermes-pont-001-holdout-evaluation-v1.md).
+
+O WIP de avaliação de `HERMES-PT-PONT-001` está fechado. Seus 19 erros ficam
+selados e o detector não será ajustado com este holdout. Se um rework futuro os
+abrir, eles se tornam challenge e uma nova promoção exige outro holdout
+independente. A delegação operacional ao Grok está registrada em
+[`docs/hermes-governance.md`](docs/hermes-governance.md).
 
 ### Invariantes vigentes
 

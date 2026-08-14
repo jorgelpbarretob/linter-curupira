@@ -11,6 +11,11 @@ críticas. Esta decisão emenda, para esta tranche, a exigência operacional de
 confirmação humana linha a linha do ADR-018 sem transformar o modelo em fonte
 normativa ou executor do produto.
 
+Depois de aprovar os bytes do ground truth e autorizar a primeira execução, o
+mantenedor ampliou a delegação: o Grok passou a aprovar em seu nome os gates
+operacionais rotineiros, sem novas interrupções. Os limites dessa delegação
+estão em `docs/hermes-governance.md`.
+
 O Grok propõe `truth`, região, domínio, expectativa e racional para todas as
 409 unidades. O mantenedor continua autoridade para:
 
@@ -92,9 +97,10 @@ reproduzido byte a byte, aprovado explicitamente pelo mantenedor e congelado sob
 custódia externa com SHA-256
 `6cab9e0a4090df19fc5c3cc5a8e93122413160f523e032367ec25849567abab6`.
 
-Os gates 7–8 permanecem bloqueados: PT3 e TDD do detector exigem autorização
-crítica própria; depois do detector congelado, a primeira execução no holdout
-exige nova autorização explícita.
+Os gates 7–8 também foram concluídos em 2026-08-14. Depois da execução cega, o
+Grok aprovou a abertura dos labels e tomou a decisão pós-holdout delegada. O
+estado resultante foi `preview`; métricas e hashes estão em
+`docs/hermes-pont-001-holdout-evaluation-v1.md`.
 
 ## Referências operacionais
 

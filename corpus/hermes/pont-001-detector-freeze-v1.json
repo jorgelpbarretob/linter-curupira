@@ -1,0 +1,96 @@
+{
+  "schema_version": "hermes-detector-freeze/v1",
+  "rule_id": "HERMES-PT-PONT-001",
+  "implementation_status": "preview",
+  "detector_sha256": "972a1c67e14d4316afc388df523838f4338a60d5866ab13710d19bda1fc016b9",
+  "development_corpus": {
+    "path": "corpus/hermes/pont-001-development-v1.jsonl",
+    "sha256": "51f52007848deaae5169171354d900488df9faedbf073a17a48b14d714703bfc"
+  },
+  "source_files": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "761c99c77d2f7d8d66c159433298e03378d0f2def3400cdd306058c041af4972"
+    },
+    {
+      "path": "src/hermes_lint/__init__.py",
+      "sha256": "a45727ab4852ef5b2ca744beb7932666550b749b99482b23b99c59cd300ecfd1"
+    },
+    {
+      "path": "src/hermes_lint/__main__.py",
+      "sha256": "cbb7eb8305b0321807f7b3d96e39cb9a8a4f8108c9359ca305ab941ca0e48410"
+    },
+    {
+      "path": "src/hermes_lint/catalog.py",
+      "sha256": "8073c22450b5ff3510b64360ea5ae936c351108e779d43871111abae0eab7c79"
+    },
+    {
+      "path": "src/hermes_lint/cli.py",
+      "sha256": "2d889e17e4c9e5cc8f91eb804b49566e3cda76ec326c077e545bf81630a1ef6e"
+    },
+    {
+      "path": "src/hermes_lint/domain/__init__.py",
+      "sha256": "45f63577f19e33b26fc3f35b934214dc1109bd7f43c9e5c67009686d558536b8"
+    },
+    {
+      "path": "src/hermes_lint/domain/models.py",
+      "sha256": "af433a5d9952e2b04bced4c58bd66e102de43445b86a91469a155a527f8094b9"
+    },
+    {
+      "path": "src/hermes_lint/domain/registry.py",
+      "sha256": "acfd7aef24820dbf67cca97b5d722ed48b10c08fbf383deb63578ee62973a47c"
+    },
+    {
+      "path": "src/hermes_lint/engine/__init__.py",
+      "sha256": "a1f88744ceaf75b832412ce116498de7c3d49164dc3e0a84070a8f0eb2201f12"
+    },
+    {
+      "path": "src/hermes_lint/engine/baseline.py",
+      "sha256": "7abc5b6da02ef4031d6e389569c0898b565f233b0a1689a1628f6ece1469fb40"
+    },
+    {
+      "path": "src/hermes_lint/engine/configuration.py",
+      "sha256": "e36403e32746500eaf421d3c80f8fa7e13e59f961b5413e674579607d0b42f9d"
+    },
+    {
+      "path": "src/hermes_lint/engine/runner.py",
+      "sha256": "26489ea5cc15c32a39780fde925c88654317f35edcd81d93c5a5bacc5c9bfff3"
+    },
+    {
+      "path": "src/hermes_lint/parsing/__init__.py",
+      "sha256": "e505860e827fe95d8b8ab37f2271be191b6cae729c90bddaec8a316c3fa2a90d"
+    },
+    {
+      "path": "src/hermes_lint/parsing/core.py",
+      "sha256": "9e20a468e37a3b7fd3d4565e630c45b41acf17eb79499dc64e3e5c00f801fac7"
+    },
+    {
+      "path": "src/hermes_lint/parsing/markdown.py",
+      "sha256": "046577744c1b2652d7ff5c0851da7ce4765b6e02f96fd9b6cec04dd5288ec68c"
+    },
+    {
+      "path": "src/hermes_lint/reporting/__init__.py",
+      "sha256": "58ec1865665f14c86627cb4f4cf749c5fa4c44bae96c6600b238388bd78f553e"
+    },
+    {
+      "path": "src/hermes_lint/reporting/formatters.py",
+      "sha256": "ca6742af49a2227723d4faa34fb42ad695e0b2cdea500dbc0acc53568f0e26a1"
+    },
+    {
+      "path": "src/hermes_lint/reporting/rules.py",
+      "sha256": "b52f76a1b7ad401f8384db7dd2dd2389c9915022aee47db5347b1ede898359b0"
+    },
+    {
+      "path": "src/hermes_lint/rules/__init__.py",
+      "sha256": "e99849e2eddb9acef8eeee1118df19741ce231b69060404702f5663cd566b213"
+    },
+    {
+      "path": "src/hermes_lint/rules/pont_001.py",
+      "sha256": "86df34dd2b9577c7b7a9ed1e245d262a7fbef5768e6e401e33d7dff4c55acfc6"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "53e76453f4be056938c569152c82e10d0394859bbd63c3f598826beaeef0b348"
+    }
+  ]
+}

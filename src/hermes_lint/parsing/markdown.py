@@ -203,14 +203,21 @@ def _mark_code_spans(content: str, line_start: int, ignored: bytearray) -> None:
 def _mark_math_spans(content: str, line_start: int, ignored: bytearray) -> None:
     offset = 0
     while offset < len(content):
-        opening = content.find("$", offset)
+        opening = _next_unignored_dollar(content, line_start, ignored, offset)
         if opening < 0:
             return
-        closing = content.find("$", opening + 1)
+        closing = _next_unignored_dollar(content, line_start, ignored, opening + 1)
         if closing < 0:
             return
         _mark(ignored, line_start + opening, line_start + closing + 1)
         offset = closing + 1
+
+
+def _next_unignored_dollar(content: str, line_start: int, ignored: bytearray, offset: int) -> int:
+    candidate = content.find("$", offset)
+    while candidate >= 0 and ignored[line_start + candidate]:
+        candidate = content.find("$", candidate + 1)
+    return candidate
 
 
 def _is_markup_delimiter(content: str, offset: int) -> bool:

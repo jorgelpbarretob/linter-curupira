@@ -7,10 +7,11 @@ Estas instruções são específicas deste projeto e complementam as instruçõe
 O pivot pt-BR foi aceito em 2026-08-13 e está registrado no `ADR-016`. Leia
 `PLANS.md` por completo antes de agir. PT1 está aceito. O lado de corpus de
 `PT2 — corpus e protocolo de avaliação`, limitado a `HERMES-PT-PONT-001`, foi
-congelado em 2026-08-14. PT3 foi autorizado pelo mantenedor em 2026-08-14. A
-migração local e a implementação TDD existem em `src/hermes_lint`, mas o
-detector ainda não foi revisado externamente nem congelado. Não execute o
-holdout antes desses gates e de nova autorização explícita.
+congelado em 2026-08-14. PT3 foi autorizado, implementado, revisado externamente
+e congelado em 2026-08-14. A primeira execução isolada no holdout foi concluída
+e avaliada na mesma data. O resultado ficou `preview`; manifesto, hashes,
+métricas agregadas e decisão estão em
+`docs/hermes-pont-001-holdout-evaluation-v1.md`.
 
 O piloto de 40 labels já foi aceito e congelado. O snapshot pt-BR do Kubernetes
 foi aceito como fonte de holdout em 2026-08-14 e o manifesto sem labels foi
@@ -21,12 +22,17 @@ O pacote de revisão cega foi preparado fora do repositório com 409 decisões
 `pending-human-review`; ele não é ground truth até revisão e adjudicação humanas.
 Em 2026-08-14, o mantenedor autorizou Grok como revisor delegado e aprovou a
 emenda operacional em `docs/hermes-pt2-grok-review-protocol.md`. A revisão Grok
-foi concluída sem fila crítica e materializou um ground-truth candidato sob
-custódia separada; não o trate como congelado antes da aprovação humana final
-do SHA-256 registrado no plano.
-O mantenedor aprovou esse hash em 2026-08-14 e os bytes foram congelados sob
-custódia externa. Labels não entram no Git nem podem orientar a implementação;
-a primeira execução exige autorização separada depois do detector congelado.
+foi concluída sem fila crítica. O mantenedor aprovou o hash do ground truth e os
+bytes foram congelados sob custódia externa. Depois do congelamento do detector,
+o mantenedor autorizou a primeira execução e delegou ao Grok os gates
+operacionais rotineiros. O Grok aprovou a abertura dos labels e decidiu
+`preview` após o score. Labels não entram no Git.
+
+Este holdout está consumido e não pode ser reutilizado para ajustar ou promover
+o detector. Não abra os 4 FP nem os 15 FN para implementação, threshold,
+exceção ou fixture neste ciclo. Somente uma decisão explícita de `rework` pode
+movê-los para challenge; uma promoção posterior exigirá novo holdout
+independente.
 
 A identidade aceita e aplicada à distribuição é: produto Hermes, repositório
 `hermes-STL-IA-PT`, pacote `hermes_lint`, CLI `hermes` e namespace

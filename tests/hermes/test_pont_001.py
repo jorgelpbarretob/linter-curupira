@@ -23,3 +23,16 @@ def test_pont_001_reports_the_exact_semicolon_span_through_the_engine() -> None:
     assert diagnostic.location.start_offset == text.index(";")
     assert diagnostic.location.end_offset == text.index(";") + 1
     assert diagnostic.suggestion is None
+
+
+def test_pont_001_keeps_code_and_math_delimiters_from_hiding_visible_prose() -> None:
+    text = "Use `$` como símbolo; depois calcule $a;b$."
+    document = parse_document("procedimento.md", text)
+
+    diagnostics = LintEngine(build_registry()).lint(
+        RuleContext(document),
+        enabled_rule_ids=(RuleId("HERMES-PT-PONT-001"),),
+    )
+
+    visible_semicolon = text.index(";", text.index("símbolo"))
+    assert [diagnostic.location.start_offset for diagnostic in diagnostics] == [visible_semicolon]

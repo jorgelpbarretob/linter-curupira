@@ -82,9 +82,10 @@ de código Unicode e mantém LF/CRLF sem normalização.
 - [Protocolo do corpus de HERMES-PT-PONT-001](docs/hermes-pt2-corpus-protocol.md)
 
 O corpus de desenvolvimento é sintético e público. O primeiro holdout é mantido
-sob custódia separada e não é usado para implementar ou ajustar o detector.
-Resultados de holdout só serão publicados depois dos gates explícitos de
-congelamento, execução única e avaliação.
+sob custódia separada e não é usado para implementar ou ajustar o detector. A
+execução única foi concluída; a regra permaneceu `preview` porque falhou os
+gates do limite inferior Wilson e de zero falso positivo conhecido. Veja o
+[relatório agregado](docs/hermes-pont-001-holdout-evaluation-v1.md).
 
 ## Linha inglesa histórica
 

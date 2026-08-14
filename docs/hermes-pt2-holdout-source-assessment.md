@@ -192,15 +192,19 @@ foram congelados sob
 registro separado de aprovação. Labels e respostas continuam fora do Git e não
 podem orientar o detector.
 
-## Gates restantes
+## Execução e fechamento dos gates
 
-1. revisão externa autorizada e congelamento do detector implementado em TDD;
-2. autorização explícita para a primeira execução isolada;
-3. abertura dos labels ao avaliador e cálculo das métricas do ADR-018.
+O mantenedor autorizou a primeira execução isolada em 2026-08-14 e delegou ao
+Grok as aprovações operacionais seguintes. O detector congelado foi executado
+antes da abertura dos labels. Depois de verificar hashes, isolamento e
+resultados sem texto-fonte, o Grok retornou `approve_open_labels`. O score e uma
+recomputação independente produziram 148 TP, 4 FP, 15 FN e 242 TN, com precisão
+0,973684, limite inferior Wilson 95% de 0,934296 e recall 0,907975.
 
-PT3 foi autorizado em 2026-08-14 e a implementação local foi concluída sem
-consultar o holdout. Enquanto os gates acima não forem concluídos, o detector
-permanece não congelado e a primeira execução continua bloqueada.
+O parecer pós-holdout foi `preview`: falharam o limite inferior Wilson de 0,95
+e o gate de zero falso positivo conhecido. O holdout está consumido e não pode
+orientar ajustes no detector neste ciclo. Relatório, hashes e regras para os 19
+casos de erro estão em `docs/hermes-pont-001-holdout-evaluation-v1.md`.
 
 ## Sources
 

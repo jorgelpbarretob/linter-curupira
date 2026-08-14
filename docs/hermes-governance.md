@@ -65,6 +65,30 @@ Toda proposta contém:
 8. decisão humana de estado;
 9. changelog da especificação e do catálogo.
 
+### Delegação operacional ao Grok
+
+Em 2026-08-14, o mantenedor concedeu ao Grok delegação permanente e restrita
+para aprovar, em seu nome, gates operacionais rotineiros do fluxo Hermes. O
+agente executor deve prosseguir sem interromper o mantenedor quando o parecer
+estruturado do Grok for favorável e quando entrada, prompt, schema, resposta e
+artefatos de saída estiverem identificados por hashes e metadados auditáveis.
+
+A delegação cobre abertura sequencial de artefatos congelados, validação de
+isolamento, passagem entre etapas pré-registradas e decisão de estado baseada
+nos gates já aceitos. Ela não autoriza o Grok a:
+
+- resolver licença, segredo, privacidade ou novo tipo de egress;
+- ampliar orçamento externo não aprovado;
+- executar ação irreversível ou publicar/commitar em nome do mantenedor;
+- mudar regra normativa, threshold, unidade de contagem ou gates;
+- criar ground truth sozinho ou encerrar divergência técnica substancial.
+
+Uma promoção a `stable` por essa via só é válida se todos os gates
+pré-registrados passarem, houver revisão independente exigida por esta
+governança e o registro da decisão citar a delegação. Falha de gate mantém a
+regra em `preview`, `rework` ou `rejected`, conforme o parecer estruturado, sem
+solicitar ao mantenedor uma aprovação rotineira adicional.
+
 Alteração de threshold, unidade de contagem, condições de abstenção, severity ou
 semântica do ID exige nova versão e reavaliação. Um ID não muda de significado
 silenciosamente.
@@ -74,8 +98,9 @@ silenciosamente.
 - `sabiazinho-4` executa somente regras `semantic` aprovadas e pode abster-se;
 - `sabia-4-thinking` faz julgamento cego e crítica em avaliação;
 - nenhum modelo cria ground truth sozinho;
-- modelo não aceita PR, promove regra, resolve disputa de licença nem substitui
-  revisão técnica;
+- modelo não aceita PR, resolve disputa de licença nem substitui revisão
+  técnica; a delegação operacional acima permite somente aplicar gates e
+  estados previamente definidos em nome do mantenedor;
 - divergência modelo-humano entra na fila de adjudicação;
 - prompts, schemas e versões são artefatos revisáveis e versionados.
 

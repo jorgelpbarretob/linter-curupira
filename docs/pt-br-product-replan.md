@@ -79,11 +79,14 @@ Definition of Done:
 - identidade e licenças aprovadas pelo mantenedor;
 - uma única candidata é escolhida para o próximo WIP.
 
-### PT2 — corpus e protocolo de avaliação — lado de corpus concluído
+### PT2 — corpus e protocolo de avaliação — concluído para PONT-001
 
 Progresso: ADR-018, guia e piloto de 40 casos aceitos. O arquivo de
-desenvolvimento v1 está congelado; challenge e holdout ainda não existem e o
-detector não foi executado.
+desenvolvimento v1, o manifesto do holdout Kubernetes e os 409 labels sob
+custódia separada foram congelados. O detector foi executado uma única vez no
+holdout, depois da autorização do mantenedor. O Grok aprovou os gates
+operacionais delegados e decidiu `preview` após a avaliação: 148 TP, 4 FP,
+15 FN e 242 TN. O holdout está consumido e não será usado para ajuste.
 
 Entregáveis:
 
@@ -100,7 +103,7 @@ Aceite:
 - labels congeladas e revisadas antes da primeira execução do detector;
 - conteúdo confidencial ausente dos artefatos públicos.
 
-### PT3 — migração do núcleo independente de idioma — WIP vigente
+### PT3 — migração do núcleo independente de idioma — concluído
 
 Entregáveis:
 
@@ -232,11 +235,14 @@ Aceite:
 - a arquitetura existente contém defaults e contratos ingleses que exigem
   migração gradual, não substituição em massa.
 
-## Próxima autorização necessária
+## Próximo estado operacional
 
-PT0 e PT1 estão concluídos; corpus e labels de PT2 foram congelados. PT3 foi
-autorizado e a implementação local está pronta, mas não congelada. A próxima
-autorização deve permitir o envio somente dos paths PT3 e do corpus sintético de
-desenvolvimento ao Grok para revisão externa. Holdout, labels e custódia ficam
-excluídos. Depois da revisão, correções e congelamento, uma autorização distinta
-será necessária para a primeira execução isolada no holdout.
+PT0, PT1 e PT3 estão concluídos; PT2 foi fechado para `HERMES-PT-PONT-001` com
+decisão `preview`. Nenhuma aprovação rotineira do mantenedor está pendente. Por
+delegação registrada em `docs/hermes-governance.md`, o Grok pode aprovar os
+gates operacionais seguintes quando os artefatos forem isolados e auditáveis.
+
+Os 4 FP e 15 FN deste holdout permanecem selados. Uma futura decisão explícita
+de `rework` pode movê-los para challenge, mas qualquer nova tentativa de
+promoção exigirá outro holdout independente. O próximo WIP de produto deve ser
+aberto conforme a prioridade do roadmap, sem tratar PONT-001 como `stable`.
