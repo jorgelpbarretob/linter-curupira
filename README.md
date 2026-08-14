@@ -1,5 +1,12 @@
 # ste-lint
 
+> **Pivot de produto:** o executável deste repositório ainda é o protótipo
+> inglês congelado. A direção vigente é o Hermes, linter open source nativo para
+> português brasileiro. Não há migração parcial de pacote ou CLI nesta etapa.
+> Consulte o [replan pt-BR](docs/pt-br-product-replan.md), o
+> [ADR-016](docs/adr/0016-portuguese-first-and-maritaca-roles.md) e a
+> [especificação proposta 0.1](docs/hermes-controlled-portuguese-spec-0.1.md).
+
 `ste-lint` is a local-first Python linter that helps technical authors find a
 carefully selected, traceable subset of detectable ASD-STE100 Issue 9 concerns.
 It is an authoring aid: it does not certify documents, replace the official

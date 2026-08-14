@@ -1,27 +1,54 @@
-# AGENTS.md — ste-lint
+# AGENTS.md — Hermes
 
 Estas instruções são específicas deste projeto e complementam as instruções do workspace Maltaria. Em conflito, segurança e instruções explícitas do usuário prevalecem.
 
 ## Estado do projeto
 
-O projeto está em planejamento. Leia `PLANS.md` por completo antes de agir. Não inicie a Fase 1, não crie o pacote Python e não implemente regras até aprovação explícita do plano pelo usuário.
+O pivot pt-BR foi aceito em 2026-08-13 e está registrado no `ADR-016`. O código
+existente ainda representa a linha inglesa congelada. Leia `PLANS.md` por
+completo antes de agir. PT1 está aceito. O WIP vigente é `PT2 — corpus e
+protocolo de avaliação`, limitado a `HERMES-PT-PONT-001`; não execute o linter,
+migre contratos, implemente regras pt-BR nem chame a Maritaca antes de labels
+humanamente aprovadas, congelamento e autorização explícita.
+
+O piloto de 40 labels já foi aceito e congelado. A fonte de holdout atualmente
+proposta é o snapshot pt-BR do Kubernetes documentado em
+`docs/hermes-pt2-holdout-source-assessment.md`; não gere manifesto ou labels e
+não execute o linter antes da aprovação humana dessa proposta.
+
+A identidade alvo aceita é: produto Hermes, repositório `hermes-STL-IA-PT`,
+pacote `hermes_lint`, CLI `hermes` e namespace `HERMES-PT-*`. Os nomes ingleses no
+código continuam transitórios até PT3; não faça renomeação parcial fora desse
+incremento.
 
 ## Missão
 
-Construir `ste-lint`, um linter Python local-first que ajuda autores a encontrar violações detectáveis do ASD-STE100 Simplified Technical English Issue 9 e produz diagnósticos rastreáveis. A ferramenta não é a norma, não certifica documentos e não substitui revisão humana.
+Construir um linter Python open source, português-first, que ajude autores a
+produzir documentação técnica clara e consistente em português brasileiro. O
+produto combina regras locais reproduzíveis com análise semântica remota
+opt-in, produz diagnósticos rastreáveis e não substitui revisão humana.
 
 ## Regras inegociáveis
 
-1. Issue 9 é a fonte normativa. Não invente locators, obrigações ou exemplos.
-2. Não copie para o repositório regras, entradas do dicionário, exemplos, tabelas ou texto extenso protegido. Use referência e paráfrase autoral curta.
-3. O vocabulário oficial é recurso externo ao código e não entra em Git, wheel, imagem, fixture ou cassette sem autorização escrita.
+1. A fonte de produto será uma especificação autoral aberta de português técnico
+   controlado. Não traduza nem reutilize IDs, obrigações ou exemplos da
+   ASD-STE100.
+2. Não copie para o repositório regras, entradas de dicionários, exemplos,
+   tabelas ou texto extenso protegido. Dados e exemplos devem ter licença e
+   proveniência explícitas.
+3. Corpus, vocabulários e glossários externos não entram em Git, wheel, imagem,
+   fixture ou cassette sem licença compatível e autorização registrada.
 4. Classifique cada regra como `deterministic`, `nlp`, `semantic` ou `human-review`.
-5. LLM não é fonte de compliance nem ground truth. O lint padrão funciona offline e sem credenciais.
+5. `sabiazinho-4` é o motor `semantic`; `sabia-4-thinking` é o
+   avaliador rigoroso. Nenhum deles é sozinho ground truth. O núcleo
+   determinístico funciona offline e sem credenciais.
 6. Todo `Diagnostic` contém `rule_id`, `source`, `severity`, `location`, `explanation` e `suggestion` opcional.
 7. Prefira abstenção a falso positivo. Uma regra que não atinge o gate fica `preview` ou não é emitida.
 8. Testes pertencem ao incremento da regra. Não aceite “implementar agora, testar depois”.
-9. Não misture política local com norma: IDs `STE-I9-*` exigem fonte verificada; IDs `PROJECT-*` são explicitamente não normativos.
-10. Não alegue “ASD approved”, “certified”, “fully compliant” ou equivalente; não use logos da ASD.
+9. IDs `STE-I9-*` pertencem somente à linha inglesa congelada. O namespace pt-BR
+   será definido antes da primeira regra e não poderá sugerir vínculo com a ASD.
+10. Não alegue certificação, cobertura integral ou conformidade além das regras
+    avaliadas e publicadas.
 
 ## Arquitetura e dependências
 
@@ -29,17 +56,20 @@ Construir `ste-lint`, um linter Python local-first que ajuda autores a encontrar
 - Regras recebem `RuleContext`; não abrem arquivos e não acessam rede.
 - Parsers preservam offsets e distinguem conteúdo lintável de markup.
 - Metadados do catálogo e implementação Python são separados; não crie uma DSL genérica sem ADR e necessidade comprovada.
-- `nlp` e `semantic` são extras opcionais. Nada deles pode ser importado no caminho padrão de lint.
+- `nlp` local e `semantic` remoto são capacidades opcionais. SDKs externos não
+  atravessam suas portas nem são importados pelo caminho determinístico.
+- o provider semântico e o avaliador são módulos separados, com prompts,
+  schemas, credenciais, budgets e artefatos independentes.
 - Saída deve ser estável e ordenada para a mesma entrada/configuração.
 
 ## Processo por regra
 
 Antes de implementar uma regra:
 
-1. confirme a referência na cópia legítima da Issue 9;
-2. escreva uma paráfrase curta e registre a classe de automação;
+1. confirme o locator na versão publicada da especificação autoral pt-BR;
+2. escreva o enunciado autoral e registre a classe de automação;
 3. descreva condições de abstenção e controles de falso positivo;
-4. prepare exemplos autorais: ao menos 3 violações, 3 não violações e 3 edge cases;
+4. prepare exemplos pt-BR autorais: ao menos 3 violações, 3 não violações e 3 edge cases;
 5. implemente o teste que falha;
 6. implemente a menor lógica que o faz passar;
 7. rode unitários, integração offline e corpus rotulado;
@@ -55,7 +85,7 @@ Quando a Fase 1 definir as ferramentas, mantenha comandos canônicos no README/P
 - lint;
 - typecheck;
 - smoke offline da CLI;
-- confirmação de que nenhum recurso protegido foi adicionado;
+- confirmação de licença e proveniência de todo dado adicionado;
 - `git status` revisado no repositório correto.
 
 Não trate timeout como sucesso e não esconda falhas preexistentes.
@@ -67,7 +97,12 @@ Antes de alterar modelo de offsets, schema JSON, IDs de regras, contrato `Rule`/
 ## Dados, segredos e serviços externos
 
 - Nunca imprima tokens, chaves, senhas ou conteúdo técnico confidencial.
-- Não envie documentos a APIs externas sem opt-in explícito para aquela execução.
+- Não envie documentos a APIs externas sem opt-in explícito para aquela
+  execução e sem enquadramento na classe de egress aprovada.
+- Use somente `MARITACA_API_KEY` em variável de ambiente ou secret manager;
+  nunca persista seu valor.
+- Registre alias solicitado e modelo retornado, hashes de prompt/schema/entrada,
+  response ID, tokens, latência e data sem persistir conteúdo confidencial.
 - Testes e CI não dependem de rede.
 - Cassettes futuras devem ser sanitizadas e legalmente redistribuíveis.
 

@@ -1,5 +1,9 @@
 # Corpus do ste-lint
 
+> A linha abaixo descreve o corpus inglês histórico. O corpus vigente do Hermes
+> nasce em `corpus/hermes/`, sob contrato e revisão próprios. Nenhuma label ou
+> métrica inglesa migra como evidência pt-BR.
+
 Status: seed-v0, revisão humana concluída em 2026-08-12
 
 O seed contém somente exemplos sintéticos em inglês escritos para este projeto.

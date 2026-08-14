@@ -13,6 +13,7 @@ _HEADING = re.compile(r"^[ ]{0,3}#{1,6}(?:[ \t]+|$)")
 _SETEXT = re.compile(r"^[ ]{0,3}(?:=+|-+)[ \t]*$")
 _LIST_MARKER = re.compile(r"^[ ]{0,3}(?:[-+*]|\d+[.)])[ \t]+")
 _BLOCKQUOTE = re.compile(r"^[ ]{0,3}>[ \t]?")
+_VUEPRESS_CONTAINER_MARKER = re.compile(r"^[ ]{0,3}:::[ \t]*(?:[A-Za-z][\w-]*(?:[ \t].*)?)?[ \t]*$")
 _REFERENCE_DEFINITION = re.compile(r"^[ ]{0,3}\[[^]]+\]:[ \t]*\S+")
 _HTML_TAG = re.compile(r"</?[A-Za-z][^>]*>")
 _HTML_ENTITY = re.compile(r"&(?:#[0-9]+|#[xX][0-9A-Fa-f]+|[A-Za-z][A-Za-z0-9]+);")
@@ -107,6 +108,9 @@ def _mark_block_markup(text: str, lines: tuple[_Line, ...], ignored: bytearray) 
             continue
         content = _content(text, line)
         if _HEADING.match(content) or _REFERENCE_DEFINITION.match(content):
+            _mark(ignored, line.start, line.end)
+            continue
+        if _VUEPRESS_CONTAINER_MARKER.match(content):
             _mark(ignored, line.start, line.end)
             continue
         if content.startswith("    ") or content.startswith("\t"):

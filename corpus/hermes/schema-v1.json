@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/hermes/corpus/schema-v1.json",
+  "title": "Hermes corpus case v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "rule_id",
+    "partition",
+    "language",
+    "domain",
+    "source_format",
+    "source_origin",
+    "license",
+    "text",
+    "truth",
+    "expected_diagnostics",
+    "rationale",
+    "review_status"
+  ],
+  "properties": {
+    "schema_version": {"const": "hermes-corpus/v1"},
+    "case_id": {"type": "string", "pattern": "^pont-dev-[0-9]{3}$"},
+    "rule_id": {"const": "HERMES-PT-PONT-001"},
+    "partition": {"enum": ["development", "challenge", "holdout"]},
+    "language": {"const": "pt-BR"},
+    "domain": {
+      "enum": ["operations", "maintenance", "software", "infrastructure", "safety", "support"]
+    },
+    "source_format": {"enum": ["txt", "markdown"]},
+    "source_origin": {"const": "project-authored-synthetic"},
+    "license": {"const": "CC-BY-4.0"},
+    "text": {"type": "string", "minLength": 1},
+    "truth": {"enum": ["violation", "non_violation", "out_of_scope", "ambiguous"]},
+    "expected_diagnostics": {"type": ["integer", "null"], "minimum": 0},
+    "rationale": {"type": "string", "minLength": 1},
+    "review_status": {"enum": ["pending-human-review", "approved", "rejected"]},
+    "reviewed_by": {"type": "string", "minLength": 1},
+    "reviewed_on": {"type": "string", "format": "date"}
+  }
+}

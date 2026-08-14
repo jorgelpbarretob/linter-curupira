@@ -1,8 +1,216 @@
-# ste-lint — plano de desenvolvimento
+# Hermes — plano de desenvolvimento do linter pt-BR
 
-Status: Fases 1–6 concluídas; evidência da Fase 7 em expansão, fixer bloqueado
-Base normativa pretendida: ASD-STE100 Simplified Technical English, Issue 9 (2025-01-15)
+Status: pivot para pt-BR aceito; linha inglesa congelada; migração de código
+ainda não iniciada
+Base pretendida: especificação autoral e aberta de português técnico controlado
 Última revisão: 2026-08-13
+
+> A identidade alvo foi decidida como Hermes, repositório `hermes-STL-IA-PT`,
+> pacote `hermes_lint` e comando `hermes`. O nome atual do repositório, o pacote
+> `ste-lint` e o comando `ste` permanecem transitórios até a migração PT3.
+
+## 0. Direção vigente após o pivot para pt-BR
+
+O mantenedor decidiu em 2026-08-13 encerrar a evolução do produto em inglês e
+construir um projeto open source nativo para português brasileiro. O pivot não
+é uma tradução da ASD-STE100, não mantém paridade com o inglês e não cria uma
+plataforma multilíngue. A linha inglesa fica congelada como evidência histórica;
+somente componentes comprovadamente independentes de idioma podem migrar.
+
+As decisões e o roadmap operacionais estão em:
+
+- [`ADR-016`](docs/adr/0016-portuguese-first-and-maritaca-roles.md), que registra
+  o produto pt-BR e a separação dos papéis da Maritaca;
+- [`docs/pt-br-product-replan.md`](docs/pt-br-product-replan.md), que contém os
+  incrementos, gates e critérios de avaliação vigentes;
+- [`docs/english-line-closure.md`](docs/english-line-closure.md), que congela o
+  estado final da linha inglesa e da Rodada 2.
+
+### Arquitetura de produto decidida
+
+```text
+especificação autoral pt-BR + catálogo de regras
+                         |
+                         v
+        núcleo local, determinístico e reproduzível
+                         |
+             +-----------+-----------+
+             |                       |
+             v                       v
+ análise linguística local   motor semântico remoto
+                             sabiazinho-4
+                                      |
+                                      v
+                         avaliação rigorosa separada
+                         sabia-4-thinking
+                                      |
+                                      v
+                            adjudicação humana
+```
+
+O Sabiazinho é o motor das regras `semantic` do linter, nunca a implementação
+de regras determinísticas. O Sabiá Thinking é um avaliador de desenvolvimento e
+benchmark, não participa do caminho normal de lint. O julgamento rigoroso começa
+cego ao resultado do Sabiazinho e só depois recebe o diagnóstico candidato para
+crítica. Como ambos pertencem à família Sabiá, a adjudicação humana continua
+sendo a autoridade final dos conjuntos rotulados.
+
+### Próximo WIP
+
+WIP permanece igual a 1. PT1 foi aceito pelo mantenedor em 2026-08-13. O
+incremento vigente é `PT2 — corpus e protocolo de avaliação`, limitado a
+`HERMES-PT-PONT-001`. Nenhum linter, regra ou provider será executado antes de:
+
+- aprovar o ADR-018 e o guia de anotação;
+- revisar humanamente cada label do lote-piloto;
+- congelar bytes, ordem e SHA-256 do lote aprovado;
+- definir fonte/autoria independente para challenge e holdout;
+- emitir autorização explícita para a primeira execução.
+
+Os artefatos aceitos de PT1 são:
+
+- [`docs/hermes-controlled-portuguese-spec-0.1.md`](docs/hermes-controlled-portuguese-spec-0.1.md);
+- [`docs/hermes-governance.md`](docs/hermes-governance.md);
+- [`docs/hermes-rule-taxonomy.md`](docs/hermes-rule-taxonomy.md).
+
+Os artefatos propostos de PT2 são:
+
+- [`ADR-018`](docs/adr/0018-corpus-label-and-evaluation-protocol.md);
+- [`docs/hermes-annotation-guide-v0.1.md`](docs/hermes-annotation-guide-v0.1.md);
+- [`docs/hermes-pt2-corpus-protocol.md`](docs/hermes-pt2-corpus-protocol.md);
+- [`corpus/hermes/pont-001-development-proposal.jsonl`](corpus/hermes/pont-001-development-proposal.jsonl).
+
+ADR-018, guia e 40/40 labels foram aceitos em 2026-08-13. O piloto canônico foi
+congelado sem executar o detector:
+`corpus/hermes/pont-001-development-v1.jsonl`, SHA-256
+`51f52007848deaae5169171354d900488df9faedbf073a17a48b14d714703bfc`.
+O próximo gate de PT2 é definir autoria/fonte independente, licença e tamanho
+pré-registrado do holdout; a migração de código continua bloqueada. A avaliação
+`count-only` propõe a documentação pt-BR do Kubernetes, no commit
+`0dcdb1dda898de2bd4431a898f86c170e109063f`, como fonte independente: 326
+arquivos Markdown elegíveis contêm 336 ocorrências literais candidatas em 90
+arquivos, ainda sem labels e sem execução. Fonte, exclusões e seleção estão em
+[`docs/hermes-pt2-holdout-source-assessment.md`](docs/hermes-pt2-holdout-source-assessment.md)
+e aguardam aprovação humana antes da geração do manifesto.
+
+### Invariantes vigentes
+
+- o linter determinístico continua utilizável offline e sem credenciais;
+- semântica remota exige opt-in explícito por execução e aviso de egress;
+- `sabiazinho-4` é o único modelo do motor semântico inicial;
+- `sabia-4-thinking` é o único modelo do avaliador rigoroso inicial;
+- prompts, schemas, credenciais e artefatos dos dois papéis são separados;
+- toda resposta registra modelo solicitado/retornado, hashes, response ID,
+  tokens, data, latência e estado de validação do schema;
+- falha remota não altera nem invalida diagnósticos determinísticos;
+- resultado de modelo não é sozinho ground truth, regra normativa ou autofix;
+- CI público permanece offline com doubles e fixtures sintéticas sanitizadas;
+- nenhuma regra ou ID `STE-I9-*` migra para o catálogo pt-BR.
+
+## Histórico — autoridade do plano inglês e reconciliação com o plano v2
+
+Daqui até o fim deste documento está preservado o plano inglês anterior ao
+pivot. Ele serve para rastreabilidade e para identificar contratos candidatos a
+reuso, mas não governa novos incrementos de produto. Em caso de divergência,
+`ADR-016` e o replan pt-BR prevalecem.
+
+Antes do pivot, este `PLANS.md` era o plano operacional vigente. O documento
+[`ste-lint-plano-v2-antifragil.md`](ste-lint-plano-v2-antifragil.md) permanece
+como insumo arquitetural e histórico, não como um segundo roadmap concorrente.
+Quando um gate foi recalibrado, substituído ou adiado, a decisão deve aparecer
+explicitamente aqui; “fase concluída” significa que os critérios deste plano
+incremental passaram, não que toda proposta do plano v2 original foi entregue.
+
+A reconciliação de 2026-08-13 comparou o plano v2, o código, os testes, os ADRs
+e as validações publicadas. Resultado:
+
+| Área do plano v2 | Evidência atual | Estado neste plano |
+|---|---|---|
+| núcleo offline, contratos imutáveis, spans Unicode e dependências para dentro | domínio, parser, registry, engine, teste de dependências e smoke offline implementados | **atendido** |
+| norma e vocabulário fora do repositório | postura de compliance, locators verificados, BYO vocabulary e importação JSON autorizada com hashes | **atendido;** a importação JSON substitui o comando hipotético `ste-dict compile` |
+| taxonomia `pure/pos_dependent/nlp/semantic/human` | contrato público usa `deterministic/nlp/semantic/human-review`; capacidades e abstenção ficam separadas | **substituído por ADR-005/008** |
+| F4 com 10–15 regras `pure` | cinco regras determinísticas e duas NLP existem, todas `preview/info` e opt-in | **recalibrado para 3–5 determinísticas; evidência de produto ainda aberta** |
+| property-based e relações metamórficas | não há Hypothesis nem harness metamórfico geral | **adiado, não entregue** |
+| fuzz de 100 mil documentos | há corpus adversarial e limites de tamanho, mas não o gate numérico original | **adiado, não comprovado** |
+| mutation score >= 80% | não há mutation testing configurado ou métrica publicada | **adiado, não comprovado** |
+| CI mecanizado, bug-to-fixture e ratchet de métricas | a política existe em `AGENTS.md` e falhas observadas geraram regressões, mas não há workflow nem `metrics.lock` | **parcial** |
+| baseline para adoção em legado | fingerprint estável, escrita e supressão pós-validação implementadas | **implementado; dogfooding real pendente** |
+| NLP pinado e opcional | spaCy/modelo locais pinados, contratos de offset e duas regras conservadoras | **implementado em preview; corpus ainda insuficiente para `stable`** |
+| fixer seguro | ADR/spec aceitos e uma candidata passou gates quantitativos; não há provider nem `ste fix` | **bloqueado por promoção e autorização próprias** |
+| Semantic Reviewer, cassettes, `models.lock` e drift | nenhum módulo ou harness correspondente existe | **futuro; não iniciado** |
+| release com SARIF e dogfooding | CLI, texto, JSON, baseline e `--explain` existem; SARIF e manual real revisado não | **parcial** |
+
+### Histórico: WIP de evidência das regras determinísticas
+
+Antes de implementar fixer, Semantic Reviewer, SARIF ou a derivação pt-BR, o
+próximo incremento recomendado é avaliar o produto atual em pelo menos um
+manual/corpus técnico real, legalmente utilizável e independente das fixtures de
+desenvolvimento. As cinco regras determinísticas serão executadas explicitamente
+e suas emissões serão revisadas independentemente com `cursor-agent`; a decisão
+humana de promoção permanece um gate separado. A revisão de promoção de
+`STE-I9-LIST-001` entra como uma evidência desse fechamento; ela não transforma
+o incremento inteiro em trabalho de fixer.
+
+A abertura e o snapshot congelado deste WIP estão registrados em
+[`docs/product-evidence-px4-opening.md`](docs/product-evidence-px4-opening.md).
+O Cursor concluiu a primeira revisão independente com 23 TP, 1 FP e 1 caso
+ambíguo. O FP de fronteira VuePress gerou fixture mínima e correção em TDD. Na
+revisão pós-rework, o Cursor confirmou 25 TP, zero FP e 1 caso ambíguo em 26
+emissões; todas as regras permanecem `preview` por amostra e recall insuficientes.
+A expansão independente está pré-registrada em
+[`docs/product-evidence-round-2-plan.md`](docs/product-evidence-round-2-plan.md);
+nenhum dos dois novos corpora foi executado pelo linter. O `count-only`
+independente está registrado em
+[`docs/product-evidence-round-2-count-only.md`](docs/product-evidence-round-2-count-only.md):
+quatro tranches ficaram dentro do limite pré-label e `STE-I9-SENT-001` exige
+redução determinística revisada pelo Cursor. Após a redução, o inventário
+independente gerou 1.173 registros `pending-review` em duas cópias externas
+idênticas; a validação está em
+[`docs/product-evidence-round-2-inventory-validation.md`](docs/product-evidence-round-2-inventory-validation.md).
+A primeira tranche, `STE-I9-PUNCT-001`, teve 69/69 labels pré-execução aceitas
+pelo Cursor; o gate está em
+[`docs/product-evidence-round-2-punct-label-validation.md`](docs/product-evidence-round-2-punct-label-validation.md).
+Após autorização humana, `STE-I9-LIST-001` teve 73/73 labels aceitas, todas
+`out_of_scope`; o gate e a ausência de denominador normativo estão registrados
+em [`docs/product-evidence-round-2-list-label-validation.md`](docs/product-evidence-round-2-list-label-validation.md).
+Após nova autorização humana, `STE-I9-PARA-001` teve 144/144 labels aceitas
+depois da adjudicação em TDD de três casos descritivos: 86 `non_violation` e 58
+`out_of_scope`. O gate está registrado em
+[`docs/product-evidence-round-2-para-label-validation.md`](docs/product-evidence-round-2-para-label-validation.md).
+Na tranche seguinte, `STE-I9-SENT-002` teve 329/329 labels aceitas: 15
+`violation`, 166 `non_violation`, quatro `ambiguous` e 144 `out_of_scope`. O
+gate está registrado em
+[`docs/product-evidence-round-2-sent-002-label-validation.md`](docs/product-evidence-round-2-sent-002-label-validation.md).
+Na tranche final, `STE-I9-SENT-001` teve 558/558 labels aceitas: 40
+`violation`, 200 `non_violation`, oito `ambiguous` e 310 `out_of_scope`. O gate
+está registrado em
+[`docs/product-evidence-round-2-sent-001-label-validation.md`](docs/product-evidence-round-2-sent-001-label-validation.md).
+
+Definition of Ready:
+
+- fonte, versão, licença e direito de uso do corpus registrados;
+- documento não usado para ajustar as regras antes do congelamento;
+- política de rótulos, unidade de contagem e responsável pela adjudicação definidos;
+- autorização explícita para processar o documento se ele não for público e
+  redistribuível;
+- nenhuma implementação de regra ou fixer durante a primeira avaliação.
+
+Definition of Done:
+
+- todas as cinco regras determinísticas avaliadas no mesmo snapshot congelado;
+- cada emissão classificada como TP, FP ou ambígua, com FP por 1.000 palavras;
+- precisão e intervalo Wilson reportados por regra; recall somente quando a
+  ground truth cobrir também as não emissões;
+- baseline criado e reaplicado sem armazenar conteúdo do documento;
+- utilidade, ruído, supressões desejadas e limitações revisados por humano;
+- decisão explícita `stable`, `preview` ou `rework` para cada regra, sem promoção
+  automática por contagem agregada;
+- suíte, Ruff, formato, mypy, smoke offline e scan de conteúdo protegido verdes.
+
+Após esse gate, WIP continua igual a 1: uma regra `stable` pode abrir o primeiro
+provider do fixer; ausência de regra promovível retorna ao corpus/detector; valor
+de produto comprovado pode priorizar integração da Fase 9. Fases 8 e 10 não
+começam por conveniência para contornar falta de evidência determinística.
 
 ## 1. Objetivo e limites
 
@@ -411,10 +619,13 @@ Entregáveis candidatos: SARIF, stdin, diretórios, ignore files, editor/CI e ad
 
 Aceite individual por adapter: fidelidade de spans, regiões excluídas explícitas, testes com arquivos reais legalmente redistribuíveis e nenhuma mudança no domínio.
 
-### Fase 10 — derivação para português brasileiro assistida pela Sabiá
+### Fase 10 — superseded: derivação multilíngue para português brasileiro
+
+Esta fase foi substituída pelo pivot pt-BR-only registrado no `ADR-016`. O texto
+abaixo permanece somente como histórico do plano anterior.
 
 Objetivo: derivar o linter para português brasileiro, com destino planejado no
-projeto `hemes-STL-IA-PT`, reutilizando somente componentes independentes de
+projeto `hermes-STL-IA-PT`, reutilizando somente componentes independentes de
 idioma. A derivação terá catálogo, corpus, perfil linguístico e alegações de
 cobertura próprios; não será apresentada como tradução, certificação ou
 conformidade com a ASD-STE100.
@@ -459,13 +670,13 @@ Invariantes de segurança e produto:
 Definition of Ready:
 
 - relação, licença e fronteira de código/dados entre este repositório e
-  `hemes-STL-IA-PT` decididas;
+  `hermes-STL-IA-PT` decididas;
 - nome do produto, namespace das regras e fonte normativa/autoral pt-BR
   aprovados;
 - casos de uso, classes de documentos permitidas para egress e responsáveis
   pela revisão humana definidos;
-- modelo Sabiá e região escolhidos após avaliação; os candidatos iniciais são
-  `sabia-4` e, se residência no Brasil for requisito, `sabia-4-br-sp`;
+- a seleção histórica de modelo foi substituída pelo `ADR-016`; os modelos
+  vigentes são `sabiazinho-4` e `sabia-4-thinking`, com papéis separados;
 - modelo, prompt, schema estruturado, limites de custo/latência, política de
   redaction e critérios de abstenção documentados e aprovados;
 - corpus inicial diverso, redistribuível e rotulado por falantes nativos;

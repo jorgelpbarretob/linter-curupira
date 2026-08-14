@@ -10,6 +10,9 @@ dist/
 .coverage
 htmlcov/
 
+# Local architecture graph generated for codebase analysis.
+graphify-out/
+
 # The official ASD-STE100 vocabulary and compiled derivatives are BYO resources.
 .ste-lint/
 *.ste-dict

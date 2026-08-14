@@ -79,3 +79,31 @@ def test_sentence_length_abstains_for_ambiguous_counting_constructs(text: str) -
         )
         == ()
     )
+
+
+def test_sentence_length_diagnostic_starts_after_vuepress_closing_marker() -> None:
+    sentence = " ".join(["word"] * 21) + "."
+    text = f":::\n\n{sentence}\n"
+    document = parse_document("manual.md", text)
+
+    diagnostics = tuple(
+        ProceduralSentenceLengthRule().check(RuleContext(document, {"text_type": "procedural"}))
+    )
+
+    assert len(diagnostics) == 1
+    assert diagnostics[0].location.start_offset == text.index(sentence)
+    assert diagnostics[0].location.start_line == 3
+
+
+def test_sentence_length_diagnostic_starts_after_vuepress_opening_marker() -> None:
+    sentence = " ".join(["word"] * 21) + "."
+    text = f":::warning\n{sentence}\n:::\n"
+    document = parse_document("manual.md", text)
+
+    diagnostics = tuple(
+        ProceduralSentenceLengthRule().check(RuleContext(document, {"text_type": "procedural"}))
+    )
+
+    assert len(diagnostics) == 1
+    assert diagnostics[0].location.start_offset == text.index(sentence)
+    assert diagnostics[0].location.start_line == 2
