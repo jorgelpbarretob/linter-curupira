@@ -1,12 +1,12 @@
-ste-lint
+Hermes
 Copyright 2026 Jorge Barreto
 
-ASD-STE100 Simplified Technical English is owned by ASD. This project is not
-approved, certified, authorized, or endorsed by ASD or STEMG. The official
-standard, examples, and vocabulary are not included in this distribution.
+Hermes é um projeto autoral de português técnico brasileiro. Não traduz, inclui
+ou licencia a ASD-STE100, seus exemplos ou seu vocabulário, e não é aprovado,
+certificado, autorizado ou endossado pela ASD ou pelo STEMG.
 
-The optional Phase 7 evaluation corpus includes short attributed excerpts from
-GitHub Docs, .NET Docs, and Kubernetes Website under CC BY 4.0; Visual Studio
-Code Docs under CC BY 3.0 US; and Pulumi Docs under Apache-2.0. Exact
-provenance, license links, snapshots, and changes are listed in
-corpus/f7/SOURCES.md.
+O protótipo inglês congelado permanece somente como histórico do repositório e
+não integra a distribuição Python hermes-lint.
+
+Textos de terceiros usados em corpora preservam a licença da fonte. Proveniência,
+snapshot, licença e transformação são registrados nos manifestos aplicáveis.

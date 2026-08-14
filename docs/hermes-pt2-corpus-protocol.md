@@ -62,8 +62,13 @@ Depois da aprovação:
 ## Próxima tranche
 
 O challenge será criado a partir de ambiguidades adjudicadas e falhas futuras.
-O holdout precisa de autoria ou fonte independente do lote-piloto, licença
-redistribuível, pré-registro e tamanho calculado antes de sua geração.
+O snapshot pt-BR do Kubernetes foi aceito como fonte independente do primeiro
+holdout em 2026-08-14. O manifesto sem labels foi congelado antes de qualquer
+execução. A revisão delegada ao Grok e o congelamento final seguem a emenda em
+`docs/hermes-pt2-grok-review-protocol.md`; o mantenedor aprovou os bytes finais
+com SHA-256
+`6cab9e0a4090df19fc5c3cc5a8e93122413160f523e032367ec25849567abab6`.
+Autorização de PT3 e primeira execução permanecem gates separados.
 
 ## Resultado do congelamento
 

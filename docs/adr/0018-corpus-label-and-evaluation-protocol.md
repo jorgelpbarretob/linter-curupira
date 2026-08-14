@@ -86,3 +86,18 @@ O arquivo canônico é `corpus/hermes/pont-001-development-v1.jsonl`, SHA-256
 
 A aprovação autoriza o congelamento do piloto. Não autoriza execução do linter,
 implementação, promoção ou uso como holdout.
+
+## Primeiro holdout congelado
+
+Em 2026-08-14, o mantenedor aceitou o snapshot pt-BR do Kubernetes, o manifesto
+sem labels e a revisão delegada ao Grok registrada em
+`docs/hermes-pt2-grok-review-protocol.md`. O modelo solicitado `grok-4.6`
+respondeu como `grok-4.6-build`; todas as 409 unidades passaram bijeção e
+validação estrutural, sem fila crítica declarada.
+
+O mantenedor aprovou explicitamente os bytes candidatos e o SHA-256
+`6cab9e0a4090df19fc5c3cc5a8e93122413160f523e032367ec25849567abab6`.
+O ground truth com 409 registros foi congelado sob custódia externa, sem texto
+do Kubernetes no arquivo e sem labels no Git. Esta aprovação fecha o lado de
+corpus de PT2. Ela não autoriza implementar o detector, consultar labels durante
+TDD nem executar o holdout.

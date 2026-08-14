@@ -1,13 +1,13 @@
 # Hermes — plano de desenvolvimento do linter pt-BR
 
-Status: pivot para pt-BR aceito; linha inglesa congelada; migração de código
-ainda não iniciada
+Status: PT3 autorizado; implementação local concluída; revisão externa e
+congelamento do detector pendentes
 Base pretendida: especificação autoral e aberta de português técnico controlado
-Última revisão: 2026-08-13
+Última revisão: 2026-08-14
 
 > A identidade alvo foi decidida como Hermes, repositório `hermes-STL-IA-PT`,
-> pacote `hermes_lint` e comando `hermes`. O nome atual do repositório, o pacote
-> `ste-lint` e o comando `ste` permanecem transitórios até a migração PT3.
+> pacote `hermes_lint` e comando `hermes`. A distribuição e a CLI já usam essa
+> identidade; `src/ste_lint` permanece somente como histórico fora do wheel.
 
 ## 0. Direção vigente após o pivot para pt-BR
 
@@ -55,17 +55,18 @@ cego ao resultado do Sabiazinho e só depois recebe o diagnóstico candidato par
 crítica. Como ambos pertencem à família Sabiá, a adjudicação humana continua
 sendo a autoridade final dos conjuntos rotulados.
 
-### Próximo WIP
+### WIP vigente
 
-WIP permanece igual a 1. PT1 foi aceito pelo mantenedor em 2026-08-13. O
-incremento vigente é `PT2 — corpus e protocolo de avaliação`, limitado a
-`HERMES-PT-PONT-001`. Nenhum linter, regra ou provider será executado antes de:
+WIP permanece igual a 1. PT1 foi aceito pelo mantenedor em 2026-08-13 e o lado
+de corpus de PT2 foi concluído em 2026-08-14. O mantenedor autorizou PT3 em
+2026-08-14 com o recorte de contratos independentes de idioma e TDD de
+`HERMES-PT-PONT-001`. A implementação local está concluída, mas nenhuma
+execução no holdout é permitida antes de:
 
-- aprovar o ADR-018 e o guia de anotação;
-- revisar humanamente cada label do lote-piloto;
-- congelar bytes, ordem e SHA-256 do lote aprovado;
-- definir fonte/autoria independente para challenge e holdout;
-- emitir autorização explícita para a primeira execução.
+- concluir a revisão Grok do código com autorização explícita de egress;
+- resolver achados bloqueantes e repetir as validações offline;
+- gerar o manifesto canônico e congelar o detector;
+- emitir autorização explícita para a primeira execução isolada.
 
 Os artefatos aceitos de PT1 são:
 
@@ -84,14 +85,38 @@ ADR-018, guia e 40/40 labels foram aceitos em 2026-08-13. O piloto canônico foi
 congelado sem executar o detector:
 `corpus/hermes/pont-001-development-v1.jsonl`, SHA-256
 `51f52007848deaae5169171354d900488df9faedbf073a17a48b14d714703bfc`.
-O próximo gate de PT2 é definir autoria/fonte independente, licença e tamanho
-pré-registrado do holdout; a migração de código continua bloqueada. A avaliação
-`count-only` propõe a documentação pt-BR do Kubernetes, no commit
-`0dcdb1dda898de2bd4431a898f86c170e109063f`, como fonte independente: 326
-arquivos Markdown elegíveis contêm 336 ocorrências literais candidatas em 90
-arquivos, ainda sem labels e sem execução. Fonte, exclusões e seleção estão em
-[`docs/hermes-pt2-holdout-source-assessment.md`](docs/hermes-pt2-holdout-source-assessment.md)
-e aguardam aprovação humana antes da geração do manifesto.
+O snapshot pt-BR do Kubernetes, as exclusões e o método de seleção foram
+aceitos pelo mantenedor em 2026-08-14. O manifesto auditável foi gerado sem
+labels e sem texto externo: 336 ocorrências literais candidatas em 90 arquivos
+e 73 documentos de controle, SHA-256
+`3eaf4069017593c4f9e0d0c573736899ccbf137e3792ba97161e94d0663f86e7`.
+Fonte, contrato, exclusões, seleção e comando de reprodução estão em
+[`docs/hermes-pt2-holdout-source-assessment.md`](docs/hermes-pt2-holdout-source-assessment.md).
+O próximo gate de PT2 é a revisão humana integral e cega ao detector; a
+migração de código e qualquer execução continuam bloqueadas. O pacote editável
+para essa revisão foi preparado fora do repositório com 409 decisões
+`pending-human-review`, SHA-256 do CSV
+`b3fcb6214c5fc2eff295b4b7906d558f00770f1159a079648a64ac081e30fad4`.
+O mantenedor aceitou o pacote e autorizou a continuidade em 2026-08-14, mas o
+CSV ainda contém zero `truth`: esse aceite não substitui o preenchimento e a
+confirmação humana de cada decisão.
+
+O mantenedor em seguida autorizou o Grok como revisor delegado e pediu somente
+aprovações críticas. A emenda aceita está em
+[`docs/hermes-pt2-grok-review-protocol.md`](docs/hermes-pt2-grok-review-protocol.md).
+O modelo solicitado `grok-4.6` respondeu como `grok-4.6-build` para 409/409
+unidades, sem fila crítica, com prompt/schema e respostas sob custódia separada.
+O ground-truth candidato sem texto-fonte foi materializado fora do Git, SHA-256
+`6cab9e0a4090df19fc5c3cc5a8e93122413160f523e032367ec25849567abab6`.
+O mantenedor aprovou explicitamente esse hash em 2026-08-14. Os mesmos bytes
+foram congelados sob custódia externa com 409 registros; labels e texto-fonte
+não entraram no Git. Em seguida, PT3 foi autorizado e implementado em TDD. O
+pacote `hermes_lint` não importa a linha inglesa, o catálogo expõe somente
+`HERMES-PT-PONT-001` e os 36 casos adjudicados do conjunto de desenvolvimento
+passam; os quatro casos `ambiguous` continuam fora da asserção. O detector não
+está congelado: falta a revisão Grok do código, bloqueada até autorização
+explícita para transmitir os paths PT3. A primeira execução no holdout continua
+exigindo outro gate depois do congelamento.
 
 ### Invariantes vigentes
 

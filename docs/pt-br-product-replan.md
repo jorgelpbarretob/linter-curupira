@@ -79,7 +79,7 @@ Definition of Done:
 - identidade e licenças aprovadas pelo mantenedor;
 - uma única candidata é escolhida para o próximo WIP.
 
-### PT2 — corpus e protocolo de avaliação — WIP vigente
+### PT2 — corpus e protocolo de avaliação — lado de corpus concluído
 
 Progresso: ADR-018, guia e piloto de 40 casos aceitos. O arquivo de
 desenvolvimento v1 está congelado; challenge e holdout ainda não existem e o
@@ -100,7 +100,7 @@ Aceite:
 - labels congeladas e revisadas antes da primeira execução do detector;
 - conteúdo confidencial ausente dos artefatos públicos.
 
-### PT3 — migração do núcleo independente de idioma
+### PT3 — migração do núcleo independente de idioma — WIP vigente
 
 Entregáveis:
 
@@ -234,7 +234,9 @@ Aceite:
 
 ## Próxima autorização necessária
 
-PT0 e PT1 estão concluídos. PT2 prepara labels sem executar o detector. A
-próxima autorização deve aceitar o ADR-018, o guia de anotação e cada label do
-lote-piloto; depois disso o arquivo será congelado. Essa aprovação ainda não
-autoriza migração de código, que permanece em PT3.
+PT0 e PT1 estão concluídos; corpus e labels de PT2 foram congelados. PT3 foi
+autorizado e a implementação local está pronta, mas não congelada. A próxima
+autorização deve permitir o envio somente dos paths PT3 e do corpus sintético de
+desenvolvimento ao Grok para revisão externa. Holdout, labels e custódia ficam
+excluídos. Depois da revisão, correções e congelamento, uma autorização distinta
+será necessária para a primeira execução isolada no holdout.

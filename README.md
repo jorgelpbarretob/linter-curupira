@@ -1,153 +1,101 @@
-# ste-lint
+# Hermes
 
-> **Pivot de produto:** o executável deste repositório ainda é o protótipo
-> inglês congelado. A direção vigente é o Hermes, linter open source nativo para
-> português brasileiro. Não há migração parcial de pacote ou CLI nesta etapa.
-> Consulte o [replan pt-BR](docs/pt-br-product-replan.md), o
-> [ADR-016](docs/adr/0016-portuguese-first-and-maritaca-roles.md) e a
-> [especificação proposta 0.1](docs/hermes-controlled-portuguese-spec-0.1.md).
+Hermes é um linter open source, local-first, para documentação técnica em
+português brasileiro. O projeto usa uma especificação autoral de português
+técnico controlado; não traduz a ASD-STE100, não certifica documentos e não
+substitui revisão técnica ou linguística humana.
 
-`ste-lint` is a local-first Python linter that helps technical authors find a
-carefully selected, traceable subset of detectable ASD-STE100 Issue 9 concerns.
-It is an authoring aid: it does not certify documents, replace the official
-standard, or claim ASD/STEMG approval.
+O incremento atual oferece uma regra determinística em status `preview`:
+`HERMES-PT-PONT-001`, que detecta o caractere ponto e vírgula em prosa lintável.
+Código, destinos de links, URLs, metadados e outras regiões Markdown suportadas
+são excluídos antes da análise. A regra não sugere nem aplica correção.
 
-Phases 1–6 are complete. Phase 4 provides five deterministic Issue 9 rules as
-explicitly opt-in `preview` checks. Phase 5 adds an external, versioned
-Vocabulary Engine without shipping normative data. Phase 6 adds two optional
-NLP preview rules backed by a pinned local model. No rule is `stable` yet, and
-absence of diagnostics does not mean full compliance.
+Ausência de diagnósticos significa somente que as regras habilitadas não
+encontraram ocorrências no escopo que conseguem analisar.
 
-## Requirements
+## Requisitos e desenvolvimento
 
-- Python 3.12 or newer; the local environment is pinned by `.python-version`
-- `uv` 0.11.14; `pyproject.toml` rejects a different uv version
+- Python 3.12 ou mais recente;
+- `uv` 0.11.14, fixado em `pyproject.toml`;
+- nenhuma dependência de runtime no pacote-base.
 
-The base package has no runtime dependencies. NLP is an explicit extra; LLM
-SDKs, the official vocabulary, and network access are not part of the default
-lint path.
-
-## Development
-
-```powershell
+```bash
 uv sync --locked
 uv run pytest
 uv run ruff check .
 uv run ruff format --check .
-uv run mypy src
-uv run ste --help
-uv run ste lint
+uv run mypy src/hermes_lint
+uv run hermes --help
 ```
 
-Install the reproducible optional NLP environment only when evaluating NLP
-rules:
+O lint determinístico é offline. O pacote-base não baixa modelos e não chama
+provedores remotos.
 
-```powershell
-uv sync --locked --extra nlp --group nlp-model
+## Uso
+
+Regras `preview` ficam desabilitadas por padrão e precisam de opt-in explícito:
+
+```bash
+uv run hermes lint procedimento.md --enable-rule HERMES-PT-PONT-001
+uv run hermes lint procedimento.md --enable-rule HERMES-PT-PONT-001 --format json
+uv run hermes --rules
+uv run hermes --explain HERMES-PT-PONT-001
 ```
 
-Lint one UTF-8 document with deterministic text or JSON output:
-
-```powershell
-uv run ste lint manual.md
-uv run ste lint manual.md --format json
-uv run ste lint manual.md --config ste-lint.toml
-uv run ste --rules
-uv run ste --explain STE-I9-PUNCT-001
-```
-
-The project configuration is explicit and strict:
+A configuração TOML é explícita e estrita:
 
 ```toml
 schema_version = 1
-text_type = "procedural" # procedural | descriptive | procedural-note
 
 [rules]
-enable = ["STE-I9-PUNCT-001"]
+enable = ["HERMES-PT-PONT-001"]
 disable = []
-
-[glossary]
-terms = ["bleed-air valve", "ZX-4 controller"]
-
-[vocabulary]
-path = "C:/local/ste-vocabulary-cache/<source_sha256>.json"
-
-[nlp]
-backend = "spacy"
-model_package = "en_core_web_sm"
-model_version = "3.8.0"
 ```
 
-CLI `--enable-rule ID` and `--disable-rule ID` override the file. There is no
-implicit or global configuration. Unknown keys and IDs are operational errors.
-`--text-type` overrides the file. The local glossary is passed to rules as a
-project allowlist. It is not the official STE vocabulary and does not enable a
-vocabulary-compliance claim.
+Use-a com `--config hermes.toml`. Opções `--enable-rule` e `--disable-rule` da
+CLI têm precedência sobre o arquivo. Chaves e IDs desconhecidos causam erro
+operacional; não há descoberta silenciosa de configuração global.
 
-Import only source JSON that you are authorized to process:
+Uma baseline armazena somente fingerprints SHA-256, sem trechos do documento:
 
-```powershell
-uv run ste vocabulary import-json authorized-source.json `
-  --cache-dir C:\local\ste-vocabulary-cache `
-  --confirm-authorized
-uv run ste lint manual.md --vocabulary `
-  C:\local\ste-vocabulary-cache\<source_sha256>.json
+```bash
+uv run hermes lint procedimento.md --enable-rule HERMES-PT-PONT-001 \
+  --write-baseline hermes-baseline.json
+uv run hermes lint procedimento.md --enable-rule HERMES-PT-PONT-001 \
+  --baseline hermes-baseline.json
 ```
 
-The importer accepts the project-defined JSON source format only. It does not
-extract PDF/DOCX files, access a network, retain source bytes, or authorize
-redistribution. See [`docs/vocabulary-contract.md`](docs/vocabulary-contract.md).
-Phase 5 gate evidence is in [`docs/f5-validation.md`](docs/f5-validation.md).
-
-All five rules remain disabled by default because they are `preview`. Enable
-only the rules you want to evaluate:
-
-| Rule ID | Coverage |
-|---|---|
-| `STE-I9-PUNCT-001` | semicolons in lintable prose |
-| `STE-I9-SENT-001` | unambiguously countable procedural sentences above 20 words |
-| `STE-I9-SENT-002` | unambiguously countable descriptive sentences above 25 words |
-| `STE-I9-PARA-001` | unambiguous descriptive paragraphs above six sentences |
-| `STE-I9-LIST-001` | narrow direct Markdown list lead-ins containing `these` |
-| `STE-I9-VOICE-001` | conservative parser-confirmed passive constructions |
-| `STE-I9-NOTE-001` | imperative roots in declared procedural notes |
-
-Sentence and paragraph rules abstain when `text_type` is missing or does not
-match. Ambiguous counting constructs also cause abstention.
-
-Create and apply a content-based baseline:
-
-```powershell
-uv run ste lint manual.md --enable-rule STE-I9-PUNCT-001 `
-  --write-baseline ste-baseline.json
-uv run ste lint manual.md --enable-rule STE-I9-PUNCT-001 `
-  --baseline ste-baseline.json
-```
-
-The baseline stores only SHA-256 fingerprints, not document excerpts. It
-suppresses reporting after every rule and diagnostic has executed and passed
-validation.
-
-Exit codes:
-
-| Code | Meaning |
+| Código | Resultado |
 |---:|---|
-| `0` | execution succeeded and emitted no diagnostics |
-| `1` | execution succeeded and emitted diagnostics |
-| `2` | configuration, input, catalog, parser, or rule execution failed |
+| `0` | execução concluída sem diagnóstico remanescente |
+| `1` | execução concluída com diagnóstico |
+| `2` | erro operacional de configuração, entrada, catálogo ou parser |
 
-The parser accepts decoded Unicode text for `.txt`, `.md`, and `.markdown`
-documents. See [`docs/parsing-contract.md`](docs/parsing-contract.md) for the
-supported Markdown subset, offset model, and conservative abstention behavior.
-The engine, configuration, reporting schema, and failure model are documented in
-[`docs/engine-contract.md`](docs/engine-contract.md).
-Corpus metrics and limitations are in
-[`docs/f4-evaluation.md`](docs/f4-evaluation.md).
-Phase 6 NLP metrics and limitations are in
-[`docs/f6-evaluation.md`](docs/f6-evaluation.md).
+O parser aceita UTF-8 em `.txt`, `.md` e `.markdown`, preserva offsets por ponto
+de código Unicode e mantém LF/CRLF sem normalização.
 
-## Licensing and normative data
+## Especificação, avaliação e limites
 
-The code is licensed under Apache-2.0. ASD-STE100, its rules, examples, and
-dictionary are not included or licensed by this repository. Official vocabulary
-is a bring-your-own external resource and must not be committed to Git.
+- [Especificação Hermes 0.1](docs/hermes-controlled-portuguese-spec-0.1.md)
+- [Taxonomia de regras](docs/hermes-rule-taxonomy.md)
+- [Replan do produto](docs/pt-br-product-replan.md)
+- [Protocolo do corpus de HERMES-PT-PONT-001](docs/hermes-pt2-corpus-protocol.md)
+
+O corpus de desenvolvimento é sintético e público. O primeiro holdout é mantido
+sob custódia separada e não é usado para implementar ou ajustar o detector.
+Resultados de holdout só serão publicados depois dos gates explícitos de
+congelamento, execução única e avaliação.
+
+## Linha inglesa histórica
+
+O diretório `src/ste_lint` e seus testes registram o protótipo inglês congelado
+e não fazem parte do pacote `hermes-lint`. A decisão e a evidência de encerramento
+estão em [ADR-016](docs/adr/0016-portuguese-first-and-maritaca-roles.md) e
+[Fechamento da linha inglesa](docs/english-line-closure.md).
+
+## Licenças
+
+Código, configuração executável e testes de software usam Apache-2.0. A
+especificação Hermes, a documentação linguística e o corpus autoral usam CC BY
+4.0. Textos de terceiros preservam a licença da fonte e não são relicenciados
+pelo projeto. Consulte [a política de identidade e licenças](docs/hermes-identity-and-licensing.md).

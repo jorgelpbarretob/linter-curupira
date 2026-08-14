@@ -4,22 +4,34 @@ Estas instruções são específicas deste projeto e complementam as instruçõe
 
 ## Estado do projeto
 
-O pivot pt-BR foi aceito em 2026-08-13 e está registrado no `ADR-016`. O código
-existente ainda representa a linha inglesa congelada. Leia `PLANS.md` por
-completo antes de agir. PT1 está aceito. O WIP vigente é `PT2 — corpus e
-protocolo de avaliação`, limitado a `HERMES-PT-PONT-001`; não execute o linter,
-migre contratos, implemente regras pt-BR nem chame a Maritaca antes de labels
-humanamente aprovadas, congelamento e autorização explícita.
+O pivot pt-BR foi aceito em 2026-08-13 e está registrado no `ADR-016`. Leia
+`PLANS.md` por completo antes de agir. PT1 está aceito. O lado de corpus de
+`PT2 — corpus e protocolo de avaliação`, limitado a `HERMES-PT-PONT-001`, foi
+congelado em 2026-08-14. PT3 foi autorizado pelo mantenedor em 2026-08-14. A
+migração local e a implementação TDD existem em `src/hermes_lint`, mas o
+detector ainda não foi revisado externamente nem congelado. Não execute o
+holdout antes desses gates e de nova autorização explícita.
 
-O piloto de 40 labels já foi aceito e congelado. A fonte de holdout atualmente
-proposta é o snapshot pt-BR do Kubernetes documentado em
-`docs/hermes-pt2-holdout-source-assessment.md`; não gere manifesto ou labels e
-não execute o linter antes da aprovação humana dessa proposta.
+O piloto de 40 labels já foi aceito e congelado. O snapshot pt-BR do Kubernetes
+foi aceito como fonte de holdout em 2026-08-14 e o manifesto sem labels foi
+congelado conforme `docs/hermes-pt2-holdout-source-assessment.md`. Não gere
+labels, não execute o linter e não use casos do holdout para ajustar detector,
+prompt, threshold ou fixture antes dos gates humanos restantes.
+O pacote de revisão cega foi preparado fora do repositório com 409 decisões
+`pending-human-review`; ele não é ground truth até revisão e adjudicação humanas.
+Em 2026-08-14, o mantenedor autorizou Grok como revisor delegado e aprovou a
+emenda operacional em `docs/hermes-pt2-grok-review-protocol.md`. A revisão Grok
+foi concluída sem fila crítica e materializou um ground-truth candidato sob
+custódia separada; não o trate como congelado antes da aprovação humana final
+do SHA-256 registrado no plano.
+O mantenedor aprovou esse hash em 2026-08-14 e os bytes foram congelados sob
+custódia externa. Labels não entram no Git nem podem orientar a implementação;
+a primeira execução exige autorização separada depois do detector congelado.
 
-A identidade alvo aceita é: produto Hermes, repositório `hermes-STL-IA-PT`,
-pacote `hermes_lint`, CLI `hermes` e namespace `HERMES-PT-*`. Os nomes ingleses no
-código continuam transitórios até PT3; não faça renomeação parcial fora desse
-incremento.
+A identidade aceita e aplicada à distribuição é: produto Hermes, repositório
+`hermes-STL-IA-PT`, pacote `hermes_lint`, CLI `hermes` e namespace
+`HERMES-PT-*`. `src/ste_lint` permanece somente como linha histórica congelada
+e não entra no wheel Hermes.
 
 ## Missão
 
