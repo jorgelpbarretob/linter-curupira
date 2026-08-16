@@ -35,9 +35,12 @@ proposta autoral v2 corrigiu sete inconsistências, passou validação mecânica
 recebeu três votos válidos `approve` em 160/160 casos. O corpus canônico foi
 congelado com SHA-256
 `45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`.
-O próximo WIP é o harness PT4. Adapter de produto, escolha de backend e PT5
-continuam fechados; inferência só ocorre depois do harness validado conforme o
-protocolo.
+O harness PT4 foi implementado em TDD, congelado e aprovado por unanimidade do
+painel em 2026-08-16. Código, testes, projeções e hashes estão em
+`docs/hermes-pt4-harness-v1.md` e `artifacts/hermes/pt4-harness/`. O próximo WIP
+é o adapter experimental spaCy fora do caminho de produção. Escolha de backend,
+porta de produto e PT5 continuam fechadas; nenhuma inferência candidata ocorreu
+neste incremento.
 
 O piloto de 40 labels já foi aceito e congelado. O snapshot pt-BR do Kubernetes
 foi aceito como fonte de holdout em 2026-08-14 e o manifesto sem labels foi

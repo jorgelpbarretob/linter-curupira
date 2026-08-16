@@ -1,0 +1,5 @@
+09d79236e96b998e6f02a65b52feab505870a01db25975960ce3bed265c871cf  tools/hermes/pt4_bakeoff_harness.py
+39e59e27af7f23738b0fb41512018cb812fa5b54ae9af18a66d8f08c5cf2c415  tests/test_hermes_pt4_bakeoff_harness.py
+50a389dd43884e8c41958d37a558502cf3c98095df5dceada259a1deefdb8860  artifacts/hermes/pt4-harness/harness-manifest-v1.json
+6dc86e99ab590044606c9a3e5da4e5e0cba84e1b8dc908b218db9828e3ffd42d  artifacts/hermes/pt4-harness/model-panel-review-v1.json
+90928d0b0a48fca2e1733ed71c1a5f09639ee0620f4085bfd12df584fb3ef316  docs/hermes-pt4-harness-v1.md

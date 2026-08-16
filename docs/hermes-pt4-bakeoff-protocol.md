@@ -250,15 +250,15 @@ Não há parada antecipada. Falha operacional de um candidato é resultado; uma
 - decisão `accepted`, `single-qualified-candidate`, `insufficient-evidence` ou
   `rework`.
 
-## Estado da abertura documental
+## Estado pré-inferência
 
-Este documento apenas abre PT4 e pré-registra o bake-off. Nenhum modelo foi
-baixado ou executado, nenhum corpus PT4 foi criado, nenhuma dependência entrou
-no projeto e nenhuma regra foi implementada.
+Este documento abriu PT4 e pré-registrou o bake-off antes de qualquer saída
+candidata. Gate 0, corpora/ambiente e harness já concluíram seus incrementos;
+nenhuma dependência entrou no produto e nenhuma regra PT5 foi implementada.
 
 O gate documental foi aceito com condições pelo revisor Grok em 2026-08-16.
-Antes da primeira inferência, o manifesto do futuro harness também deve fixar o
-envelope ouro de sentença como o menor intervalo Unicode da primeira à última
+Antes da primeira inferência, o manifesto do harness fixou o envelope ouro de
+sentença como o menor intervalo Unicode da primeira à última
 `SurfaceToken`, com fixture hash-congelada, e limitar métricas linguísticas aos
 casos com análise ouro alinhável. Abstenção contratual é reportada somente em
 `abstention/unsupported`; não pode remover caso difícil nem inflar as demais
@@ -275,10 +275,22 @@ licença. Nenhum desses atos seleciona backend ou abre as etapas seguintes.
 O incremento seguinte congelou PetroGold `r2.18`, o ambiente de referência e
 uma proposta autoral de 160 casos, conforme
 `docs/hermes-pt4-corpora-environment-v1.md`. A proposta v1 recebeu revisão Kimi;
-sete achados linguísticos confirmados originaram a v2. A etapa 2 só termina com
-validação mecânica e unanimidade do painel ADR-020; até lá, harness, adapter e
-inferência continuam fechados.
+sete achados linguísticos confirmados originaram a v2. Validação mecânica e
+unanimidade do painel ADR-020 congelaram o corpus canônico.
+
+O incremento posterior implementou o harness stdlib-only em TDD. Ele projeta os
+dois ouros, valida envelopes/partições, MWT, `SpaceAfter=No`, heads, shape e
+abstenção, e pontua somente outputs precomputados. Três projeções de cada corpus
+produziram hashes idênticos. Maritaca, Grok e Kimi 2.7 aprovaram o snapshot
+final sem findings; manifesto e cadeia de custódia estão em
+`docs/hermes-pt4-harness-v1.md` e `artifacts/hermes/pt4-harness/`.
+
+Nenhuma saída candidata ou inferência foi produzida. O próximo WIP é o adapter
+experimental spaCy fora do caminho de produto. Seleção de backend, porta de
+produto e PT5 continuam fechadas.
 
 ## Sources
 
 [1] https://universaldependencies.org/treebanks/pt_petrogold/index.html — UD Portuguese PetroGold
+[2] https://universaldependencies.org/format.html — CoNLL-U format
+[3] https://universaldependencies.org/misc.html — token-level `SpaceAfter=No`

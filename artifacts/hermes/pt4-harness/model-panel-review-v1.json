@@ -1,0 +1,93 @@
+{
+  "schema_version": "hermes-pt4-harness-panel-audit/v1",
+  "status": "approved-unanimous",
+  "reviewed_on": "2026-08-16",
+  "snapshot": {
+    "harness_path": "tools/hermes/pt4_bakeoff_harness.py",
+    "harness_sha256": "09d79236e96b998e6f02a65b52feab505870a01db25975960ce3bed265c871cf",
+    "tests_path": "tests/test_hermes_pt4_bakeoff_harness.py",
+    "tests_sha256": "39e59e27af7f23738b0fb41512018cb812fa5b54ae9af18a66d8f08c5cf2c415",
+    "adr_019_sha256": "43daa09a3f2a8a33b7139c4dc2e97ff55cbfe98a1e3f094e7d4f530ec21214bb",
+    "protocol_sha256": "4f2f3a823272a8a634dcd7c25d6fda0d21d3e242bc98fd9272b1e946ae179bb4",
+    "prompt_sha256": "0f6cfe6f7301a47de17582db1c0f3873de6b654a7138673aa7bf2dcf6fbeb082",
+    "base_schema_sha256": "605d71f1a0561b47101ae0dbf5ff09465a3d3555eb833548be611edc0744db4d",
+    "grok_conditional_schema_sha256": "3d9144959ffbf1276ba0629c9f9c77218b3ac565b9920c497a4ee21614fdb375"
+  },
+  "providers": {
+    "maritaca": {
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "response_id": "resp-4e7efbbdbfa344e8bed99ad6",
+      "status": "completed",
+      "input_tokens": 20594,
+      "output_tokens": 4436,
+      "reasoning_tokens": 4344,
+      "raw_response_sha256": "bb7db8bedda1e1c05acabc3819447b3363e76b3e37faabf0abcfe14c60c34e10",
+      "vote_sha256": "d7ec6b69a5b7d49451050ce90adc3de40729cc68dd94b123aa7b3a9a3f9a7cb7",
+      "verdict": "approve",
+      "findings": 0
+    },
+    "grok": {
+      "model_requested": "grok-4.6",
+      "model_returned_observed": "grok-4.6-build",
+      "model_returned_in_vote": "grok-4.6",
+      "request_id": "eb67dfb7-b00f-45ee-855f-6447467cb772",
+      "session_id": "01a00b88-d49f-7020-af4c-9cf73efe0d26",
+      "stop_reason": "end_turn",
+      "input_tokens": 60822,
+      "output_tokens": 8751,
+      "reasoning_tokens": 8667,
+      "cost_usd": 0.0296055,
+      "raw_response_sha256": "eeb0602ae7e47f0865468c3cba2c4e8dce06a2a0ff786eb1efcbd97005541928",
+      "vote_sha256": "6cdb7bab69a27bcac530d7afd32da1890ecd82e58e95138e5a31ced0bcd6d8a1",
+      "verdict": "approve",
+      "findings": 0
+    },
+    "kimi": {
+      "model_requested": "kimi-k2.7-code:cloud",
+      "model_returned_observed": "kimi-k2.7-code",
+      "model_returned_in_vote": "kimi-k2.7-code:cloud",
+      "transport": "Ollama local API to cloud model",
+      "full_review": {
+        "prompt_tokens": 20906,
+        "output_tokens": 25674,
+        "duration_ns": 142504547149,
+        "raw_response_sha256": "8240375315f6a6fd903b625c8b46c6a151a8ede4b673df5b7236574dc9f99c4e"
+      },
+      "deterministic_revote": {
+        "prompt_tokens": 27705,
+        "output_tokens": 1805,
+        "duration_ns": 13503937590,
+        "raw_response_sha256": "a5ef69802f957a6d6758a435c5011b2260e2700932e7cbb483acc07301096ee1"
+      },
+      "schema_repair": {
+        "prompt_tokens": 120,
+        "output_tokens": 68,
+        "duration_ns": 875447373,
+        "raw_response_sha256": "a0595b85867a9d077c75cfc0bc1b3461b17aa3779a178a5fd1f1ecaffd742097"
+      },
+      "vote_sha256": "58d6f20c19160ade907f9b3b0783c79a07e6546526fbba350c4ee7e8bf64ee0a",
+      "verdict": "approve",
+      "findings": 0
+    }
+  },
+  "adjudication": {
+    "executor_changed_decisions": false,
+    "grok_schema_change": "Added only approve/empty and change-required/nonempty consistency; provider still chose the verdict.",
+    "kimi_revote": "Kimi itself accepted deterministic evidence, changed its verdict to approve, and re-emitted the same vote with the three required boundary names.",
+    "official_conllu_evidence": "FORM is exempt from the format-level no-space constraint; FEATS underscore is the empty list; SpaceAfter on an MWT belongs to the MWT line.",
+    "historical_attempts": "Earlier snapshots and transport-invalid outputs remain under external custody and were not counted as final votes. Confirmed findings were fixed in TDD before v5."
+  },
+  "validation": {
+    "strict_shape": "pass",
+    "unanimous": true,
+    "findings_total": 0,
+    "reviewed_snapshot_bijection": "pass"
+  },
+  "confirmed_boundaries": {
+    "candidate_outputs_seen": false,
+    "pont_001_data_seen": false,
+    "inference_authorized": false
+  },
+  "raw_custody": "/home/jorge/.hermes/pt4-harness/20260816-review-v5"
+}

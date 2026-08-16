@@ -1,6 +1,6 @@
 # Hermes — plano de desenvolvimento do linter pt-BR
 
-Status: PT4 aberto documentalmente; HERMES-PT-PONT-001 permanece `preview`
+Status: PT4 harness congelado; HERMES-PT-PONT-001 permanece `preview`
 Base pretendida: especificação autoral e aberta de português técnico controlado
 Última revisão: 2026-08-16
 
@@ -160,8 +160,9 @@ O parecer está em
 spaCy está `eligible` somente para o bake-off; Stanza está
 `ineligible-license` sem aquisição.
 Nenhum candidato foi escolhido e nenhuma dependência entrou no produto. O
-harness PT4 é o próximo WIP; inferência, adapter e PT5 permanecem fechados até
-sua validação.
+harness PT4 foi implementado em TDD, validado mecanicamente e aprovado por
+unanimidade do painel. O adapter experimental spaCy é o próximo WIP; escolha de
+backend, porta de produto e PT5 permanecem fechadas.
 
 O WIP=1 de corpora/ambiente materializou PetroGold `r2.18`, fixou o ambiente de
 referência e produziu uma proposta autoral com 160 casos, 40 por família. O
@@ -172,8 +173,14 @@ contrato; a proposta v2 corrigiu esses casos sem consultar saída de candidato.
 Validação mecânica e Maritaca, Grok e Kimi 2.7 aprovaram 160/160. O corpus
 canônico foi congelado com SHA-256
 `45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`.
-Não há gate humano. O WIP avança para implementação do harness, ainda sem
-inferência.
+Não há gate humano. O harness stdlib-only projeta os dois ouros, pontua outputs
+precomputados, aplica gates e falha fechado sem importar backend ou produto.
+Três projeções de cada corpus produziram hashes idênticos, 34 regressões passam
+e Maritaca, Grok e Kimi 2.7 aprovaram o snapshot final sem findings. Evidência:
+[`docs/hermes-pt4-harness-v1.md`](docs/hermes-pt4-harness-v1.md) e
+[`artifacts/hermes/pt4-harness/`](artifacts/hermes/pt4-harness/). Nenhuma saída
+candidata ou inferência foi produzida. O WIP avança para o adapter experimental
+spaCy.
 
 ### Invariantes vigentes
 

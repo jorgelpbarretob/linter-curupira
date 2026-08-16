@@ -1,0 +1,104 @@
+{
+  "schema_version": "hermes-pt4-harness-manifest/v1",
+  "status": "model-panel-approved",
+  "frozen_on": "2026-08-16",
+  "protocol": "hermes-pt4-bakeoff/v1",
+  "implementation": {
+    "path": "tools/hermes/pt4_bakeoff_harness.py",
+    "sha256": "09d79236e96b998e6f02a65b52feab505870a01db25975960ce3bed265c871cf",
+    "test_path": "tests/test_hermes_pt4_bakeoff_harness.py",
+    "test_sha256": "39e59e27af7f23738b0fb41512018cb812fa5b54ae9af18a66d8f08c5cf2c415",
+    "analysis_schema": "hermes-pt4-linguistic-analysis/v1",
+    "metrics_schema": "hermes-pt4-bakeoff-metrics/v1",
+    "quality_gate_schema": "hermes-pt4-quality-gate/v1",
+    "stdlib_only": true,
+    "product_imports": false,
+    "backend_imports": false
+  },
+  "inputs": {
+    "petrogold": {
+      "path": "corpus/hermes/pt4/pt_petrogold-ud-test-r2.18.conllu",
+      "sha256": "069a43e29462ac24f876c43affcd12b519e2aa650b934f8591d67dae8a993f5d",
+      "documents": 2,
+      "sentences": 1039,
+      "surface_tokens": 27453,
+      "syntactic_words": 29623
+    },
+    "offset_corpus": {
+      "path": "corpus/hermes/pt4/pt4-offset-development-v1.jsonl",
+      "sha256": "45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d",
+      "cases": 160,
+      "surface_tokens": 872,
+      "syntactic_words": 915,
+      "structural_abstentions": {
+        "total": 36,
+        "structural-markup": 12,
+        "partial-structural-markup": 24
+      }
+    }
+  },
+  "gold_projection": {
+    "petrogold": {
+      "run_sha256": [
+        "18b5a2d3d8475e2ce9546bf62ac5cde7450c45a0580bbdc93a46ec29787b5440",
+        "18b5a2d3d8475e2ce9546bf62ac5cde7450c45a0580bbdc93a46ec29787b5440",
+        "18b5a2d3d8475e2ce9546bf62ac5cde7450c45a0580bbdc93a46ec29787b5440"
+      ],
+      "deterministic": true
+    },
+    "offset_corpus": {
+      "run_sha256": [
+        "884c2a890ef680105266d38df6fe34d482804301627e2d907750c467ed38f48f",
+        "884c2a890ef680105266d38df6fe34d482804301627e2d907750c467ed38f48f",
+        "884c2a890ef680105266d38df6fe34d482804301627e2d907750c467ed38f48f"
+      ],
+      "deterministic": true
+    }
+  },
+  "self_checks": {
+    "petrogold_metrics_sha256": "665cc62f1a985d5c635ce0c8ae5f29932d03215fc3e5c3286bfe73ee8743638e",
+    "offset_metrics_sha256": "dc32a7930e9a09665fa28588e0d2ed877a5ce8b29d541aec8c13e4aef46dcaae",
+    "petrogold": {
+      "offset_errors": 0,
+      "aligned_words": 29623,
+      "unaligned_gold_words": 0,
+      "unaligned_candidate_words": 0,
+      "all_applicable_metrics": 1.0
+    },
+    "offset_corpus": {
+      "offset_errors": 0,
+      "aligned_words": 915,
+      "unaligned_gold_words": 0,
+      "unaligned_candidate_words": 0,
+      "token_f1": 1.0,
+      "sentence_f1": 1.0,
+      "linguistic_metrics": null
+    },
+    "interpretation": "Fixture self-check only; not candidate performance evidence."
+  },
+  "validation": {
+    "targeted_tests": "34 passed",
+    "full_suite": "357 passed; 4 expected NLP skips",
+    "ruff_check": "pass",
+    "ruff_format_check": "pass",
+    "mypy_hermes": "pass",
+    "offline_cli_smoke": "pass",
+    "git_diff_check": "pass"
+  },
+  "review": {
+    "path": "artifacts/hermes/pt4-harness/model-panel-review-v1.json",
+    "status": "approved-unanimous"
+  },
+  "boundaries": {
+    "candidate_outputs_seen": false,
+    "candidate_inference_executed": false,
+    "backend_selected": false,
+    "product_adapter_added": false,
+    "product_dependency_added": false,
+    "pont_001_data_seen": false,
+    "pt5_opened": false,
+    "inference_authorized_by_this_manifest": false
+  },
+  "next_wip": "experimental-spacy-adapter",
+  "raw_custody": "/home/jorge/.hermes/pt4-harness/20260816-gold-v5"
+}

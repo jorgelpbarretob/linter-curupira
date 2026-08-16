@@ -12,3 +12,8 @@ wheel base do projeto e não autorizam PT5.
 `pt4-corpora/` registra provas pequenas do incremento de corpora e ambiente. Os
 corpora em si ficam em `corpus/hermes/pt4/`; propostas novas só se tornam
 canônicas após validação mecânica e unanimidade do painel do ADR-020.
+
+`pt4-harness/` fixa o harness stdlib-only, seus testes, projeções ouro,
+self-checks e votos do painel. Outputs grandes e respostas brutas permanecem
+sob custódia externa; nenhum arquivo desse diretório é desempenho de candidato
+ou autorização de inferência.

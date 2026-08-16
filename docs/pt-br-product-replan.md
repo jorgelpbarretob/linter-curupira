@@ -127,14 +127,16 @@ Aceite:
 Progresso: WIP aberto em 2026-08-16. O ADR-019 define a porta,
 as unidades superfície/palavra, a projeção exata de offsets e o isolamento de
 falhas. `docs/hermes-pt4-bakeoff-protocol.md` pré-registra candidatos, corpora,
-métricas, gates, incerteza e desempate. Gate 0 e o corpus/ambiente estão
-congelados; nenhuma regra PT5 foi aberta.
+métricas, gates, incerteza e desempate. Gate 0, corpus/ambiente e harness
+pré-inferência estão congelados; nenhuma regra PT5 foi aberta.
 
 O ADR-020 removeu o gate humano. A proposta de offsets v2 passou validação
 mecânica e recebeu três votos `approve` em 160/160 casos de
 `sabia-4-thinking`, `grok-4.6` e `kimi-k2.7-code:cloud`. O corpus canônico tem
-SHA-256 `45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`;
-o harness é o próximo WIP e ainda não executa inferência.
+SHA-256 `45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`.
+O harness stdlib-only recebeu três votos `approve`, projeta os dois ouros com
+hash triplo idêntico e pontua somente outputs precomputados. Nenhuma inferência
+foi executada; o adapter experimental spaCy é o próximo WIP.
 
 Entregáveis:
 
@@ -255,24 +257,23 @@ Aceite:
 ## Próximo estado operacional
 
 PT0, PT1 e PT3 estão concluídos; PT2 foi fechado para `HERMES-PT-PONT-001` com
-decisão `preview`; PT4 está aberto com WIP=1 somente para contrato e bake-off.
+decisão `preview`; PT4 está aberto com WIP=1 para o bake-off local.
 O gate documental foi aceito pelo Grok com condições pré-inferência registradas
 em `docs/hermes-pt4-grok-opening-review.md`. Nenhuma aprovação rotineira do
 mantenedor está pendente. Por delegação
 registrada em `docs/hermes-governance.md`, o Grok pode aprovar os gates
 operacionais seguintes quando os artefatos forem isolados e auditáveis.
 
-Gate 0 v1 foi aceito com condições pelo parecer operacional delegado. spaCy +
+Gate 0, corpora/ambiente e harness v1 estão congelados. spaCy +
 `pt_core_news_sm` está `eligible` somente para o bake-off; Stanza está
-`ineligible-license` sem download. Manifests e decisão estão em
-`docs/hermes-pt4-gate0-eligibility-v1.md` e
-`docs/hermes-pt4-gate0-grok-review-v1.md`. O próximo WIP pode congelar os
-corpora e o ambiente de referência; isso não abre harness, inferência de
-bake-off, adapter ou PT5.
+`ineligible-license` sem download. O harness passou validação mecânica e painel
+Maritaca + Grok + Kimi, conforme `docs/hermes-pt4-harness-v1.md`. O próximo WIP
+é o adapter experimental spaCy; isso ainda não escolhe backend, não abre porta
+de produto nem PT5.
 
 Os 4 FP e 15 FN deste holdout permanecem selados. Uma futura decisão explícita
 de `rework` pode movê-los para challenge, mas qualquer nova tentativa de
-promoção exigirá outro holdout independente. O próximo incremento deve executar
-o gate de elegibilidade e depois o bake-off pré-registrado, sem tratar PONT-001
-como `stable`. Licença não resolvida bloqueia somente o candidato afetado e
-continua fora da autoridade do Grok.
+promoção exigirá outro holdout independente. O próximo incremento implementa o
+adapter experimental elegível e continua o bake-off pré-registrado, sem tratar
+PONT-001 como `stable`. Licença não resolvida bloqueia somente o candidato
+afetado e continua fora da autoridade do Grok.
