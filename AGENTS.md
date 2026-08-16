@@ -17,9 +17,18 @@ PT4 foi aberto documentalmente em 2026-08-16. O contrato aceito está no
 `ADR-019`, o protocolo pré-registrado em
 `docs/hermes-pt4-bakeoff-protocol.md` e o gate Grok em
 `docs/hermes-pt4-grok-opening-review.md`. Ainda não há backend escolhido, modelo
-baixado, dependência adicionada, corpus PT4 materializado ou regra PT5 aberta.
+ou dependência integrado ao projeto, corpus PT4 materializado ou regra PT5 aberta.
 Não antecipe essas etapas. O candidato Stanza permanece condicional a um gate
 de licença que o Grok não pode resolver.
+
+Gate 0 de PT4 foi aceito com condições pelo parecer operacional delegado em
+2026-08-16. spaCy 3.8.15 + `pt_core_news_sm` 3.8.0 está `eligible` somente para
+o bake-off; Stanza está `ineligible-license` sem download. Evidência:
+`docs/hermes-pt4-gate0-eligibility-v1.md` e
+`docs/hermes-pt4-gate0-grok-review-v1.md`. O modelo spaCy foi apenas instalado e
+carregado sem texto em ambiente externo; não entrou no projeto. O próximo WIP é
+congelar os corpora e o ambiente de referência. Harness, adapter, inferência de
+bake-off, escolha de backend e PT5 continuam fechados.
 
 O piloto de 40 labels já foi aceito e congelado. O snapshot pt-BR do Kubernetes
 foi aceito como fonte de holdout em 2026-08-14 e o manifesto sem labels foi

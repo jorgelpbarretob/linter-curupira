@@ -246,7 +246,7 @@ Não há parada antecipada. Falha operacional de um candidato é resultado; uma
 - decisão `accepted`, `single-qualified-candidate`, `insufficient-evidence` ou
   `rework`.
 
-## Estado deste incremento
+## Estado da abertura documental
 
 Este documento apenas abre PT4 e pré-registra o bake-off. Nenhum modelo foi
 baixado ou executado, nenhum corpus PT4 foi criado, nenhuma dependência entrou
@@ -260,6 +260,13 @@ casos com análise ouro alinhável. Abstenção contratual é reportada somente 
 `abstention/unsupported`; não pode remover caso difícil nem inflar as demais
 métricas. Evidência e hashes estão em
 `docs/hermes-pt4-grok-opening-review.md`.
+
+O Gate 0 posterior foi aceito com condições e está registrado em
+`docs/hermes-pt4-gate0-eligibility-v1.md` e
+`docs/hermes-pt4-gate0-grok-review-v1.md`. Essa execução adquiriu somente o
+candidato spaCy fora do ambiente do projeto, instalou o wheelhouse congelado e
+carregou o modelo sem processar texto. Stanza não foi adquirido por dúvida de
+licença. Nenhum desses atos seleciona backend ou abre as etapas seguintes.
 
 ## Sources
 

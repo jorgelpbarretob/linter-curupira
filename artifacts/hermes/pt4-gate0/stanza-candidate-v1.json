@@ -1,0 +1,39 @@
+{
+  "schema_version": "hermes-pt4-candidate-gate0/v1",
+  "candidate_id": "stanza-pt-default_fast",
+  "status": "ineligible-license",
+  "evaluated_on": "2026-08-16",
+  "library": {
+    "name": "stanza",
+    "version": "1.14.0",
+    "license": "Apache-2.0",
+    "python": ">=3.9"
+  },
+  "model": {
+    "language": "pt",
+    "package": "default_fast",
+    "processors": {
+      "tokenize": "bosque",
+      "mwt": "bosque",
+      "lemma": "bosque_nocharlm",
+      "pos": "bosque_nocharlm",
+      "depparse": "bosque_nocharlm"
+    },
+    "resources_manifest_url": "https://raw.githubusercontent.com/stanfordnlp/stanza-resources/main/resources_1.14.0.json",
+    "resources_manifest_sha256": "4e41c1df152146fa26ed0c006a08feea7a60bb3414bb6d57dbda24ad2e3cb99c"
+  },
+  "blocker": {
+    "category": "licensing",
+    "authority_required": "human",
+    "reason": "The Stanza project states that licensing for models built from UD data is unclear and grants ODC-By only to the extent Stanford owns the relevant rights.",
+    "resolution": "No human resolution of the language-pack rights was supplied for this gate. Ambiguity therefore makes the candidate ineligible under hermes-pt4-bakeoff/v1."
+  },
+  "acquisition": {
+    "library_downloaded": false,
+    "language_pack_downloaded": false,
+    "installed": false,
+    "loaded": false,
+    "text_processed": false
+  },
+  "decision_scope": "excluded from this bake-off revision; may return only after explicit human license resolution and a new Gate 0 manifest"
+}

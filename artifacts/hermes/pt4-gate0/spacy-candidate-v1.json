@@ -1,0 +1,82 @@
+{
+  "schema_version": "hermes-pt4-candidate-gate0/v1",
+  "candidate_id": "spacy-pt_core_news_sm",
+  "status": "proposed-eligible",
+  "evaluated_on": "2026-08-16",
+  "environment": {
+    "python": "3.12.13",
+    "implementation": "CPython",
+    "platform": "Linux x86_64",
+    "kernel": "6.12.101+deb13-amd64",
+    "glibc": "2.41",
+    "minimum_wheel_glibc": "2.28",
+    "resolver": "pip==25.0.1"
+  },
+  "library": {
+    "name": "spacy",
+    "version": "3.8.15",
+    "license": "MIT",
+    "url": "https://files.pythonhosted.org/packages/49/3d/88004d9518c912c30140e47f930abcbc9e7240d4c2aebe52c05b7f70df79/spacy-3.8.15-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+    "bytes": 32695414,
+    "sha256": "fa9df68fc8887c0a6440b84d1d307980e594d99b45f19a37d733e58caa9a6682"
+  },
+  "model": {
+    "name": "pt_core_news_sm",
+    "version": "3.8.0",
+    "license": "CC BY-SA 4.0",
+    "url": "https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.8.0/pt_core_news_sm-3.8.0-py3-none-any.whl",
+    "bytes": 12985007,
+    "sha256": "c304fa04db3af73cd08a250feacf560506e15a2ec2469bd1b09f06847f6b455c",
+    "declared_training_sources": [
+      "UD Portuguese Bosque v2.8 — CC BY-SA 4.0",
+      "WikiNER — CC BY 4.0"
+    ]
+  },
+  "configuration": {
+    "enabled_components": [
+      "tok2vec",
+      "morphologizer",
+      "parser",
+      "lemmatizer",
+      "attribute_ruler"
+    ],
+    "excluded_components": [
+      "ner"
+    ],
+    "sentence_boundaries": "parser",
+    "device": "cpu"
+  },
+  "wheelhouse": {
+    "file_count": 45,
+    "total_bytes": 87308970,
+    "only_binary": true,
+    "manifest": "spacy-wheelhouse-v1.json",
+    "manifest_sha256": "d6dc6d3afec7c1890fdde50124e4dfdbf365adb61fc7be1a2aa73d857b311af5",
+    "hash_list": "spacy-wheelhouse-v1.sha256",
+    "hash_list_sha256": "399b0c1cd88024991d8cdf87116e5bad02bad1571a7ef211e3bdbf2366c7d728",
+    "lock": "spacy-requirements-v1.lock",
+    "lock_sha256": "c3f80b40ba45575c6f4fcf2931e1110c886f7745fa52634f864d49359f558a82",
+    "installation": "python -m pip install --no-index --find-links WHEELHOUSE --require-hashes -r spacy-requirements-v1.lock"
+  },
+  "license_audit": {
+    "artifact": "spacy-license-audit-v1.json",
+    "sha256": "8e57cfd7f9695c10246271e3b7978490c0fdb3b0cce72c2979d0a6f52f8ebf96",
+    "package_count": 45,
+    "decision": "eligible-with-redistribution-obligations"
+  },
+  "offline_load": {
+    "artifact": "spacy-load-proof-v1.json",
+    "sha256": "db35e8ba00cfd3d174d9d15f8a28a8c33bd6e7738f82f367820652cf840e1cab",
+    "pip_check": "passed",
+    "network_attempt_count": 0,
+    "text_processed": false,
+    "load_seconds": 0.651893283938989,
+    "peak_rss_kib": 143104
+  },
+  "sdk_isolation": {
+    "project_dependency_added": false,
+    "hermes_domain_imports_sdk": false,
+    "adapter_implemented": false
+  },
+  "decision_scope": "eligible for the pre-registered bake-off after delegated Gate 0 approval; not selected or accepted as production backend"
+}

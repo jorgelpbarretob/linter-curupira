@@ -1,0 +1,37 @@
+{
+  "candidate": "spacy-pt_core_news_sm",
+  "excluded_components": [
+    "ner"
+  ],
+  "load_seconds": 0.651893283938989,
+  "model_language": "pt",
+  "model_license": "CC BY-SA 4.0",
+  "model_sources": [
+    {
+      "author": "Rademaker, Alexandre; Freitas, Cláudia; de Souza, Elvis; Silveira, Aline; Cavalcanti, Tatiana; Evelyn, Wograine; Rocha, Luisa; Soares-Bastos, Isabela; Bick, Eckhard; Chalub, Fabricio; Paulino-Passos, Guilherme; Real, Livy; de Paiva, Valeria; Zeman, Daniel; Popel, Martin; Mareček, David; Silveira, Natalia; Martins, André",
+      "license": "CC BY-SA 4.0",
+      "name": "UD Portuguese Bosque v2.8",
+      "url": "https://github.com/UniversalDependencies/UD_Portuguese-Bosque"
+    },
+    {
+      "author": "Joel Nothman, Nicky Ringland, Will Radford, Tara Murphy, James R Curran",
+      "license": "CC BY 4.0",
+      "name": "WikiNER",
+      "url": "https://figshare.com/articles/Learning_multilingual_named_entity_recognition_from_Wikipedia/5462500"
+    }
+  ],
+  "model_version": "3.8.0",
+  "network_attempt_count": 0,
+  "network_attempts": [],
+  "peak_rss_kib": 143104,
+  "pipe_names": [
+    "tok2vec",
+    "morphologizer",
+    "parser",
+    "lemmatizer",
+    "attribute_ruler"
+  ],
+  "schema_version": "hermes-pt4-gate0-load/v1",
+  "spacy_version": "3.8.15",
+  "text_processed": false
+}

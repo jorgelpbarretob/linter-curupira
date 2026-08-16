@@ -251,6 +251,14 @@ mantenedor está pendente. Por delegação
 registrada em `docs/hermes-governance.md`, o Grok pode aprovar os gates
 operacionais seguintes quando os artefatos forem isolados e auditáveis.
 
+Gate 0 v1 foi aceito com condições pelo parecer operacional delegado. spaCy +
+`pt_core_news_sm` está `eligible` somente para o bake-off; Stanza está
+`ineligible-license` sem download. Manifests e decisão estão em
+`docs/hermes-pt4-gate0-eligibility-v1.md` e
+`docs/hermes-pt4-gate0-grok-review-v1.md`. O próximo WIP pode congelar os
+corpora e o ambiente de referência; isso não abre harness, inferência de
+bake-off, adapter ou PT5.
+
 Os 4 FP e 15 FN deste holdout permanecem selados. Uma futura decisão explícita
 de `rework` pode movê-los para challenge, mas qualquer nova tentativa de
 promoção exigirá outro holdout independente. O próximo incremento deve executar

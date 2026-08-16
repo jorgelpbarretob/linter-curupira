@@ -146,6 +146,20 @@ Grok. Artefatos:
   com `approve_with_conditions` e gate `open_pt4_documentation` sobre o bundle
   v2; as condições pré-inferência são vinculantes.
 
+Gate 0 foi aceito com condições em 2026-08-16. O wheelhouse spaCy foi congelado
+fora do repositório; manifests, lock, licenças e prova de
+carga sem texto estão em
+[`artifacts/hermes/pt4-gate0/`](artifacts/hermes/pt4-gate0/) e
+[`docs/hermes-pt4-gate0-eligibility-v1.md`](docs/hermes-pt4-gate0-eligibility-v1.md).
+O parecer está em
+[`docs/hermes-pt4-gate0-grok-review-v1.md`](docs/hermes-pt4-gate0-grok-review-v1.md).
+spaCy está `eligible` somente para o bake-off; Stanza está
+`ineligible-license` sem aquisição.
+Nenhum candidato foi escolhido, nenhuma dependência entrou no produto e as
+etapas de harness, inferência de bake-off, adapter e PT5 permanecem fechadas. O
+WIP=1 seguinte é criar, revisar e congelar os corpora e o ambiente de
+referência.
+
 ### Invariantes vigentes
 
 - o linter determinístico continua utilizável offline e sem credenciais;
