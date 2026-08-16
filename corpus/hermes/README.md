@@ -61,6 +61,12 @@ Este holdout está consumido. Seus 19 erros não podem orientar mudança de
 detector neste ciclo. Se forem abertos por um `rework` explícito, tornam-se
 challenge e uma futura decisão de promoção exige novo holdout independente.
 
+`pt4/` pertence ao bake-off linguístico separado. Ele contém o split PetroGold
+`r2.18` preservado sob CC BY-SA 4.0 e uma proposta autoral CC BY 4.0 com 160
+casos. A proposta não é ground truth aceito: todos os casos aguardam uma
+segunda revisão humana, e nenhuma saída de candidato pode ser consultada nessa
+revisão.
+
 Contrato e processo:
 
 - `docs/adr/0018-corpus-label-and-evaluation-protocol.md`;

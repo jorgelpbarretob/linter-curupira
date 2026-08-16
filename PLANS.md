@@ -156,9 +156,15 @@ O parecer está em
 spaCy está `eligible` somente para o bake-off; Stanza está
 `ineligible-license` sem aquisição.
 Nenhum candidato foi escolhido, nenhuma dependência entrou no produto e as
-etapas de harness, inferência de bake-off, adapter e PT5 permanecem fechadas. O
-WIP=1 seguinte é criar, revisar e congelar os corpora e o ambiente de
-referência.
+etapas de harness, inferência de bake-off, adapter e PT5 permanecem fechadas.
+
+O WIP=1 de corpora/ambiente materializou PetroGold `r2.18`, fixou o ambiente de
+referência e produziu uma proposta autoral com 160 casos, 40 por família. O
+estado e os hashes estão em
+[`docs/hermes-pt4-corpora-environment-v1.md`](docs/hermes-pt4-corpora-environment-v1.md).
+Todos os casos permanecem `pending-human-review`; uma segunda pessoa deve
+aprovar 100% antes do hash canônico. Até essa revisão, o WIP não avança para
+harness ou inferência.
 
 ### Invariantes vigentes
 

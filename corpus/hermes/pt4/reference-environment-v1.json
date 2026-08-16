@@ -1,0 +1,59 @@
+{
+  "schema_version": "hermes-pt4-reference-environment/v1",
+  "status": "frozen-for-future-bakeoff",
+  "captured_on": "2026-08-16",
+  "project_commit_at_capture": "6684fac3c2dd7a7935e981645407a1e5cc1f4791",
+  "host": {
+    "os": "Debian GNU/Linux 13.6 (trixie)",
+    "kernel": "Linux 6.12.101+deb13-amd64",
+    "architecture": "x86_64",
+    "glibc": "2.41",
+    "cpu_model": "Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz",
+    "logical_cpus_available": 8,
+    "physical_cores": 8,
+    "threads_per_core": 1,
+    "memory_bytes": 67303014400
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "uv": "0.12.0",
+    "candidate_pip": "25.0.1",
+    "candidate": "spacy==3.8.15",
+    "model": "pt_core_news_sm==3.8.0",
+    "wheelhouse_manifest_sha256": "d6dc6d3afec7c1890fdde50124e4dfdbf365adb61fc7be1a2aa73d857b311af5",
+    "requirements_lock_sha256": "c3f80b40ba45575c6f4fcf2931e1110c886f7745fa52634f864d49359f558a82"
+  },
+  "execution_policy": {
+    "device": "cpu",
+    "gpu_enabled": false,
+    "logical_cpu_affinity": [
+      0
+    ],
+    "worker_processes": 1,
+    "threads_per_library": 1,
+    "network": "denied-with-socket-and-dns-fail-closed-guard",
+    "download": "disabled",
+    "ner": "excluded",
+    "input_order": "ascending-sha256-of-case-id",
+    "warmup_runs": 1,
+    "measured_runs": 3,
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "LC_ALL": "C.UTF-8",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONHASHSEED": "0",
+      "TZ": "UTC"
+    }
+  },
+  "scope_boundaries": {
+    "model_inference_run": false,
+    "harness_implemented": false,
+    "adapter_implemented": false,
+    "backend_selected": false,
+    "project_dependency_added": false,
+    "pt5_opened": false
+  }
+}

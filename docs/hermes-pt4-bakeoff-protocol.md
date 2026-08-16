@@ -268,6 +268,12 @@ candidato spaCy fora do ambiente do projeto, instalou o wheelhouse congelado e
 carregou o modelo sem processar texto. Stanza não foi adquirido por dúvida de
 licença. Nenhum desses atos seleciona backend ou abre as etapas seguintes.
 
+O incremento seguinte congelou PetroGold `r2.18`, o ambiente de referência e
+uma proposta autoral de 160 casos, conforme
+`docs/hermes-pt4-corpora-environment-v1.md`. A proposta permanece integralmente
+`pending-human-review`; por isso a etapa 2 ainda não está concluída e harness,
+adapter e inferência continuam fechados.
+
 ## Sources
 
 [1] https://universaldependencies.org/treebanks/pt_petrogold/index.html — UD Portuguese PetroGold

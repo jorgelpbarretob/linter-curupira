@@ -8,3 +8,7 @@ hash.
 `pt4-gate0/` registra a elegibilidade dos candidatos de análise linguística
 local antes do bake-off. Esses arquivos não selecionam backend, não entram no
 wheel base do projeto e não autorizam PT5.
+
+`pt4-corpora/` registra provas pequenas do incremento de corpora e ambiente. Os
+corpora em si ficam em `corpus/hermes/pt4/`; a proposta autoral ainda não é
+canônica enquanto a segunda revisão humana estiver pendente.

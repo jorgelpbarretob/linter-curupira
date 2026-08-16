@@ -1,0 +1,8 @@
+899b1804a12ebc090b96339614eede1b64b686721b650a71430b55b5235f7f79  corpus/hermes/pt4/LICENSE-UD-Portuguese-PetroGold.txt
+069a43e29462ac24f876c43affcd12b519e2aa650b934f8591d67dae8a993f5d  corpus/hermes/pt4/pt_petrogold-ud-test-r2.18.conllu
+ad1104984eaf056d256d769e2d5979cbf8f7f307c19f9bbdf8e197680ff79f8e  corpus/hermes/pt4/petrogold-test-r2.18-manifest-v1.json
+fddf5a67404557f9c7d1f468bd7ca641133fd213360d68b137a54abf5c80c332  corpus/hermes/pt4/reference-environment-v1.json
+b0c21e03b8fa2f0e13e51927362819bbc77abc831a9aef3fcff580e30d15a438  corpus/hermes/pt4/pt4-offset-development-proposal-v1.jsonl
+a1b0c39d076906c5766b487350754a225c09826ed77d90a68782bffba46d7ea0  corpus/hermes/pt4/pt4-offset-development-proposal-v1.jsonl.sha256
+dffeed4d8b764bc3eed60c66d589e2addb49f5d78bd77fdcc85d6429a7725412  artifacts/hermes/pt4-corpora/spacy-offline-install-check-v1.json
+225f1677aff6e024242d70777f3b1d8e1efdae2bc06dffe82329a58b28472aea  artifacts/hermes/pt4-corpora/contamination-audit-v1.json

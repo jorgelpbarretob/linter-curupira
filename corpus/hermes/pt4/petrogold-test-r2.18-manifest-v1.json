@@ -1,0 +1,50 @@
+{
+  "schema_version": "hermes-pt4-external-corpus/v1",
+  "status": "frozen",
+  "frozen_on": "2026-08-16",
+  "source": {
+    "name": "UD_Portuguese-PetroGold",
+    "repository": "https://github.com/UniversalDependencies/UD_Portuguese-PetroGold",
+    "release": "r2.18",
+    "commit": "83ca567418405fdae830a3e5be55c29b6ed80a24",
+    "tag_aliases_at_commit": [
+      "r2.17",
+      "r2.18"
+    ],
+    "test_url": "https://raw.githubusercontent.com/UniversalDependencies/UD_Portuguese-PetroGold/83ca567418405fdae830a3e5be55c29b6ed80a24/pt_petrogold-ud-test.conllu",
+    "license": "CC-BY-SA-4.0",
+    "license_url": "https://raw.githubusercontent.com/UniversalDependencies/UD_Portuguese-PetroGold/83ca567418405fdae830a3e5be55c29b6ed80a24/LICENSE.txt",
+    "includes_text": true,
+    "language": "pt-BR",
+    "genre": "academic",
+    "domain": "oil-and-gas"
+  },
+  "artifact": {
+    "path": "corpus/hermes/pt4/pt_petrogold-ud-test-r2.18.conllu",
+    "sha256": "069a43e29462ac24f876c43affcd12b519e2aa650b934f8591d67dae8a993f5d",
+    "bytes": 1910811,
+    "lines": 34934,
+    "modified_from_upstream": false
+  },
+  "license_artifact": {
+    "path": "corpus/hermes/pt4/LICENSE-UD-Portuguese-PetroGold.txt",
+    "sha256": "899b1804a12ebc090b96339614eede1b64b686721b650a71430b55b5235f7f79",
+    "bytes": 202,
+    "modified_from_upstream": false
+  },
+  "counts": {
+    "documents": 2,
+    "sentences": 1039,
+    "surface_tokens": 27453,
+    "syntactic_words": 29623,
+    "multiword_tokens": 2170,
+    "empty_nodes": 0
+  },
+  "evaluation_policy": {
+    "use_entire_official_test_split": true,
+    "bootstrap_unit": "document",
+    "remove_after_candidate_output": false,
+    "candidate_outputs_observed": false,
+    "pont_001_data_used": false
+  }
+}

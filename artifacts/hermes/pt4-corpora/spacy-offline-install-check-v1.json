@@ -1,0 +1,15 @@
+{
+  "schema_version": "hermes-pt4-offline-install-check/v1",
+  "captured_on": "2026-08-16",
+  "environment": "/home/jorge/.hermes/pt4-gate0/20260816-spacy-v1/offline-venv",
+  "python": "3.12.13",
+  "pip": "25.0.1",
+  "command": "python -m pip check",
+  "exit_code": 0,
+  "stdout": "No broken requirements found.\n",
+  "stderr": "",
+  "requirements_lock_sha256": "c3f80b40ba45575c6f4fcf2931e1110c886f7745fa52634f864d49359f558a82",
+  "wheelhouse_manifest_sha256": "d6dc6d3afec7c1890fdde50124e4dfdbf365adb61fc7be1a2aa73d857b311af5",
+  "network_required": false,
+  "model_inference_run": false
+}
