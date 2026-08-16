@@ -1,0 +1,6 @@
+9cd78ee6d5f0d7b51fb35efb41d01be00c3fe81f05b14c728b326c541f16c175  tools/hermes/pt4_spacy_adapter.py
+8f2edf9faaa0d6c42054891647aec441c27b663df7b7dabf97d78d1dfb04b9ad  tests/test_hermes_pt4_spacy_adapter.py
+8dfbf09ab201a1d1641e6f7891804275005a7b2a4105b5d2391450240f00607c  docs/hermes-pt4-spacy-adapter-v1.md
+f9dd6907e5a2dc7f05f72e727de7b4dd2535a40cc532d1efce0fb8618ac73bb8  artifacts/hermes/pt4-spacy-adapter/README.md
+cef9892931e87efb8cc9eaa557ab532b44ea9e76e74cb1ca3e1231d8a0adbe65  artifacts/hermes/pt4-spacy-adapter/adapter-manifest-v1.json
+a76247fee01b6d0b9d737d3b6e06537dd20fa423e4fdcd04b2e412a75a626af3  artifacts/hermes/pt4-spacy-adapter/model-panel-review-v1.json

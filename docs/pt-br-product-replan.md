@@ -135,8 +135,10 @@ mecânica e recebeu três votos `approve` em 160/160 casos de
 `sabia-4-thinking`, `grok-4.6` e `kimi-k2.7-code:cloud`. O corpus canônico tem
 SHA-256 `45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`.
 O harness stdlib-only recebeu três votos `approve`, projeta os dois ouros com
-hash triplo idêntico e pontua somente outputs precomputados. Nenhuma inferência
-foi executada; o adapter experimental spaCy é o próximo WIP.
+hash triplo idêntico e pontua somente outputs precomputados. O adapter
+experimental spaCy também recebeu três votos finais `approve`, preserva o
+schema congelado e isola entradas model-blind. Nenhuma inferência foi executada;
+a execução controlada e o selamento dos outputs são o próximo WIP.
 
 Entregáveis:
 
@@ -266,14 +268,15 @@ operacionais seguintes quando os artefatos forem isolados e auditáveis.
 
 Gate 0, corpora/ambiente e harness v1 estão congelados. spaCy +
 `pt_core_news_sm` está `eligible` somente para o bake-off; Stanza está
-`ineligible-license` sem download. O harness passou validação mecânica e painel
-Maritaca + Grok + Kimi, conforme `docs/hermes-pt4-harness-v1.md`. O próximo WIP
-é o adapter experimental spaCy; isso ainda não escolhe backend, não abre porta
-de produto nem PT5.
+`ineligible-license` sem download. Harness e adapter experimental passaram
+validação mecânica e painel Maritaca + Grok + Kimi, conforme
+`docs/hermes-pt4-harness-v1.md` e `docs/hermes-pt4-spacy-adapter-v1.md`. O
+próximo WIP é a primeira inferência controlada com selamento dos outputs; isso
+ainda não escolhe backend, não abre porta de produto nem PT5.
 
 Os 4 FP e 15 FN deste holdout permanecem selados. Uma futura decisão explícita
 de `rework` pode movê-los para challenge, mas qualquer nova tentativa de
-promoção exigirá outro holdout independente. O próximo incremento implementa o
-adapter experimental elegível e continua o bake-off pré-registrado, sem tratar
-PONT-001 como `stable`. Licença não resolvida bloqueia somente o candidato
-afetado e continua fora da autoridade do Grok.
+promoção exigirá outro holdout independente. O próximo incremento executa o
+candidato elegível sob o protocolo pré-registrado, sem tratar PONT-001 como
+`stable`. Licença não resolvida bloqueia somente o candidato afetado e continua
+fora da autoridade do Grok.

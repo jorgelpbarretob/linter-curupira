@@ -1,0 +1,86 @@
+{
+  "schema_version": "hermes-pt4-spacy-adapter-manifest/v1",
+  "status": "model-panel-approved",
+  "frozen_on": "2026-08-16",
+  "protocol": "hermes-pt4-bakeoff/v1",
+  "implementation": {
+    "path": "tools/hermes/pt4_spacy_adapter.py",
+    "sha256": "9cd78ee6d5f0d7b51fb35efb41d01be00c3fe81f05b14c728b326c541f16c175",
+    "test_path": "tests/test_hermes_pt4_spacy_adapter.py",
+    "test_sha256": "8f2edf9faaa0d6c42054891647aec441c27b663df7b7dabf97d78d1dfb04b9ad",
+    "input_schema": "hermes-pt4-inference-input/v1",
+    "output_schema": "hermes-pt4-linguistic-analysis/v1",
+    "product_imports": false,
+    "product_dependencies_added": false,
+    "backend_import_lazy": true
+  },
+  "candidate": {
+    "library": "spacy",
+    "library_version": "3.8.15",
+    "model": "pt_core_news_sm",
+    "model_version": "3.8.0",
+    "excluded_components": [
+      "ner"
+    ],
+    "enabled_components": [
+      "tok2vec",
+      "morphologizer",
+      "parser",
+      "lemmatizer",
+      "attribute_ruler"
+    ]
+  },
+  "model_blind_preflight": {
+    "petrogold": {
+      "case_count": 1039,
+      "abstention_count": 0,
+      "run_sha256": [
+        "c241cf19a521f7d89fffed2489436218a256dace341f80123a1b5f4e55662e4b",
+        "c241cf19a521f7d89fffed2489436218a256dace341f80123a1b5f4e55662e4b",
+        "c241cf19a521f7d89fffed2489436218a256dace341f80123a1b5f4e55662e4b"
+      ]
+    },
+    "offset_corpus": {
+      "case_count": 160,
+      "abstention_count": 36,
+      "run_sha256": [
+        "7f751e78a67d70dfc0849d18ce7139850e70d045e47c062e16c54a562062ca65",
+        "7f751e78a67d70dfc0849d18ce7139850e70d045e47c062e16c54a562062ca65",
+        "7f751e78a67d70dfc0849d18ce7139850e70d045e47c062e16c54a562062ca65"
+      ]
+    },
+    "strict_model_blind_fields": true,
+    "candidate_inference_executed": false
+  },
+  "validation": {
+    "targeted_tests": "15 passed",
+    "full_suite": "372 passed; 4 expected NLP skips",
+    "ruff_check": "pass",
+    "ruff_format_check": "pass",
+    "mypy_hermes": "pass",
+    "offline_cli_smoke": "pass",
+    "git_diff_check": "pass"
+  },
+  "review": {
+    "status": "approved-unanimous",
+    "path": "artifacts/hermes/pt4-spacy-adapter/model-panel-review-v1.json",
+    "providers": {
+      "maritaca": "approve",
+      "grok": "approve",
+      "kimi": "approve"
+    },
+    "findings_total": 0,
+    "raw_custody": "/home/jorge/.hermes/pt4-spacy-adapter/20260816-review-v2"
+  },
+  "boundaries": {
+    "candidate_outputs_seen": false,
+    "candidate_inference_executed": false,
+    "backend_selected": false,
+    "product_adapter_added": false,
+    "product_dependency_added": false,
+    "pont_001_data_seen": false,
+    "pt5_opened": false,
+    "inference_authorized_by_this_manifest": false
+  },
+  "next_wip": "controlled-spacy-inference-and-output-sealing"
+}

@@ -107,10 +107,10 @@ decisão de modelo. Cadeia completa, tokens, IDs e hashes estão em
 - PT5 continua fechado;
 - não existe jornada executável nova para UAT da Himavai neste incremento.
 
-Com o harness aprovado, o próximo WIP=1 é o adapter experimental spaCy, ainda
-fora do caminho de produção. A primeira inferência controlada e o selamento de
-outputs permanecem atos posteriores do protocolo; este documento não os
-executa nem os autoriza por si só.
+O adapter experimental posterior foi congelado e aprovado pelo painel, conforme
+`docs/hermes-pt4-spacy-adapter-v1.md`. A primeira inferência controlada e o
+selamento de outputs permanecem atos posteriores do protocolo; este documento
+não os executa nem os autoriza por si só.
 
 ## Sources
 

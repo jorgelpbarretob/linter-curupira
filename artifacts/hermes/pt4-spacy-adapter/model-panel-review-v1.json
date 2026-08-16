@@ -1,0 +1,82 @@
+{
+  "schema_version": "hermes-pt4-spacy-adapter-panel-audit/v1",
+  "status": "approved-unanimous",
+  "reviewed_on": "2026-08-16",
+  "snapshot": {
+    "adapter_path": "tools/hermes/pt4_spacy_adapter.py",
+    "adapter_sha256": "9cd78ee6d5f0d7b51fb35efb41d01be00c3fe81f05b14c728b326c541f16c175",
+    "tests_path": "tests/test_hermes_pt4_spacy_adapter.py",
+    "tests_sha256": "8f2edf9faaa0d6c42054891647aec441c27b663df7b7dabf97d78d1dfb04b9ad",
+    "full_input_manifest_sha256": "3c755f24f4119c1a3569602dbc666d49234d3c7e5c862696ad4356af5774ca56"
+  },
+  "providers": {
+    "maritaca": {
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "response_id": "resp-24616ea89aef405399938b5e",
+      "status": "completed",
+      "input_tokens": 19258,
+      "output_tokens": 1765,
+      "reasoning_tokens": 1673,
+      "elapsed_seconds": 12.091971984016709,
+      "prompt_sha256": "d8097bc8f01ede5d6fad6087ff0bd64dce6ee0cf8e16e1206fedc667507504d9",
+      "schema_sha256": "00159bd2f07c056ed98f905db3b763fb8449a957f9a845c6de2b64c2b33d0d65",
+      "raw_response_sha256": "2c4d78749728a3160bdbc2c23620dd94f25b8dc60b9193d1ed2ba31c45df41a4",
+      "vote_sha256": "bfb468f033bd8c108893e912ad9efd57bff3d3de2ba4a2a745c7d25963dc5f8d",
+      "verdict": "approve",
+      "findings": 0
+    },
+    "grok": {
+      "model_requested": "grok-4.6",
+      "model_returned_observed": "grok-4.6-build",
+      "model_returned_in_vote": "grok-4.6",
+      "request_id": "78dc0220-6d02-451b-abdd-cc704ef6ab2b",
+      "session_id": "01a00c29-578f-7040-aa6c-dc0cf7919277",
+      "stop_reason": "end_turn",
+      "input_tokens": 35478,
+      "cache_read_input_tokens": 10880,
+      "output_tokens": 21966,
+      "reasoning_tokens": 21885,
+      "cost_usd": 0.03539264,
+      "elapsed_seconds": 350.4088697329862,
+      "prompt_sha256": "ff9829c6aea129147de336816425f885cfbc1889e8d6fe5e453fbbbb55009f14",
+      "raw_response_sha256": "865ec2f5426f40fb9f4af36285a9ceacf27577525254f9612895c3bce123fc80",
+      "verdict": "approve",
+      "findings": 0
+    },
+    "kimi": {
+      "model_requested": "kimi-k2.7-code:cloud",
+      "model_returned_observed": "kimi-k2.7-code",
+      "model_returned_in_vote": "kimi-k2.7-code",
+      "transport": "Ollama local API to cloud model",
+      "prompt_tokens": 19389,
+      "output_tokens": 52508,
+      "elapsed_seconds": 308.57215419597924,
+      "prompt_sha256": "38a573a1776f5fbc6e8dfbac51219388f1732386128c15abd35cd42955227eab",
+      "schema_sha256": "21e0f260e3ebbe2a22a17b1a6c6df453937704f0595813d18fb6503ee8712bbf",
+      "raw_response_sha256": "10ee05ecc689532ed4d6f977715f1c0a09149ad41c8c43200be9afeb7ec390c4",
+      "vote_sha256": "252a15f194d9ef6f15f42f545f34b090c503421629fa3e5371c8fda5e7c9a939",
+      "verdict": "approve",
+      "findings": 0
+    }
+  },
+  "adjudication": {
+    "executor_changed_decisions": false,
+    "accepted_finding": "Kimi identified unhandled invalid UTF-8 on an earlier snapshot; a failing regression preceded the fix and all final votes reviewed the corrected hashes.",
+    "rejected_finding_provenance": "The frozen harness rejects fields beyond the eight-field candidate schema; backend/model versions and hashes belong to the later operational manifest.",
+    "rejected_finding_feats": "The harness preserves the complete value after '=' and spaCy 3.8.15 returns multi-values such as 'Fem,Masc'; neither side atomizes that value.",
+    "historical_attempts": "Transport failures, Grok max-turn placeholders, and votes over earlier hashes remain under external custody and were not counted."
+  },
+  "validation": {
+    "strict_shape": "pass",
+    "unanimous": true,
+    "findings_total": 0,
+    "reviewed_code_test_hash_bijection": "pass"
+  },
+  "confirmed_boundaries": {
+    "candidate_outputs_seen": false,
+    "pont_001_data_seen": false,
+    "inference_authorized": false
+  },
+  "raw_custody": "/home/jorge/.hermes/pt4-spacy-adapter/20260816-review-v2"
+}

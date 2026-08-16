@@ -285,8 +285,15 @@ produziram hashes idênticos. Maritaca, Grok e Kimi 2.7 aprovaram o snapshot
 final sem findings; manifesto e cadeia de custódia estão em
 `docs/hermes-pt4-harness-v1.md` e `artifacts/hermes/pt4-harness/`.
 
-Nenhuma saída candidata ou inferência foi produzida. O próximo WIP é o adapter
-experimental spaCy fora do caminho de produto. Seleção de backend, porta de
+O incremento seguinte implementou o adapter experimental spaCy fora do caminho
+de produto, em TDD. Ele reduz o ouro a entradas model-blind, preserva o schema
+estrito, bloqueia rede e falha fechado; Maritaca, Grok e Kimi 2.7 aprovaram o
+snapshot final sem findings. Evidência em
+`docs/hermes-pt4-spacy-adapter-v1.md` e
+`artifacts/hermes/pt4-spacy-adapter/`.
+
+Nenhuma saída candidata ou inferência foi produzida. O próximo WIP é a primeira
+execução controlada e o selamento dos outputs. Seleção de backend, porta de
 produto e PT5 continuam fechadas.
 
 ## Sources

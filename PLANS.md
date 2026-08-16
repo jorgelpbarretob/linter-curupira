@@ -1,6 +1,6 @@
 # Hermes — plano de desenvolvimento do linter pt-BR
 
-Status: PT4 harness congelado; HERMES-PT-PONT-001 permanece `preview`
+Status: PT4 adapter experimental congelado; HERMES-PT-PONT-001 permanece `preview`
 Base pretendida: especificação autoral e aberta de português técnico controlado
 Última revisão: 2026-08-16
 
@@ -160,8 +160,9 @@ O parecer está em
 spaCy está `eligible` somente para o bake-off; Stanza está
 `ineligible-license` sem aquisição.
 Nenhum candidato foi escolhido e nenhuma dependência entrou no produto. O
-harness PT4 foi implementado em TDD, validado mecanicamente e aprovado por
-unanimidade do painel. O adapter experimental spaCy é o próximo WIP; escolha de
+harness PT4 e o adapter experimental spaCy foram implementados em TDD,
+validados mecanicamente e aprovados por unanimidade do painel. A primeira
+inferência controlada e o selamento dos outputs são o próximo WIP; escolha de
 backend, porta de produto e PT5 permanecem fechadas.
 
 O WIP=1 de corpora/ambiente materializou PetroGold `r2.18`, fixou o ambiente de
@@ -178,9 +179,13 @@ precomputados, aplica gates e falha fechado sem importar backend ou produto.
 Três projeções de cada corpus produziram hashes idênticos, 34 regressões passam
 e Maritaca, Grok e Kimi 2.7 aprovaram o snapshot final sem findings. Evidência:
 [`docs/hermes-pt4-harness-v1.md`](docs/hermes-pt4-harness-v1.md) e
-[`artifacts/hermes/pt4-harness/`](artifacts/hermes/pt4-harness/). Nenhuma saída
-candidata ou inferência foi produzida. O WIP avança para o adapter experimental
-spaCy.
+[`artifacts/hermes/pt4-harness/`](artifacts/hermes/pt4-harness/). O adapter
+experimental posterior preserva offsets/schema, isola o ouro por input
+model-blind, bloqueia rede, usa import lazy e recebeu três votos finais
+`approve`; evidência em
+[`docs/hermes-pt4-spacy-adapter-v1.md`](docs/hermes-pt4-spacy-adapter-v1.md).
+Nenhuma saída candidata ou inferência foi produzida. O WIP avança para a
+execução controlada e o selamento dos outputs.
 
 ### Invariantes vigentes
 
