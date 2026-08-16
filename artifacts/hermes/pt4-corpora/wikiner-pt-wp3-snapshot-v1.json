@@ -1,0 +1,38 @@
+{
+  "schema_version": "hermes-pt4-training-source-snapshot/v1",
+  "status": "frozen-external-custody",
+  "frozen_on": "2026-08-16",
+  "article": {
+    "id": 5462500,
+    "title": "Learning multilingual named entity recognition from Wikipedia",
+    "version": 1,
+    "doi": "10.6084/m9.figshare.5462500.v1",
+    "license": "CC BY 4.0",
+    "api_url": "https://api.figshare.com/v2/articles/5462500",
+    "metadata_sha256": "eb3f2311604c6011bec33424a3b07329340ea2aa84a4c1efc5eeac016fe02d6f"
+  },
+  "file": {
+    "id": 9446356,
+    "name": "aij-wikiner-pt-wp3.bz2",
+    "download_url": "https://ndownloader.figshare.com/files/9446356",
+    "bytes": 6059022,
+    "supplied_md5": "d74198c00ab91078747ee4a49aff5332",
+    "recomputed_md5": "d74198c00ab91078747ee4a49aff5332",
+    "recomputed_sha256": "d34a73ca46ebae6c83db1f4d8057406e6ceed5a7ea579407c3b35120274c48d4",
+    "bzip2_integrity": "passed",
+    "decompressed_lines": 171914,
+    "nonempty_sentences": 142112,
+    "format": "one sentence per nonempty line; token|pos|ner fields"
+  },
+  "custody": {
+    "directory": "/home/jorge/.hermes/pt4-corpora/20260816-wikiner-5462500-v1",
+    "archive_in_git": false,
+    "metadata_in_git": false
+  },
+  "scope": {
+    "portuguese_file_only": true,
+    "ner_enabled_in_bakeoff": false,
+    "candidate_outputs_observed": false,
+    "pont_001_data_used": false
+  }
+}

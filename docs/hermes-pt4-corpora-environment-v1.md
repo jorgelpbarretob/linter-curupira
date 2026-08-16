@@ -50,13 +50,20 @@ contra as 9.364 sentenças dos três splits oficiais Bosque r2.8, commit
 exata e zero após NFC, `casefold` e colapso de whitespace. Também houve zero
 interseção entre a proposta autoral e PetroGold.
 
-O resultado permanece `conditional-pass-wikiner-pending`: WikiNER é declarado
-como fonte de treino do modelo para NER, e NER está excluído do bake-off, mas o
-incremento ainda não demonstrou que os componentes mantidos não carregam
-influência compartilhada nem congelou um snapshot WikiNER para comparação.
-Essa pendência deve ser resolvida antes da primeira inferência. O artefato
-auditável tem SHA-256
-`225f1677aff6e024242d70777f3b1d8e1efdae2bc06dffe82329a58b28472aea`.
+O snapshot português WikiNER também foi resolvido. O Figshare oficial publica o
+dataset DOI `10.6084/m9.figshare.5462500.v1` sob CC BY 4.0 e identifica
+`aij-wikiner-pt-wp3.bz2` como o arquivo português, file ID `9446356`, com
+6.059.022 bytes e MD5
+`d74198c00ab91078747ee4a49aff5332`.[5] A API pública é o mecanismo oficial para
+obter metadados e URLs de download por article ID.[6]
+
+O arquivo foi congelado fora do Git com SHA-256
+`d34a73ca46ebae6c83db1f4d8057406e6ceed5a7ea579407c3b35120274c48d4`.
+Suas 142.112 sentenças não têm interseção com PetroGold ou com a proposta
+autoral por igualdade exata, NFC + `casefold` + colapso de whitespace ou NFC +
+`casefold` + remoção de whitespace. A auditoria de contaminação agora está
+`pass`, sem pendências; seu SHA-256 é
+`7ac450d6afca14b41e8595379ed9b5958feecb92080964603ea50fe59ee1c7c7`.
 
 ## Revisão humana obrigatória
 
@@ -104,3 +111,5 @@ exit code zero e `No broken requirements found.`
 [2] https://github.com/UniversalDependencies/UD_Portuguese-PetroGold/tree/83ca567418405fdae830a3e5be55c29b6ed80a24 — frozen upstream commit
 [3] https://raw.githubusercontent.com/UniversalDependencies/UD_Portuguese-PetroGold/83ca567418405fdae830a3e5be55c29b6ed80a24/LICENSE.txt — upstream license
 [4] https://github.com/UniversalDependencies/UD_Portuguese-Bosque/tree/625982f781b64ac793b3a818968ea9fc6ee5a8af — Bosque r2.8 frozen commit
+[5] https://api.figshare.com/v2/articles/5462500 — WikiNER v1 public metadata
+[6] https://docs.figshare.com — Figshare API v2 documentation

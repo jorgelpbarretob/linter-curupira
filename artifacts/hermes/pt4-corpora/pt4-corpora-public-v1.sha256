@@ -5,4 +5,5 @@ fddf5a67404557f9c7d1f468bd7ca641133fd213360d68b137a54abf5c80c332  corpus/hermes/
 b0c21e03b8fa2f0e13e51927362819bbc77abc831a9aef3fcff580e30d15a438  corpus/hermes/pt4/pt4-offset-development-proposal-v1.jsonl
 a1b0c39d076906c5766b487350754a225c09826ed77d90a68782bffba46d7ea0  corpus/hermes/pt4/pt4-offset-development-proposal-v1.jsonl.sha256
 dffeed4d8b764bc3eed60c66d589e2addb49f5d78bd77fdcc85d6429a7725412  artifacts/hermes/pt4-corpora/spacy-offline-install-check-v1.json
-225f1677aff6e024242d70777f3b1d8e1efdae2bc06dffe82329a58b28472aea  artifacts/hermes/pt4-corpora/contamination-audit-v1.json
+7ac450d6afca14b41e8595379ed9b5958feecb92080964603ea50fe59ee1c7c7  artifacts/hermes/pt4-corpora/contamination-audit-v1.json
+94c528bf0889ca31aded86097f3aabf278a09c142d26ecb31601858fbcaafb54  artifacts/hermes/pt4-corpora/wikiner-pt-wp3-snapshot-v1.json
