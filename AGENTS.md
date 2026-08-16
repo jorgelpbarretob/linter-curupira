@@ -1,6 +1,11 @@
-# AGENTS.md — Hermes
+# AGENTS.md — Curupira
 
 Estas instruções são específicas deste projeto e complementam as instruções do workspace Maltaria. Em conflito, segurança e instruções explícitas do usuário prevalecem.
+
+> ADR-021 substitui a identidade ativa Hermes por Curupira. Referências Hermes
+> abaixo descrevem evidência histórica e não devem ser reescritas. Produto novo,
+> pacote, CLI e IDs usam `Curupira`, `curupira-lint`, `curupira_lint`,
+> `curupira` e `CURUPIRA-PT-*`.
 
 ## Estado do projeto
 
@@ -64,10 +69,10 @@ exceção ou fixture neste ciclo. Somente uma decisão explícita de `rework` po
 movê-los para challenge; uma promoção posterior exigirá novo holdout
 independente.
 
-A identidade aceita e aplicada à distribuição é: produto Hermes, repositório
-`hermes-STL-IA-PT`, pacote `hermes_lint`, CLI `hermes` e namespace
-`HERMES-PT-*`. `src/ste_lint` permanece somente como linha histórica congelada
-e não entra no wheel Hermes.
+A identidade ativa é: produto Curupira, repositório `linter-curupira`, pacote
+`curupira_lint`, CLI `curupira` e namespace `CURUPIRA-PT-*`. `hermes_lint` e
+`hermes` são aliases temporários de compatibilidade 0.3.x; evidência histórica
+Hermes permanece imutável. `src/ste_lint` continua fora do wheel.
 
 ## Missão
 

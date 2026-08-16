@@ -3,8 +3,8 @@ requires = ["hatchling==1.27.0"]
 build-backend = "hatchling.build"
 
 [project]
-name = "hermes-lint"
-version = "0.2.0"
+name = "curupira-lint"
+version = "0.3.0"
 description = "Linter local e rastreável para português técnico brasileiro."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -21,7 +21,7 @@ nlp = [
 ]
 
 [project.scripts]
-hermes = "hermes_lint.cli:entrypoint"
+curupira = "curupira_lint.cli:entrypoint"
 
 [dependency-groups]
 dev = [
@@ -34,7 +34,7 @@ dev = [
 required-version = "==0.11.14"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/hermes_lint"]
+packages = ["src/curupira_lint", "src/hermes_lint"]
 
 [tool.hatch.metadata]
 allow-direct-references = true

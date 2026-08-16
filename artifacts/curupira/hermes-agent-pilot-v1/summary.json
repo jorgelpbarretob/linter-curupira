@@ -1,0 +1,49 @@
+{
+  "schema_version": "curupira-hermes-agent-pilot/v1",
+  "status": "observed-improvement-with-tradeoff",
+  "environment": {
+    "hermes_agent": "0.20.1",
+    "model": "grok-4.6",
+    "reasoning": "low",
+    "surface": "interactive-cli"
+  },
+  "inputs": {
+    "task": {
+      "path": "corpus/curupira/hermes-agent-pilot-v1/task-single.md",
+      "sha256": "b016d0babb44ff3f094113e4931d90e8aa761fbe77679426b8dc6108888cb75c"
+    },
+    "document": {
+      "path": "corpus/curupira/hermes-agent-pilot-v1/inputs/bomba.md",
+      "sha256": "a4f7f44c7bc05e6720f03a9d105753e131f3ef1d2e3cff236c2452a2eb5dfb44"
+    }
+  },
+  "baseline": {
+    "session_id": "20260816_195248_5228ed",
+    "duration_seconds": 41,
+    "messages": 11,
+    "tool_calls": 9,
+    "residual_findings": 1,
+    "output_sha256": "a4f7f44c7bc05e6720f03a9d105753e131f3ef1d2e3cff236c2452a2eb5dfb44"
+  },
+  "curupira": {
+    "activation": "/curupira-preflight",
+    "session_id": "20260816_195114_8468ba",
+    "duration_seconds": 40,
+    "messages": 12,
+    "tool_calls": 10,
+    "residual_findings": 0,
+    "output_sha256": "c8febb04faa549dd1af92f6b7a5ce63e33c2fcbcd4fbbe62a0cbefe143cef612"
+  },
+  "deltas": {
+    "duration_seconds": -1,
+    "messages": 1,
+    "tool_calls": 1,
+    "residual_findings": -1
+  },
+  "token_comparison": {
+    "status": "not-measured",
+    "reason": "Hermes Agent 0.20.1 does not emit --usage-file for the interactive slash-command surface used by the valid treatment.",
+    "scope_note": "Compare provider-reported tokens only when the interactive slash-command surface exposes usage telemetry; never estimate tokens from bytes."
+  },
+  "scope": "single synthetic task; no generalization to production"
+}

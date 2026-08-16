@@ -1,0 +1,116 @@
+{
+  "schema_version": "curupira-detector-freeze/v1",
+  "rule_id": "CURUPIRA-PT-PONT-001",
+  "implementation_status": "preview",
+  "detector_sha256": "bf5bc63d97fd93416b04f77d64196e1edfb88d4546064be7d91f464ceb279dc8",
+  "development_corpus": {
+    "path": "corpus/hermes/pont-001-development-v1.jsonl",
+    "sha256": "51f52007848deaae5169171354d900488df9faedbf073a17a48b14d714703bfc"
+  },
+  "source_files": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "cf319668e611d9552d39433e1d94364c9cc474ed0d504ea79b50d8bc7d3c7713"
+    },
+    {
+      "path": "src/curupira_lint/__init__.py",
+      "sha256": "4fa9646653bff49099589b7d40d4853aea145e94e9faa3476bfe2d5c9b68dae9"
+    },
+    {
+      "path": "src/curupira_lint/__main__.py",
+      "sha256": "3dcf133f0bce45d8c7c9cb8bfa91cf4db270b2273431412ab812fb05292d3552"
+    },
+    {
+      "path": "src/curupira_lint/catalog.py",
+      "sha256": "d44322af4e8f208c2fced0be61e0822e7976d13a96aef4d42875ba1721354604"
+    },
+    {
+      "path": "src/curupira_lint/cli.py",
+      "sha256": "3ef685b72eec99773b04f5541645482a9857a402f60a9c472c05c995693b0937"
+    },
+    {
+      "path": "src/curupira_lint/domain/__init__.py",
+      "sha256": "9d6f0bedba741466fd8c3654780793bc9d52fbd9407777beb97aed8722145c52"
+    },
+    {
+      "path": "src/curupira_lint/domain/models.py",
+      "sha256": "af433a5d9952e2b04bced4c58bd66e102de43445b86a91469a155a527f8094b9"
+    },
+    {
+      "path": "src/curupira_lint/domain/registry.py",
+      "sha256": "fc209245da164262d8f89cba1480049eccd4322b4f9749430b6b14dec0aac76a"
+    },
+    {
+      "path": "src/curupira_lint/engine/__init__.py",
+      "sha256": "2c353d4d322f372ecc0acb7a70f303fa9ae88942e7ce6989a43dc6fb25576876"
+    },
+    {
+      "path": "src/curupira_lint/engine/baseline.py",
+      "sha256": "16552d17ec66d3285834cf30890f7df0ac49d837ead0f1429b69f2f1df616d89"
+    },
+    {
+      "path": "src/curupira_lint/engine/configuration.py",
+      "sha256": "c6539d52db0bdfee48791a5e38226689fb1c619e181a35eb265eda20421fb2af"
+    },
+    {
+      "path": "src/curupira_lint/engine/runner.py",
+      "sha256": "fe68da365e1a4237520a33491d538d0d6472decce1b4cd5fdda0de53b11f6c69"
+    },
+    {
+      "path": "src/curupira_lint/linguistics/__init__.py",
+      "sha256": "1e53843e0a2f028035b36ac1054787af462a4719961c22d1779cdb44219d5ad7"
+    },
+    {
+      "path": "src/curupira_lint/linguistics/contracts.py",
+      "sha256": "7705e7ad71abc5faad5a8ee848a079624841c5fc8f829bf360902ff86cb76c11"
+    },
+    {
+      "path": "src/curupira_lint/linguistics/spacy_backend.py",
+      "sha256": "0c19754063ab7d881d3cc98c5ab5da5736baf6416ebd045c8212b3f18d803885"
+    },
+    {
+      "path": "src/curupira_lint/parsing/__init__.py",
+      "sha256": "89d3b1a11da8499c91e77a2a30daf6b514e00af2a60832aed276e87ce3e9040c"
+    },
+    {
+      "path": "src/curupira_lint/parsing/core.py",
+      "sha256": "7f7882f574ddfeaac084aecc37ca1b52d3e95eca481ba915f3d1e2ac10f0dbaf"
+    },
+    {
+      "path": "src/curupira_lint/parsing/markdown.py",
+      "sha256": "39af9d682a676e5a72d25b62c4acfbf1a55ff8b24091234d1b8834d5673c67c8"
+    },
+    {
+      "path": "src/curupira_lint/reporting/__init__.py",
+      "sha256": "e4ca23e8bb93e90e6bbd0b71131f309ecde76ed89145a764de074cbb08d5f73d"
+    },
+    {
+      "path": "src/curupira_lint/reporting/formatters.py",
+      "sha256": "6199c17b7ac9d7264d92d72b944ee78f4e8689cbfde526457e726107dd9ab16d"
+    },
+    {
+      "path": "src/curupira_lint/reporting/rules.py",
+      "sha256": "4e1cd4659852befb93a4b17313f67776e9c15a8309c020593b94a065f5809e5b"
+    },
+    {
+      "path": "src/curupira_lint/rules/__init__.py",
+      "sha256": "91c270348b5a6ce4c8c1a8e5abecb289e584da2b89cbb71b6aa143d71fc35f64"
+    },
+    {
+      "path": "src/curupira_lint/rules/pont_001.py",
+      "sha256": "71e4c63814e1f5daf4c76af83142d445e681d98ed3351d9b4ed597df250b2963"
+    },
+    {
+      "path": "src/curupira_lint/semantics/__init__.py",
+      "sha256": "6a82f5fbc353dd217eb819e1330800ba776c73b222255fafa72f4fc4b2c9de81"
+    },
+    {
+      "path": "src/curupira_lint/semantics/maritaca_backend.py",
+      "sha256": "199fbc67c44efe09b370bba2a0c003e4247cdb5a18b7768674f41450efb42582"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "b224b614044355cf999e4fd8c8c02161f398629846b824096e7ee512b4ea88be"
+    }
+  ]
+}

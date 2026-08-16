@@ -1,12 +1,13 @@
-# Hermes — plano de desenvolvimento do linter pt-BR
+# Curupira — plano de desenvolvimento do linter pt-BR
 
-Status: PT4 adapter experimental congelado; HERMES-PT-PONT-001 permanece `preview`
+Status: rebrand Curupira 0.3 em execução; regra permanece `preview`
 Base pretendida: especificação autoral e aberta de português técnico controlado
 Última revisão: 2026-08-16
 
-> A identidade alvo foi decidida como Hermes, repositório `hermes-STL-IA-PT`,
-> pacote `hermes_lint` e comando `hermes`. A distribuição e a CLI já usam essa
-> identidade; `src/ste_lint` permanece somente como histórico fora do wheel.
+> ADR-021 substitui a identidade pública por Curupira: repositório
+> `linter-curupira`, distribuição `curupira-lint`, pacote `curupira_lint`, CLI
+> `curupira` e IDs `CURUPIRA-PT-*`. Hermes permanece como evidência histórica e
+> alias temporário 0.3.x; `src/ste_lint` continua fora do wheel.
 
 ## 0. Direção vigente após o pivot para pt-BR
 

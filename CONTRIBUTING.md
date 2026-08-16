@@ -1,18 +1,19 @@
-# Contribuindo com o Hermes
+# Contribuindo com o Curupira
 
 Obrigado pelo interesse em português técnico brasileiro aberto.
 
 ## Estado atual
 
-O código executável ainda é o protótipo inglês congelado. PT1 está definindo a
-especificação e a governança; PT2 construirá o corpus; a migração de código só
-começa em PT3. Propostas linguísticas e revisão documental são bem-vindas agora.
-Mudanças de pacote, CLI ou regras executáveis aguardam o gate correspondente.
+Curupira está em preview. A regra determinística e a análise linguística local
+já possuem jornadas executáveis, mas não são certificação nem cobertura
+integral. Bugs reproduzíveis, métricas A/B e melhorias com teste são
+bem-vindos.
 
 Leia antes de contribuir:
 
 - `PLANS.md`;
-- `docs/hermes-controlled-portuguese-spec-0.1.md`;
+- `docs/curupira-controlled-portuguese-spec-0.1.md`;
+- `docs/adr/0021-curupira-identity-migration.md`;
 - `docs/hermes-governance.md`;
 - `docs/hermes-identity-and-licensing.md`;
 - `docs/hermes-rule-taxonomy.md`.
@@ -22,17 +23,17 @@ Leia antes de contribuir:
 - problema real de clareza em documentação técnica pt-BR;
 - proposta autoral de regra;
 - exemplos sintéticos positivos, negativos e de borda;
-- revisão linguística ou de domínio;
+- evidência reproduzível de comportamento linguístico ou de domínio;
 - fonte de corpus com licença redistribuível;
 - taxonomia de erro e protocolo de avaliação;
-- bug reproduzível no núcleo que será migrado.
+- bug reproduzível no núcleo Curupira.
 
 ## Proposta de regra
 
 Inclua ID provisório, enunciado, racional, público afetado, classe de automação,
 unidade detectável, exemplos, abstenções, riscos, dados necessários e plano de
 avaliação. Não envie implementação antes de o texto da regra e o corpus
-aplicável serem aprovados.
+aplicável passarem pelos gates automatizados definidos para o incremento.
 
 ## Licenciamento e proveniência
 
@@ -58,6 +59,10 @@ Depois que um incremento de código for autorizado:
 4. adicione regressão para cada bug ou erro observado;
 5. execute testes, Ruff, formato, mypy e smoke offline;
 6. registre métricas e limitações sem promover regra automaticamente.
+
+O painel de validação usa Maritaca, Grok e Kimi. A jornada de usuário é
+executada separadamente pelo Himavai. Não há gate de revisão humana; decisões
+e divergências dos modelos devem permanecer rastreáveis.
 
 Chamadas reais à Maritaca nunca pertencem ao CI público. Não inclua chaves,
 tokens, documentos reais ou cassettes não sanitizados em issues, commits ou

@@ -11,8 +11,8 @@ body:
   - type: input
     id: version
     attributes:
-      label: Versão do Hermes
-      placeholder: hermes-lint 0.2.0
+      label: Versão do Curupira
+      placeholder: curupira-lint 0.3.0
     validations:
       required: true
   - type: textarea
@@ -30,6 +30,8 @@ body:
         - Offset ou preservação do texto
         - Tokenização ou sentença
         - Morfologia ou dependência
+        - Observação semântica Sabiázinho
+        - Privacidade ou uso de rede
         - Instalação ou desempenho
         - Usabilidade ou documentação
         - Comparação A/B

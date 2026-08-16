@@ -1,0 +1,27 @@
+{
+  "schema_version": "curupira-sabiazinho-smoke/v1",
+  "status": "pass",
+  "date": "2026-08-16",
+  "input": {
+    "kind": "synthetic",
+    "sha256": "a4f7f44c7bc05e6720f03a9d105753e131f3ef1d2e3cff236c2452a2eb5dfb44"
+  },
+  "engine": {
+    "provider": "maritaca",
+    "model_requested": "sabiazinho-4-2026-01-06",
+    "model_returned": "sabiazinho-4-2026-01-06"
+  },
+  "usage": {
+    "input_tokens": 115,
+    "output_tokens": 198,
+    "total_tokens": 313
+  },
+  "observations": {
+    "count": 2,
+    "all_exactly_anchored": true
+  },
+  "privacy": {
+    "document_sent_to_provider": true,
+    "secret_present_in_output": false
+  }
+}

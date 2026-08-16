@@ -1,0 +1,4 @@
+interface:
+  display_name: "Curupira Preflight"
+  short_description: "Valide documentação pt-BR antes de entregar"
+  default_prompt: "Use $curupira-preflight para revisar este documento técnico pt-BR antes da entrega."
