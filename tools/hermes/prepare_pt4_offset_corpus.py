@@ -8,6 +8,7 @@ import csv
 import hashlib
 import io
 import json
+import tempfile
 import unicodedata
 from collections import Counter
 from dataclasses import dataclass
@@ -172,12 +173,35 @@ def build_case(spec: CaseSpec, number: int) -> dict[str, Any]:
 
 def validate_case(record: dict[str, Any]) -> None:
     text = record["text"]
+    segments = record["analysis_segments"]
+    abstentions = record["abstention_spans"]
+    for kind, spans in (("analysis", segments), ("abstention", abstentions)):
+        previous_end = 0
+        for span in spans:
+            if not 0 <= span["start"] < span["end"] <= len(text):
+                raise CorpusError(f"{record['case_id']} has an invalid {kind} span")
+            if span["start"] < previous_end:
+                raise CorpusError(f"{record['case_id']} has overlapping {kind} spans")
+            previous_end = span["end"]
+    if any(
+        max(segment["start"], abstention["start"]) < min(segment["end"], abstention["end"])
+        for segment in segments
+        for abstention in abstentions
+    ):
+        raise CorpusError(f"{record['case_id']} has overlapping analysis and abstention spans")
+
     tokens = record["surface_tokens"]
     for index, token in enumerate(tokens):
         if text[token["start"] : token["end"]] != token["text"]:
             raise CorpusError(f"{record['case_id']} token {index} has an invalid slice")
         if index and tokens[index - 1]["end"] > token["start"]:
             raise CorpusError(f"{record['case_id']} has overlapping tokens")
+        segment_index = token["segment_index"]
+        if not 0 <= segment_index < len(segments):
+            raise CorpusError(f"{record['case_id']} token {index} has an invalid segment")
+        segment = segments[segment_index]
+        if not segment["start"] <= token["start"] < token["end"] <= segment["end"]:
+            raise CorpusError(f"{record['case_id']} token {index} leaves its segment")
     for sentence in record["sentences"]:
         first = sentence["first_surface_token"]
         past_last = sentence["past_last_surface_token"]
@@ -782,6 +806,61 @@ def validate_completed_review(review_path: Path, records: list[dict[str, Any]]) 
     return {"case_count": len(actual), "approved": approved, "rejected": rejected}
 
 
+def freeze_review(
+    review_path: Path, records: list[dict[str, Any]], output_dir: Path
+) -> dict[str, Any]:
+    """Freeze an approved human review without exposing candidate or holdout data."""
+    if output_dir.exists():
+        raise CorpusError(f"canonical output already exists: {output_dir}")
+    validation = validate_completed_review(review_path, records)
+    with review_path.open(encoding="utf-8", newline="") as stream:
+        review = list(csv.DictReader(stream))
+    review_payload = canonical_review_csv(review)
+
+    frozen_records: list[dict[str, Any]] = []
+    for record, row in zip(records, review, strict=True):
+        frozen = dict(record)
+        for field in (
+            "review_status",
+            "reviewed_by",
+            "reviewer_role",
+            "reviewed_on",
+            "decision_notes",
+        ):
+            frozen[field] = row[field]
+        frozen_records.append(frozen)
+    corpus_payload = proposal_bytes(frozen_records)
+    corpus_name = "pt4-offset-development-v1.jsonl"
+    manifest = {
+        "schema_version": "hermes-pt4-offset-freeze/v1",
+        "case_count": validation["case_count"],
+        "approved": validation["approved"],
+        "proposal_sha256": sha256_bytes(proposal_bytes(records)),
+        "review_csv_sha256": sha256_bytes(review_payload),
+        "canonical_corpus_sha256": sha256_bytes(corpus_payload),
+        "candidate_outputs_included": False,
+        "pont_001_data_included": False,
+    }
+    manifest_payload = canonical_record(manifest)
+
+    output_dir.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(
+        dir=output_dir.parent, prefix=f".{output_dir.name}-"
+    ) as temporary:
+        staging = Path(temporary)
+        (staging / corpus_name).write_bytes(corpus_payload)
+        (staging / f"{corpus_name}.sha256").write_text(
+            f"{sha256_bytes(corpus_payload)}  {corpus_name}\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        (staging / "pt4-offset-development-review-v1.csv").write_bytes(review_payload)
+        (staging / "freeze-manifest.json").write_bytes(manifest_payload)
+        staging.replace(output_dir)
+
+    return {**manifest, "manifest_sha256": sha256_bytes(manifest_payload)}
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -789,6 +868,9 @@ def parse_args() -> argparse.Namespace:
     build.add_argument("review_output", type=Path)
     validate = subparsers.add_parser("validate-review", help="validate a completed review CSV")
     validate.add_argument("review_csv", type=Path)
+    freeze = subparsers.add_parser("freeze-review", help="freeze a fully approved human review")
+    freeze.add_argument("review_csv", type=Path)
+    freeze.add_argument("output_dir", type=Path)
     return parser.parse_args()
 
 
@@ -798,8 +880,10 @@ def main() -> int:
     if args.command == "build":
         summary = write_proposal(records)
         summary["review_packet"] = write_review_packet(args.review_output, records)
-    else:
+    elif args.command == "validate-review":
         summary = validate_completed_review(args.review_csv, records)
+    else:
+        summary = freeze_review(args.review_csv, records, args.output_dir)
     print(json.dumps(summary, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
     return 0
 

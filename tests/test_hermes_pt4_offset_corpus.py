@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import ast
 import importlib.util
+import json
 import sys
 from collections import Counter
 from pathlib import Path
@@ -10,6 +11,13 @@ from types import ModuleType
 import pytest
 
 TOOL_PATH = Path(__file__).parents[1] / "tools" / "hermes" / "prepare_pt4_offset_corpus.py"
+KIMI_REVIEW_PATH = (
+    Path(__file__).parents[1]
+    / "artifacts"
+    / "hermes"
+    / "pt4-corpora"
+    / "kimi-k2.7-supplementary-review-v1.json"
+)
 
 
 def load_tool() -> ModuleType:
@@ -59,6 +67,15 @@ def test_every_token_sentence_and_word_respects_the_offset_contract() -> None:
             assert sentence["end"] == selected[-1]["end"]
 
 
+def test_validation_rejects_overlap_between_analysis_and_structural_abstention() -> None:
+    tool = load_tool()
+    record = tool.build_records()[134]
+    record["abstention_spans"][1]["start"] = 22
+
+    with pytest.raises(tool.CorpusError, match="overlapping analysis and abstention"):
+        tool.validate_case(record)
+
+
 def test_proposal_covers_mwt_unicode_and_structural_abstention() -> None:
     tool = load_tool()
     records = tool.build_records()
@@ -80,6 +97,24 @@ def test_proposal_covers_mwt_unicode_and_structural_abstention() -> None:
     structural = [record for record in records if record["family"] == "markdown-boundaries"]
     assert any(record["abstention_spans"] for record in structural)
     assert any(not record["analysis_segments"] for record in structural)
+
+
+def test_kimi_review_is_supplementary_complete_and_does_not_open_gates() -> None:
+    review = json.loads(KIMI_REVIEW_PATH.read_text(encoding="utf-8"))
+
+    assert review["input"]["case_count"] == 160
+    assert sum(batch["approve"] + batch["change_required"] for batch in review["batches"]) == 160
+    assert review["response_validation"]["case_id_bijection"] == "pass"
+    assert review["response_validation"]["strict_shape"] == "fail"
+    assert review["local_reconciliation"]["automatic_corpus_changes"] == 0
+    assert review["local_reconciliation"]["human_approval_granted"] is False
+    assert review["local_reconciliation"]["canonical_hash_granted"] is False
+    assert review["response_validation"]["confirmed_boundaries"] == {
+        "candidate_outputs_seen": False,
+        "human_review_replaced": False,
+        "inference_authorized": False,
+        "pont_001_data_seen": False,
+    }
 
 
 def test_completed_review_requires_a_second_human_to_approve_every_case(tmp_path: Path) -> None:
@@ -108,6 +143,88 @@ def test_completed_review_requires_a_second_human_to_approve_every_case(tmp_path
         "approved": 160,
         "rejected": 0,
     }
+
+
+def test_freeze_refuses_pending_review_without_writing_outputs(tmp_path: Path) -> None:
+    tool = load_tool()
+    records = tool.build_records()
+    review_path = tmp_path / "review.csv"
+    review_path.write_bytes(tool.canonical_review_csv(tool.review_rows(records)))
+    output_dir = tmp_path / "canonical"
+
+    with pytest.raises(tool.CorpusError, match="not human-reviewed"):
+        tool.freeze_review(review_path, records, output_dir)
+
+    assert not output_dir.exists()
+
+
+def test_freeze_writes_canonical_approved_corpus_and_audit_manifest(tmp_path: Path) -> None:
+    tool = load_tool()
+    records = tool.build_records()
+    rows = tool.review_rows(records)
+    for row in rows:
+        row.update(
+            {
+                "review_status": "approved",
+                "reviewed_by": "independent-human-reviewer",
+                "reviewer_role": "pt-BR-language-reviewer",
+                "reviewed_on": "2026-08-16",
+                "decision_notes": "Reviewed without candidate output.",
+            }
+        )
+    review_path = tmp_path / "review.csv"
+    review_path.write_bytes(tool.canonical_review_csv(rows))
+    output_dir = tmp_path / "canonical"
+
+    summary = tool.freeze_review(review_path, records, output_dir)
+
+    corpus_path = output_dir / "pt4-offset-development-v1.jsonl"
+    hash_path = output_dir / "pt4-offset-development-v1.jsonl.sha256"
+    frozen_review_path = output_dir / "pt4-offset-development-review-v1.csv"
+    manifest_path = output_dir / "freeze-manifest.json"
+    assert set(path.name for path in output_dir.iterdir()) == {
+        corpus_path.name,
+        hash_path.name,
+        frozen_review_path.name,
+        manifest_path.name,
+    }
+    corpus_payload = corpus_path.read_bytes()
+    frozen_records = [tool.json.loads(line) for line in corpus_payload.decode().splitlines()]
+    assert len(frozen_records) == 160
+    assert all(record["review_status"] == "approved" for record in frozen_records)
+    assert all(record["reviewed_by"] == "independent-human-reviewer" for record in frozen_records)
+    assert hash_path.read_text(encoding="utf-8") == (
+        f"{tool.sha256_bytes(corpus_payload)}  {corpus_path.name}\n"
+    )
+    assert frozen_review_path.read_bytes() == tool.canonical_review_csv(rows)
+    manifest = tool.json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert manifest == {
+        "approved": 160,
+        "candidate_outputs_included": False,
+        "canonical_corpus_sha256": tool.sha256_bytes(corpus_payload),
+        "case_count": 160,
+        "pont_001_data_included": False,
+        "proposal_sha256": tool.sha256_bytes(tool.proposal_bytes(records)),
+        "review_csv_sha256": tool.sha256_bytes(tool.canonical_review_csv(rows)),
+        "schema_version": "hermes-pt4-offset-freeze/v1",
+    }
+    assert summary == {
+        **manifest,
+        "manifest_sha256": tool.sha256_bytes(manifest_path.read_bytes()),
+    }
+
+
+def test_freeze_refuses_to_overwrite_existing_output(tmp_path: Path) -> None:
+    tool = load_tool()
+    output_dir = tmp_path / "canonical"
+    output_dir.mkdir()
+    marker = output_dir / "keep.txt"
+    marker.write_text("preserve", encoding="utf-8")
+
+    with pytest.raises(tool.CorpusError, match="already exists"):
+        tool.freeze_review(tmp_path / "unused.csv", tool.build_records(), output_dir)
+
+    assert marker.read_text(encoding="utf-8") == "preserve"
 
 
 def test_builder_is_model_blind_and_does_not_import_product_code() -> None:

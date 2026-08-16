@@ -1,0 +1,162 @@
+{
+  "schema_version": "hermes-pt4-kimi-supplementary-review/v1",
+  "created_on": "2026-08-16",
+  "status": "completed-with-contract-deviation-human-gate-pending",
+  "model": {
+    "requested": "kimi-k2.7-code:cloud",
+    "ollama_id": "eda07a659237",
+    "architecture": "kimi-k2",
+    "parameters": 1042000000000,
+    "context_length": 262144,
+    "quantization": "INT4",
+    "thinking": "high"
+  },
+  "input": {
+    "proposal_sha256": "b0c21e03b8fa2f0e13e51927362819bbc77abc831a9aef3fcff580e30d15a438",
+    "case_count": 160,
+    "candidate_outputs_included": false,
+    "pont_001_data_included": false,
+    "secrets_included": false,
+    "human_review_replaced": false,
+    "input_manifest_sha256": "611bb0357792f27f0eec44a4c24b64feff7cb2b2b96960aa01b45098e40e60c3"
+  },
+  "transport": {
+    "batch_count": 4,
+    "cases_per_batch": 40,
+    "first_three_batches": "ASCII square brackets and parentheses in string values were replaced one-for-one by fullwidth forms",
+    "markdown_batch": "file-like punctuation in string values was replaced by explicit named placeholders",
+    "canonical_source_modified": false,
+    "markdown_offset_review_authorized": false
+  },
+  "batches": [
+    {
+      "family": "unicode-newlines",
+      "first_case_id": "pt4-offset-dev-001",
+      "last_case_id": "pt4-offset-dev-040",
+      "prompt_sha256": "9ba423b3bf6da182490ea0ce413210553dd8c69afe3b26bafcf83d8c7dbbd67f",
+      "response_sha256": "bd68f98e4ba874bf905e2d07ef2b0ad4b240f262fa43e4ef4c95405c22cb77a7",
+      "verdict": "approve_with_changes",
+      "approve": 30,
+      "change_required": 10,
+      "strict_shape": "pass",
+      "change_case_ids": [
+        "pt4-offset-dev-005",
+        "pt4-offset-dev-006",
+        "pt4-offset-dev-008",
+        "pt4-offset-dev-012",
+        "pt4-offset-dev-016",
+        "pt4-offset-dev-021",
+        "pt4-offset-dev-024",
+        "pt4-offset-dev-025",
+        "pt4-offset-dev-028",
+        "pt4-offset-dev-037"
+      ]
+    },
+    {
+      "family": "contractions-clitics",
+      "first_case_id": "pt4-offset-dev-041",
+      "last_case_id": "pt4-offset-dev-080",
+      "prompt_sha256": "5f4c0bca58277b87130e9dd6de7f19f069ab2cc5fef6b5d051833921241a6eca",
+      "response_sha256": "8a359c72e9992ed147a9783d6225ed994287ffddef8dbe7d8b2c1f431c4fed4c",
+      "verdict": "approve_with_changes",
+      "approve": 37,
+      "change_required": 3,
+      "strict_shape": "pass",
+      "change_case_ids": [
+        "pt4-offset-dev-063",
+        "pt4-offset-dev-076",
+        "pt4-offset-dev-078"
+      ]
+    },
+    {
+      "family": "technical-tokens",
+      "first_case_id": "pt4-offset-dev-081",
+      "last_case_id": "pt4-offset-dev-120",
+      "prompt_sha256": "de5b97b61f0fa4c81d77e6f8cd71c7c4b845f85772dd7876b07ad097c8a2b34e",
+      "response_sha256": "726d9e6e5afe44311fafa225822b89d90ba91be9d0c7d2009dbfbbd55ff49eb5",
+      "verdict": "approve_with_changes",
+      "approve": 36,
+      "change_required": 4,
+      "strict_shape": "fail-counts-returned-as-strings",
+      "change_case_ids": [
+        "pt4-offset-dev-098",
+        "pt4-offset-dev-099",
+        "pt4-offset-dev-105",
+        "pt4-offset-dev-113"
+      ]
+    },
+    {
+      "family": "markdown-boundaries",
+      "first_case_id": "pt4-offset-dev-121",
+      "last_case_id": "pt4-offset-dev-160",
+      "prompt_sha256": "c89d3754db197c6af5c28b6d0304c1c4bb43fc426ccab2a4b613e48ab7633da9",
+      "response_sha256": "5f7950849b8090de37881640fffe1fc995f314e2b5434ef36f24d60b34df1444",
+      "verdict": "approve_with_changes",
+      "approve": 39,
+      "change_required": 1,
+      "strict_shape": "pass",
+      "change_case_ids": [
+        "pt4-offset-dev-135"
+      ]
+    }
+  ],
+  "response_validation": {
+    "json_parse": "pass",
+    "case_count": 160,
+    "case_id_bijection": "pass",
+    "input_order": "pass",
+    "unique_case_ids": "pass",
+    "decision_count_semantics": "pass",
+    "rationale_word_limit": "pass",
+    "strict_shape": "fail",
+    "strict_shape_failures": [
+      "technical-tokens counts.approve and counts.change_required were strings instead of integers"
+    ],
+    "confirmed_boundaries": {
+      "candidate_outputs_seen": false,
+      "pont_001_data_seen": false,
+      "human_review_replaced": false,
+      "inference_authorized": false
+    }
+  },
+  "raw_model_counts": {
+    "approve": 142,
+    "change_required": 18
+  },
+  "local_reconciliation": {
+    "canonical_mechanical_validation": "pass-160-of-160",
+    "contradicted_mechanical_case_ids": [
+      "pt4-offset-dev-005",
+      "pt4-offset-dev-006",
+      "pt4-offset-dev-008",
+      "pt4-offset-dev-012",
+      "pt4-offset-dev-016",
+      "pt4-offset-dev-021",
+      "pt4-offset-dev-024",
+      "pt4-offset-dev-025",
+      "pt4-offset-dev-028",
+      "pt4-offset-dev-037",
+      "pt4-offset-dev-135"
+    ],
+    "contradiction_reason": "Canonical Python Unicode slices, sentence envelopes, segment containment, and analysis-abstention disjointness pass locally; several Kimi proposed offsets already equal the canonical values.",
+    "human_review_candidate_case_ids": [
+      "pt4-offset-dev-063",
+      "pt4-offset-dev-076",
+      "pt4-offset-dev-078",
+      "pt4-offset-dev-098",
+      "pt4-offset-dev-099",
+      "pt4-offset-dev-105",
+      "pt4-offset-dev-113"
+    ],
+    "human_review_candidate_reason": "Kimi identified possible within-family inconsistencies in clitic/contraction expansion, decimal-comma tokenization, and slash-unit tokenization. These are suggestions for the independent human, not accepted changes.",
+    "automatic_corpus_changes": 0,
+    "human_approval_granted": false,
+    "canonical_hash_granted": false
+  },
+  "external_custody": {
+    "directory": "/home/jorge/.hermes/pt4-corpora/20260816-kimi-review-v1",
+    "raw_prompts_committed": false,
+    "raw_responses_committed": false,
+    "stderr_logs_committed": false
+  }
+}

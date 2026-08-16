@@ -79,8 +79,38 @@ O manifesto do pacote tem SHA-256
 o CSV inicial tem SHA-256
 `8f719a4400fd6641157e9ec03dd5f49f8b428f47a49b523a93265b59705269e4`.
 
+## Revisão LLM suplementar
+
+Por autorização explícita, `kimi-k2.7-code:cloud` fez uma revisão independente
+suplementar dos 160 casos, em quatro lotes model-blind de 40. O pacote externo
+não continha saída de candidato, PONT-001, segredos ou texto proprietário. O
+modelo confirmou essas quatro fronteiras e devolveu todos os `case_id` uma única
+vez e na ordem esperada.
+
+O resultado bruto foi 142 `approve` e 18 `change_required`. A reconciliação
+local contradisse 11 alegações mecânicas: dez confundiram índices Unicode com
+graphemes/whitespace, e uma ignorou o transporte por placeholders do lote
+Markdown. Todos os 160 casos continuam passando slices Python, envelopes,
+contenção em segmentos e separação entre análise e abstenção. As sete sugestões
+restantes — casos 063, 076, 078, 098, 099, 105 e 113 — foram preservadas como
+questões de consistência linguística para o revisor humano, sem mutação
+automática.
+
+A resposta do lote técnico devolveu as duas contagens como strings, não
+inteiros; portanto a revisão Kimi está completa para triagem, mas falha o shape
+estrito e não pode ser tratada como decisão automática. O resumo auditável,
+hashes de prompts/respostas e reconciliação estão em
+`artifacts/hermes/pt4-corpora/kimi-k2.7-supplementary-review-v1.json`; prompts,
+respostas e logs brutos permanecem sob custódia externa em
+`/home/jorge/.hermes/pt4-corpora/20260816-kimi-review-v1`.
+
 Enquanto essa revisão humana não existir, o corpus autoral não pode ser
 renomeado como canônico e nenhuma inferência do bake-off pode começar.
+
+O comando `freeze-review` agora materializa corpus, hash, CSV e manifesto apenas
+depois que o validador comprovar 160 aprovações humanas. A escrita usa staging
+atômico e recusa diretório de saída existente. Ele não foi executado sobre o CSV
+pendente.
 
 ## Ambiente congelado
 

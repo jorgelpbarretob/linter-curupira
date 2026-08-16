@@ -15,4 +15,10 @@ de corpus aceito. O pacote de revisão está sob custódia externa em
 `/home/jorge/.hermes/pt4-corpora/20260816-offset-review-v1` e não contém saída
 de candidato nem dados de PONT-001.
 
+`kimi-k2.7-supplementary-review-v1.json` registra uma revisão LLM complementar
+dos 160 casos, seus hashes e a reconciliação local. Ela preserva sete sugestões
+linguísticas para o segundo humano, contradiz onze falsos positivos mecânicos e
+não altera o corpus. Uma divergência de tipo no lote técnico também impede que
+o output seja aceito pelo shape estrito.
+
 Nenhum artefato deste diretório autoriza harness, adapter ou inferência.
