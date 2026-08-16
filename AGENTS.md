@@ -28,22 +28,24 @@ o bake-off; Stanza está `ineligible-license` sem download. Evidência:
 `docs/hermes-pt4-gate0-grok-review-v1.md`. O modelo spaCy foi apenas instalado e
 carregado sem texto em ambiente externo; não entrou no projeto.
 
-O WIP de corpora/ambiente está bloqueado na segunda revisão humana obrigatória.
-PetroGold `r2.18` e o ambiente estão congelados; os 160 casos autorais em
-`corpus/hermes/pt4/pt4-offset-development-proposal-v1.jsonl` continuam todos
-`pending-human-review`. Evidência e instruções estão em
-`docs/hermes-pt4-corpora-environment-v1.md`. Não aprove, adjudique ou renomeie a
-proposta como corpus canônico sem uma segunda pessoa aprovar 100% dos casos.
-Harness, adapter, inferência de bake-off, escolha de backend e PT5 continuam
-fechados.
+O ADR-020 substituiu gates humanos prospectivos por unanimidade de um painel
+isolado com `sabia-4-thinking`, `grok-4.6` e `kimi-k2.7-code:cloud`; testes de
+usuário pertencem à Himavai. PetroGold `r2.18` e o ambiente estão congelados. A
+proposta autoral v2 corrigiu sete inconsistências, passou validação mecânica e
+recebeu três votos válidos `approve` em 160/160 casos. O corpus canônico foi
+congelado com SHA-256
+`45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`.
+O próximo WIP é o harness PT4. Adapter de produto, escolha de backend e PT5
+continuam fechados; inferência só ocorre depois do harness validado conforme o
+protocolo.
 
 O piloto de 40 labels já foi aceito e congelado. O snapshot pt-BR do Kubernetes
 foi aceito como fonte de holdout em 2026-08-14 e o manifesto sem labels foi
 congelado conforme `docs/hermes-pt2-holdout-source-assessment.md`. Não gere
 labels, não execute o linter e não use casos do holdout para ajustar detector,
-prompt, threshold ou fixture antes dos gates humanos restantes.
-O pacote de revisão cega foi preparado fora do repositório com 409 decisões
-`pending-human-review`; ele não é ground truth até revisão e adjudicação humanas.
+prompt, threshold ou fixture. O pacote histórico de revisão cega foi preparado
+fora do repositório com 409 decisões inicialmente `pending-human-review`; esse
+estado foi resolvido no ciclo PT2 já congelado e não define o fluxo prospectivo.
 Em 2026-08-14, o mantenedor autorizou Grok como revisor delegado e aprovou a
 emenda operacional em `docs/hermes-pt2-grok-review-protocol.md`. A revisão Grok
 foi concluída sem fila crítica. O mantenedor aprovou o hash do ground truth e os
@@ -68,7 +70,8 @@ e não entra no wheel Hermes.
 Construir um linter Python open source, português-first, que ajude autores a
 produzir documentação técnica clara e consistente em português brasileiro. O
 produto combina regras locais reproduzíveis com análise semântica remota
-opt-in, produz diagnósticos rastreáveis e não substitui revisão humana.
+opt-in, produz diagnósticos rastreáveis e separa validação por painel de modelos
+dos testes de usuário conduzidos pela Himavai.
 
 ## Regras inegociáveis
 
@@ -80,10 +83,12 @@ opt-in, produz diagnósticos rastreáveis e não substitui revisão humana.
    proveniência explícitas.
 3. Corpus, vocabulários e glossários externos não entram em Git, wheel, imagem,
    fixture ou cassette sem licença compatível e autorização registrada.
-4. Classifique cada regra como `deterministic`, `nlp`, `semantic` ou `human-review`.
+4. Classifique novas regras como `deterministic`, `nlp` ou `semantic`.
+   `human-review` é histórico e depreciado pelo ADR-020.
 5. `sabiazinho-4` é o motor `semantic`; `sabia-4-thinking` é o
-   avaliador rigoroso. Nenhum deles é sozinho ground truth. O núcleo
-   determinístico funciona offline e sem credenciais.
+   voto Maritaca do painel. Nenhum modelo é sozinho ground truth; novos
+   artefatos exigem unanimidade com Grok e Kimi 2.7. O núcleo determinístico
+   funciona offline e sem credenciais.
 6. Todo `Diagnostic` contém `rule_id`, `source`, `severity`, `location`, `explanation` e `suggestion` opcional.
 7. Prefira abstenção a falso positivo. Uma regra que não atinge o gate fica `preview` ou não é emitida.
 8. Testes pertencem ao incremento da regra. Não aceite “implementar agora, testar depois”.
@@ -134,7 +139,11 @@ Não trate timeout como sucesso e não esconda falhas preexistentes.
 
 ## Mudanças difíceis de reverter
 
-Antes de alterar modelo de offsets, schema JSON, IDs de regras, contrato `Rule`/`Diagnostic`, formato do vocabulário, precedência de configuração, fingerprint de baseline ou postura de licença, registre/atualize um ADR e obtenha aprovação humana.
+Antes de alterar modelo de offsets, schema JSON, IDs de regras, contrato
+`Rule`/`Diagnostic`, formato do vocabulário, precedência de configuração,
+fingerprint de baseline ou postura de licença, registre/atualize um ADR e
+aplique o gate do ADR-020. A aprovação explícita do mantenedor continua válida
+para mudar a própria governança.
 
 ## Dados, segredos e serviços externos
 

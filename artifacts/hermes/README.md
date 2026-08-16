@@ -10,5 +10,5 @@ local antes do bake-off. Esses arquivos não selecionam backend, não entram no
 wheel base do projeto e não autorizam PT5.
 
 `pt4-corpora/` registra provas pequenas do incremento de corpora e ambiente. Os
-corpora em si ficam em `corpus/hermes/pt4/`; a proposta autoral ainda não é
-canônica enquanto a segunda revisão humana estiver pendente.
+corpora em si ficam em `corpus/hermes/pt4/`; propostas novas só se tornam
+canônicas após validação mecânica e unanimidade do painel do ADR-020.

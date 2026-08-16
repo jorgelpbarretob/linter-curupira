@@ -1,0 +1,12 @@
+899b1804a12ebc090b96339614eede1b64b686721b650a71430b55b5235f7f79  corpus/hermes/pt4/LICENSE-UD-Portuguese-PetroGold.txt
+069a43e29462ac24f876c43affcd12b519e2aa650b934f8591d67dae8a993f5d  corpus/hermes/pt4/pt_petrogold-ud-test-r2.18.conllu
+ad1104984eaf056d256d769e2d5979cbf8f7f307c19f9bbdf8e197680ff79f8e  corpus/hermes/pt4/petrogold-test-r2.18-manifest-v1.json
+fddf5a67404557f9c7d1f468bd7ca641133fd213360d68b137a54abf5c80c332  corpus/hermes/pt4/reference-environment-v1.json
+5f696644ba83bf588b4f831774d9c8e588b519df36183318740d1c107b7e7d55  corpus/hermes/pt4/pt4-offset-development-proposal-v2.jsonl
+fc129315870059f632a9de33628f4f3c4001bc630fb27b235f68a2cacf5cfce2  corpus/hermes/pt4/pt4-offset-development-proposal-v2.jsonl.sha256
+45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d  corpus/hermes/pt4/pt4-offset-development-v1.jsonl
+cbe5841437c10991088f650fd908b867d16f2b18ce97285ec3b077ba556338e8  corpus/hermes/pt4/pt4-offset-development-v1.jsonl.sha256
+dffeed4d8b764bc3eed60c66d589e2addb49f5d78bd77fdcc85d6429a7725412  artifacts/hermes/pt4-corpora/spacy-offline-install-check-v1.json
+5b213eec46525d866a8fff7cfb14625197957cd6643a659fdf70733b1323a213  artifacts/hermes/pt4-corpora/contamination-audit-v2.json
+94c528bf0889ca31aded86097f3aabf278a09c142d26ecb31601858fbcaafb54  artifacts/hermes/pt4-corpora/wikiner-pt-wp3-snapshot-v1.json
+43bca1777149b2b91fa647f304be51bebb860fe2f089ad4143da00f8770659e5  artifacts/hermes/pt4-corpora/model-panel-review-v2.json

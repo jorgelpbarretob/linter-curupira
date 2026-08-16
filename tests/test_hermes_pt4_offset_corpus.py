@@ -18,6 +18,10 @@ KIMI_REVIEW_PATH = (
     / "pt4-corpora"
     / "kimi-k2.7-supplementary-review-v1.json"
 )
+PANEL_REVIEW_PATH = KIMI_REVIEW_PATH.with_name("model-panel-review-v2.json")
+CANONICAL_CORPUS_PATH = (
+    Path(__file__).parents[1] / "corpus" / "hermes" / "pt4" / "pt4-offset-development-v1.jsonl"
+)
 
 
 def load_tool() -> ModuleType:
@@ -43,7 +47,7 @@ def test_proposal_is_balanced_deterministic_and_pending() -> None:
         "markdown-boundaries": 40,
     }
     assert len({record["case_id"] for record in records}) == 160
-    assert all(record["review_status"] == "pending-human-review" for record in records)
+    assert all(record["review_status"] == "pending-model-panel" for record in records)
     assert tool.PROPOSAL_PATH.read_bytes() == tool.proposal_bytes(records)
     assert tool.PROPOSAL_HASH_PATH.read_text(encoding="utf-8") == (
         f"{tool.sha256_bytes(tool.proposal_bytes(records))}  {tool.PROPOSAL_PATH.name}\n"
@@ -99,6 +103,31 @@ def test_proposal_covers_mwt_unicode_and_structural_abstention() -> None:
     assert any(not record["analysis_segments"] for record in structural)
 
 
+def test_every_contraction_and_clitic_in_mixed_cases_has_a_syntactic_expansion() -> None:
+    records = {record["case_id"]: record for record in load_tool().build_records()}
+
+    expected_forms = {
+        "pt4-offset-dev-063": ["Afaste", "se", "de", "aquele", "painel", "."],
+        "pt4-offset-dev-076": ["Dê", "lhe", "acesso", "a", "o", "painel", "."],
+        "pt4-offset-dev-078": ["Aplique", "as", "em", "a", "superfície", "."],
+    }
+    for case_id, forms in expected_forms.items():
+        assert [word["form"] for word in records[case_id]["syntactic_words"]] == forms
+
+
+def test_equivalent_decimal_and_slash_units_use_consistent_surface_tokens() -> None:
+    records = {record["case_id"]: record for record in load_tool().build_records()}
+
+    expected_tokens = {
+        "pt4-offset-dev-098": "7,2",
+        "pt4-offset-dev-099": "120,00",
+        "pt4-offset-dev-105": "L/s",
+        "pt4-offset-dev-113": "2,1",
+    }
+    for case_id, expected_token in expected_tokens.items():
+        assert expected_token in [token["text"] for token in records[case_id]["surface_tokens"]]
+
+
 def test_kimi_review_is_supplementary_complete_and_does_not_open_gates() -> None:
     review = json.loads(KIMI_REVIEW_PATH.read_text(encoding="utf-8"))
 
@@ -117,86 +146,143 @@ def test_kimi_review_is_supplementary_complete_and_does_not_open_gates() -> None
     }
 
 
-def test_completed_review_requires_a_second_human_to_approve_every_case(tmp_path: Path) -> None:
+def test_committed_canonical_corpus_matches_unanimous_panel_audit() -> None:
     tool = load_tool()
-    records = tool.build_records()
-    rows = tool.review_rows(records)
-    review_path = tmp_path / "review.csv"
-    review_path.write_bytes(tool.canonical_review_csv(rows))
+    audit = json.loads(PANEL_REVIEW_PATH.read_text(encoding="utf-8"))
+    payload = CANONICAL_CORPUS_PATH.read_bytes()
+    records = [json.loads(line) for line in payload.decode().splitlines()]
 
-    with pytest.raises(tool.CorpusError, match="not human-reviewed"):
-        tool.validate_completed_review(review_path, records)
+    assert audit["status"] == "approved-unanimous"
+    assert audit["freeze"]["canonical_corpus_sha256"] == tool.sha256_bytes(payload)
+    assert audit["confirmed_boundaries"] == {
+        "candidate_outputs_seen": False,
+        "pont_001_data_seen": False,
+        "inference_authorized": False,
+    }
+    assert all(provider["approved"] == 160 for provider in audit["providers"].values())
+    assert all(record["review_status"] == "model-panel-approved" for record in records)
+    for record in records:
+        tool.validate_case(record)
 
-    for row in rows:
-        row.update(
+
+def model_vote(
+    tool: ModuleType,
+    records: list[dict[str, object]],
+    provider: str,
+    *,
+    changed_case: str | None = None,
+) -> dict[str, object]:
+    model = tool.PANEL_MODELS[provider]
+    cases = []
+    for record in records:
+        changed = record["case_id"] == changed_case
+        cases.append(
             {
-                "review_status": "approved",
-                "reviewed_by": "independent-human-reviewer",
-                "reviewer_role": "pt-BR-language-reviewer",
-                "reviewed_on": "2026-08-16",
+                "case_id": record["case_id"],
+                "decision": "change_required" if changed else "approve",
+                "severity": "minor" if changed else "none",
+                "fields": ["surface_tokens"] if changed else [],
+                "rationale": "Requer ajuste." if changed else "",
+                "proposed_change": "Ajustar tokenização." if changed else "",
             }
         )
-    review_path.write_bytes(tool.canonical_review_csv(rows))
-
-    assert tool.validate_completed_review(review_path, records) == {
-        "case_count": 160,
-        "approved": 160,
-        "rejected": 0,
+    return {
+        "schema_version": "hermes-pt4-model-vote/v1",
+        "provider": provider,
+        "model_requested": model,
+        "model_returned": model,
+        "proposal_sha256": tool.sha256_bytes(tool.proposal_bytes(records)),
+        "verdict": "change_required" if changed_case else "approve",
+        "cases": cases,
+        "confirmed_boundaries": {
+            "candidate_outputs_seen": False,
+            "pont_001_data_seen": False,
+            "inference_authorized": False,
+        },
     }
 
 
-def test_freeze_refuses_pending_review_without_writing_outputs(tmp_path: Path) -> None:
+def write_vote(path: Path, tool: ModuleType, vote: dict[str, object]) -> None:
+    path.write_bytes(tool.canonical_record(vote))
+
+
+def test_model_vote_requires_exact_identity_coverage_order_and_shape(tmp_path: Path) -> None:
     tool = load_tool()
     records = tool.build_records()
-    review_path = tmp_path / "review.csv"
-    review_path.write_bytes(tool.canonical_review_csv(tool.review_rows(records)))
-    output_dir = tmp_path / "canonical"
+    vote = model_vote(tool, records, "maritaca")
+    vote_path = tmp_path / "maritaca.json"
+    write_vote(vote_path, tool, vote)
 
-    with pytest.raises(tool.CorpusError, match="not human-reviewed"):
-        tool.freeze_review(review_path, records, output_dir)
+    assert tool.validate_model_vote(vote_path, "maritaca", records) == {
+        "case_count": 160,
+        "approved": 160,
+        "change_required": 0,
+        "provider": "maritaca",
+        "model_requested": "sabia-4-thinking",
+        "model_returned": "sabia-4-thinking",
+        "vote_sha256": tool.sha256_bytes(vote_path.read_bytes()),
+    }
 
-    assert not output_dir.exists()
+    vote["cases"][0], vote["cases"][1] = vote["cases"][1], vote["cases"][0]
+    write_vote(vote_path, tool, vote)
+    with pytest.raises(tool.CorpusError, match="canonical order"):
+        tool.validate_model_vote(vote_path, "maritaca", records)
 
 
-def test_freeze_writes_canonical_approved_corpus_and_audit_manifest(tmp_path: Path) -> None:
+def test_panel_refuses_missing_provider_and_change_required(tmp_path: Path) -> None:
     tool = load_tool()
     records = tool.build_records()
-    rows = tool.review_rows(records)
-    for row in rows:
-        row.update(
-            {
-                "review_status": "approved",
-                "reviewed_by": "independent-human-reviewer",
-                "reviewer_role": "pt-BR-language-reviewer",
-                "reviewed_on": "2026-08-16",
-                "decision_notes": "Reviewed without candidate output.",
-            }
-        )
-    review_path = tmp_path / "review.csv"
-    review_path.write_bytes(tool.canonical_review_csv(rows))
+    vote_paths = {}
+    for provider in ("maritaca", "grok"):
+        path = tmp_path / f"{provider}.json"
+        write_vote(path, tool, model_vote(tool, records, provider))
+        vote_paths[provider] = path
+
+    with pytest.raises(tool.CorpusError, match="exactly maritaca, grok and kimi"):
+        tool.validate_model_panel(vote_paths, records)
+
+    kimi_path = tmp_path / "kimi.json"
+    write_vote(
+        kimi_path,
+        tool,
+        model_vote(tool, records, "kimi", changed_case="pt4-offset-dev-063"),
+    )
+    vote_paths["kimi"] = kimi_path
+    with pytest.raises(tool.CorpusError, match="rework is required"):
+        tool.validate_model_panel(vote_paths, records)
+
+
+def test_freeze_writes_unanimous_canonical_corpus_votes_and_manifest(tmp_path: Path) -> None:
+    tool = load_tool()
+    records = tool.build_records()
+    vote_paths = {}
+    for provider in tool.PANEL_MODELS:
+        path = tmp_path / f"{provider}.json"
+        write_vote(path, tool, model_vote(tool, records, provider))
+        vote_paths[provider] = path
     output_dir = tmp_path / "canonical"
 
-    summary = tool.freeze_review(review_path, records, output_dir)
+    summary = tool.freeze_model_panel(vote_paths, records, output_dir)
 
     corpus_path = output_dir / "pt4-offset-development-v1.jsonl"
     hash_path = output_dir / "pt4-offset-development-v1.jsonl.sha256"
-    frozen_review_path = output_dir / "pt4-offset-development-review-v1.csv"
     manifest_path = output_dir / "freeze-manifest.json"
     assert set(path.name for path in output_dir.iterdir()) == {
         corpus_path.name,
         hash_path.name,
-        frozen_review_path.name,
+        "maritaca-model-vote-v1.json",
+        "grok-model-vote-v1.json",
+        "kimi-model-vote-v1.json",
         manifest_path.name,
     }
     corpus_payload = corpus_path.read_bytes()
     frozen_records = [tool.json.loads(line) for line in corpus_payload.decode().splitlines()]
     assert len(frozen_records) == 160
-    assert all(record["review_status"] == "approved" for record in frozen_records)
-    assert all(record["reviewed_by"] == "independent-human-reviewer" for record in frozen_records)
+    assert all(record["review_status"] == "model-panel-approved" for record in frozen_records)
+    assert all(record["reviewer_role"] == "three-model-panel" for record in frozen_records)
     assert hash_path.read_text(encoding="utf-8") == (
         f"{tool.sha256_bytes(corpus_payload)}  {corpus_path.name}\n"
     )
-    assert frozen_review_path.read_bytes() == tool.canonical_review_csv(rows)
     manifest = tool.json.loads(manifest_path.read_text(encoding="utf-8"))
     assert manifest == {
         "approved": 160,
@@ -205,8 +291,11 @@ def test_freeze_writes_canonical_approved_corpus_and_audit_manifest(tmp_path: Pa
         "case_count": 160,
         "pont_001_data_included": False,
         "proposal_sha256": tool.sha256_bytes(tool.proposal_bytes(records)),
-        "review_csv_sha256": tool.sha256_bytes(tool.canonical_review_csv(rows)),
-        "schema_version": "hermes-pt4-offset-freeze/v1",
+        "schema_version": "hermes-pt4-offset-model-panel-freeze/v1",
+        "unanimous": True,
+        "vote_sha256": {
+            provider: tool.sha256_bytes(path.read_bytes()) for provider, path in vote_paths.items()
+        },
     }
     assert summary == {
         **manifest,
@@ -222,7 +311,7 @@ def test_freeze_refuses_to_overwrite_existing_output(tmp_path: Path) -> None:
     marker.write_text("preserve", encoding="utf-8")
 
     with pytest.raises(tool.CorpusError, match="already exists"):
-        tool.freeze_review(tmp_path / "unused.csv", tool.build_records(), output_dir)
+        tool.freeze_model_panel({}, tool.build_records(), output_dir)
 
     assert marker.read_text(encoding="utf-8") == "preserve"
 

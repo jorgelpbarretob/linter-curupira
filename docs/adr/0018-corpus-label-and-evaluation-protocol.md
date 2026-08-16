@@ -1,7 +1,12 @@
 # ADR-018: protocolo de corpus, labels e avaliação do Hermes
 
-Status: Accepted
+Status: Accepted, amended by ADR-020
 Date: 2026-08-13
+
+> Emenda de 2026-08-16: o fluxo humano abaixo registra o ciclo histórico de
+> PONT-001. Para artefatos novos, o ADR-020 substitui revisão e adjudicação
+> humanas por validação mecânica e unanimidade do painel Maritaca + Grok + Kimi
+> 2.7. A Himavai executa UAT e não rotula corpus.
 
 ## Contexto
 
@@ -64,11 +69,12 @@ zero erro, a evidência de promoção precisa de pelo menos 73 unidades positiva
 corretas; qualquer erro aumenta a amostra necessária. Challenge e holdout serão
 dimensionados depois do piloto, antes de sua geração.
 
-### Autoridade humana
+### Autoridade histórica deste ciclo
 
-Autor do lote pode propor `truth`, mas não aprová-la sozinho. Uma segunda
-revisão humana examina texto, marcação, unidade e racional sem consultar o
-detector. Modelo de linguagem pode ser comparador futuro, nunca aprovador único.
+Neste ciclo já encerrado, o autor do lote podia propor `truth`, mas não aprová-la
+sozinho. O fluxo prospectivo está substituído pelo ADR-020: nenhum modelo é
+aprovador único e a unanimidade dos três modelos, além da validação mecânica,
+forma o gate.
 
 ## Consequências
 

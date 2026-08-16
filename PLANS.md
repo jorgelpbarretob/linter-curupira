@@ -20,6 +20,9 @@ As decisões e o roadmap operacionais estão em:
 
 - [`ADR-016`](docs/adr/0016-portuguese-first-and-maritaca-roles.md), que registra
   o produto pt-BR e a separação dos papéis da Maritaca;
+- [`ADR-020`](docs/adr/0020-model-panel-and-himavai-uat.md), que substitui gates
+  humanos prospectivos pelo painel Maritaca + Grok + Kimi 2.7 e define o UAT da
+  Himavai;
 - [`docs/pt-br-product-replan.md`](docs/pt-br-product-replan.md), que contém os
   incrementos, gates e critérios de avaliação vigentes;
 - [`docs/english-line-closure.md`](docs/english-line-closure.md), que congela o
@@ -40,19 +43,21 @@ especificação autoral pt-BR + catálogo de regras
                              sabiazinho-4
                                       |
                                       v
-                         avaliação rigorosa separada
-                         sabia-4-thinking
+                         painel isolado de validação
+                  sabia-4-thinking + grok-4.6 + kimi-k2.7
                                       |
                                       v
-                            adjudicação humana
+                       unanimidade + validação mecânica
+                                      |
+                                      v
+                         UAT de produto pela Himavai
 ```
 
 O Sabiazinho é o motor das regras `semantic` do linter, nunca a implementação
-de regras determinísticas. O Sabiá Thinking é um avaliador de desenvolvimento e
-benchmark, não participa do caminho normal de lint. O julgamento rigoroso começa
-cego ao resultado do Sabiazinho e só depois recebe o diagnóstico candidato para
-crítica. Como ambos pertencem à família Sabiá, a adjudicação humana continua
-sendo a autoridade final dos conjuntos rotulados.
+de regras determinísticas. O Sabiá Thinking é o voto Maritaca de desenvolvimento
+e benchmark, não participa do caminho normal de lint. Ground truth novo exige
+unanimidade entre Maritaca, Grok e Kimi 2.7, além dos validadores
+determinísticos. A Himavai valida a experiência de uso, não rotula corpus.
 
 ### WIP vigente
 
@@ -88,12 +93,11 @@ e 73 documentos de controle, SHA-256
 `3eaf4069017593c4f9e0d0c573736899ccbf137e3792ba97161e94d0663f86e7`.
 Fonte, contrato, exclusões, seleção e comando de reprodução estão em
 [`docs/hermes-pt2-holdout-source-assessment.md`](docs/hermes-pt2-holdout-source-assessment.md).
-O pacote editável para revisão foi preparado fora do repositório com 409 decisões
-`pending-human-review`, SHA-256 do CSV
+O pacote histórico de revisão foi preparado fora do repositório com 409 decisões
+inicialmente `pending-human-review`, SHA-256 do CSV
 `b3fcb6214c5fc2eff295b4b7906d558f00770f1159a079648a64ac081e30fad4`.
-O mantenedor aceitou o pacote e autorizou a continuidade em 2026-08-14, mas o
-CSV ainda contém zero `truth`: esse aceite não substitui o preenchimento e a
-confirmação humana de cada decisão.
+Esse estado intermediário foi resolvido pelo protocolo Grok daquele ciclo e não
+é gate vigente. Artefatos novos seguem o painel definido no ADR-020.
 
 O mantenedor em seguida autorizou o Grok como revisor delegado. A emenda aceita
 para os labels está em
@@ -155,16 +159,21 @@ O parecer está em
 [`docs/hermes-pt4-gate0-grok-review-v1.md`](docs/hermes-pt4-gate0-grok-review-v1.md).
 spaCy está `eligible` somente para o bake-off; Stanza está
 `ineligible-license` sem aquisição.
-Nenhum candidato foi escolhido, nenhuma dependência entrou no produto e as
-etapas de harness, inferência de bake-off, adapter e PT5 permanecem fechadas.
+Nenhum candidato foi escolhido e nenhuma dependência entrou no produto. O
+harness PT4 é o próximo WIP; inferência, adapter e PT5 permanecem fechados até
+sua validação.
 
 O WIP=1 de corpora/ambiente materializou PetroGold `r2.18`, fixou o ambiente de
 referência e produziu uma proposta autoral com 160 casos, 40 por família. O
 estado e os hashes estão em
 [`docs/hermes-pt4-corpora-environment-v1.md`](docs/hermes-pt4-corpora-environment-v1.md).
-Todos os casos permanecem `pending-human-review`; uma segunda pessoa deve
-aprovar 100% antes do hash canônico. Até essa revisão, o WIP não avança para
-harness ou inferência.
+A revisão Kimi da v1 revelou sete inconsistências linguísticas confirmadas pelo
+contrato; a proposta v2 corrigiu esses casos sem consultar saída de candidato.
+Validação mecânica e Maritaca, Grok e Kimi 2.7 aprovaram 160/160. O corpus
+canônico foi congelado com SHA-256
+`45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`.
+Não há gate humano. O WIP avança para implementação do harness, ainda sem
+inferência.
 
 ### Invariantes vigentes
 
@@ -177,6 +186,10 @@ harness ou inferência.
   tokens, data, latência e estado de validação do schema;
 - falha remota não altera nem invalida diagnósticos determinísticos;
 - resultado de modelo não é sozinho ground truth, regra normativa ou autofix;
+- ground truth novo exige unanimidade Maritaca + Grok + Kimi 2.7 e validação
+  mecânica; divergência causa nova versão e novo painel;
+- testes de usuário são conduzidos pela Himavai em builds executáveis e não
+  substituem corpus ou testes automatizados;
 - CI público permanece offline com doubles e fixtures sintéticas sanitizadas;
 - nenhuma regra ou ID `STE-I9-*` migra para o catálogo pt-BR.
 
@@ -185,7 +198,7 @@ harness ou inferência.
 Daqui até o fim deste documento está preservado o plano inglês anterior ao
 pivot. Ele serve para rastreabilidade e para identificar contratos candidatos a
 reuso, mas não governa novos incrementos de produto. Em caso de divergência,
-`ADR-016` e o replan pt-BR prevalecem.
+`ADR-016`, `ADR-020` e o replan pt-BR prevalecem.
 
 Antes do pivot, este `PLANS.md` era o plano operacional vigente. O documento
 [`ste-lint-plano-v2-antifragil.md`](ste-lint-plano-v2-antifragil.md) permanece
@@ -747,7 +760,7 @@ Definition of Ready:
 - nome do produto, namespace das regras e fonte normativa/autoral pt-BR
   aprovados;
 - casos de uso, classes de documentos permitidas para egress e responsáveis
-  pela revisão humana definidos;
+  pelo painel de validação e pelo UAT definidos;
 - a seleção histórica de modelo foi substituída pelo `ADR-016`; os modelos
   vigentes são `sabiazinho-4` e `sabia-4-thinking`, com papéis separados;
 - modelo, prompt, schema estruturado, limites de custo/latência, política de
@@ -756,7 +769,7 @@ Definition of Ready:
 - chave exposta anteriormente revogada/rotacionada; uma nova credencial é
   configurada fora do repositório somente quando os gates anteriores estiverem
   verdes;
-- autorização humana explícita para iniciar o TDD da derivação.
+- autorização do mantenedor para iniciar o TDD da derivação.
 
 Aceite do primeiro incremento:
 

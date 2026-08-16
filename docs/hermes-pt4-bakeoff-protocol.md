@@ -4,6 +4,8 @@ Status: Accepted
 Date: 2026-08-16
 Protocol version: `hermes-pt4-bakeoff/v1`
 
+Corpus status: offset corpus frozen by unanimous ADR-020 panel; harness next
+
 ## Decisão e fonte de verdade
 
 Pergunta: qual configuração local fornece a menor porta suficiente de
@@ -78,8 +80,10 @@ Mínimo de 160 casos autorais CC BY 4.0, distribuídos igualmente entre:
   segmentação conservadora ou abstenção.
 
 Cada caso registra texto original, spans esperados, tokens de superfície,
-sentenças, palavras sintáticas aplicáveis, razão e status de revisão. Pelo menos
-uma segunda revisão humana aprova 100% dos casos antes do hash canônico.
+sentenças, palavras sintáticas aplicáveis, razão e status de revisão. Antes do
+hash canônico, 100% dos casos devem passar validação mecânica e receber votos
+`approve` isolados de `sabia-4-thinking`, `grok-4.6` e
+`kimi-k2.7-code:cloud`, conforme ADR-020.
 
 ### B. `UD_Portuguese-PetroGold-test`
 
@@ -270,9 +274,10 @@ licença. Nenhum desses atos seleciona backend ou abre as etapas seguintes.
 
 O incremento seguinte congelou PetroGold `r2.18`, o ambiente de referência e
 uma proposta autoral de 160 casos, conforme
-`docs/hermes-pt4-corpora-environment-v1.md`. A proposta permanece integralmente
-`pending-human-review`; por isso a etapa 2 ainda não está concluída e harness,
-adapter e inferência continuam fechados.
+`docs/hermes-pt4-corpora-environment-v1.md`. A proposta v1 recebeu revisão Kimi;
+sete achados linguísticos confirmados originaram a v2. A etapa 2 só termina com
+validação mecânica e unanimidade do painel ADR-020; até lá, harness, adapter e
+inferência continuam fechados.
 
 ## Sources
 

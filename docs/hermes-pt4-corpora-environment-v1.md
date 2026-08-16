@@ -1,6 +1,6 @@
 # PT4 — corpora e ambiente de referência v1
 
-Status: Blocked pending independent human review
+Status: Corpora and environment frozen; harness not started
 Date: 2026-08-16
 Protocol: `hermes-pt4-bakeoff/v1`
 
@@ -21,9 +21,9 @@ O split contém 2 documentos, 1.039 sentenças, 27.453 tokens de superfície,
 split permanece obrigatório; nenhuma linha pode ser removida após observar
 resultado de candidato.
 
-## Corpus autoral proposto
+## Corpus autoral congelado
 
-`pt4-offset-development-proposal-v1.jsonl` contém 160 casos autorais CC BY 4.0,
+`pt4-offset-development-proposal-v2.jsonl` contém 160 casos autorais CC BY 4.0,
 distribuídos igualmente entre:
 
 - Unicode, diacríticos, emoji, LF e CRLF;
@@ -37,10 +37,14 @@ razão e estado de revisão. O gerador é independente do produto e não importa
 spaCy, Stanza ou `hermes_lint`. Nenhuma saída candidata, label ou erro de
 `HERMES-PT-PONT-001` foi consultado.
 
-A proposta tem SHA-256
-`b0c21e03b8fa2f0e13e51927362819bbc77abc831a9aef3fcff580e30d15a438`.
-Esse hash protege o pacote submetido à revisão; não é hash canônico de corpus
-aceito.
+A proposta v2 corrige as sete inconsistências confirmadas na revisão Kimi v1:
+expansões completas nos casos 063, 076 e 078 e proteção consistente de
+decimais/unidade nos casos 098, 099, 105 e 113. Seu SHA-256 é
+`5f696644ba83bf588b4f831774d9c8e588b519df36183318740d1c107b7e7d55`.
+
+Depois da validação mecânica e do painel descrito abaixo, os bytes aceitos foram
+congelados em `pt4-offset-development-v1.jsonl`, SHA-256
+`45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`.
 
 ## Contaminação
 
@@ -61,56 +65,38 @@ O arquivo foi congelado fora do Git com SHA-256
 `d34a73ca46ebae6c83db1f4d8057406e6ceed5a7ea579407c3b35120274c48d4`.
 Suas 142.112 sentenças não têm interseção com PetroGold ou com a proposta
 autoral por igualdade exata, NFC + `casefold` + colapso de whitespace ou NFC +
-`casefold` + remoção de whitespace. A auditoria de contaminação agora está
-`pass`, sem pendências; seu SHA-256 é
-`7ac450d6afca14b41e8595379ed9b5958feecb92080964603ea50fe59ee1c7c7`.
+`casefold` + remoção de whitespace. A auditoria da proposta v2 está `pass`, sem
+sobreposição material; seu SHA-256 é
+`5b213eec46525d866a8fff7cfb14625197957cd6643a659fdf70733b1323a213`.
 
-## Revisão humana obrigatória
+## Painel Maritaca + Grok + Kimi 2.7
 
 O pacote externo está em
-`/home/jorge/.hermes/pt4-corpora/20260816-offset-review-v1`. Ele contém o JSONL,
-uma planilha CSV de decisão, instruções e manifesto, sem saída de modelo. Uma
-segunda pessoa deve revisar e aprovar 100% dos 160 casos. O validador falha
-fechado diante de campo pendente, alteração dos identificadores/hashes,
-rejeição sem justificativa ou qualquer caso rejeitado.
+`/home/jorge/.hermes/pt4-corpora/20260816-offset-panel-v2`. Ele contém a proposta
+v2, prompt, schema, requests, respostas brutas e votos estruturados, sem saída
+de candidato nem dados PONT-001. O manifesto do pacote tem SHA-256
+`4e0a36b68d1b7bf92a50dede80187afcad70580c8b2e725ef65de437f5234e9c`.
 
-O manifesto do pacote tem SHA-256
-`e15f4595ad3498adcffda272e837ef9d9a8844c556f01ea92012ff2afd16ded2`;
-o CSV inicial tem SHA-256
-`8f719a4400fd6641157e9ec03dd5f49f8b428f47a49b523a93265b59705269e4`.
+Maritaca `sabia-4-thinking` e Grok solicitado como `grok-4.6`, retornado como
+`grok-4.6-build`, aprovaram 160/160 na primeira revisão. Kimi solicitado como
+`kimi-k2.7-code:cloud`, retornado como `kimi-k2.7-code`, aprovou 153 e contestou
+sete alegações mecânicas. O validador demonstrou slices, comprimentos e code
+points diretamente nos bytes; o Kimi recebeu essa prova e revotou os sete como
+`approve`. O executor não converteu decisão de modelo.
 
-## Revisão LLM suplementar
+Os votos finais cobrem 160 `case_id` únicos, na ordem canônica, validam no
+schema e são unânimes. Seus SHA-256 são
+`06f728759d02b422e2bcfabca225899fed974d654d7b9dd38d3efc1e38511a81`
+(Maritaca),
+`ffb9844829edc28da62315a4ff1a8c61a86106e8bc411e219aea5b64a94cd6ee`
+(Grok) e
+`073f6f27db6494c0b920085077bb2fc1bbda9defe7c9c8765908c1c4689a6a17`
+(Kimi). O resumo auditável está em
+`artifacts/hermes/pt4-corpora/model-panel-review-v2.json`.
 
-Por autorização explícita, `kimi-k2.7-code:cloud` fez uma revisão independente
-suplementar dos 160 casos, em quatro lotes model-blind de 40. O pacote externo
-não continha saída de candidato, PONT-001, segredos ou texto proprietário. O
-modelo confirmou essas quatro fronteiras e devolveu todos os `case_id` uma única
-vez e na ordem esperada.
-
-O resultado bruto foi 142 `approve` e 18 `change_required`. A reconciliação
-local contradisse 11 alegações mecânicas: dez confundiram índices Unicode com
-graphemes/whitespace, e uma ignorou o transporte por placeholders do lote
-Markdown. Todos os 160 casos continuam passando slices Python, envelopes,
-contenção em segmentos e separação entre análise e abstenção. As sete sugestões
-restantes — casos 063, 076, 078, 098, 099, 105 e 113 — foram preservadas como
-questões de consistência linguística para o revisor humano, sem mutação
-automática.
-
-A resposta do lote técnico devolveu as duas contagens como strings, não
-inteiros; portanto a revisão Kimi está completa para triagem, mas falha o shape
-estrito e não pode ser tratada como decisão automática. O resumo auditável,
-hashes de prompts/respostas e reconciliação estão em
-`artifacts/hermes/pt4-corpora/kimi-k2.7-supplementary-review-v1.json`; prompts,
-respostas e logs brutos permanecem sob custódia externa em
-`/home/jorge/.hermes/pt4-corpora/20260816-kimi-review-v1`.
-
-Enquanto essa revisão humana não existir, o corpus autoral não pode ser
-renomeado como canônico e nenhuma inferência do bake-off pode começar.
-
-O comando `freeze-review` agora materializa corpus, hash, CSV e manifesto apenas
-depois que o validador comprovar 160 aprovações humanas. A escrita usa staging
-atômico e recusa diretório de saída existente. Ele não foi executado sobre o CSV
-pendente.
+O comando `freeze-panel` materializou corpus, hash, votos e manifesto sob
+custódia externa com staging atômico. O manifesto tem SHA-256
+`a0eaa255e0677d840f8d7384f12c5c317ec58946f9861f6f3c9b1db3bf9b8b3b`.
 
 ## Ambiente congelado
 
@@ -133,6 +119,7 @@ exit code zero e `No broken requirements found.`
 - nenhuma dependência entrou no produto;
 - Stanza não foi adquirido;
 - PONT-001 e seus erros continuam selados;
+- o corpus side de PT4 está aberto para implementação do harness;
 - PT5 permanece fechado.
 
 ## Sources

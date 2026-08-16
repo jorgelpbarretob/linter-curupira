@@ -1,37 +1,31 @@
 #!/usr/bin/env python3
-"""Build and review the model-blind PT4 offset corpus proposal."""
+"""Build and validate the model-blind PT4 offset corpus proposal."""
 
 from __future__ import annotations
 
 import argparse
-import csv
 import hashlib
-import io
 import json
 import tempfile
 import unicodedata
 from collections import Counter
 from dataclasses import dataclass
-from datetime import date
 from pathlib import Path
 from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-PROPOSAL_PATH = PROJECT_ROOT / "corpus/hermes/pt4/pt4-offset-development-proposal-v1.jsonl"
+PROPOSAL_PATH = PROJECT_ROOT / "corpus/hermes/pt4/pt4-offset-development-proposal-v2.jsonl"
 PROPOSAL_HASH_PATH = PROPOSAL_PATH.with_suffix(".jsonl.sha256")
-SCHEMA_VERSION = "hermes-pt4-offset-corpus/v1"
+SCHEMA_VERSION = "hermes-pt4-offset-corpus/v2"
 EXPECTED_PER_FAMILY = 40
 EXPECTED_CASES = 160
-REVIEW_FIELDS = (
-    "case_id",
-    "family",
-    "proposal_case_sha256",
-    "review_status",
-    "reviewed_by",
-    "reviewer_role",
-    "reviewed_on",
-    "decision_notes",
-)
+PANEL_MODELS = {
+    "maritaca": "sabia-4-thinking",
+    "grok": "grok-4.6",
+    "kimi": "kimi-k2.7-code:cloud",
+}
+VOTE_SCHEMA_VERSION = "hermes-pt4-model-vote/v1"
+REVIEWED_ON = "2026-08-16"
 
 
 class CorpusError(RuntimeError):
@@ -161,7 +155,7 @@ def build_case(spec: CaseSpec, number: int) -> dict[str, Any]:
         "sentences": sentences,
         "syntactic_words": syntactic_words,
         "rationale": spec.rationale,
-        "review_status": "pending-human-review",
+        "review_status": "pending-model-panel",
         "reviewed_by": None,
         "reviewer_role": None,
         "reviewed_on": None,
@@ -214,8 +208,20 @@ def validate_case(record: dict[str, Any]) -> None:
     for word in record["syntactic_words"]:
         if not 0 <= word["surface_token_index"] < len(tokens):
             raise CorpusError(f"{record['case_id']} has an orphan syntactic word")
-    if record["review_status"] != "pending-human-review":
-        raise CorpusError(f"{record['case_id']} proposal is not pending review")
+    status = record["review_status"]
+    if status == "pending-model-panel":
+        if any(
+            record[field] is not None for field in ("reviewed_by", "reviewer_role", "reviewed_on")
+        ):
+            raise CorpusError(f"{record['case_id']} pending proposal has review metadata")
+    elif status == "model-panel-approved":
+        if record["reviewer_role"] != "three-model-panel" or not all(
+            isinstance(record[field], str) and record[field].strip()
+            for field in ("reviewed_by", "reviewed_on", "decision_notes")
+        ):
+            raise CorpusError(f"{record['case_id']} has invalid panel approval metadata")
+    else:
+        raise CorpusError(f"{record['case_id']} has invalid review status")
 
 
 def unicode_specs() -> list[CaseSpec]:
@@ -431,13 +437,18 @@ def mwt_specs() -> list[CaseSpec]:
         ("Tornou-se instável.", "Tornou-se", ("Tornou", "se")),
         ("Observam-se duas falhas.", "Observam-se", ("Observam", "se")),
     ]
+    secondary_expansions = {
+        "Afaste-se daquele painel.": (("Afaste-se", ("Afaste", "se")),),
+        "Dê-lhe acesso ao painel.": (("ao", ("a", "o")),),
+        "Aplique-as na superfície.": (("na", ("em", "a")),),
+    }
     return [
         CaseSpec(
             "contractions-clitics",
             text,
             (text,),
             f"Expansão explícita do token de superfície {surface!r}.",
-            expansions=((surface, words),),
+            expansions=((surface, words), *secondary_expansions.get(text, ())),
         )
         for text, surface, words in rows
     ]
@@ -486,13 +497,19 @@ def technical_specs() -> list[CaseSpec]:
         ("Consulte a seção 3.2.1.", "3.2.1", "Número de seção."),
         ("Leia o sensor PT-100A.", "PT-100A", "Tag alfanumérica."),
     ]
+    secondary_protected = {
+        "O pH ficou em 7,2.": ("7,2",),
+        "O custo foi R$ 120,00.": ("120,00",),
+        "Mantenha a vazão ≤5 L/s.": ("L/s",),
+        "Calcule ΔP=2,1 MPa.": ("2,1",),
+    }
     return [
         CaseSpec(
             "technical-tokens",
             text,
             (text,),
             rationale,
-            protected=(protected,),
+            protected=(protected, *secondary_protected.get(text, ())),
         )
         for text, protected, rationale in rows
     ]
@@ -698,30 +715,6 @@ def proposal_bytes(records: list[dict[str, Any]]) -> bytes:
     return b"".join(canonical_record(record) for record in records)
 
 
-def review_rows(records: list[dict[str, Any]]) -> list[dict[str, str]]:
-    return [
-        {
-            "case_id": record["case_id"],
-            "family": record["family"],
-            "proposal_case_sha256": sha256_bytes(canonical_record(record)),
-            "review_status": "pending-human-review",
-            "reviewed_by": "",
-            "reviewer_role": "",
-            "reviewed_on": "",
-            "decision_notes": "",
-        }
-        for record in records
-    ]
-
-
-def canonical_review_csv(rows: list[dict[str, str]]) -> bytes:
-    stream = io.StringIO(newline="")
-    writer = csv.DictWriter(stream, fieldnames=REVIEW_FIELDS, lineterminator="\n")
-    writer.writeheader()
-    writer.writerows(rows)
-    return stream.getvalue().encode("utf-8")
-
-
 def write_proposal(records: list[dict[str, Any]]) -> dict[str, Any]:
     payload = proposal_bytes(records)
     PROPOSAL_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -740,103 +733,271 @@ def write_proposal(records: list[dict[str, Any]]) -> dict[str, Any]:
 def ensure_external_output(path: Path) -> None:
     resolved = path.resolve()
     if resolved == PROJECT_ROOT or resolved.is_relative_to(PROJECT_ROOT):
-        raise CorpusError("the human-review packet must remain outside the repository")
+        raise CorpusError("the model-panel packet must remain outside the repository")
 
 
-def write_review_packet(output_dir: Path, records: list[dict[str, Any]]) -> dict[str, Any]:
+def model_vote_schema() -> dict[str, Any]:
+    return {
+        "type": "object",
+        "additionalProperties": False,
+        "required": [
+            "schema_version",
+            "provider",
+            "model_requested",
+            "model_returned",
+            "proposal_sha256",
+            "verdict",
+            "cases",
+            "confirmed_boundaries",
+        ],
+        "properties": {
+            "schema_version": {"const": VOTE_SCHEMA_VERSION},
+            "provider": {"enum": list(PANEL_MODELS)},
+            "model_requested": {"type": "string"},
+            "model_returned": {"type": "string"},
+            "proposal_sha256": {"type": "string"},
+            "verdict": {"enum": ["approve", "change_required", "reject"]},
+            "cases": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": False,
+                    "required": [
+                        "case_id",
+                        "decision",
+                        "severity",
+                        "fields",
+                        "rationale",
+                        "proposed_change",
+                    ],
+                    "properties": {
+                        "case_id": {"type": "string"},
+                        "decision": {"enum": ["approve", "change_required"]},
+                        "severity": {"enum": ["none", "minor", "major", "blocker"]},
+                        "fields": {"type": "array", "items": {"type": "string"}},
+                        "rationale": {"type": "string"},
+                        "proposed_change": {"type": "string"},
+                    },
+                },
+            },
+            "confirmed_boundaries": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": [
+                    "candidate_outputs_seen",
+                    "pont_001_data_seen",
+                    "inference_authorized",
+                ],
+                "properties": {
+                    "candidate_outputs_seen": {"const": False},
+                    "pont_001_data_seen": {"const": False},
+                    "inference_authorized": {"const": False},
+                },
+            },
+        },
+    }
+
+
+def panel_prompt() -> str:
+    return (
+        "Você é um revisor isolado de corpus pt-BR. Revise os 160 registros do arquivo "
+        "JSONL fornecido sem ferramentas, web, memória, saída de candidato ou dados "
+        "PONT-001. Para cada caso, verifique texto, segmentos, abstenções, slices Unicode "
+        "por índice de code point Python, tokens de superfície, envelopes de sentença, "
+        "expansões sintáticas e consistência entre casos equivalentes. Preserve exatamente "
+        "os case_id e a ordem. Retorne somente um objeto JSON que satisfaça "
+        "model-vote-schema-v1.json. Use approve/none/campos vazios quando o caso estiver "
+        "consistente; use change_required com campo, severidade, razão e mudança concreta "
+        "quando não estiver. O verdict global só pode ser approve se os 160 casos forem "
+        "approve. Confirme as três fronteiras como false. Preencha provider, "
+        "model_requested e model_returned com a identidade real desta execução e "
+        "proposal_sha256 com o hash informado no manifesto."
+    )
+
+
+def write_model_panel_packet(output_dir: Path, records: list[dict[str, Any]]) -> dict[str, Any]:
     ensure_external_output(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     proposal = proposal_bytes(records)
-    review = canonical_review_csv(review_rows(records))
-    readme = (
-        "# Revisão humana — PT4 offset development v1\n\n"
-        "Revise 100% dos 160 casos no JSONL sem consultar saída de candidato NLP.\n"
-        "Para cada linha, confira texto, spans, tokens de superfície, sentenças,\n"
-        "expansões sintáticas e abstenções estruturais. No CSV, troque\n"
-        "`pending-human-review` por `approved` ou `rejected`, identifique o revisor\n"
-        "humano e registre a data ISO. Rejeições exigem `decision_notes`. O corpus\n"
-        "só pode receber hash canônico quando as 160 linhas estiverem aprovadas.\n"
-    ).encode()
+    schema = canonical_record(model_vote_schema())
+    prompt = (panel_prompt() + "\n").encode()
     (output_dir / PROPOSAL_PATH.name).write_bytes(proposal)
-    (output_dir / "pt4-offset-development-review-v1.csv").write_bytes(review)
-    (output_dir / "README.md").write_bytes(readme)
+    (output_dir / "model-vote-schema-v1.json").write_bytes(schema)
+    (output_dir / "panel-prompt-v1.txt").write_bytes(prompt)
     manifest = {
-        "schema_version": "hermes-pt4-offset-review-packet/v1",
+        "schema_version": "hermes-pt4-model-panel-packet/v1",
         "case_count": len(records),
         "proposal_sha256": sha256_bytes(proposal),
-        "review_csv_sha256": sha256_bytes(review),
-        "readme_sha256": sha256_bytes(readme),
+        "schema_sha256": sha256_bytes(schema),
+        "prompt_sha256": sha256_bytes(prompt),
+        "models": PANEL_MODELS,
         "candidate_outputs_included": False,
         "pont_001_data_included": False,
     }
     manifest_payload = canonical_record(manifest)
-    (output_dir / "review-packet-manifest.json").write_bytes(manifest_payload)
+    (output_dir / "panel-packet-manifest.json").write_bytes(manifest_payload)
     manifest["manifest_sha256"] = sha256_bytes(manifest_payload)
     return manifest
 
 
-def validate_completed_review(review_path: Path, records: list[dict[str, Any]]) -> dict[str, Any]:
-    expected = review_rows(records)
-    with review_path.open(encoding="utf-8", newline="") as stream:
-        reader = csv.DictReader(stream)
-        if tuple(reader.fieldnames or ()) != REVIEW_FIELDS:
-            raise CorpusError("review CSV header does not match v1")
-        actual = list(reader)
-    if len(actual) != len(expected):
-        raise CorpusError(f"review row count mismatch: expected {len(expected)}, got {len(actual)}")
-    for row_number, (row, reference) in enumerate(zip(actual, expected, strict=True), start=2):
-        for field in ("case_id", "family", "proposal_case_sha256"):
-            if row[field] != reference[field]:
-                raise CorpusError(f"immutable field changed at row {row_number}: {field}")
-        if row["review_status"] not in {"approved", "rejected"}:
-            raise CorpusError(f"{row['case_id']} is not human-reviewed")
-        for field in ("reviewed_by", "reviewer_role", "reviewed_on"):
-            if not row[field].strip():
-                raise CorpusError(f"{row['case_id']} has blank {field}")
-        try:
-            date.fromisoformat(row["reviewed_on"])
-        except ValueError as error:
-            raise CorpusError(f"{row['case_id']} has invalid reviewed_on") from error
-        if row["review_status"] == "rejected" and not row["decision_notes"].strip():
-            raise CorpusError(f"{row['case_id']} rejection lacks decision_notes")
-    approved = sum(row["review_status"] == "approved" for row in actual)
-    rejected = len(actual) - approved
-    if rejected:
-        raise CorpusError(f"review rejected {rejected} case(s); rework is required")
-    return {"case_count": len(actual), "approved": approved, "rejected": rejected}
+def _require_exact_keys(value: dict[str, Any], expected: set[str], context: str) -> None:
+    if set(value) != expected:
+        raise CorpusError(f"{context} fields do not match the v1 schema")
 
 
-def freeze_review(
-    review_path: Path, records: list[dict[str, Any]], output_dir: Path
+def validate_model_vote(
+    vote_path: Path, provider: str, records: list[dict[str, Any]]
 ) -> dict[str, Any]:
-    """Freeze an approved human review without exposing candidate or holdout data."""
+    if provider not in PANEL_MODELS:
+        raise CorpusError(f"unknown panel provider: {provider}")
+    try:
+        vote = json.loads(vote_path.read_bytes())
+    except (OSError, json.JSONDecodeError) as error:
+        raise CorpusError(f"invalid {provider} vote JSON") from error
+    if not isinstance(vote, dict):
+        raise CorpusError(f"{provider} vote must be an object")
+    _require_exact_keys(
+        vote,
+        {
+            "schema_version",
+            "provider",
+            "model_requested",
+            "model_returned",
+            "proposal_sha256",
+            "verdict",
+            "cases",
+            "confirmed_boundaries",
+        },
+        f"{provider} vote",
+    )
+    expected_model = PANEL_MODELS[provider]
+    if vote["schema_version"] != VOTE_SCHEMA_VERSION:
+        raise CorpusError(f"{provider} vote schema version mismatch")
+    if vote["provider"] != provider or vote["model_requested"] != expected_model:
+        raise CorpusError(f"{provider} vote identity mismatch")
+    if not isinstance(vote["model_returned"], str) or not vote["model_returned"].strip():
+        raise CorpusError(f"{provider} returned model is missing")
+    proposal_sha256 = sha256_bytes(proposal_bytes(records))
+    if vote["proposal_sha256"] != proposal_sha256:
+        raise CorpusError(f"{provider} proposal digest mismatch")
+    boundaries = vote["confirmed_boundaries"]
+    if not isinstance(boundaries, dict):
+        raise CorpusError(f"{provider} boundaries must be an object")
+    _require_exact_keys(
+        boundaries,
+        {"candidate_outputs_seen", "pont_001_data_seen", "inference_authorized"},
+        f"{provider} boundaries",
+    )
+    if any(value is not False for value in boundaries.values()):
+        raise CorpusError(f"{provider} did not preserve safety boundaries")
+    cases = vote["cases"]
+    if not isinstance(cases, list) or len(cases) != len(records):
+        raise CorpusError(f"{provider} vote must cover exactly {len(records)} cases")
+    actual_ids = [case.get("case_id") if isinstance(case, dict) else None for case in cases]
+    expected_ids = [record["case_id"] for record in records]
+    if actual_ids != expected_ids:
+        raise CorpusError(f"{provider} cases are not in canonical order")
+    approved = 0
+    for case in cases:
+        _require_exact_keys(
+            case,
+            {"case_id", "decision", "severity", "fields", "rationale", "proposed_change"},
+            f"{provider} {case['case_id']}",
+        )
+        decision = case["decision"]
+        severity = case["severity"]
+        fields = case["fields"]
+        rationale = case["rationale"]
+        proposed_change = case["proposed_change"]
+        if decision not in {"approve", "change_required"}:
+            raise CorpusError(f"{provider} {case['case_id']} has invalid decision")
+        if severity not in {"none", "minor", "major", "blocker"}:
+            raise CorpusError(f"{provider} {case['case_id']} has invalid severity")
+        if not isinstance(fields, list) or any(
+            not isinstance(field, str) or not field.strip() for field in fields
+        ):
+            raise CorpusError(f"{provider} {case['case_id']} has invalid fields")
+        if not isinstance(rationale, str):
+            raise CorpusError(f"{provider} {case['case_id']} has invalid rationale")
+        if not isinstance(proposed_change, str):
+            raise CorpusError(f"{provider} {case['case_id']} has invalid proposed_change")
+        if decision == "approve":
+            if severity != "none" or fields or proposed_change:
+                raise CorpusError(f"{provider} {case['case_id']} has inconsistent approval")
+            approved += 1
+        elif (
+            severity == "none" or not fields or not rationale.strip() or not proposed_change.strip()
+        ):
+            raise CorpusError(f"{provider} {case['case_id']} has incomplete change request")
+    change_required = len(cases) - approved
+    if vote["verdict"] not in {"approve", "change_required", "reject"}:
+        raise CorpusError(f"{provider} has invalid verdict")
+    if (vote["verdict"] == "approve") != (change_required == 0):
+        raise CorpusError(f"{provider} global verdict contradicts case decisions")
+    return {
+        "case_count": len(cases),
+        "approved": approved,
+        "change_required": change_required,
+        "provider": provider,
+        "model_requested": expected_model,
+        "model_returned": vote["model_returned"],
+        "vote_sha256": sha256_bytes(vote_path.read_bytes()),
+    }
+
+
+def validate_model_panel(
+    vote_paths: dict[str, Path], records: list[dict[str, Any]]
+) -> dict[str, Any]:
+    if set(vote_paths) != set(PANEL_MODELS):
+        raise CorpusError("model panel must contain exactly maritaca, grok and kimi")
+    votes = {
+        provider: validate_model_vote(vote_paths[provider], provider, records)
+        for provider in PANEL_MODELS
+    }
+    changes = sum(vote["change_required"] for vote in votes.values())
+    if changes:
+        raise CorpusError(f"model panel requested {changes} change(s); rework is required")
+    return {
+        "case_count": len(records),
+        "approved": len(records),
+        "unanimous": True,
+        "votes": votes,
+    }
+
+
+def freeze_model_panel(
+    vote_paths: dict[str, Path], records: list[dict[str, Any]], output_dir: Path
+) -> dict[str, Any]:
+    """Freeze unanimous model-panel approval without exposing candidate or holdout data."""
     if output_dir.exists():
         raise CorpusError(f"canonical output already exists: {output_dir}")
-    validation = validate_completed_review(review_path, records)
-    with review_path.open(encoding="utf-8", newline="") as stream:
-        review = list(csv.DictReader(stream))
-    review_payload = canonical_review_csv(review)
+    validation = validate_model_panel(vote_paths, records)
 
     frozen_records: list[dict[str, Any]] = []
-    for record, row in zip(records, review, strict=True):
+    reviewed_by = ";".join(f"{provider}:{PANEL_MODELS[provider]}" for provider in PANEL_MODELS)
+    for record in records:
         frozen = dict(record)
-        for field in (
-            "review_status",
-            "reviewed_by",
-            "reviewer_role",
-            "reviewed_on",
-            "decision_notes",
-        ):
-            frozen[field] = row[field]
+        frozen.update(
+            {
+                "review_status": "model-panel-approved",
+                "reviewed_by": reviewed_by,
+                "reviewer_role": "three-model-panel",
+                "reviewed_on": REVIEWED_ON,
+                "decision_notes": "Unanimous model-panel approval under ADR-020.",
+            }
+        )
         frozen_records.append(frozen)
     corpus_payload = proposal_bytes(frozen_records)
     corpus_name = "pt4-offset-development-v1.jsonl"
     manifest = {
-        "schema_version": "hermes-pt4-offset-freeze/v1",
+        "schema_version": "hermes-pt4-offset-model-panel-freeze/v1",
         "case_count": validation["case_count"],
         "approved": validation["approved"],
+        "unanimous": validation["unanimous"],
         "proposal_sha256": sha256_bytes(proposal_bytes(records)),
-        "review_csv_sha256": sha256_bytes(review_payload),
+        "vote_sha256": {
+            provider: validation["votes"][provider]["vote_sha256"] for provider in PANEL_MODELS
+        },
         "canonical_corpus_sha256": sha256_bytes(corpus_payload),
         "candidate_outputs_included": False,
         "pont_001_data_included": False,
@@ -854,7 +1015,8 @@ def freeze_review(
             encoding="utf-8",
             newline="\n",
         )
-        (staging / "pt4-offset-development-review-v1.csv").write_bytes(review_payload)
+        for provider, vote_path in vote_paths.items():
+            (staging / f"{provider}-model-vote-v1.json").write_bytes(vote_path.read_bytes())
         (staging / "freeze-manifest.json").write_bytes(manifest_payload)
         staging.replace(output_dir)
 
@@ -864,12 +1026,14 @@ def freeze_review(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
-    build = subparsers.add_parser("build", help="write the proposal and external review packet")
-    build.add_argument("review_output", type=Path)
-    validate = subparsers.add_parser("validate-review", help="validate a completed review CSV")
-    validate.add_argument("review_csv", type=Path)
-    freeze = subparsers.add_parser("freeze-review", help="freeze a fully approved human review")
-    freeze.add_argument("review_csv", type=Path)
+    build = subparsers.add_parser("build", help="write the proposal and model-panel packet")
+    build.add_argument("panel_output", type=Path)
+    validate = subparsers.add_parser("validate-panel", help="validate all three model votes")
+    freeze = subparsers.add_parser("freeze-panel", help="freeze a unanimous model panel")
+    for command in (validate, freeze):
+        command.add_argument("--maritaca-vote", required=True, type=Path)
+        command.add_argument("--grok-vote", required=True, type=Path)
+        command.add_argument("--kimi-vote", required=True, type=Path)
     freeze.add_argument("output_dir", type=Path)
     return parser.parse_args()
 
@@ -879,11 +1043,17 @@ def main() -> int:
     records = build_records()
     if args.command == "build":
         summary = write_proposal(records)
-        summary["review_packet"] = write_review_packet(args.review_output, records)
-    elif args.command == "validate-review":
-        summary = validate_completed_review(args.review_csv, records)
+        summary["panel_packet"] = write_model_panel_packet(args.panel_output, records)
     else:
-        summary = freeze_review(args.review_csv, records, args.output_dir)
+        vote_paths = {
+            "maritaca": args.maritaca_vote,
+            "grok": args.grok_vote,
+            "kimi": args.kimi_vote,
+        }
+        if args.command == "validate-panel":
+            summary = validate_model_panel(vote_paths, records)
+        else:
+            summary = freeze_model_panel(vote_paths, records, args.output_dir)
     print(json.dumps(summary, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
     return 0
 

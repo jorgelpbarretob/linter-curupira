@@ -1,7 +1,11 @@
 # ADR-016: produto português-first e papéis separados da Maritaca
 
-Status: Accepted
+Status: Accepted, amended by ADR-020
 Date: 2026-08-13
+
+> Emenda de 2026-08-16: o ADR-020 substitui revisão/adjudicação humana
+> prospectiva por unanimidade de `sabia-4-thinking`, Grok e Kimi 2.7, com UAT
+> da Himavai. Os papéis separados de motor e avaliador Maritaca permanecem.
 
 ## Contexto
 
@@ -66,7 +70,7 @@ A resposta deve obedecer a JSON Schema e conter, no mínimo:
 - veredito `emit`, `clear` ou `abstain`;
 - spans de evidência mapeáveis ao texto de entrada;
 - explicação curta e sugestão opcional;
-- indicador de necessidade de revisão humana.
+- indicador de abstenção e razão rastreável.
 
 O provider não implementa regras determinísticas, não promove regras, não
 emite `error` e não produz autofix. SDKs da Maritaca ou da OpenAI não atravessam
@@ -84,8 +88,9 @@ auditoria. A avaliação tem duas etapas:
    ambíguo.
 
 Os dois modelos pertencem à mesma família e, portanto, não são avaliadores
-estatisticamente independentes. Rótulos humanos continuam sendo a referência;
-divergências e uma amostra pré-registrada dos acordos passam por adjudicação.
+estatisticamente independentes. Conforme a emenda do ADR-020, o Sabiá Thinking
+vota junto de Grok e Kimi 2.7; divergência causa rework e novo ciclo, sem
+adjudicação humana.
 
 ### Proveniência e reprodutibilidade
 
@@ -126,8 +131,8 @@ adoção futura de um snapshot datado exige avaliação e decisão explícitas.
   ao conjunto cego e a auditorias de maior rigor e custo.
 - O uso da API exige revisão de privacidade, retenção, jurisdição contratual e
   classificação documental antes de processar conteúdo real.
-- A avaliação humana continua sendo custo essencial porque os dois modelos têm
-  erros correlacionados possíveis.
+- A correlação entre os modelos continua sendo risco residual explícito e será
+  acompanhada por divergências do painel e UAT da Himavai.
 - ADR-001 e ADR-014 continuam descrevendo a linha inglesa histórica. Suas
   decisões de norma e modelo não se aplicam ao produto pt-BR.
 
@@ -136,7 +141,7 @@ adoção futura de um snapshot datado exige avaliação e decisão explícitas.
 - identidade do produto, pacote, comando e namespace aprovados;
 - licença do código, especificação, corpus e rótulos aprovada;
 - primeira versão da especificação autoral e processo de mudança definidos;
-- classes de egress e responsáveis pela adjudicação definidos;
+- classes de egress e responsáveis pelo painel e pelo UAT definidos;
 - schemas dos dois papéis revisados separadamente;
 - custo máximo por documento e por lote pré-registrado;
 - credencial nova configurada fora do Git;

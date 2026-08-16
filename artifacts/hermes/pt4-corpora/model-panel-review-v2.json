@@ -1,0 +1,97 @@
+{
+  "schema_version": "hermes-pt4-model-panel-audit/v1",
+  "status": "approved-unanimous",
+  "reviewed_on": "2026-08-16",
+  "input": {
+    "case_count": 160,
+    "proposal": "corpus/hermes/pt4/pt4-offset-development-proposal-v2.jsonl",
+    "proposal_sha256": "5f696644ba83bf588b4f831774d9c8e588b519df36183318740d1c107b7e7d55",
+    "prompt_sha256": "bffd71eabac8a3c962f92ec50ae1847d860c396e5a91fb924432dc441b0f8c90",
+    "schema_sha256": "c17eba926cec0dfd0ce175df0ebf66413e76f0d5c32acd0e2ecd694085a834a9",
+    "packet_manifest_sha256": "4e0a36b68d1b7bf92a50dede80187afcad70580c8b2e725ef65de437f5234e9c"
+  },
+  "validation": {
+    "mechanical_contract": "pass",
+    "case_id_bijection": "pass",
+    "canonical_order": "pass",
+    "strict_shape": "pass",
+    "contamination_audit": "pass",
+    "contamination_audit_sha256": "5b213eec46525d866a8fff7cfb14625197957cd6643a659fdf70733b1323a213"
+  },
+  "providers": {
+    "maritaca": {
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "response_id": "resp-69f43f64de714b9799fb2a46",
+      "status": "completed",
+      "input_tokens": 56057,
+      "output_tokens": 8340,
+      "approved": 160,
+      "change_required": 0,
+      "raw_response_sha256": "b2342bd0a0a4680625f4fe1d6778f70e306476954d6b1388f7b56ec466f8b341",
+      "vote_sha256": "06f728759d02b422e2bcfabca225899fed974d654d7b9dd38d3efc1e38511a81"
+    },
+    "grok": {
+      "model_requested": "grok-4.6",
+      "model_returned": "grok-4.6-build",
+      "request_id": "908e0cc4-5766-4c52-b23f-455c70e39cea",
+      "session_id": "01a00ac4-e62a-7c83-9380-73ed565fca6f",
+      "stop_reason": "end_turn",
+      "input_tokens": 96275,
+      "output_tokens": 31626,
+      "reasoning_tokens": 25092,
+      "approved": 160,
+      "change_required": 0,
+      "raw_response_sha256": "0bbd2adc76cfdfbd015784222a3ce5600770def563c27f5c752eeb1e6f197ac0",
+      "vote_sha256": "ffb9844829edc28da62315a4ff1a8c61a86106e8bc411e219aea5b64a94cd6ee"
+    },
+    "kimi": {
+      "model_requested": "kimi-k2.7-code:cloud",
+      "model_returned": "kimi-k2.7-code",
+      "transport": "Ollama local API to cloud model",
+      "initial_approved": 153,
+      "initial_change_required": 7,
+      "deterministic_revote_case_ids": [
+        "pt4-offset-dev-002",
+        "pt4-offset-dev-007",
+        "pt4-offset-dev-125",
+        "pt4-offset-dev-138",
+        "pt4-offset-dev-145",
+        "pt4-offset-dev-147",
+        "pt4-offset-dev-159"
+      ],
+      "revote_approved": 7,
+      "approved": 160,
+      "change_required": 0,
+      "final_approved": 160,
+      "final_change_required": 0,
+      "raw_batch_response_sha256": {
+        "unicode-newlines": "e49cc199669976496cec247b71b00f0e9184f2df9a3f11d05e69e6b229cdf1ce",
+        "contractions-clitics": "aef8612e597a92b1cc5ea4118df8e1da57503643787fd1df0599990cc0371bdf",
+        "technical-tokens": "6549eca9d40f3100100fcc22adc97ecec725890c21b5cc8a70622e2c2736cc73",
+        "markdown-boundaries": "7bf863ddc48162e0f919732a67598d7914981c0ff9e7a72f014b6dc88fe03302"
+      },
+      "raw_revote_response_sha256": "8f7a1e824a6e28190fbec9ee87065f827ce067557110fccf904e98bc07aa5b6d",
+      "vote_sha256": "073f6f27db6494c0b920085077bb2fc1bbda9defe7c9c8765908c1c4689a6a17"
+    }
+  },
+  "normalization": {
+    "operational_metadata_only": true,
+    "grok_model_returned_source": "modelUsage key",
+    "kimi_model_returned_source": "Ollama response wrapper",
+    "executor_changed_decisions": false,
+    "kimi_revote_replaced_only_explicit_case_votes": true
+  },
+  "confirmed_boundaries": {
+    "candidate_outputs_seen": false,
+    "pont_001_data_seen": false,
+    "inference_authorized": false
+  },
+  "freeze": {
+    "unanimous": true,
+    "canonical_corpus": "corpus/hermes/pt4/pt4-offset-development-v1.jsonl",
+    "canonical_corpus_sha256": "45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d",
+    "external_manifest_sha256": "a0eaa255e0677d840f8d7384f12c5c317ec58946f9861f6f3c9b1db3bf9b8b3b"
+  },
+  "raw_custody": "/home/jorge/.hermes/pt4-corpora/20260816-offset-panel-v2"
+}

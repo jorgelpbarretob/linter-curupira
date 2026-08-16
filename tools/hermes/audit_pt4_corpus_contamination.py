@@ -14,7 +14,7 @@ from typing import Any
 
 PETROGOLD_COMMIT = "83ca567418405fdae830a3e5be55c29b6ed80a24"
 BOSQUE_COMMIT = "625982f781b64ac793b3a818968ea9fc6ee5a8af"
-PROPOSAL_SHA256 = "b0c21e03b8fa2f0e13e51927362819bbc77abc831a9aef3fcff580e30d15a438"
+PROPOSAL_SHA256 = "5f696644ba83bf588b4f831774d9c8e588b519df36183318740d1c107b7e7d55"
 WIKINER_FILE_ID = 9446356
 WIKINER_SIZE = 6059022
 WIKINER_MD5 = "d74198c00ab91078747ee4a49aff5332"
@@ -204,7 +204,7 @@ def audit(
         "candidate_outputs_observed": False,
         "pont_001_data_used": False,
         "inference_authorized": False,
-        "remaining_gate": "independent-human-review-of-160-offset-cases",
+        "remaining_gate": "separate-three-model-panel-unanimity-gate",
     }
 
 

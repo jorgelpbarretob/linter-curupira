@@ -38,7 +38,13 @@ O ADR-019 foi aceito em 2026-08-16 pelo gate operacional delegado ao Grok, com
 condições vinculantes pré-inferência registradas em
 `docs/hermes-pt4-grok-opening-review.md`. Ele separa tokens de superfície de
 palavras sintáticas, fixa o contrato de offsets e pré-registra um bake-off antes
-da escolha de backend. Licença condicional continua sendo gate humano.
+da escolha de backend. Licença condicional continua sendo gate determinístico
+de evidência e não pode ser resolvida por voto de modelo.
+
+O ADR-020 foi aceito explicitamente pelo mantenedor em 2026-08-16. Ele
+substitui gates humanos prospectivos por unanimidade de um painel com Maritaca,
+Grok e Kimi 2.7, preserva licença/segredo como gates determinísticos e reserva
+os testes de usuário à Himavai. Registros humanos históricos não são reescritos.
 
 Uma mudança difícil de reverter não pode ser implementada enquanto o ADR
 correspondente não estiver `Accepted`.

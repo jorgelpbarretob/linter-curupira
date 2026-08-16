@@ -32,7 +32,8 @@ rastreáveis; não substitui diagnósticos determinísticos nem gera autofix.
 
 Usa exclusivamente `sabia-4-thinking`. Não roda no lint normal. Aplica
 julgamento cego, depois crítica do resultado do motor semântico, e alimenta a
-fila de adjudicação humana.
+votação isolada com Grok e Kimi 2.7. Unanimidade do painel e validação mecânica
+substituem adjudicação humana conforme ADR-020.
 
 ## Roadmap vigente
 
@@ -63,12 +64,13 @@ Entregáveis:
 - licença separada para especificação, corpus e rótulos;
 - versão `0.1` da especificação autoral de português técnico controlado;
 - processo público de proposta, discussão e mudança de regra;
-- taxonomia inicial de regras objetivas, NLP, semânticas e humanas.
+- taxonomia inicial de regras objetivas, NLP e semânticas; a classe histórica
+  `human-review` está depreciada para novas regras.
 
 Definition of Ready:
 
 - público e domínios documentais prioritários definidos;
-- revisores nativos e responsáveis pela decisão identificados;
+- modelos do painel, responsáveis operacionais e equipe de UAT identificados;
 - referências científicas e ferramentas externas classificadas como inspiração,
   dependência, comparador ou fora de escopo.
 
@@ -93,7 +95,7 @@ Entregáveis:
 - guia de anotação com eixos separados para verdade, detecção e ambiguidade;
 - corpus pt-BR nativo, multissetorial e redistribuível;
 - conjuntos separados de desenvolvimento, challenge e holdout cego;
-- protocolo de adjudicação humana e amostragem dos acordos;
+- protocolo de painel Maritaca + Grok + Kimi 2.7 e reconciliação determinística;
 - métricas pré-registradas por tipo de regra.
 
 Aceite:
@@ -122,11 +124,17 @@ Aceite:
 
 ### PT4 — análise linguística local pt-BR
 
-Progresso: WIP aberto documentalmente em 2026-08-16. O ADR-019 define a porta,
+Progresso: WIP aberto em 2026-08-16. O ADR-019 define a porta,
 as unidades superfície/palavra, a projeção exata de offsets e o isolamento de
 falhas. `docs/hermes-pt4-bakeoff-protocol.md` pré-registra candidatos, corpora,
-métricas, gates, incerteza e desempate. Nenhuma dependência ou modelo foi
-instalado ou executado e nenhuma regra PT5 foi aberta.
+métricas, gates, incerteza e desempate. Gate 0 e o corpus/ambiente estão
+congelados; nenhuma regra PT5 foi aberta.
+
+O ADR-020 removeu o gate humano. A proposta de offsets v2 passou validação
+mecânica e recebeu três votos `approve` em 160/160 casos de
+`sabia-4-thinking`, `grok-4.6` e `kimi-k2.7-code:cloud`. O corpus canônico tem
+SHA-256 `45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`;
+o harness é o próximo WIP e ainda não executa inferência.
 
 Entregáveis:
 
@@ -152,7 +160,8 @@ Processo WIP=1 por regra:
 4. escrever teste falhando;
 5. implementar a menor lógica;
 6. executar suíte, corpus e análise de erros;
-7. decidir `preview`, `stable`, `rework` ou `reject`.
+7. aplicar o painel de três modelos e decidir `preview`, `stable`, `rework` ou
+   `reject` pelos gates pré-registrados.
 
 Gates mínimos de promoção:
 
@@ -188,17 +197,17 @@ Entregáveis:
 
 - schema de julgamento separado do motor semântico;
 - passe cego e passe de crítica;
-- matriz humano × motor × avaliador;
+- matriz motor × Maritaca × Grok × Kimi;
 - precisão, recall, abstenção, concordância, span accuracy, custo e latência;
-- taxonomia de erros e fila de adjudicação;
+- taxonomia de erros e fila de rework;
 - relatório de drift por versão retornada do modelo.
 
 Aceite:
 
 - o passe cego não recebe saída nem rationale do Sabiazinho;
 - prompts e schemas não são compartilhados entre produção e avaliação;
-- todo desacordo e amostra pré-registrada dos acordos recebem decisão humana;
-- promoção não usa somente avaliação do modelo;
+- todo desacordo causa rework e novo ciclo isolado dos três modelos;
+- promoção exige unanimidade do painel e validadores determinísticos;
 - orçamento máximo por lote é aprovado antes da chamada real;
 - holdout não é reutilizado após ajuste.
 
@@ -219,6 +228,8 @@ Aceite:
 - nenhuma chave, corpus sem licença ou conteúdo confidencial entra na release;
 - alegações de cobertura correspondem exatamente às regras avaliadas;
 - release candidata é validada em mais de um domínio técnico brasileiro.
+- cenários de uso, documentação e ergonomia são validados pela Himavai em UAT
+  separado do ground truth.
 
 ## Métricas por camada
 
@@ -227,8 +238,8 @@ Aceite:
 | parser/núcleo | round-trip, span exato, determinismo, crashes |
 | regra local | precisão, Wilson 95%, recall, abstenção, FP/1.000 palavras |
 | motor semântico | precisão/recall, abstenção, span accuracy, schema errors, custo e latência |
-| avaliador rigoroso | concordância humana, erro por classe, estabilidade entre execuções e drift |
-| produto | utilidade humana, ruído por documento, cobertura publicada e adoção |
+| painel rigoroso | unanimidade, erro por classe, estabilidade entre execuções e drift |
+| produto | UAT Himavai, ruído por documento, cobertura publicada e adoção |
 
 ## Riscos que permanecem abertos
 
