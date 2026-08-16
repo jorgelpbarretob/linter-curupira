@@ -1,0 +1,49 @@
+name: NLP preview
+description: Relate um problema reproduzível ou uma comparação A/B da análise pt-BR.
+title: "[NLP preview] "
+labels:
+  - nlp-preview
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Não publique documento, segredo ou dado pessoal. Use um exemplo mínimo sintético ou autorizado.
+  - type: input
+    id: version
+    attributes:
+      label: Versão do Hermes
+      placeholder: hermes-lint 0.2.0
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Exemplo mínimo reproduzível
+      description: Inclua texto sintético, comando, saída observada e saída esperada.
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoria
+      options:
+        - Offset ou preservação do texto
+        - Tokenização ou sentença
+        - Morfologia ou dependência
+        - Instalação ou desempenho
+        - Usabilidade ou documentação
+        - Comparação A/B
+    validations:
+      required: true
+  - type: textarea
+    id: ab
+    attributes:
+      label: Métricas A/B, se aplicável
+      description: Informe tokens reais, chamadas, perguntas, erros, retrabalho e tempo nos dois braços.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacidade
+      options:
+        - label: Confirmo que o conteúdo publicado é sintético ou autorizado e não contém segredo ou dado pessoal.
+          required: true

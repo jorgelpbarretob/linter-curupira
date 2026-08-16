@@ -26,8 +26,8 @@ def test_detector_freeze_manifest_is_sorted_complete_and_reproducible() -> None:
 
 def test_frozen_detector_manifest_matches_current_sources() -> None:
     root = Path.cwd()
-    manifest_path = root / "corpus/hermes/pont-001-detector-freeze-v1.json"
-    checksum_path = root / "corpus/hermes/pont-001-detector-freeze-v1.sha256"
+    manifest_path = root / "corpus/hermes/pont-001-detector-freeze-v2.json"
+    checksum_path = root / "corpus/hermes/pont-001-detector-freeze-v2.sha256"
 
     frozen = manifest_path.read_text(encoding="utf-8")
     assert frozen == serialize_manifest(build_manifest(root))

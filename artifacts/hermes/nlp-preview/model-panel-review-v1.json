@@ -1,0 +1,84 @@
+{
+  "schema_version": "hermes-nlp-preview-panel-audit/v1",
+  "status": "approved-unanimous-after-rework",
+  "reviewed_on": "2026-08-16",
+  "final_input_manifest_sha256": "255ada052fbfd53a0bc82783dad96a694b5ce58f2d5f56109e78708133772d22",
+  "providers": {
+    "maritaca": {
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "response_id": "resp-3a8f4310b8bd4f87a4a0da44",
+      "verdict": "approve",
+      "findings": 0,
+      "input_tokens": 4923,
+      "output_tokens": 1089,
+      "reasoning_tokens": 989,
+      "prompt_sha256": "f22bc571492e38ea524312a80f4fcc7876c383b2d3078ec36ad50a6fa32421e2",
+      "raw_response_sha256": "d2a600c88275c40212181e71d55e7ba76123fe098655a8a59899e0b075c270b0",
+      "vote_sha256": "e75d6105b9e8f29bd91ac70dc0fab893e6cce26225b5c2c437ef56be5a5f053b"
+    },
+    "grok": {
+      "model_requested": "grok-4.6",
+      "model_returned_in_vote": "grok-4.6",
+      "model_returned_observed": "grok-4.6-build",
+      "request_id": "707e4e5c-2c08-483d-af7c-b97ab048ae3a",
+      "session_id": "01a00c96-e09c-72a0-93a2-238f80725a2a",
+      "verdict": "approve",
+      "findings": 0,
+      "input_tokens": 38863,
+      "output_tokens": 2745,
+      "reasoning_tokens": 2660,
+      "prompt_sha256": "da646ee8fda9f18ad228d5f5a3784cf810c7534fb6dccd641a9747b1784cb1fa",
+      "raw_response_sha256": "ab1db3f137d51deaa7bf42d4b452251560e6a962b8377db01390678a58235a67",
+      "vote_sha256": "8836988b1dfd9d336847b4faa884da5c27eb77b15d2365d4ed2dfee23c9749af"
+    },
+    "kimi": {
+      "model_requested": "kimi-k2.7-code:cloud",
+      "model_returned_in_vote": "kimi-k2.7-code:cloud",
+      "model_returned_observed": "kimi-k2.7-code",
+      "transport": "Ollama local API to cloud model",
+      "verdict": "approve",
+      "findings": 0,
+      "prompt_tokens": 4985,
+      "output_tokens": 74,
+      "prompt_sha256": "a22ce5033b9c482f738fdc0578be3248801ae9ddb97dc7ec10df8e1d9cd9ba4c",
+      "raw_response_sha256": "953ad6254583393c010c87a1c30d1cfbf3f674d9c8315c6865a67270eaf82f2c",
+      "vote_sha256": "3dd793b71b08c4291935f3d1c065d1dabb699638e026f185d6902c593b205dfa"
+    }
+  },
+  "rework": {
+    "input_manifest_sha256": [
+      "32e7ecbc36665914a2d4247b603fff05c25bc64509f74bade4850fd4dcaddf91",
+      "cbb5612da39400f91c9910bbc60cae71588a59bb3683668d99639536b4eb48a3",
+      "e74babd1e6cb7b2951c0a55d30b5acf896e7c3320a46d07a7ba532483db69d46"
+    ],
+    "accepted": [
+      "integration test with pinned real backend, denied network and CRLF",
+      "subprocess regression proving base CLI does not import optional NLP packages",
+      "whitespace-only SDK sentence and sentence coverage diagnostics",
+      "explicit empty-text contract regression",
+      "network-at-install versus offline-runtime documentation",
+      "exact upstream wheel and lockfile hash documentation"
+    ],
+    "mechanically_rejected": [
+      "spaCy 3.8.15 lacks require_cpu",
+      "pt_core_news_sm 3.8.0 lacks load",
+      "parse_text normalizes plain text",
+      "last token must consume trailing CRLF whitespace",
+      "members retains is_space tokens after its explicit filter"
+    ],
+    "invalid_kimi_outputs": "The first two Kimi responses used Markdown fences despite structured-output format and were preserved but not counted as votes."
+  },
+  "confirmed_boundaries": {
+    "candidate_outputs_seen": false,
+    "pont_001_data_seen": false,
+    "user_documents_seen": false,
+    "stable_quality_claimed": false
+  },
+  "raw_custody": "/home/jorge/.hermes/nlp-preview-launch/20260816-v4",
+  "historical_custody": [
+    "/home/jorge/.hermes/nlp-preview-launch/20260816-v1",
+    "/home/jorge/.hermes/nlp-preview-launch/20260816-v2",
+    "/home/jorge/.hermes/nlp-preview-launch/20260816-v3"
+  ]
+}

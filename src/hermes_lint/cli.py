@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import os
 import sys
 import tempfile
@@ -30,6 +32,12 @@ from hermes_lint.engine import (
     parse_project_config,
     resolve_enabled_rule_ids,
     serialize_baseline,
+)
+from hermes_lint.linguistics import (
+    LinguisticContractError,
+    NlpSetupError,
+    analysis_to_dict,
+    load_preview_backend,
 )
 from hermes_lint.parsing import DocumentTooLargeError, UnsupportedFormatError, parse_document
 from hermes_lint.reporting import (
@@ -62,6 +70,11 @@ def build_parser() -> argparse.ArgumentParser:
     baseline_group = lint_parser.add_mutually_exclusive_group()
     baseline_group.add_argument("--baseline", help="suprime diagnósticos de uma baseline")
     baseline_group.add_argument("--write-baseline", help="grava uma baseline atomicamente")
+    analyze_parser = subparsers.add_parser(
+        "analyze", help="expõe análise linguística local pt-BR (preview)"
+    )
+    analyze_parser.add_argument("path", help="arquivo UTF-8 .txt")
+    analyze_parser.add_argument("--format", choices=("json",), default="json")
     return parser
 
 
@@ -85,6 +98,8 @@ def main(argv: Sequence[str] | None = None, *, registry: RuleRegistry | None = N
             print("Nenhuma regra estável está disponível.")
             return EXIT_OK
         return _lint(arguments, active_registry)
+    if arguments.command == "analyze":
+        return _analyze(arguments)
     parser.print_help()
     return EXIT_OK
 
@@ -130,6 +145,43 @@ def _lint(arguments: argparse.Namespace, registry: RuleRegistry) -> int:
         RuleExecutionError,
         UnicodeError,
         UnknownRuleIdError,
+        UnsupportedFormatError,
+    ) as error:
+        print(f"hermes: erro operacional: {error}", file=sys.stderr)
+        return EXIT_OPERATIONAL_ERROR
+
+
+def _analyze(arguments: argparse.Namespace) -> int:
+    try:
+        path = Path(arguments.path)
+        if path.suffix.lower() != ".txt":
+            raise UnsupportedFormatError("análise linguística preview aceita somente arquivos .txt")
+        document = parse_document(str(path), _read_utf8(path))
+        analysis = load_preview_backend().analyze(document.text)
+        payload = {
+            "schema_version": "hermes-linguistic-analysis/v1",
+            "status": "preview",
+            "source": {
+                "uri": str(path),
+                "sha256": hashlib.sha256(document.text.encode("utf-8")).hexdigest(),
+            },
+            "analysis": analysis_to_dict(analysis),
+            "metrics": {
+                "source_characters": len(document.text),
+                "source_utf8_bytes": len(document.text.encode("utf-8")),
+                "surface_tokens": len(analysis.surface_tokens),
+                "syntactic_words": len(analysis.words),
+                "sentences": len(analysis.sentences),
+            },
+        }
+        print(json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
+        return EXIT_OK
+    except (
+        DocumentTooLargeError,
+        LinguisticContractError,
+        NlpSetupError,
+        OSError,
+        UnicodeError,
         UnsupportedFormatError,
     ) as error:
         print(f"hermes: erro operacional: {error}", file=sys.stderr)
