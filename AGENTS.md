@@ -13,6 +13,14 @@ e avaliada na mesma data. O resultado ficou `preview`; manifesto, hashes,
 métricas agregadas e decisão estão em
 `docs/hermes-pont-001-holdout-evaluation-v1.md`.
 
+PT4 foi aberto documentalmente em 2026-08-16. O contrato aceito está no
+`ADR-019`, o protocolo pré-registrado em
+`docs/hermes-pt4-bakeoff-protocol.md` e o gate Grok em
+`docs/hermes-pt4-grok-opening-review.md`. Ainda não há backend escolhido, modelo
+baixado, dependência adicionada, corpus PT4 materializado ou regra PT5 aberta.
+Não antecipe essas etapas. O candidato Stanza permanece condicional a um gate
+de licença que o Grok não pode resolver.
+
 O piloto de 40 labels já foi aceito e congelado. O snapshot pt-BR do Kubernetes
 foi aceito como fonte de holdout em 2026-08-14 e o manifesto sem labels foi
 congelado conforme `docs/hermes-pt2-holdout-source-assessment.md`. Não gere

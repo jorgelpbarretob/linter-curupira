@@ -34,5 +34,11 @@ guia e 40/40 labels do piloto de `HERMES-PT-PONT-001`. Ele separa verdade,
 revisão humana e saída do detector e mantém a primeira execução bloqueada até
 gate próprio.
 
+O ADR-019 foi aceito em 2026-08-16 pelo gate operacional delegado ao Grok, com
+condições vinculantes pré-inferência registradas em
+`docs/hermes-pt4-grok-opening-review.md`. Ele separa tokens de superfície de
+palavras sintáticas, fixa o contrato de offsets e pré-registra um bake-off antes
+da escolha de backend. Licença condicional continua sendo gate humano.
+
 Uma mudança difícil de reverter não pode ser implementada enquanto o ADR
 correspondente não estiver `Accepted`.

@@ -1,8 +1,8 @@
 # Hermes — plano de desenvolvimento do linter pt-BR
 
-Status: PT3 e avaliação holdout concluídos; HERMES-PT-PONT-001 em `preview`
+Status: PT4 aberto documentalmente; HERMES-PT-PONT-001 permanece `preview`
 Base pretendida: especificação autoral e aberta de português técnico controlado
-Última revisão: 2026-08-14
+Última revisão: 2026-08-16
 
 > A identidade alvo foi decidida como Hermes, repositório `hermes-STL-IA-PT`,
 > pacote `hermes_lint` e comando `hermes`. A distribuição e a CLI já usam essa
@@ -131,6 +131,20 @@ selados e o detector não será ajustado com este holdout. Se um rework futuro o
 abrir, eles se tornam challenge e uma nova promoção exige outro holdout
 independente. A delegação operacional ao Grok está registrada em
 [`docs/hermes-governance.md`](docs/hermes-governance.md).
+
+PT4 foi aberto em 2026-08-16 somente no escopo documental. O contrato separa
+tokens de superfície de palavras sintáticas, preserva offsets Unicode exatos e
+mantém tipos de SDK fora do domínio; o protocolo pré-registra corpora, métricas,
+incerteza, gates e desempate antes de qualquer inferência. Nenhum backend foi
+escolhido, instalado ou executado. O candidato Stanza continua inelegível até
+resolver a licença dos language packs; essa condição não pode ser decidida pelo
+Grok. Artefatos:
+
+- [`ADR-019`](docs/adr/0019-local-ptbr-linguistic-analysis.md);
+- [`docs/hermes-pt4-bakeoff-protocol.md`](docs/hermes-pt4-bakeoff-protocol.md);
+- [`docs/hermes-pt4-grok-opening-review.md`](docs/hermes-pt4-grok-opening-review.md),
+  com `approve_with_conditions` e gate `open_pt4_documentation` sobre o bundle
+  v2; as condições pré-inferência são vinculantes.
 
 ### Invariantes vigentes
 

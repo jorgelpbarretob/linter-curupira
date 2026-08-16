@@ -122,6 +122,12 @@ Aceite:
 
 ### PT4 — análise linguística local pt-BR
 
+Progresso: WIP aberto documentalmente em 2026-08-16. O ADR-019 define a porta,
+as unidades superfície/palavra, a projeção exata de offsets e o isolamento de
+falhas. `docs/hermes-pt4-bakeoff-protocol.md` pré-registra candidatos, corpora,
+métricas, gates, incerteza e desempate. Nenhuma dependência ou modelo foi
+instalado ou executado e nenhuma regra PT5 foi aberta.
+
 Entregáveis:
 
 - contrato local para tokenização, sentenças, morfologia e dependências;
@@ -238,11 +244,16 @@ Aceite:
 ## Próximo estado operacional
 
 PT0, PT1 e PT3 estão concluídos; PT2 foi fechado para `HERMES-PT-PONT-001` com
-decisão `preview`. Nenhuma aprovação rotineira do mantenedor está pendente. Por
-delegação registrada em `docs/hermes-governance.md`, o Grok pode aprovar os
-gates operacionais seguintes quando os artefatos forem isolados e auditáveis.
+decisão `preview`; PT4 está aberto com WIP=1 somente para contrato e bake-off.
+O gate documental foi aceito pelo Grok com condições pré-inferência registradas
+em `docs/hermes-pt4-grok-opening-review.md`. Nenhuma aprovação rotineira do
+mantenedor está pendente. Por delegação
+registrada em `docs/hermes-governance.md`, o Grok pode aprovar os gates
+operacionais seguintes quando os artefatos forem isolados e auditáveis.
 
 Os 4 FP e 15 FN deste holdout permanecem selados. Uma futura decisão explícita
 de `rework` pode movê-los para challenge, mas qualquer nova tentativa de
-promoção exigirá outro holdout independente. O próximo WIP de produto deve ser
-aberto conforme a prioridade do roadmap, sem tratar PONT-001 como `stable`.
+promoção exigirá outro holdout independente. O próximo incremento deve executar
+o gate de elegibilidade e depois o bake-off pré-registrado, sem tratar PONT-001
+como `stable`. Licença não resolvida bloqueia somente o candidato afetado e
+continua fora da autoridade do Grok.
