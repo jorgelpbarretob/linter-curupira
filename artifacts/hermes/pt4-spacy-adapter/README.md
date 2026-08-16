@@ -1,13 +1,18 @@
-# PT4 spaCy adapter — evidência pré-inferência
+# PT4 spaCy adapter — evidência pré-inferência e rework
 
-Status: model-panel approved; no candidate inference
+Status: rework v5 model-panel approved; no candidate output or scoring
 Date: 2026-08-16
 
-`adapter-manifest-v1.json` fixa o código, os testes, o contrato de input
-model-blind, os hashes de prévia e as fronteiras do incremento.
-`model-panel-review-v1.json` registra os três votos válidos e a adjudicação dos
-snapshots anteriores. Nenhum output de `pt_core_news_sm` entra neste diretório.
+Os artefatos `*-v1` preservam o snapshot aprovado antes da primeira inferência.
+A tentativa v1 falhou durante o warm-up descartado, antes de criar output ou
+iniciar scoring. `controlled-inference-failure-v1.json` fixa essa ocorrência.
+
+`adapter-manifest-v2.json` congela o rework final, os testes e as fronteiras da
+nova execução. `model-panel-review-v2.json` registra a sequência de findings,
+adjudicações e a aprovação final unânime de Maritaca, Grok e Kimi 2.7. Nenhum
+output de `pt_core_news_sm` entra neste diretório.
 
 Respostas brutas, prompts e metadados do painel ficam sob custódia externa em
-`/home/jorge/.hermes/pt4-spacy-adapter/`. O resumo redistribuível contém apenas
-metadados, decisões e hashes.
+`/home/jorge/.hermes/pt4-spacy-adapter/` e a falha operacional bruta em
+`/home/jorge/.hermes/pt4-spacy-run/20260816-v1/`. Os resumos redistribuíveis
+contêm apenas metadados, decisões e hashes.

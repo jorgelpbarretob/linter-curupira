@@ -135,10 +135,11 @@ mecânica e recebeu três votos `approve` em 160/160 casos de
 `sabia-4-thinking`, `grok-4.6` e `kimi-k2.7-code:cloud`. O corpus canônico tem
 SHA-256 `45716b0581ae7c90897a3d088953ac8efde13882e6c4ef7ecfa87c6764928f5d`.
 O harness stdlib-only recebeu três votos `approve`, projeta os dois ouros com
-hash triplo idêntico e pontua somente outputs precomputados. O adapter
-experimental spaCy também recebeu três votos finais `approve`, preserva o
-schema congelado e isola entradas model-blind. Nenhuma inferência foi executada;
-a execução controlada e o selamento dos outputs são o próximo WIP.
+hash triplo idêntico e pontua somente outputs precomputados. A primeira
+inferência do adapter spaCy falhou no warm-up descartado antes de criar output
+ou iniciar scoring. O rework v2 foi congelado após regressões RED→GREEN e nova
+aprovação unânime de Maritaca, Grok e Kimi. A próxima execução usa custódia nova
+e sela os outputs antes de qualquer scoring.
 
 Entregáveis:
 
@@ -270,8 +271,9 @@ Gate 0, corpora/ambiente e harness v1 estão congelados. spaCy +
 `pt_core_news_sm` está `eligible` somente para o bake-off; Stanza está
 `ineligible-license` sem download. Harness e adapter experimental passaram
 validação mecânica e painel Maritaca + Grok + Kimi, conforme
-`docs/hermes-pt4-harness-v1.md` e `docs/hermes-pt4-spacy-adapter-v1.md`. O
-próximo WIP é a primeira inferência controlada com selamento dos outputs; isso
+`docs/hermes-pt4-harness-v1.md` e `docs/hermes-pt4-spacy-adapter-v2.md`. A
+tentativa v1 foi selada como falha do adapter antes de output. O próximo WIP é
+uma nova inferência controlada, em custódia v2, com selamento dos outputs; isso
 ainda não escolhe backend, não abre porta de produto nem PT5.
 
 Os 4 FP e 15 FN deste holdout permanecem selados. Uma futura decisão explícita

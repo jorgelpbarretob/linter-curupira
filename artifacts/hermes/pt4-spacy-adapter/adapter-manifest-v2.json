@@ -1,0 +1,84 @@
+{
+  "schema_version": "hermes-pt4-spacy-adapter-manifest/v2",
+  "status": "model-panel-approved-after-sealed-rework",
+  "frozen_on": "2026-08-16",
+  "protocol": "hermes-pt4-bakeoff/v1",
+  "predecessor": {
+    "path": "artifacts/hermes/pt4-spacy-adapter/adapter-manifest-v1.json",
+    "sha256": "cef9892931e87efb8cc9eaa557ab532b44ea9e76e74cb1ca3e1231d8a0adbe65"
+  },
+  "implementation": {
+    "path": "tools/hermes/pt4_spacy_adapter.py",
+    "sha256": "4ac1704385f00de586b4cf155fcc2df82889267183173f05d2db0dfcdef50057",
+    "test_path": "tests/test_hermes_pt4_spacy_adapter.py",
+    "test_sha256": "d4afb7467947575c134e6ff663d4e8107ecb6e6f5711dd1fbb496dc618cc2a39",
+    "input_schema": "hermes-pt4-inference-input/v1",
+    "output_schema": "hermes-pt4-linguistic-analysis/v1",
+    "product_imports": false,
+    "product_dependencies_added": false,
+    "backend_import_lazy": true
+  },
+  "rework": {
+    "trigger": "sealed adapter-correctness failure during discarded warm-up",
+    "failure_record": "artifacts/hermes/pt4-spacy-adapter/controlled-inference-failure-v1.json",
+    "repeat_failed_hash": false,
+    "red_green_regressions": [
+      "ignore whitespace-only SDK sentences while retaining dense public indices",
+      "preserve Unicode line separators while parsing JSONL",
+      "fail closed on malformed gold records",
+      "block direct DNS resolvers and direct socket construction",
+      "escape raw Unicode line separators in canonical JSONL",
+      "require self-headed ROOT and reject self-headed non-ROOT"
+    ],
+    "coverage_only": [
+      "preserve multi-valued morphology as one feature value"
+    ]
+  },
+  "candidate": {
+    "library": "spacy",
+    "library_version": "3.8.15",
+    "model": "pt_core_news_sm",
+    "model_version": "3.8.0",
+    "excluded_components": ["ner"],
+    "enabled_components": [
+      "tok2vec",
+      "morphologizer",
+      "parser",
+      "lemmatizer",
+      "attribute_ruler"
+    ]
+  },
+  "validation": {
+    "adapter_tests": "25 passed",
+    "adapter_and_harness_tests": "58 passed",
+    "full_suite": "381 passed; 4 expected NLP skips",
+    "ruff_check": "pass",
+    "ruff_format_check": "pass",
+    "mypy_product": "pass; 19 source files",
+    "git_diff_check": "pass"
+  },
+  "review": {
+    "status": "approved-unanimous",
+    "path": "artifacts/hermes/pt4-spacy-adapter/model-panel-review-v2.json",
+    "providers": {
+      "maritaca": "approve",
+      "grok": "approve",
+      "kimi": "approve"
+    },
+    "final_findings_total": 0,
+    "raw_custody": "/home/jorge/.hermes/pt4-spacy-adapter/20260816-review-v8-self-loop-final"
+  },
+  "boundaries": {
+    "candidate_inference_attempted_on_predecessor": true,
+    "candidate_output_files_created": false,
+    "candidate_outputs_seen": false,
+    "scoring_started": false,
+    "backend_selected": false,
+    "product_adapter_added": false,
+    "product_dependency_added": false,
+    "pont_001_data_seen": false,
+    "pt5_opened": false,
+    "inference_authorized_by_this_manifest": false
+  },
+  "next_wip": "controlled-spacy-inference-in-new-custody-and-output-sealing"
+}

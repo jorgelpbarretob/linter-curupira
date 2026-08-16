@@ -1,0 +1,105 @@
+{
+  "schema_version": "hermes-pt4-spacy-adapter-panel-audit/v2",
+  "status": "approved-unanimous",
+  "reviewed_on": "2026-08-16",
+  "snapshot": {
+    "adapter_path": "tools/hermes/pt4_spacy_adapter.py",
+    "adapter_sha256": "4ac1704385f00de586b4cf155fcc2df82889267183173f05d2db0dfcdef50057",
+    "tests_path": "tests/test_hermes_pt4_spacy_adapter.py",
+    "tests_sha256": "d4afb7467947575c134e6ff663d4e8107ecb6e6f5711dd1fbb496dc618cc2a39",
+    "final_input_manifest_sha256": "81f9444527d43c6515354490ae98a91642cd127bf831d8eda701d74f265caa58"
+  },
+  "providers": {
+    "maritaca": {
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "response_id": "resp-48dbe92dbbc24968920c95dc",
+      "status": "completed",
+      "input_tokens": 1650,
+      "output_tokens": 686,
+      "reasoning_tokens": 594,
+      "elapsed_seconds": 4.765969080966897,
+      "prompt_sha256": "f2c7323885ea31c2f8c2929f5ce5325ba7d4535a5a60be0fbf315f6d6e0e8278",
+      "schema_sha256": "00159bd2f07c056ed98f905db3b763fb8449a957f9a845c6de2b64c2b33d0d65",
+      "raw_response_sha256": "6896ec92ae840af7b7685f9892294d99c9fb80a717a2d0654aacd04925f2f5da",
+      "vote_sha256": "bfb468f033bd8c108893e912ad9efd57bff3d3de2ba4a2a745c7d25963dc5f8d",
+      "verdict": "approve",
+      "findings": 0
+    },
+    "grok": {
+      "model_requested": "grok-4.6",
+      "model_returned_observed": "grok-4.6-build",
+      "model_returned_in_vote": "grok-4.6",
+      "request_id": "c051a20a-47c3-4e98-86b4-4761491c7c6a",
+      "session_id": "01a00c72-3dc0-7c20-87c1-0bbeae3f170b",
+      "stop_reason": "end_turn",
+      "input_tokens": 5797,
+      "cache_read_input_tokens": 34176,
+      "output_tokens": 3627,
+      "reasoning_tokens": 3546,
+      "cost_usd": 0.00857548,
+      "elapsed_seconds": 52.87891828001011,
+      "prompt_sha256": "c0acc0f3e9a81f62a314a2c57a074d1b68fe89cd542e5c5dbe981d86ce6e7ce1",
+      "raw_response_sha256": "283113f785706f70cd9fd93dc860ab8264b91d2ea0ad0029e679ec3af30db424",
+      "vote_sha256": "2b3ee693b7491ab85fd96ffc15fd869e4e140ec5b4e10883a3a69c096a962594",
+      "verdict": "approve",
+      "findings": 0
+    },
+    "kimi": {
+      "model_requested": "kimi-k2.7-code:cloud",
+      "model_returned_observed": "kimi-k2.7-code",
+      "model_returned_in_vote": "kimi-k2.7-code:cloud",
+      "transport": "Ollama local API to cloud model",
+      "thinking": false,
+      "prompt_tokens": 1973,
+      "output_tokens": 81,
+      "elapsed_seconds": 1.3994210960809141,
+      "prompt_sha256": "2f68b0bec052b48c645174ce1c408778e666551b7657a39e1396206d79b1ebe1",
+      "schema_sha256": "21e0f260e3ebbe2a22a17b1a6c6df453937704f0595813d18fb6503ee8712bbf",
+      "raw_response_sha256": "b68ec2bcb637599a933770f2438fe04b4ef60a9063b1a4cf97a141b8fff33cd4",
+      "vote_sha256": "71bb2399ae7cbfdd5994f5fb52497a31b758b42829476f87b664f5c7635e8ef8",
+      "verdict": "approve",
+      "findings": 0
+    }
+  },
+  "adjudication": {
+    "accepted_findings": [
+      "whitespace-only SDK sentence and dense public indices",
+      "Unicode-safe JSONL parsing and line-separator serialization",
+      "malformed gold fail-closed behavior",
+      "direct DNS and socket creation blocking",
+      "self-headed ROOT and non-ROOT self-loop validation",
+      "multi-valued morphology regression coverage"
+    ],
+    "rejected_findings": [
+      "literal CR or LF inside a valid JSON string",
+      "post-serialization replacement corrupting literal backslash-u text",
+      "sentence gap arithmetic that omitted the past-last plus one",
+      "rejecting gold linguistic fields that prepare-input must remove",
+      "package spoofing outside the hashed offline wheelhouse",
+      "malicious low-level _socket import outside the threat model",
+      "fsync durability not required by the atomic-output protocol"
+    ],
+    "historical_attempts": "Invalid Grok placeholders and two Kimi thinking-mode timeouts remain in external custody and were not counted as votes.",
+    "final_scope": "Full hashes plus the final self-loop production and regression delta; earlier full-snapshot reviews remain in linked custody."
+  },
+  "validation": {
+    "strict_shape": "pass",
+    "unanimous": true,
+    "final_findings_total": 0,
+    "reviewed_code_test_hash_bijection": "pass"
+  },
+  "confirmed_boundaries": {
+    "candidate_outputs_seen": false,
+    "pont_001_data_seen": false,
+    "inference_authorized": false
+  },
+  "raw_custody": "/home/jorge/.hermes/pt4-spacy-adapter/20260816-review-v8-self-loop-final",
+  "historical_custody": [
+    "/home/jorge/.hermes/pt4-spacy-adapter/20260816-review-v3",
+    "/home/jorge/.hermes/pt4-spacy-adapter/20260816-review-v4-kimi-short",
+    "/home/jorge/.hermes/pt4-spacy-adapter/20260816-review-v5",
+    "/home/jorge/.hermes/pt4-spacy-adapter/20260816-review-v6-kimi-no-think",
+    "/home/jorge/.hermes/pt4-spacy-adapter/20260816-review-v7-final"
+  ]
+}

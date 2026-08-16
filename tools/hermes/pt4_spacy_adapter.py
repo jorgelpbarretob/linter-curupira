@@ -37,16 +37,22 @@ def deny_network() -> Any:
     """Fail closed on DNS or socket connection attempts and restore stdlib state."""
     with (
         patch.object(socket, "getaddrinfo", _blocked_network),
+        patch.object(socket, "gethostbyname", _blocked_network),
+        patch.object(socket, "gethostbyname_ex", _blocked_network),
+        patch.object(socket, "gethostbyaddr", _blocked_network),
+        patch.object(socket, "getnameinfo", _blocked_network),
         patch.object(socket, "create_connection", _blocked_network),
         patch.object(socket.socket, "connect", _blocked_network),
         patch.object(socket.socket, "connect_ex", _blocked_network),
+        patch.object(socket, "socket", _blocked_network),
     ):
         yield
 
 
 def read_jsonl(payload: str) -> list[dict[str, Any]]:
     try:
-        records = [json.loads(line) for line in payload.splitlines() if line]
+        lines = (raw_line.removesuffix("\r") for raw_line in payload.split("\n"))
+        records = [json.loads(line) for line in lines if line]
     except json.JSONDecodeError as error:
         raise AdapterError("input is not valid JSONL") from error
     if any(not isinstance(record, dict) for record in records):
@@ -57,7 +63,11 @@ def read_jsonl(payload: str) -> list[dict[str, Any]]:
 def canonical_jsonl(records: list[dict[str, Any]]) -> bytes:
     return b"".join(
         (
-            json.dumps(record, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n"
+            json.dumps(record, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+            .replace("\u0085", "\\u0085")
+            .replace("\u2028", "\\u2028")
+            .replace("\u2029", "\\u2029")
+            + "\n"
         ).encode()
         for record in records
     )
@@ -85,17 +95,26 @@ def prepare_inputs(gold_records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Project only model-blind fields from frozen gold records."""
     inputs: list[dict[str, Any]] = []
     for record in gold_records:
+        required_fields = {
+            "schema_version",
+            "case_id",
+            "document_id",
+            "text",
+            "abstention_reason",
+        }
+        if not required_fields.issubset(record):
+            raise AdapterError(f"{record.get('case_id')} gold record is missing required fields")
         if record.get("schema_version") != SCHEMA_VERSION:
             raise AdapterError(f"{record.get('case_id')} gold schema mismatch")
-        inputs.append(
-            {
-                "schema_version": INPUT_SCHEMA_VERSION,
-                "case_id": record["case_id"],
-                "document_id": record["document_id"],
-                "text": record["text"],
-                "abstention_reason": record["abstention_reason"],
-            }
-        )
+        input_record = {
+            "schema_version": INPUT_SCHEMA_VERSION,
+            "case_id": record["case_id"],
+            "document_id": record["document_id"],
+            "text": record["text"],
+            "abstention_reason": record["abstention_reason"],
+        }
+        _validate_input_record(input_record)
+        inputs.append(input_record)
     return inputs
 
 
@@ -200,10 +219,11 @@ def adapt_doc(case_id: str, document_id: str | None, text: str, doc: Any) -> dic
     sentences: list[dict[str, int]] = []
     first_word = 0
     expected_surface = 0
-    for sentence_index, sentence in enumerate(doc.sents):
+    for sentence in doc.sents:
         sentence_tokens = [token for token in sentence if not token.is_space]
         if not sentence_tokens:
-            raise AdapterError(f"{case_id} sentence has no surface token")
+            continue
+        sentence_index = len(sentences)
         first_surface = token_by_sdk_index[sentence_tokens[0].i]
         past_last_surface = token_by_sdk_index[sentence_tokens[-1].i] + 1
         if first_surface != expected_surface or past_last_surface - first_surface != len(
@@ -238,6 +258,8 @@ def adapt_doc(case_id: str, document_id: str | None, text: str, doc: Any) -> dic
         ]
         if len(roots) != 1:
             raise AdapterError(f"{case_id} sentence must have exactly one dependency root")
+        if roots[0].head.i != roots[0].i:
+            raise AdapterError(f"{case_id} dependency root must be self-headed")
 
     surface_tokens = [
         {"text": token.text, "start": token.idx, "end": token.idx + len(token.text)}
@@ -247,6 +269,8 @@ def adapt_doc(case_id: str, document_id: str | None, text: str, doc: Any) -> dic
     for token in tokens:
         is_root = token.dep_ == "ROOT"
         if not is_root:
+            if token.head.i == token.i:
+                raise AdapterError(f"{case_id} non-root word must not be self-headed")
             if token.head.i not in token_by_sdk_index:
                 raise AdapterError(f"{case_id} dependency head is not an emitted word")
             if sentence_by_sdk_index[token.head.i] != sentence_by_sdk_index[token.i]:

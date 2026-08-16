@@ -150,6 +150,36 @@ def test_adapt_doc_emits_the_frozen_schema_with_exact_unicode_offsets() -> None:
     }
 
 
+def test_read_jsonl_preserves_unicode_line_separators_inside_text() -> None:
+    tool = load_tool()
+    payload = json.dumps(
+        {
+            "case_id": "unicode-separators",
+            "text": "linha 1\u2028linha 2\u2029linha 3\u0085linha 4",
+        },
+        ensure_ascii=False,
+    )
+
+    assert tool.read_jsonl(payload + "\r\n") == [
+        {
+            "case_id": "unicode-separators",
+            "text": "linha 1\u2028linha 2\u2029linha 3\u0085linha 4",
+        }
+    ]
+
+
+def test_canonical_jsonl_escapes_unicode_line_separators() -> None:
+    tool = load_tool()
+    records = [{"text": "linha 1\u0085linha 2\u2028linha 3\u2029linha 4"}]
+
+    payload = tool.canonical_jsonl(records)
+
+    assert b"\xc2\x85" not in payload
+    assert b"\xe2\x80\xa8" not in payload
+    assert b"\xe2\x80\xa9" not in payload
+    assert tool.read_jsonl(payload.decode()) == records
+
+
 def test_adapt_doc_rejects_backend_text_normalization() -> None:
     tool = load_tool()
     token = FakeToken(0, "ação", 0, "ação", "NOUN", "N", "ROOT", FakeMorph())
@@ -158,6 +188,29 @@ def test_adapt_doc_rejects_backend_text_normalization() -> None:
 
     with pytest.raises(tool.AdapterError, match="text differs"):
         tool.adapt_doc("fixture-normalized", None, "ac\u0327a\u0303o", doc)
+
+
+def test_adapt_doc_preserves_multivalued_morphology_as_one_feature_value() -> None:
+    tool = load_tool()
+    token = FakeToken(
+        0,
+        "abertas",
+        0,
+        "abrir",
+        "VERB",
+        "V",
+        "ROOT",
+        FakeMorph(Gender="Fem,Masc", Number="Plur"),
+    )
+    token.head = token
+    doc = FakeDoc("abertas", (token,), (FakeSentence((token,)),))
+
+    record = tool.adapt_doc("fixture-multivalue-feats", None, doc.text, doc)
+
+    assert record["words"][0]["features"] == [
+        ["Gender", "Fem,Masc"],
+        ["Number", "Plur"],
+    ]
 
 
 def test_adapt_doc_rejects_a_token_without_an_exact_surface_slice() -> None:
@@ -207,6 +260,51 @@ def test_adapt_doc_rejects_an_emitted_token_outside_all_sentences() -> None:
         tool.adapt_doc("fixture-unpartitioned", None, doc.text, doc)
 
 
+def test_adapt_doc_ignores_a_whitespace_only_sdk_sentence() -> None:
+    tool = load_tool()
+    first = FakeToken(0, "A", 0, "a", "NOUN", "N", "ROOT", FakeMorph())
+    first_period = FakeToken(1, ".", 1, ".", "PUNCT", ".", "punct", FakeMorph())
+    whitespace = FakeToken(2, "\n\n", 2, "", "SPACE", "", "dep", FakeMorph(), is_space=True)
+    second = FakeToken(3, "B", 4, "b", "NOUN", "N", "ROOT", FakeMorph())
+    second_period = FakeToken(4, ".", 5, ".", "PUNCT", ".", "punct", FakeMorph())
+    first.head = first
+    first_period.head = first
+    whitespace.head = whitespace
+    second.head = second
+    second_period.head = second
+    doc = FakeDoc(
+        "A.\n\nB.",
+        (first, first_period, whitespace, second, second_period),
+        (
+            FakeSentence((first, first_period)),
+            FakeSentence((whitespace,)),
+            FakeSentence((second, second_period)),
+        ),
+    )
+
+    record = tool.adapt_doc("fixture-whitespace-sentence", None, doc.text, doc)
+
+    assert record["sentences"] == [
+        {
+            "start": 0,
+            "end": 2,
+            "first_surface_token": 0,
+            "past_last_surface_token": 2,
+            "first_word": 0,
+            "past_last_word": 2,
+        },
+        {
+            "start": 4,
+            "end": 6,
+            "first_surface_token": 2,
+            "past_last_surface_token": 4,
+            "first_word": 2,
+            "past_last_word": 4,
+        },
+    ]
+    assert [word["sentence_index"] for word in record["words"]] == [0, 0, 1, 1]
+
+
 def test_adapt_doc_requires_exactly_one_dependency_root_per_sentence() -> None:
     tool = load_tool()
     first = FakeToken(0, "A", 0, "a", "NOUN", "N", "ROOT", FakeMorph())
@@ -217,6 +315,30 @@ def test_adapt_doc_requires_exactly_one_dependency_root_per_sentence() -> None:
 
     with pytest.raises(tool.AdapterError, match="exactly one dependency root"):
         tool.adapt_doc("fixture-two-roots", None, doc.text, doc)
+
+
+def test_adapt_doc_requires_a_self_headed_dependency_root() -> None:
+    tool = load_tool()
+    root = FakeToken(0, "A", 0, "a", "NOUN", "N", "ROOT", FakeMorph())
+    dependent = FakeToken(1, "B", 2, "b", "NOUN", "N", "dep", FakeMorph())
+    root.head = dependent
+    dependent.head = root
+    doc = FakeDoc("A B", (root, dependent), (FakeSentence((root, dependent)),))
+
+    with pytest.raises(tool.AdapterError, match="root must be self-headed"):
+        tool.adapt_doc("fixture-non-self-root", None, doc.text, doc)
+
+
+def test_adapt_doc_rejects_a_self_headed_non_root() -> None:
+    tool = load_tool()
+    root = FakeToken(0, "A", 0, "a", "NOUN", "N", "ROOT", FakeMorph())
+    dependent = FakeToken(1, "B", 2, "b", "NOUN", "N", "dep", FakeMorph())
+    root.head = root
+    dependent.head = dependent
+    doc = FakeDoc("A B", (root, dependent), (FakeSentence((root, dependent)),))
+
+    with pytest.raises(tool.AdapterError, match="non-root word must not be self-headed"):
+        tool.adapt_doc("fixture-self-headed-non-root", None, doc.text, doc)
 
 
 def test_adapt_doc_rejects_an_empty_analysis_without_contractual_abstention() -> None:
@@ -368,6 +490,35 @@ def test_prepare_input_cli_fails_closed_on_invalid_utf8(tmp_path: Path) -> None:
     assert not output.exists()
 
 
+def test_prepare_input_cli_fails_closed_on_malformed_gold_record(tmp_path: Path) -> None:
+    source = tmp_path / "malformed.jsonl"
+    output = tmp_path / "input.jsonl"
+    source.write_text(
+        json.dumps(
+            {
+                "schema_version": "hermes-pt4-linguistic-analysis/v1",
+                "case_id": "missing-text",
+                "document_id": None,
+                "abstention_reason": None,
+            }
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    completed = subprocess.run(
+        [sys.executable, str(TOOL_PATH), "prepare-input", str(source), str(output)],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert completed.returncode == 2
+    assert completed.stderr.startswith("error: ")
+    assert "Traceback" not in completed.stderr
+    assert not output.exists()
+
+
 def test_run_offline_blocks_dns_during_model_inference() -> None:
     tool = load_tool()
     record = {
@@ -381,6 +532,48 @@ def test_run_offline_blocks_dns_during_model_inference() -> None:
     def load_pipeline():  # type: ignore[no-untyped-def]
         def pipeline(text: str):  # type: ignore[no-untyped-def]
             socket.getaddrinfo("example.invalid", 443)
+            raise AssertionError(text)
+
+        return pipeline
+
+    with pytest.raises(tool.AdapterError, match="network access denied"):
+        tool.run_offline([record], load_pipeline)
+
+
+def test_run_offline_blocks_direct_dns_resolvers() -> None:
+    tool = load_tool()
+    record = {
+        "schema_version": "hermes-pt4-inference-input/v1",
+        "case_id": "direct-dns-attempt",
+        "document_id": None,
+        "text": "A.",
+        "abstention_reason": None,
+    }
+
+    def load_pipeline():  # type: ignore[no-untyped-def]
+        def pipeline(text: str):  # type: ignore[no-untyped-def]
+            socket.gethostbyname("localhost")
+            raise AssertionError(text)
+
+        return pipeline
+
+    with pytest.raises(tool.AdapterError, match="network access denied"):
+        tool.run_offline([record], load_pipeline)
+
+
+def test_run_offline_blocks_direct_socket_creation() -> None:
+    tool = load_tool()
+    record = {
+        "schema_version": "hermes-pt4-inference-input/v1",
+        "case_id": "socket-attempt",
+        "document_id": None,
+        "text": "A.",
+        "abstention_reason": None,
+    }
+
+    def load_pipeline():  # type: ignore[no-untyped-def]
+        def pipeline(text: str):  # type: ignore[no-untyped-def]
+            socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             raise AssertionError(text)
 
         return pipeline
