@@ -17,3 +17,8 @@ graphify-out/
 .ste-lint/
 *.ste-dict
 *.ste-dict.bin
+
+# Secrets locais (nunca commitar)
+.env
+.env.*
+!.env.example
