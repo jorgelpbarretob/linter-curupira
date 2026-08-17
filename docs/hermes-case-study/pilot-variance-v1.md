@@ -97,14 +97,14 @@ Consequências para o estudo:
 - Manter 3 execuções por célula: variância alta no controle exige isso.
 - Manter a rota `-z` com `--usage-file`.
 - Escalar o achado crítico ao mantenedor antes da grade completa de 96
-  sessões. Opções: (a) aceitar findings como gate e mover tokens/legibilidade
-  para primário; (b) criar casos onde o controle comprovadamente falha
-  (modelo ou instrução mais fraca); (c) congelar o estudo como evidência de
-  que o modelo já resolve a regra sem preflight.
+  sessões. Opções:
+  - (a) aceitar findings como gate e mover tokens/legibilidade para primário.
+  - (b) criar casos onde o controle comprovadamente falha (modelo ou instrução mais fraca).
+  - (c) congelar o estudo como evidência de que o modelo já resolve a regra sem preflight.
 - Não disparar a grade completa sem essa decisão.
 
 ## Limitações
 
 - n=3 por célula e 2 casos: só piloto. Nenhum teste de hipótese aplicado.
 - Um único modelo e um único nível de reasoning. Generalização não testada.
-- total_tokens inclui reasoning_tokens; input/output são as métricas limpas.
+- total_tokens inclui reasoning_tokens. As métricas limpas são input e output.
