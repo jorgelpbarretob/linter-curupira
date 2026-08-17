@@ -1,0 +1,1437 @@
+{
+  "schema_version": "matrix-y4-kimi-c1c4/v1",
+  "run_id": "matrix-y4-clarity-run-01",
+  "scored_at": "2026-08-17T02:20:32.300721-03:00",
+  "panel_usage_totals": {
+    "calls": 24,
+    "ok": 24,
+    "retries": 0,
+    "input_tokens": 20776,
+    "output_tokens": 48608,
+    "total_tokens": 69384
+  },
+  "scores": [
+    {
+      "label": "M01",
+      "case_id": "case-007",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 53.08,
+      "usage": {
+        "input_tokens": 994,
+        "output_tokens": 2537,
+        "total_tokens": 3531
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "POP sequencial, acionável e bem estruturado, com pequenas vaguidades sobre registro do turno e agente implícito.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Confirme no painel que não há transferência em curso.",
+          "rationale": "Agente executor implícito em todo o POP."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Feche o XV-101 e trave o volante.",
+          "rationale": "Duas ações distintas em um único passo numerado."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Registre o horário no turno.",
+          "rationale": "Não especifica o documento/registro do turno."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "attempts": 2
+    },
+    {
+      "label": "M02",
+      "case_id": "case-008",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 29.9,
+      "usage": {
+        "input_tokens": 896,
+        "output_tokens": 1447,
+        "total_tokens": 2343
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento sequencial, escaneável e acionável, mas omite executor, endpoint de /health e qual painel anexar ao SEV2.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Executar restart da unit `worker-b.service`.",
+          "rationale": "Não especifica quem/qual ferramenta executa o restart."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Checar `/health` após o restart.",
+          "rationale": "Endpoint /health não é qualificado (host/porta/serviço)."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Incluir print do painel no SEV2.",
+          "rationale": "\"painel\" não é identificado, podendo levar a anexo incorreto."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Não reiniciar o broker sem autorização.",
+          "rationale": "Não define quem deve autorizar o restart do broker."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 2,
+          "implicit-agent": 2,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M03",
+      "case_id": "case-012",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 37.73,
+      "usage": {
+        "input_tokens": 832,
+        "output_tokens": 1861,
+        "total_tokens": 2693
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Sequência lógica com ação, verificação e escalada claros; ambiguidades residuais em valores a anotar e no 'checar'.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Ação: checar sensor e válvula de água de resfriamento.",
+          "rationale": "Agente executor não é explicitado no passo."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Ação: checar sensor e válvula de água de resfriamento. Anotar valores do painel. Bypass de interlock é proibido.",
+          "rationale": "Várias ações e uma proibição agrupadas em um único item."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Escala: se não cair em 15 min, abrir SEV3. Chamar utilidades após checagem local.",
+          "rationale": "Duas ações condicionais/temporização em um só item."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "se não cair em 15 min",
+          "rationale": "Referência implícita à leitura/temperatura do TIC-77."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 1,
+          "multiple-actions": 2,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M04",
+      "case_id": "case-007",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 39.48,
+      "usage": {
+        "input_tokens": 982,
+        "output_tokens": 1440,
+        "total_tokens": 2422
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "POP sequencial, escaneável e fiel, com pequenas ambiguidades operacionais não críticas.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "chame supervisão",
+          "rationale": "Quem chama é o operador, não explicitado no passo."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Registre o horário no turno",
+          "rationale": "Não indica onde registrar horário/log."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Isole XV-101 fechado e trave o volante",
+          "rationale": "Duas ações distintas no mesmo passo."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M05",
+      "case_id": "case-008",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 31.95,
+      "usage": {
+        "input_tokens": 901,
+        "output_tokens": 1010,
+        "total_tokens": 1911
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Runbook escaneável e acionável, mas omite o executor do restart e qual painel usar para evidência do SEV2.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Fazer o restart da unit `worker-b.service`.",
+          "rationale": "Não especifica quem executa o restart (operador, systemd, playbook)."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "abrir SEV2 com print do painel",
+          "rationale": "“painel” não é identificado; dificulta anexar evidência correta."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 2,
+        "findings_major": 0,
+        "findings_minor": 2,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 1,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M06",
+      "case_id": "case-012",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 23.01,
+      "usage": {
+        "input_tokens": 842,
+        "output_tokens": 2452,
+        "total_tokens": 3294
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento escaneável e sequencial, com critérios de verificação e escalação claros, mas deixa implícitos o agente e o sensor específico.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Checar sensor e válvula de água de resfriamento",
+          "rationale": "'sensor' não identifica qual instrumento verificar"
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Checar sensor e válvula de água de resfriamento",
+          "rationale": "dois objetos distintos em uma única ação"
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Valores do painel",
+          "rationale": "não especifica quais variáveis ou painel"
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Checar sensor e válvula de água de resfriamento",
+          "rationale": "agente das ações não é explicitado"
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 2,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M07",
+      "case_id": "case-007",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 15.42,
+      "usage": {
+        "input_tokens": 939,
+        "output_tokens": 2223,
+        "total_tokens": 3162
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Sequência clara e acionável, mas valores de referência (coluna mínima, faixa do cartão) dependem de documento externo não transcrito.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Ligar P-220 somente após PI-33 indicar coluna mínima",
+          "rationale": "valor numérico da coluna mínima não informado no POP"
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Ajustar TIC-12 somente se temperatura sair da faixa do cartão",
+          "rationale": "faixa do cartão não transcrita; exige consulta externa"
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Confirmar com o painel que não há transferência em curso",
+          "rationale": "agente 'operador' implícito, padrão do POP"
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 2,
+          "implicit-agent": 1,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M08",
+      "case_id": "case-008",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 53.33,
+      "usage": {
+        "input_tokens": 839,
+        "output_tokens": 1864,
+        "total_tokens": 2703
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento curto, ordenado e acionável, mas deixa implícito quem executa e omite painel/autoridade necessários.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "restart da unit worker-b.service",
+          "rationale": "Agente da ação (quem reinicia) não é explicitado no passo."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "worker-b preso em batch antigo",
+          "rationale": "Identificador do batch travado não é informado."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "checar health e tamanho da fila jobs-hot",
+          "rationale": "Dois objetos de verificação distintos agrupados em um único item."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "abrir SEV2 com print do painel",
+          "rationale": "Painel/dashboard de onde tirar o print não é especificado."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "não reiniciar broker sem autorização",
+          "rationale": "Não define quem deve conceder a autorização."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 5,
+        "findings_major": 0,
+        "findings_minor": 5,
+        "by_category": {
+          "ambiguous-reference": 3,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M09",
+      "case_id": "case-012",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 74.75,
+      "usage": {
+        "input_tokens": 755,
+        "output_tokens": 2713,
+        "total_tokens": 3468
+      },
+      "finish_reason": "stop",
+      "C1_executability": 1,
+      "C2_fidelity_coverage": 1,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 5,
+      "critical_block": false,
+      "accept_class": "aceito_retrabalho_menor",
+      "accept_class_claimed": null,
+      "clarity_1to5": 2,
+      "justification": "Sequência existe e é escaneável, mas passos carecem de verbos, agentes, referências claras e critérios de parada.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "aumentar vazão",
+          "rationale": "Não indica quem deve aumentar a vazão."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "checar sensor válvula",
+          "rationale": "Não especifica qual válvula ou sensor verificar."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "SEV3 em 15 min",
+          "rationale": "Falta verbo; não define o que fazer com SEV3 em 15 min."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "não acionar",
+          "rationale": "Objeto da proibição de acionamento está implícito."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 3,
+          "implicit-agent": 1,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M10",
+      "case_id": "case-007",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 36.61,
+      "usage": {
+        "input_tokens": 973,
+        "output_tokens": 1255,
+        "total_tokens": 2228
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento bem sequenciado e escaneável, mas deixa implícitos o agente e o local de registro, e mescla duas ações em um passo.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Registrar o horário no turno.",
+          "rationale": "Não especifica onde ou em qual livro/registro o horário deve ser anotado."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Se PI-33 não cair em 5 min, chamar supervisão sem forçar.",
+          "rationale": "Agente da ação de chamar supervisão é implícito (operador)."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Isolar XV-101 na posição fechada e travar o volante.",
+          "rationale": "Dois verbos distintos em um único passo, embora relacionados."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Ajustar TIC-12 somente se a temperatura sair da faixa já marcada no cartão da área.",
+          "rationale": "Não define quem ajusta nem para qual setpoint exato no cartão."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 2,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M11",
+      "case_id": "case-008",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 18.09,
+      "usage": {
+        "input_tokens": 810,
+        "output_tokens": 732,
+        "total_tokens": 1542
+      },
+      "finish_reason": "stop",
+      "C1_executability": 1,
+      "C2_fidelity_coverage": 1,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 0,
+      "S": 4,
+      "critical_block": true,
+      "accept_class": "bloqueado",
+      "accept_class_claimed": null,
+      "clarity_1to5": 2,
+      "justification": "Sequência existe, mas faltam local, comando, critério de normalização e agente, impedindo execução fiel e segura.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "major",
+          "excerpt": "restart unit worker-b.service",
+          "rationale": "Quem executa? CLI exige host e privilégios."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "major",
+          "excerpt": "checar /health e tamanho da fila após restart",
+          "rationale": "Qual endpoint/host? Qual comando/métrica da fila?"
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "major",
+          "excerpt": "abrir SEV2 com print do painel",
+          "rationale": "Onde abrir SEV2 e qual painel não são explicitados."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "fila não normalizar em 10 min",
+          "rationale": "Critério de 'normalizar' não quantificado."
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "health check flipou",
+          "rationale": "Registro informal; não especifica falha para cima ou para baixo."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 5,
+        "findings_major": 3,
+        "findings_minor": 2,
+        "by_category": {
+          "ambiguous-reference": 3,
+          "implicit-agent": 1,
+          "multiple-actions": 0,
+          "terminology": 1
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M12",
+      "case_id": "case-012",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 29.36,
+      "usage": {
+        "input_tokens": 786,
+        "output_tokens": 1487,
+        "total_tokens": 2273
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento curto, com ações, verificação, critério de escala e proibição claros, mas deixa implícito o sujeito de 'cair' e agrupa dois checks em uma ação.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "aumento vazão sem efeito claro",
+          "rationale": "efeito sobre o quê não especificado"
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "se não cair em 15 min → SEV3",
+          "rationale": "sujeito do 'cair' não declarado (vazão? leitura?)"
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "checar sensor e válvula água resfriamento",
+          "rationale": "dois itens distintos em uma única ação sem ordem"
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "Verify: confirmar leitura painel",
+          "rationale": "rótulo em inglês misturado aos demais em português"
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 2,
+          "implicit-agent": 0,
+          "multiple-actions": 1,
+          "terminology": 1
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M13",
+      "case_id": "case-007",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 24.46,
+      "usage": {
+        "input_tokens": 938,
+        "output_tokens": 3212,
+        "total_tokens": 4150
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Sequência operacional clara, cobre isolamento e retorno, com referências locais externas e algumas condições não quantificadas.",
+      "findings": [
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Isolar XV-101 em fechado e travar o volante.",
+          "rationale": "Dois atos distintos em uma única instrução."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Aguardar PI-33 estabilizar em zero relativo da faixa local.",
+          "rationale": "Valor de referência não está quantificado no POP."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Confirmar no painel que não há transferência em curso.",
+          "rationale": "Agente da ação é implícito, ainda que esperado em POP."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M14",
+      "case_id": "case-008",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 24.48,
+      "usage": {
+        "input_tokens": 846,
+        "output_tokens": 2710,
+        "total_tokens": 3556
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Cobre sintomas, mitigação, verificação e escalonamento, mas omite ferramentas/endpoint e deixa ambígua a transição da espera para o restart.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "- checar /health",
+          "rationale": "Não especifica URL, endpoint, porta ou como acessar /health."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "- medir tamanho da fila jobs-hot",
+          "rationale": "Não indica ferramenta, dashboard ou comando para medir a fila."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "- anexar print do painel",
+          "rationale": "Painel não é identificado; dificulta saber qual print anexar."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 3,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M15",
+      "case_id": "case-012",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 11.34,
+      "usage": {
+        "input_tokens": 804,
+        "output_tokens": 1399,
+        "total_tokens": 2203
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento escaneável e acionável, mas a condição de escalação 'se não cair' carece de referente explícito.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Escala → abrir SEV3 em 15 min se não cair",
+          "rationale": "O referente de 'cair' não é explicitado (temperatura, alarme HI ou outro parâmetro)."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 1,
+        "findings_major": 0,
+        "findings_minor": 1,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M16",
+      "case_id": "case-007",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 119.5,
+      "usage": {
+        "input_tokens": 922,
+        "output_tokens": 4000,
+        "total_tokens": 4922
+      },
+      "finish_reason": "length",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento acionável e fiel ao objetivo, com passos curtos e escaneáveis, mas referências como 'o volante' e 'setpoints' exigem inferência do contexto local.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Trave o volante.",
+          "rationale": "não especifica o volante de qual válvula; contexto indica XV-101, mas pode confundir."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Não altere setpoints fora do cartão.",
+          "rationale": "setpoints de qual(is) controlador(es)? Contexto sugere TIC-12, mas fica implícito."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 2,
+        "findings_major": 0,
+        "findings_minor": 2,
+        "by_category": {
+          "ambiguous-reference": 2,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M17",
+      "case_id": "case-008",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 21.6,
+      "usage": {
+        "input_tokens": 868,
+        "output_tokens": 848,
+        "total_tokens": 1716
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Runbook sequencial, acionável e bem escaneável, mas critérios quantitativos e jargões coloquiais mantêm ambiguidades menores.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "health flipou",
+          "rationale": "não define qual health check ou métrica exata; posteriormente cita /health sem clareza"
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "verificar tamanho da fila jobs-hot",
+          "rationale": "falta critério quantitativo para considerar fila aceitável"
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "confirmar processamento de novos jobs",
+          "rationale": "não indica método ou critério para confirmar processamento"
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "drain não esvaziou",
+          "rationale": "jargão coloquial sem definição operacional"
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 3,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 1
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M18",
+      "case_id": "case-012",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 87.63,
+      "usage": {
+        "input_tokens": 835,
+        "output_tokens": 3920,
+        "total_tokens": 4755
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento estruturado e executável, com seções claras e sequência lógica, mas apresenta ambiguidade residual no critério de escalada.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Se não cair em 15 min abrir SEV3",
+          "rationale": "O termo 'cair' não explicita o parâmetro que deve diminuir (temperatura ou leitura do TIC-77)."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Checar sensor e válvula de água de resfriamento",
+          "rationale": "Sensor e válvula são dois itens distintos de verificação agrupados em uma única ação."
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "abrir SEV3",
+          "rationale": "A função ou identificação do tag SEV3 não é definida no artefato."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 0,
+          "multiple-actions": 1,
+          "terminology": 1
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M19",
+      "case_id": "case-007",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 36.54,
+      "usage": {
+        "input_tokens": 908,
+        "output_tokens": 4000,
+        "total_tokens": 4908
+      },
+      "finish_reason": "length",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento sequencial, acionável e fiel, com pequenas referências externas (placa local/cartão da área) e ações implícitas.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Travar volante. Registrar turno.",
+          "rationale": "Agente (operador) implícito, mas óbvio no contexto de POP."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Isolar XV-101 (fechada). Travar volante. Registrar turno.",
+          "rationale": "Três ações distintas numa única linha; poderiam ser passos separados."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Ligar P-220 só após PI-33 indicar coluna mínima (placa local).",
+          "rationale": "Valor da coluna mínima está apenas na placa local, não transcrito no POP."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M20",
+      "case_id": "case-008",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 43.71,
+      "usage": {
+        "input_tokens": 787,
+        "output_tokens": 1169,
+        "total_tokens": 1956
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Runbook curto, escaneável e fiel ao cenário, mas deixa implícitos os comandos e o canal de escalonamento.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "reiniciar unit worker-b.service",
+          "rationale": "Não indica ferramenta/comando (ex.: systemctl) nem executor."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "drenar fila jobs-hot",
+          "rationale": "Falta o comando/método para drenar a fila."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "elevar para plantão",
+          "rationale": "Canal ou pessoa do plantão não especificado."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 2,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M21",
+      "case_id": "case-012",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 65.27,
+      "usage": {
+        "input_tokens": 792,
+        "output_tokens": 2407,
+        "total_tokens": 3199
+      },
+      "finish_reason": "stop",
+      "C1_executability": 1,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 6,
+      "critical_block": false,
+      "accept_class": "aceito_retrabalho_menor",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Cartão de alarme conciso e escaneável, mas com ambiguidade no marco temporal da escalada e ações combinadas em etapas únicas.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "se não cair em 15 min",
+          "rationale": "prazo de 15 min não tem âncora temporal explícita no artefato"
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "anotar painel; confirmar queda",
+          "rationale": "dois verbos distintos na mesma etapa Verify"
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 2,
+        "findings_major": 0,
+        "findings_minor": 2,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 0,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M22",
+      "case_id": "case-007",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 44.95,
+      "usage": {
+        "input_tokens": 924,
+        "output_tokens": 1465,
+        "total_tokens": 2389
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Sequência clara e acionável, com boa cobertura e estrutura, mas contém referências locais não quantificadas e passos combinados.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Drene por HV-08 até PI-33 zerar na faixa local.",
+          "rationale": "Faixa local não é definida; leitor não sabe o valor de referência de zero."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Ligue P-220 só após PI-33 indicar coluna mínima (placa local).",
+          "rationale": "Coluna mínima e placa local não têm valores ou identificação explícita."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Feche XV-101. Trave o volante. Registre o horário.",
+          "rationale": "Agente das ações está implícito, embora seja o operador no contexto POP."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Feche XV-101. Trave o volante. Registre o horário.",
+          "rationale": "Três ações distintas aparecem em um único item da lista."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 2,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M23",
+      "case_id": "case-008",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 44.58,
+      "usage": {
+        "input_tokens": 797,
+        "output_tokens": 1419,
+        "total_tokens": 2216
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Runbook curto e acionável, mas deixa implícitos comando de restart, alvo do /health e limiar de escalonamento.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "/health.",
+          "rationale": "Endpoint sem host ou serviço alvo."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "se fila subir abrir SEV2 com painel.",
+          "rationale": "Limiar de subida não informado."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "restart unit worker-b.service.",
+          "rationale": "Comando/agente de reinício implícito."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "abrir SEV2 com painel",
+          "rationale": "Quem abre e qual painel não especificado."
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "Health flipou.",
+          "rationale": "Termo informal; estado de saúde não definido."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 5,
+        "findings_major": 0,
+        "findings_minor": 5,
+        "by_category": {
+          "ambiguous-reference": 2,
+          "implicit-agent": 2,
+          "multiple-actions": 0,
+          "terminology": 1
+        }
+      },
+      "attempts": 1
+    },
+    {
+      "label": "M24",
+      "case_id": "case-012",
+      "reviewer": "kimi",
+      "model_requested": "kimi-k2.7",
+      "model_returned": "kimi-k2.7",
+      "wall_s": 24.16,
+      "usage": {
+        "input_tokens": 806,
+        "output_tokens": 1038,
+        "total_tokens": 1844
+      },
+      "finish_reason": "stop",
+      "C1_executability": 2,
+      "C2_fidelity_coverage": 2,
+      "C3_structure_scan": 2,
+      "C4_ambiguity": 1,
+      "S": 7,
+      "critical_block": false,
+      "accept_class": "aceito",
+      "accept_class_claimed": null,
+      "clarity_1to5": 4,
+      "justification": "Procedimento curto e acionável, com estrutura de scan rápida e cuidado de segurança explícito; pequenas vaguidades sobre peça e registro não comprometem a execução.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Ação: checar sensor e válvula de resfriamento.",
+          "rationale": "O executor da ação é implícito; em procedimento de alarme, assume-se o operador, mas poderia ser explicitado."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "válvula de resfriamento",
+          "rationale": "Não identifica qual válvula específica associada a TIC-77; o contexto reduz o risco de erro."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Anotar painel",
+          "rationale": "Não especifica qual informação deve ser anotada (valor, horário, ações tomadas)."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 2,
+          "implicit-agent": 1,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "attempts": 1
+    }
+  ]
+}

@@ -240,6 +240,36 @@ def main() -> int:
              f"sem case-012: {agree_no12}/{len(rows_no12)}")
     L.append("")
 
+    # decision per owner framework
+    agree_rate = pref_agree / len(pref_rows) if pref_rows else 0
+    sp_cl = agreement["spearman_clarity_maritaca_vs_kimi"] or 0
+    if agree_rate >= 2 / 3 and sp_cl >= 0.5:
+        verdict = "convergente"
+    elif agree_rate >= 1 / 3:
+        verdict = "misto_discordante"
+    else:
+        verdict = "inconclusivo"
+
+    L.append("## Decisão (framework do mantenedor)")
+    L.append("")
+    L.append(f"Classificação: **{verdict}**")
+    L.append("")
+    if verdict == "convergente":
+        L.append("Há evidência para afirmar efeito semântico da CLI sob certas famílias de modelo.")
+    elif verdict == "misto_discordante":
+        L.append("- Revisores não convergem na camada semântica (acordo de preferência abaixo de 2/3).")
+        L.append("- Narrativa do estudo fica limitada ao gate determinístico. Sem alegação de ganho semântico.")
+        L.append("- Benefício do Inkling-small permanece: gate determinístico zerou residual que o control deixou (1/3 vs 3/3). Esse fato independe da camada semântica.")
+    else:
+        L.append("Sem sinal discernível. Próximo passo: ampliar somente Inkling-small com n=3.")
+    L.append("")
+    L.append("## Integridade")
+    L.append("")
+    L.append("- M13 (Kimi) truncado na primeira passada (`finish_reason=length`, zeros default). Detectado, re-executado com max_tokens maior. S final 7.")
+    L.append("- SIGPIPE matou o script no meio do loop em uma passada; M14–M24 perdidos do checkpoint e recomputados. Tokens das passadas perdidas não entram no total abaixo.")
+    L.append("- case-012 mantido em todos os agregados; sensibilidade acima, sem exclusão.")
+    L.append("")
+
     args.out_md.parent.mkdir(parents=True, exist_ok=True)
     args.out_md.write_text("\n".join(L) + "\n", encoding="utf-8")
     print("WROTE", out_json)

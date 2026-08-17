@@ -268,7 +268,7 @@ def score_artifact(artifact: str, label: str) -> dict:
             {"role": "system", "content": PROMPT},
             {"role": "user", "content": user},
         ],
-        "max_tokens": 3000,
+        "max_tokens": 4000,
         "temperature": 1,  # required by Kimi coding API
     }
     t0 = time.time()
@@ -339,8 +339,15 @@ def main() -> int:
     scores = []
     for it in items:
         label = it["label"]
-        if label in prev and "S" in prev[label] and "error" not in prev[label]:
-            e = prev[label]
+        prev_e = prev.get(label) or {}
+        keep = (
+            "S" in prev_e
+            and "error" not in prev_e
+            and prev_e.get("finish_reason") != "length"
+            and str(prev_e.get("justification") or "").strip() != ""
+        )
+        if keep:
+            e = prev_e
             scores.append(e)
             u = e.get("usage") or {}
             totals["calls"] += 1
@@ -387,6 +394,16 @@ def main() -> int:
             "panel_usage_totals": totals,
             "scores": scores,
         }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    # final write: full state after the loop (checkpoint writes inside the loop
+    # can leave kept entries that follow the last execution out of the file)
+    out_path.write_text(json.dumps({
+        "schema_version": "matrix-y4-kimi-c1c4/v1",
+        "run_id": key.get("run_id"),
+        "scored_at": datetime.now(BRT).isoformat(),
+        "panel_usage_totals": totals,
+        "scores": scores,
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print("WROTE", out_path)
     print("PANEL_TOKENS", json.dumps(totals, ensure_ascii=False))
