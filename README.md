@@ -2,7 +2,7 @@
 
 Curupira é um linter open source, local-first, para documentação técnica em
 português brasileiro. O projeto usa uma especificação autoral de português
-técnico controlado; não traduz a ASD-STE100, não certifica documentos e não
+técnico controlado. Não traduz a ASD-STE100, não certifica documentos e não
 promete cobertura linguística integral.
 
 O produto oferece uma regra determinística em status `preview`:
@@ -20,9 +20,9 @@ qualidade estável.
 
 ## Requisitos e desenvolvimento
 
-- Python 3.12 ou mais recente;
-- `uv` 0.11.14, fixado em `pyproject.toml`;
-- nenhuma dependência de runtime no pacote-base;
+- Python 3.12 ou mais recente.
+- `uv` 0.11.14, fixado em `pyproject.toml`.
+- Nenhuma dependência de runtime no pacote-base.
 - para a análise linguística opcional: `pip install "curupira-lint[nlp]"`.
 
 ```bash
@@ -63,7 +63,7 @@ disable = []
 
 Use-a com `--config curupira.toml`. Opções `--enable-rule` e `--disable-rule` da
 CLI têm precedência sobre o arquivo. Chaves e IDs desconhecidos causam erro
-operacional; não há descoberta silenciosa de configuração global.
+operacional. Não há descoberta silenciosa de configuração global.
 
 Uma baseline armazena somente fingerprints SHA-256, sem trechos do documento:
 
@@ -82,7 +82,7 @@ uv run curupira lint procedimento.md --enable-rule CURUPIRA-PT-PONT-001 \
 
 O parser aceita UTF-8 em `.txt`, `.md` e `.markdown`, preserva offsets por ponto
 de código Unicode e mantém LF/CRLF sem normalização. Links simbólicos são
-seguidos pelo sistema operacional; o linter lê exatamente o caminho fornecido.
+seguidos pelo sistema operacional. O linter lê exatamente o caminho fornecido.
 
 ### Análise linguística pt-BR preview
 
@@ -95,15 +95,15 @@ uv run curupira analyze procedimento.txt --format json
 
 A saída canônica informa `status: preview`, hash do texto-fonte, offsets Unicode,
 palavras sintáticas, sentenças e proveniência completa. O texto original não é
-duplicado no JSON. Nesta primeira entrega, `analyze` aceita somente `.txt`;
+duplicado no JSON. Nesta primeira entrega, `analyze` aceita somente `.txt`.
 Markdown é recusado antes de carregar o modelo para evitar concatenar prosa
 separada por markup e produzir offsets enganosos.
 
 O extra fixa `spacy==3.8.15` e busca o wheel upstream
 `pt_core_news_sm==3.8.0` pelo SHA-256 publicado no contrato do projeto. O modelo
-é de português geral, não um modelo pt-BR exclusivo; a aplicação brasileira
+é de português geral, não um modelo pt-BR exclusivo. A aplicação brasileira
 vem da especificação autoral Curupira. Ele é CC BY-SA 4.0 e deriva das fontes
-declaradas no próprio pacote. A execução não baixa nada em runtime; instalação
+declaradas no próprio pacote. A execução não baixa nada em runtime. Instalação
 e execução são etapas separadas.
 
 ### Motor semântico Sabiázinho preview
@@ -122,9 +122,9 @@ curupira semantic-review procedimento.txt --model sabiazinho-4-br-sp
 
 Esse comando envia o texto à API. Não o use com documento confidencial sem base
 legal e autorização aplicáveis. O padrão fixado é
-`sabiazinho-4-2026-01-06`; uso, modelo solicitado/retornado e hash do texto ficam
+`sabiazinho-4-2026-01-06`. Uso, modelo solicitado/retornado e hash do texto ficam
 registrados no JSON. A requisição usa HTTPS com a validação TLS padrão do Python,
-`store: false` e respeita proxies configurados no ambiente; não use proxy não
+`store: false` e respeita proxies configurados no ambiente. Não use proxy não
 confiável. Redirecionamentos HTTP seguem o comportamento padrão de `urllib`.
 Chave ausente ou em branco termina com código `2`, sem chamar a rede. A política
 de retenção do provedor continua regida pelo contrato da conta. Consulte os
@@ -143,7 +143,7 @@ em [Lançamento do Curupira preview](docs/curupira-preview-launch-v1.md).
 
 O corpus de desenvolvimento é sintético e público. O primeiro holdout é mantido
 sob custódia separada e não é usado para implementar ou ajustar o detector. A
-execução única foi concluída; a regra permaneceu `preview` porque falhou os
+execução única foi concluída. A regra permaneceu `preview` porque falhou os
 gates do limite inferior Wilson e de zero falso positivo conhecido. Veja o
 [relatório agregado](docs/hermes-pont-001-holdout-evaluation-v1.md).
 
@@ -156,9 +156,12 @@ promoção, certificação ou seleção de backend estável.
 Curupira nasce como preflight local para o
 [Hermes Agent da Nous Research](https://github.com/NousResearch/hermes-agent).
 A skill instalável em `integrations/hermes-agent/curupira-preflight` ensina o
-agente a validar documentação técnica pt-BR antes da entrega. O protocolo
+agente a validar documentação técnica pt-BR antes da entrega. O plugin opt-in
+em `integrations/hermes-agent/curupira-lint` registra a tool estruturada
+`curupira_lint`, que preserva hashes, diagnósticos, versões, duração e falhas em
+um evento `preflight_completed`. O protocolo
 compara a mesma tarefa sem e com Curupira por chamadas, esclarecimentos, erros
-residuais, retrabalho e tempo até aceite; tokens reais entram quando a superfície
+residuais, retrabalho e tempo até aceite. Tokens reais entram quando a superfície
 do agente os expõe.
 
 Instale diretamente no Hermes Agent:
@@ -169,11 +172,23 @@ hermes skills install \
   --yes
 ```
 
+Para instalar a tool no checkout local:
+
+```bash
+mkdir -p ~/.hermes/plugins
+ln -s "$PWD/integrations/hermes-agent/curupira-lint" \
+  ~/.hermes/plugins/curupira-preflight
+hermes plugins enable curupira-preflight --no-allow-tool-override
+```
+
+O wrapper chama somente `curupira lint`. `semantic-review` continua fora do
+preflight e exige autorização explícita separada.
+
 No piloto sintético inicial, a invocação interativa reduziu findings residuais
-de 1 para 0, com uma chamada de ferramenta adicional; tokens não foram medidos
+de 1 para 0, com uma chamada de ferramenta adicional. Tokens não foram medidos
 nessa superfície. Veja o
 [relatório completo](docs/curupira-hermes-agent-pilot-v1.md). Use a skill pelo
-slash command `/curupira-preflight`; o preload em modo one-shot não é suportado
+slash command `/curupira-preflight`. O preload em modo one-shot não é suportado
 neste preview.
 
 O pacote não publica um comando `hermes`: esse nome pertence ao Hermes Agent.
@@ -182,7 +197,7 @@ O pacote não publica um comando `hermes`: esse nome pertence ao Hermes Agent.
 
 A versão 0.3.x ainda inclui o pacote Python `hermes_lint` para reproduzir fluxos
 0.2. Integrações novas devem usar Curupira. IDs e baselines não são convertidos
-silenciosamente; consulte o
+silenciosamente. Consulte o
 [ADR-021](docs/adr/0021-curupira-identity-migration.md).
 
 ## Linha inglesa histórica

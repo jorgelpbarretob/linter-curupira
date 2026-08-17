@@ -1,0 +1,8 @@
+name: curupira-preflight
+version: 1.1.0
+description: Local and auditable Curupira documentation output gate for Hermes Agent
+kind: standalone
+provides_tools:
+  - curupira_lint
+provides_hooks:
+  - pre_verify
