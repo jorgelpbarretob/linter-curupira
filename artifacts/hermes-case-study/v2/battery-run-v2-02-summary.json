@@ -288,6 +288,87 @@
  ],
  "token_reporting_policy": "Always include session input/output/total tokens and deltas in every A/B table.",
  "panel_reviews": {
-  "status": "awaiting_panel"
+  "path": "artifacts/hermes-case-study/v2/blind/run-v2-02/scores-panel-kimi-maritaca.json",
+  "panel_usage_totals": {
+   "kimi": {
+    "input_tokens": 4301,
+    "output_tokens": 5972,
+    "total_tokens": 10273,
+    "calls": 10
+   },
+   "maritaca": {
+    "input_tokens": 4159,
+    "output_tokens": 4525,
+    "total_tokens": 8684,
+    "calls": 10
+   }
+  },
+  "preference_counts": {
+   "kimi": {
+    "tie": 2,
+    "control": 3
+   },
+   "maritaca": {
+    "tie": 2,
+    "cli": 1,
+    "control": 2
+   }
+  },
+  "semantic_c1c4": {
+   "path": "artifacts/hermes-case-study/v2/blind/run-v2-02/scores-semantic-c1c4-kimi-maritaca.json",
+   "rubric_doc": "docs/hermes-case-study/semantic-rubric-v1.md",
+   "panel_usage_totals": {
+    "kimi": {
+     "calls": 10,
+     "input_tokens": 7651,
+     "output_tokens": 12715,
+     "total_tokens": 20366
+    },
+    "maritaca": {
+     "calls": 10,
+     "input_tokens": 7069,
+     "output_tokens": 5922,
+     "total_tokens": 12991
+    }
+   },
+   "preference_counts": {
+    "kimi": {
+     "cli": 2,
+     "tie": 2,
+     "control": 1
+    },
+    "maritaca": {
+     "cli": 1,
+     "tie": 4
+    }
+   },
+   "reviewer_agreement": {
+    "n_artifacts_both": 10,
+    "accept_class_agreement": "7/10",
+    "mean_abs_delta_S": 0.5,
+    "coarse_S_agreement_abs_delta_le_1": "8/10",
+    "preference_agreement": "3/5"
+   },
+   "integrity_flags": [
+    {
+     "case_id": "case-015",
+     "label": "A",
+     "condition": "control",
+     "kimi": {
+      "S": 4,
+      "critical_block": true,
+      "accept_class": "bloqueado",
+      "justification": "A ordem de parada instrui fechar XV-205 antes de desligar P-77, o que pode fazer a bomba operar sem fluxo (risco de cavitação/dano) — ordem perigosa."
+     },
+     "maritaca": {
+      "S": 6,
+      "critical_block": false,
+      "accept_class": "aceito_retrabalho_menor",
+      "justification": "Sequência acionável e completa com salvaguardas, porém em bloco denso sem listas que prejudica escaneabilidade; contém vaguidões menores (\"devagar\", \"etiqueta do inversor\") sem risco crítico."
+     },
+     "rule": "critical_block divergence or class divergence with |delta_S| >= 3"
+    }
+   ]
+  }
  }
 }

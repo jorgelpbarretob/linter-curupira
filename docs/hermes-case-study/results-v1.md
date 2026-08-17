@@ -241,3 +241,12 @@ Preferência pós-unblind: ver agregado no relatório (CLI vs control em clareza
 - Relatório: `docs/hermes-case-study/panel-kimi-maritaca-tokens.md`
 - Cada preferência A/B inclui tokens de sessão control/cli e tokens do revisor.
 
+### Painel run-v2-02 (Kimi 2.7 + Maritaca, com tokens)
+
+- JSON clareza: `artifacts/hermes-case-study/v2/blind/run-v2-02/scores-panel-kimi-maritaca.json`
+- JSON semântica C1-C4: `artifacts/hermes-case-study/v2/blind/run-v2-02/scores-semantic-c1c4-kimi-maritaca.json`
+- Relatório: `docs/hermes-case-study/panel-kimi-maritaca-tokens-run-v2-02.md`
+- Painel de clareza: Kimi {'tie': 2, 'control': 3}; Maritaca {'tie': 2, 'cli': 1, 'control': 2}.
+- Semântica C1-C4: Kimi {'cli': 2, 'tie': 2, 'control': 1}; Maritaca {'cli': 1, 'tie': 4}.
+- Integridade: 1 flag `reviewer_disagreement` em case-015 A (Kimi marcou `critical_block`; Maritaca não). Registrada, não dropada.
+

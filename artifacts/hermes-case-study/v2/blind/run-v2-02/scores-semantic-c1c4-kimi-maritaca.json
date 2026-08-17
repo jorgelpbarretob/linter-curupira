@@ -1,0 +1,670 @@
+{
+  "schema_version": "semantic-rubric-v1-panel/v1",
+  "rubric_doc": "docs/hermes-case-study/semantic-rubric-v1.md",
+  "run_id": "run-v2-02",
+  "scored_at": "2026-08-17T12:46:08.859176-03:00",
+  "panel_usage_totals": {
+    "kimi": {
+      "calls": 10,
+      "input_tokens": 7651,
+      "output_tokens": 12715,
+      "total_tokens": 20366
+    },
+    "maritaca": {
+      "calls": 10,
+      "input_tokens": 7069,
+      "output_tokens": 5922,
+      "total_tokens": 12991
+    }
+  },
+  "cases": [
+    {
+      "case_id": "case-015",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 34.26,
+              "usage": {
+                "input_tokens": 785,
+                "output_tokens": 1328,
+                "total_tokens": 2113
+              },
+              "finish_reason": "stop",
+              "C1_executability": 0,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 1,
+              "C4_ambiguity": 1,
+              "S": 4,
+              "critical_block": true,
+              "accept_class": "bloqueado",
+              "clarity_1to5_compat": 3,
+              "justification": "A ordem de parada instrui fechar XV-205 antes de desligar P-77, o que pode fazer a bomba operar sem fluxo (risco de cavitação/dano) — ordem perigosa.",
+              "raw_text": "{\"C1_executability\":0,\"C2_fidelity_coverage\":2,\"C3_structure_scan\":1,\"C4_ambiguity\":1,\"critical_block\":true,\"justification\":\"A ordem de parada instrui fechar XV-205 antes de desligar P-77, o que pode fazer a bomba operar sem fluxo (risco de cavitação/dano) — ordem perigosa.\"}"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 5.63,
+              "usage": {
+                "input_tokens": 719,
+                "output_tokens": 714,
+                "total_tokens": 1433
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 1,
+              "C4_ambiguity": 1,
+              "S": 6,
+              "critical_block": false,
+              "accept_class": "aceito_retrabalho_menor",
+              "clarity_1to5_compat": 4,
+              "justification": "Sequência acionável e completa com salvaguardas, porém em bloco denso sem listas que prejudica escaneabilidade; contém vaguidões menores (\"devagar\", \"etiqueta do inversor\") sem risco crítico.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 1,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Sequência acionável e completa com salvaguardas, porém em bloco denso sem listas que prejudica escaneabilidade; contém vaguidões menores (\\\"devagar\\\", \\\"etiqueta do inversor\\\") sem risco crítico.\"\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 19.67,
+              "usage": {
+                "input_tokens": 806,
+                "output_tokens": 1070,
+                "total_tokens": 1876
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Passos sequenciais claros com critérios de parada e proibições explícitas; vaguidades menores em 'conforme etiqueta', 'devagar' e 'valor máximo marcado'.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Passos sequenciais claros com critérios de parada e proibições explícitas; vaguidades menores em 'conforme etiqueta', 'devagar' e 'valor máximo marcado'.\"\n}"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 6.48,
+              "usage": {
+                "input_tokens": 741,
+                "output_tokens": 732,
+                "total_tokens": 1473
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Runbook com 10 passos numerados em ordem lógica e segura, com ações acionáveis e critérios de decisão explícitos (tempo, leitura FS-12). Cobertura completa do ciclo de partida e contingências. Lista escaneável. Ambiguidade menor em \"etiquet",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Runbook com 10 passos numerados em ordem lógica e segura, com ações acionáveis e critérios de decisão explícitos (tempo, leitura FS-12). Cobertura completa do ciclo de partida e contingências. Lista escaneável. Ambiguidade menor em \\\"etiqueta do inversor\\\" e \\\"caminho livre\\\" sem risco crítico.\"\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-016",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 35.6,
+              "usage": {
+                "input_tokens": 755,
+                "output_tokens": 1388,
+                "total_tokens": 2143
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Sequência numerada e acionável, mas 'reduza a carga' e 'libere a linha' carecem de magnitude/referência; sem erro crítico de segurança ou requisito obrigatório ausente no texto.",
+              "raw_text": "```json\n{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Sequência numerada e acionável, mas 'reduza a carga' e 'libere a linha' carecem de magnitude/referência; sem erro crítico de segurança ou requisito obrigatório ausente no texto.\"\n}\n```"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 4.26,
+              "usage": {
+                "input_tokens": 688,
+                "output_tokens": 635,
+                "total_tokens": 1323
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Procedimento numerado, acionável e bem estruturado. Condicionais claras. Pequenas ambiguidades ('carga reduzida', 'devagar', 'faixa normal') sem risco crítico.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Procedimento numerado, acionável e bem estruturado. Condicionais claras. Pequenas ambiguidades ('carga reduzida', 'devagar', 'faixa normal') sem risco crítico.\"\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 15.68,
+              "usage": {
+                "input_tokens": 750,
+                "output_tokens": 648,
+                "total_tokens": 1398
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Passos numerados, acionáveis e cobrem a mitigação; faltam critérios quantitativos (carga, faixa normal, nível de enchimento), mas sem ambiguidade crítica.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Passos numerados, acionáveis e cobrem a mitigação; faltam critérios quantitativos (carga, faixa normal, nível de enchimento), mas sem ambiguidade crítica.\"\n}"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 3.1,
+              "usage": {
+                "input_tokens": 683,
+                "output_tokens": 547,
+                "total_tokens": 1230
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Sequência numerada clara e acionável cobre todo o fluxo de mitigação. Pequenas vaguidões: valores de carga, limites de 'faixa normal' e o termo 'devagar' não são quantificados, mas não impedem execução segura.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Sequência numerada clara e acionável cobre todo o fluxo de mitigação. Pequenas vaguidões: valores de carga, limites de 'faixa normal' e o termo 'devagar' não são quantificados, mas não impedem execução segura.\"\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-002",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 21.64,
+              "usage": {
+                "input_tokens": 835,
+                "output_tokens": 1247,
+                "total_tokens": 2082
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Passos sequenciais, acionáveis e bem estruturados; falta apenas a referência de contato do plantão, mas a proibição de inventar está explícita.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Passos sequenciais, acionáveis e bem estruturados; falta apenas a referência de contato do plantão, mas a proibição de inventar está explícita.\"\n}"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 10.83,
+              "usage": {
+                "input_tokens": 777,
+                "output_tokens": 526,
+                "total_tokens": 1303
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Procedimento numerado com comandos concretos, critérios de sucesso (HTTP 200), limite de 3 tentativas e escalação explícita. Pequena ambiguidade sobre o canal/meio de escalação ao plantão.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Procedimento numerado com comandos concretos, critérios de sucesso (HTTP 200), limite de 3 tentativas e escalação explícita. Pequena ambiguidade sobre o canal/meio de escalação ao plantão.\"\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 64.2,
+              "usage": {
+                "input_tokens": 807,
+                "output_tokens": 3898,
+                "total_tokens": 4705
+              },
+              "finish_reason": "stop",
+              "C1_executability": 1,
+              "C2_fidelity_coverage": 1,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 5,
+              "critical_block": false,
+              "accept_class": "aceito_retrabalho_menor",
+              "clarity_1to5_compat": 4,
+              "justification": "Passos numerados e acionáveis, mas faltam ferramenta para GET, condição de espera após restart e contato do plantão; verificação final redundante/conflitante com ciclo de falha. Sem bloqueio crítico.",
+              "raw_text": "{\n  \"C1_executability\": 1,\n  \"C2_fidelity_coverage\": 1,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Passos numerados e acionáveis, mas faltam ferramenta para GET, condição de espera após restart e contato do plantão; verificação final redundante/conflitante com ciclo de falha. Sem bloqueio crítico.\"\n}"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 5.46,
+              "usage": {
+                "input_tokens": 751,
+                "output_tokens": 556,
+                "total_tokens": 1307
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Procedimento acionável e sequencial com limite de 3 tentativas e critério HTTP 200. Pequena ambiguidade sobre o que fazer se a unidade não existir e como efetivar o escalonamento ao plantão.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Procedimento acionável e sequencial com limite de 3 tentativas e critério HTTP 200. Pequena ambiguidade sobre o que fazer se a unidade não existir e como efetivar o escalonamento ao plantão.\"\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-005",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 23.27,
+              "usage": {
+                "input_tokens": 687,
+                "output_tokens": 940,
+                "total_tokens": 1627
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Passos numerados com host, tabela e critério de parada claros; ambiguidade menor apenas nos comandos exatos de backup e migrate.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Passos numerados com host, tabela e critério de parada claros; ambiguidade menor apenas nos comandos exatos de backup e migrate.\"\n}"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 6.78,
+              "usage": {
+                "input_tokens": 623,
+                "output_tokens": 578,
+                "total_tokens": 1201
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Sequência lógica e acionável (backup → registrar count → migrar → validar → escalar). Falta detalhar comandos e formato do registro, mas a regra de parada é explícita e não há risco crítico.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Sequência lógica e acionável (backup → registrar count → migrar → validar → escalar). Falta detalhar comandos e formato do registro, mas a regra de parada é explícita e não há risco crítico.\"\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 16.61,
+              "usage": {
+                "input_tokens": 683,
+                "output_tokens": 819,
+                "total_tokens": 1502
+              },
+              "finish_reason": "stop",
+              "C1_executability": 1,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 6,
+              "critical_block": false,
+              "accept_class": "aceito_retrabalho_menor",
+              "clarity_1to5_compat": 4,
+              "justification": "Passos numerados e acionáveis, mas 'valor anterior' não é registrado antes, exigindo inferência do operador para comparar na verificação.",
+              "raw_text": "{\"C1_executability\":1,\"C2_fidelity_coverage\":2,\"C3_structure_scan\":2,\"C4_ambiguity\":1,\"critical_block\":false,\"justification\":\"Passos numerados e acionáveis, mas 'valor anterior' não é registrado antes, exigindo inferência do operador para comparar na verificação.\"}"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 7.27,
+              "usage": {
+                "input_tokens": 619,
+                "output_tokens": 529,
+                "total_tokens": 1148
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Sequência clara e acionável (backup → migrate → validar → ação condicional). Única lacuna: não explica como obter o 'valor anterior' para comparação, exigindo inferência menor sem risco crítico.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Sequência clara e acionável (backup → migrate → validar → ação condicional). Única lacuna: não explica como obter o 'valor anterior' para comparação, exigindo inferência menor sem risco crítico.\"\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-006",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 20.67,
+              "usage": {
+                "input_tokens": 766,
+                "output_tokens": 781,
+                "total_tokens": 1547
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Sequência clara e cobertura fiel; formato escaneável. Resta ambiguidade menor sobre o ponto de início dos 15 min e critério exato de 'repetir'.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Sequência clara e cobertura fiel; formato escaneável. Resta ambiguidade menor sobre o ponto de início dos 15 min e critério exato de 'repetir'.\"\n}"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 7.23,
+              "usage": {
+                "input_tokens": 729,
+                "output_tokens": 559,
+                "total_tokens": 1288
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "O artefato orienta ação (restart do worker-queue.service), verificação (logs/estado) e escalonamento (SEV3 se stall em 15 min). Pequena ambiguidade sobre quem executa e qual trecho do log enviar, sem impacto crítico.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"O artefato orienta ação (restart do worker-queue.service), verificação (logs/estado) e escalonamento (SEV3 se stall em 15 min). Pequena ambiguidade sobre quem executa e qual trecho do log enviar, sem impacto crítico.\"\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "kimi": {
+              "reviewer": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 14.3,
+              "usage": {
+                "input_tokens": 777,
+                "output_tokens": 596,
+                "total_tokens": 1373
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Sequência acionável e bem estruturada; única ressalva é 'repetir em 15 min', que pode significar dentro ou após 15 min, ambiguidade menor.",
+              "raw_text": "```json\n{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Sequência acionável e bem estruturada; única ressalva é 'repetir em 15 min', que pode significar dentro ou após 15 min, ambiguidade menor.\"\n}\n```"
+            },
+            "maritaca": {
+              "reviewer": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 13.03,
+              "usage": {
+                "input_tokens": 739,
+                "output_tokens": 546,
+                "total_tokens": 1285
+              },
+              "finish_reason": "stop",
+              "C1_executability": 2,
+              "C2_fidelity_coverage": 2,
+              "C3_structure_scan": 2,
+              "C4_ambiguity": 1,
+              "S": 7,
+              "critical_block": false,
+              "accept_class": "aceito",
+              "clarity_1to5_compat": 5,
+              "justification": "Sequência acionável (reiniciar → verificar log → escalonar), fiel aos fatos e bem estruturada. Pequenas ambiguidades: comando exato e canal do SEV3 não especificados, sem risco crítico.",
+              "raw_text": "{\n  \"C1_executability\": 2,\n  \"C2_fidelity_coverage\": 2,\n  \"C3_structure_scan\": 2,\n  \"C4_ambiguity\": 1,\n  \"critical_block\": false,\n  \"justification\": \"Sequência acionável (reiniciar → verificar log → escalonar), fiel aos fatos e bem estruturada. Pequenas ambiguidades: comando exato e canal do SEV3 não especificados, sem risco crítico.\"\n}"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "unblind_preferences": {
+    "kimi": [
+      {
+        "case_id": "case-015",
+        "reviewer": "kimi",
+        "preferred_label": "B",
+        "tie_break_rule": "block_A",
+        "S_A": 4,
+        "S_B": 7,
+        "critical_block_A": true,
+        "critical_block_B": false,
+        "preferred_condition": "cli"
+      },
+      {
+        "case_id": "case-016",
+        "reviewer": "kimi",
+        "preferred_label": "tie",
+        "tie_break_rule": "tie",
+        "S_A": 7,
+        "S_B": 7,
+        "critical_block_A": false,
+        "critical_block_B": false,
+        "preferred_condition": "tie"
+      },
+      {
+        "case_id": "case-002",
+        "reviewer": "kimi",
+        "preferred_label": "A",
+        "tie_break_rule": "higher_S",
+        "S_A": 7,
+        "S_B": 5,
+        "critical_block_A": false,
+        "critical_block_B": false,
+        "preferred_condition": "control"
+      },
+      {
+        "case_id": "case-005",
+        "reviewer": "kimi",
+        "preferred_label": "A",
+        "tie_break_rule": "higher_S",
+        "S_A": 7,
+        "S_B": 6,
+        "critical_block_A": false,
+        "critical_block_B": false,
+        "preferred_condition": "cli"
+      },
+      {
+        "case_id": "case-006",
+        "reviewer": "kimi",
+        "preferred_label": "tie",
+        "tie_break_rule": "tie",
+        "S_A": 7,
+        "S_B": 7,
+        "critical_block_A": false,
+        "critical_block_B": false,
+        "preferred_condition": "tie"
+      }
+    ],
+    "maritaca": [
+      {
+        "case_id": "case-015",
+        "reviewer": "maritaca",
+        "preferred_label": "B",
+        "tie_break_rule": "higher_S",
+        "S_A": 6,
+        "S_B": 7,
+        "critical_block_A": false,
+        "critical_block_B": false,
+        "preferred_condition": "cli"
+      },
+      {
+        "case_id": "case-016",
+        "reviewer": "maritaca",
+        "preferred_label": "tie",
+        "tie_break_rule": "tie",
+        "S_A": 7,
+        "S_B": 7,
+        "critical_block_A": false,
+        "critical_block_B": false,
+        "preferred_condition": "tie"
+      },
+      {
+        "case_id": "case-002",
+        "reviewer": "maritaca",
+        "preferred_label": "tie",
+        "tie_break_rule": "tie",
+        "S_A": 7,
+        "S_B": 7,
+        "critical_block_A": false,
+        "critical_block_B": false,
+        "preferred_condition": "tie"
+      },
+      {
+        "case_id": "case-005",
+        "reviewer": "maritaca",
+        "preferred_label": "tie",
+        "tie_break_rule": "tie",
+        "S_A": 7,
+        "S_B": 7,
+        "critical_block_A": false,
+        "critical_block_B": false,
+        "preferred_condition": "tie"
+      },
+      {
+        "case_id": "case-006",
+        "reviewer": "maritaca",
+        "preferred_label": "tie",
+        "tie_break_rule": "tie",
+        "S_A": 7,
+        "S_B": 7,
+        "critical_block_A": false,
+        "critical_block_B": false,
+        "preferred_condition": "tie"
+      }
+    ]
+  },
+  "reviewer_agreement": {
+    "n_artifacts_both": 10,
+    "accept_class_agreement": "7/10",
+    "mean_abs_delta_S": 0.5,
+    "coarse_S_agreement_abs_delta_le_1": "8/10",
+    "preference_agreement": "3/5"
+  }
+}
