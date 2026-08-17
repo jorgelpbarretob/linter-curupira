@@ -23,3 +23,17 @@ Default de tratamento: **CLI-min** (instrução curta + `curupira lint`, sem ski
 
 - Não editar retrospectivamente resultados v1.
 - Não voltar skill preload como default sem novo experimento fechado.
+
+## Baterias executadas
+
+| Run | Cases | Pares | Executor | Gate | Resumo |
+|---|---|---|---|---|---|
+| run-v2-01 | 001, 003, 004, 007–014 | 11 | grok-4.5 | 11/11 | `artifacts/hermes-case-study/v2/battery-run-v2-01-summary.json` |
+| run-v2-02 | 015, 016, 002, 005, 006 | 5 | grok-4.6 | 5/5 | `artifacts/hermes-case-study/v2/battery-run-v2-02-summary.json` |
+
+Cobertura do banco: 16/16 cases com par control × CLI-min em v2.
+
+Nota de confound: o executor mudou de grok-4.5 (v2-01) para grok-4.6 (v2-02).
+Medianas de tokens não são comparáveis entre baterias; comparar só dentro de cada run.
+Em run-v2-02 o braço CLI venceu tokens em 4/5 pares (1 empate) — direção oposta a run-v2-01.
+Pacote cego run-v2-02: `artifacts/hermes-case-study/v2/blind/run-v2-02/`.

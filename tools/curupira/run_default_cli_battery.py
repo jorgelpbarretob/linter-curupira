@@ -8,18 +8,30 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-CASES = [
-    ("case-001", "inputs/procedimento.md", "procedimento.md"),
-    ("case-003", "inputs/instrucao.md", "instrucao.md"),
-    ("case-004", "inputs/runbook.md", "runbook.md"),
-    ("case-007", "inputs/procedimento.md", "procedimento.md"),
-    ("case-008", "inputs/notas.md", "mitigacao.md"),
-    ("case-009", "inputs/notas-lab.md", "pop.md"),
-    ("case-010", "inputs/runbook.md", "runbook.md"),
-    ("case-011", "inputs/procedimento.md", "procedimento.md"),
-    ("case-012", "inputs/notas.md", "acao.md"),
-    ("case-013", "inputs/runbook.md", "runbook.md"),
-    ("case-014", "inputs/rascunho.md", "pop.md"),
+
+# case_id -> (input_rel, artifact_name)
+CASE_SPECS = {
+    "case-001": ("inputs/procedimento.md", "procedimento.md"),
+    "case-002": ("inputs/insumos.md", "procedimento-recuperacao.md"),
+    "case-003": ("inputs/instrucao.md", "instrucao.md"),
+    "case-004": ("inputs/runbook.md", "runbook.md"),
+    "case-005": ("inputs/notas.txt", "procedimento.md"),
+    "case-006": ("inputs/log-sanitizado.txt", "mitigacao.md"),
+    "case-007": ("inputs/procedimento.md", "procedimento.md"),
+    "case-008": ("inputs/notas.md", "mitigacao.md"),
+    "case-009": ("inputs/notas-lab.md", "pop.md"),
+    "case-010": ("inputs/runbook.md", "runbook.md"),
+    "case-011": ("inputs/procedimento.md", "procedimento.md"),
+    "case-012": ("inputs/notas.md", "acao.md"),
+    "case-013": ("inputs/runbook.md", "runbook.md"),
+    "case-014": ("inputs/rascunho.md", "pop.md"),
+    "case-015": ("inputs/runbook-envase.md", "runbook-envase.md"),
+    "case-016": ("inputs/timeline-incidente.md", "mitigacao-parada.md"),
+}
+
+DEFAULT_CASES = [
+    "case-001", "case-003", "case-004", "case-007", "case-008", "case-009",
+    "case-010", "case-011", "case-012", "case-013", "case-014",
 ]
 
 
@@ -49,8 +61,16 @@ def run(case_id: str, run_id: str, cond: str, input_rel: str, art: str) -> dict:
 
 def main() -> int:
     run_id = sys.argv[1] if len(sys.argv) > 1 else "run-cli-default"
+    cases = DEFAULT_CASES
+    if "--cases" in sys.argv:
+        i = sys.argv.index("--cases")
+        cases = [c.strip() for c in sys.argv[i + 1].split(",") if c.strip()]
+    unknown = [c for c in cases if c not in CASE_SPECS]
+    if unknown:
+        raise SystemExit(f"unknown cases: {unknown}")
     results = []
-    for case_id, input_rel, art in CASES:
+    for case_id in cases:
+        input_rel, art = CASE_SPECS[case_id]
         for cond in ("control", "cli"):
             results.append(run(case_id, run_id, cond, input_rel, art))
     out = REPO / "artifacts/hermes-case-study/v1" / f"battery-{run_id}-raw.json"

@@ -1,0 +1,26 @@
+Você é o braço CONTROLE do estudo case-006 (sem Curupira).
+
+Leia a tarefa completa abaixo e o arquivo de trabalho:
+- tarefa: /tmp/cs-ab/case-006-run-v2-02-control/task.md
+- artefato a editar: /tmp/cs-ab/case-006-run-v2-02-control/mitigacao.md
+
+# Tarefa case-006 — incidente
+
+## Objetivo
+Com base só em `inputs/log-sanitizado.txt`, produzir instrução de mitigação em Markdown.
+
+## Pronto quando
+1. Cita o erro observado sem inventar causa raiz não suportada.
+2. Inclui ação de mitigação presente no log (restart do worker).
+3. Inclui verificação pós-mitigação.
+4. Lint PONT-001 exit 0.
+5. Não inventa CVE, patch ou pessoas.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto (menos tokens de leitura).
+- Sobrescreva somente: /tmp/cs-ab/case-006-run-v2-02-control/mitigacao.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

@@ -1,0 +1,24 @@
+  ┊ review diff
+a/procedimento.md → b/procedimento.md
+@@ -1,6 +1,9 @@
+-notas turno — migração db
+-preciso fazer backup antes
+-depois rodar migrate
+-no fim verificar select count na tabela jobs
+-se count menor que antes, parar e chamar DBA
+-host: db-synth-01
++# Procedimento de migracao do banco
++
++Host: db-synth-01.
++
++1. Faca backup do banco no host db-synth-01.
++2. Registre o count da tabela jobs.
++3. Rode migrate no host db-synth-01.
++4. Verifique o count com select count na tabela jobs.
++5. Se o count for menor que o valor anterior, pare e chame o DBA.
+Pronto.
+
+path: /tmp/cs-ab/case-005-run-v2-02-cli/procedimento.md
+lint PONT-001: exit 0
+chars: 295
+resumo: procedimento com titulo e 5 passos (backup, count, migrate, verify, DBA se count cair) no host db-synth-01.

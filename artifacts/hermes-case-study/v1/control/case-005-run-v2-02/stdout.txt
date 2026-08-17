@@ -1,0 +1,18 @@
+  ┊ review diff
+a/procedimento.md → b/procedimento.md
+@@ -1,6 +1,6 @@
+-notas turno — migração db
+-preciso fazer backup antes
+-depois rodar migrate
+-no fim verificar select count na tabela jobs
+-se count menor que antes, parar e chamar DBA
+-host: db-synth-01
++# Migração de banco — db-synth-01
++
++1. Faça backup do banco no host `db-synth-01` antes de qualquer alteração.
++2. Execute `migrate` no host `db-synth-01`.
++3. Verifique com `SELECT COUNT(*)` na tabela `jobs`.
++4. Se o count for menor que o valor anterior, pare e chame o DBA.
+/tmp/cs-ab/case-005-run-v2-02-control/procedimento.md
+chars: 280
+resumo: procedimento com título e 4 passos (backup, migrate, count em jobs, parar+DBA se count cair) no host db-synth-01.

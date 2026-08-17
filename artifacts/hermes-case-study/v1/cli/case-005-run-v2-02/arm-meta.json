@@ -1,0 +1,16 @@
+{
+  "case_id": "case-005",
+  "run_id": "run-v2-02",
+  "condition": "cli",
+  "hermes_exit": 0,
+  "wall_s": 25.9,
+  "session_id": "20260817_121734_bf09d8",
+  "work_dir": "/tmp/cs-ab/case-005-run-v2-02-cli",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-005-run-v2-02/procedimento.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": []
+}

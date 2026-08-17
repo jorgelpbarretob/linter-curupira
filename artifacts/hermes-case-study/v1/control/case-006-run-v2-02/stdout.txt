@@ -1,0 +1,30 @@
+  ┊ review diff
+a/mitigacao.md → b/mitigacao.md
+@@ -1,4 +1,22 @@
+-2026-08-16T10:01:02Z WARN worker-queue timeout on job batch-77
+-2026-08-16T10:01:10Z ERROR worker-queue stalled. supervisor restarted unit worker-queue.service
+-2026-08-16T10:01:40Z INFO worker-queue healthy after restart
+-nota: se stall repetir em 15 min, abrir incidente SEV3 com o trecho do log
++# Mitigação — worker-queue (batch-77)
++
++## Erro observado
++
++Em 2026-08-16T10:01:02Z o worker-queue registrou timeout no job batch-77.
++Em 2026-08-16T10:01:10Z o worker-queue ficou stalled.
++
++O log não informa causa raiz.
++
++## Mitigação
++
++O supervisor reiniciou a unit `worker-queue.service`.
++
++## Verificação
++
++Após o restart, o log em 2026-08-16T10:01:40Z indica worker-queue healthy.
++
++Confirme o estado da unit e a ausência de novo timeout ou stall.
++
++## Se repetir
++
++Se o stall repetir em 15 min, abra incidente SEV3 com o trecho do log.
+/tmp/cs-ab/case-006-run-v2-02-control/mitigacao.md — 531 chars. Instrução: timeout/stall em worker-queue batch-77, restart de worker-queue.service, check healthy, SEV3 se repetir em 15 min.

@@ -1,0 +1,293 @@
+{
+ "schema_version": "hermes-case-study-v2-battery/v1",
+ "run_id": "run-v2-02",
+ "protocol": "docs/hermes-case-study/protocol-v2.md",
+ "v1_release_anchor": "v1-cli-default-2026-08-16",
+ "default_treatment": "cli-min",
+ "success_split": {
+  "operational_gate": [
+   "lint_executed",
+   "residual_zero"
+  ],
+  "quality_outcomes": [
+   "readability",
+   "accept",
+   "rework",
+   "tokens"
+  ]
+ },
+ "pairs": [
+  {
+   "case_id": "case-015",
+   "operational_gate_pass": true,
+   "residual_control": 0,
+   "residual_cli": 0,
+   "cli_lint_invoked": true,
+   "model_control": "grok-4.6",
+   "model_cli": "grok-4.6",
+   "tokens_control": 30957,
+   "tokens_cli": 30224,
+   "delta_tokens": -733,
+   "input_control": 29742,
+   "input_cli": 29405,
+   "delta_input": -337,
+   "output_control": 1215,
+   "output_cli": 819,
+   "delta_output": -396,
+   "system_prompt_len_control": 36701,
+   "system_prompt_len_cli": 36701,
+   "tools_control": 4,
+   "tools_cli": 4,
+   "wall_control": 31.3,
+   "wall_cli": 25.3,
+   "chars_control": 571,
+   "chars_cli": 601,
+   "max_sent_control": 20,
+   "max_sent_cli": 20,
+   "list_ratio_control": 0.0,
+   "list_ratio_cli": 0.909,
+   "winner_tokens": "cli",
+   "winner_readability_auto": "cli",
+   "session_control": "20260817_121209_ac4334",
+   "session_cli": "20260817_121240_7173c1",
+   "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-015-run-v2-02/runbook-envase.md",
+   "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-015-run-v2-02/runbook-envase.md"
+  },
+  {
+   "case_id": "case-016",
+   "operational_gate_pass": true,
+   "residual_control": 0,
+   "residual_cli": 0,
+   "cli_lint_invoked": true,
+   "model_control": "grok-4.6",
+   "model_cli": "grok-4.6",
+   "tokens_control": 42290,
+   "tokens_cli": 34820,
+   "delta_tokens": -7470,
+   "input_control": 37042,
+   "input_cli": 32344,
+   "delta_input": -4698,
+   "output_control": 5248,
+   "output_cli": 2476,
+   "delta_output": -2772,
+   "system_prompt_len_control": 36701,
+   "system_prompt_len_cli": 36701,
+   "tools_control": 26,
+   "tools_cli": 12,
+   "wall_control": 112.7,
+   "wall_cli": 64.6,
+   "chars_control": 410,
+   "chars_cli": 430,
+   "max_sent_control": 15,
+   "max_sent_cli": 15,
+   "list_ratio_control": 0.875,
+   "list_ratio_cli": 0.875,
+   "winner_tokens": "cli",
+   "winner_readability_auto": "control",
+   "session_control": "20260817_121306_24ea65",
+   "session_cli": "20260817_121459_b25d0b",
+   "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-016-run-v2-02/mitigacao-parada.md",
+   "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-016-run-v2-02/mitigacao-parada.md"
+  },
+  {
+   "case_id": "case-002",
+   "operational_gate_pass": true,
+   "residual_control": 0,
+   "residual_cli": 0,
+   "cli_lint_invoked": true,
+   "model_control": "grok-4.6",
+   "model_cli": "grok-4.6",
+   "tokens_control": 30433,
+   "tokens_cli": 30353,
+   "delta_tokens": -80,
+   "input_control": 29527,
+   "input_cli": 29497,
+   "delta_input": -30,
+   "output_control": 906,
+   "output_cli": 856,
+   "delta_output": -50,
+   "system_prompt_len_control": 36701,
+   "system_prompt_len_cli": 36701,
+   "tools_control": 6,
+   "tools_cli": 7,
+   "wall_control": 31.1,
+   "wall_cli": 30.5,
+   "chars_control": 680,
+   "chars_cli": 642,
+   "max_sent_control": 14,
+   "max_sent_cli": 15,
+   "list_ratio_control": 0.778,
+   "list_ratio_cli": 0.818,
+   "winner_tokens": "cli",
+   "winner_readability_auto": "control",
+   "session_control": "20260817_121603_2803e5",
+   "session_cli": "20260817_121635_87a13d",
+   "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-002-run-v2-02/procedimento-recuperacao.md",
+   "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-002-run-v2-02/procedimento-recuperacao.md"
+  },
+  {
+   "case_id": "case-005",
+   "operational_gate_pass": true,
+   "residual_control": 0,
+   "residual_cli": 0,
+   "cli_lint_invoked": true,
+   "model_control": "grok-4.6",
+   "model_cli": "grok-4.6",
+   "tokens_control": 29772,
+   "tokens_cli": 29345,
+   "delta_tokens": -427,
+   "input_control": 29096,
+   "input_cli": 28718,
+   "delta_input": -378,
+   "output_control": 676,
+   "output_cli": 627,
+   "delta_output": -49,
+   "system_prompt_len_control": 36701,
+   "system_prompt_len_cli": 36701,
+   "tools_control": 8,
+   "tools_cli": 5,
+   "wall_control": 28.6,
+   "wall_cli": 25.9,
+   "chars_control": 273,
+   "chars_cli": 295,
+   "max_sent_control": 14,
+   "max_sent_cli": 14,
+   "list_ratio_control": 0.8,
+   "list_ratio_cli": 0.714,
+   "winner_tokens": "cli",
+   "winner_readability_auto": "control",
+   "session_control": "20260817_121705_b7b284",
+   "session_cli": "20260817_121734_bf09d8",
+   "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-005-run-v2-02/procedimento.md",
+   "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-005-run-v2-02/procedimento.md"
+  },
+  {
+   "case_id": "case-006",
+   "operational_gate_pass": true,
+   "residual_control": 0,
+   "residual_cli": 0,
+   "cli_lint_invoked": true,
+   "model_control": "grok-4.6",
+   "model_cli": "grok-4.6",
+   "tokens_control": 30360,
+   "tokens_cli": 30360,
+   "delta_tokens": 0,
+   "input_control": 29422,
+   "input_cli": 29573,
+   "delta_input": 151,
+   "output_control": 938,
+   "output_cli": 787,
+   "delta_output": -151,
+   "system_prompt_len_control": 36701,
+   "system_prompt_len_cli": 36701,
+   "tools_control": 8,
+   "tools_cli": 6,
+   "wall_control": 41.7,
+   "wall_cli": 27.9,
+   "chars_control": 531,
+   "chars_cli": 584,
+   "max_sent_control": 15,
+   "max_sent_cli": 17,
+   "list_ratio_control": 0.0,
+   "list_ratio_cli": 0.0,
+   "winner_tokens": "tie",
+   "winner_readability_auto": "control",
+   "session_control": "20260817_121800_422294",
+   "session_cli": "20260817_121842_a5b514",
+   "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-006-run-v2-02/mitigacao.md",
+   "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-006-run-v2-02/mitigacao.md"
+  }
+ ],
+ "aggregate": {
+  "n_pairs": 5,
+  "residual_all_zero": true,
+  "operational_gate_pass_n": 5,
+  "mean_delta_tokens": -1742,
+  "median_delta_tokens": -427,
+  "mean_delta_input": -1058.4,
+  "median_delta_input": -337,
+  "mean_delta_output": -683.6,
+  "median_delta_output": -151,
+  "token_wins": {
+   "control": 0,
+   "cli": 4,
+   "tie": 1
+  },
+  "read_wins": {
+   "control": 4,
+   "cli": 1,
+   "tie": 0
+  }
+ },
+ "blind_review": [
+  {
+   "case_id": "case-015",
+   "label_to_condition": {
+    "A": "control",
+    "B": "cli"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-015-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-015-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  },
+  {
+   "case_id": "case-016",
+   "label_to_condition": {
+    "A": "cli",
+    "B": "control"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-016-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-016-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  },
+  {
+   "case_id": "case-002",
+   "label_to_condition": {
+    "A": "control",
+    "B": "cli"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-002-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-002-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  },
+  {
+   "case_id": "case-005",
+   "label_to_condition": {
+    "A": "cli",
+    "B": "control"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-005-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-005-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  },
+  {
+   "case_id": "case-006",
+   "label_to_condition": {
+    "A": "control",
+    "B": "cli"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-006-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-006-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  }
+ ],
+ "token_reporting_policy": "Always include session input/output/total tokens and deltas in every A/B table.",
+ "panel_reviews": {
+  "status": "awaiting_panel"
+ }
+}

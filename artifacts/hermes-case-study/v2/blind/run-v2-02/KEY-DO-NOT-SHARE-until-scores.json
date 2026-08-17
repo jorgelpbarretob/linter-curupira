@@ -1,0 +1,71 @@
+{
+ "schema_version": "blind-key/v1",
+ "run_id": "run-v2-02",
+ "items": [
+  {
+   "case_id": "case-015",
+   "label_to_condition": {
+    "A": "control",
+    "B": "cli"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-015-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-015-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  },
+  {
+   "case_id": "case-016",
+   "label_to_condition": {
+    "A": "cli",
+    "B": "control"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-016-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-016-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  },
+  {
+   "case_id": "case-002",
+   "label_to_condition": {
+    "A": "control",
+    "B": "cli"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-002-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-002-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  },
+  {
+   "case_id": "case-005",
+   "label_to_condition": {
+    "A": "cli",
+    "B": "control"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-005-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-005-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  },
+  {
+   "case_id": "case-006",
+   "label_to_condition": {
+    "A": "control",
+    "B": "cli"
+   },
+   "files": {
+    "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-006-A.md",
+    "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/run-v2-02/case-006-B.md"
+   },
+   "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+   "status": "awaiting_human_blind_review"
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+  ┊ review diff
+a/runbook-envase.md → b/runbook-envase.md
+@@ -1,3 +1,3 @@
+ # Runbook — partida do envase
+ 
+-Confirme a posição da válvula no painel antes de prosseguir; este passo evita partida com caminho fechado. Abra XV-201 devagar e observe FS-12 indicar fluxo; se o fluxo não aparecer em dois minutos, feche XV-201 e verifique o filtro da linha antes de repetir. Ligue P-77 somente com FS-12 marcando fluxo; ajuste a velocidade conforme a etiqueta do inversor; não ultrapasse o valor máximo marcado. Durante o envase, acompanhe o nível pelo visor; se houver transbordo, desligue P-77 e feche XV-201 antes de limpar a área. Ao final, feche XV-201, desligue P-77 e registre a leitura de FS-12 no boletim; mantenha o caminho livre para o próximo turno.
++Abra XV-205 devagar e observe FS-12 indicar fluxo. Se o fluxo não aparecer em dois minutos, feche XV-205 e verifique o filtro da linha antes de repetir. Ligue P-77 somente com FS-12 marcando fluxo. Ajuste a velocidade conforme a etiqueta do inversor. Não ultrapasse o valor máximo marcado. Durante o envase, acompanhe o nível pelo visor. Se houver transbordo, desligue P-77 e feche XV-205 antes de limpar a área. Ao final, feche XV-205, desligue P-77 e registre a leitura de FS-12 no boletim. Mantenha o caminho livre para o próximo turno.
+/tmp/cs-ab/case-015-run-v2-02-control/runbook-envase.md
+571 chars
+XV-201→XV-205, passo do painel removido, prosa sem ; e mais curta.

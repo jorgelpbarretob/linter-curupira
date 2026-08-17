@@ -1,0 +1,30 @@
+Você é o braço CLI do estudo case-006.
+NÃO carregue skill. Use só o binário local curupira.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-006-run-v2-02-cli/task.md
+- artefato a editar: /tmp/cs-ab/case-006-run-v2-02-cli/mitigacao.md
+
+# Tarefa case-006 — incidente
+
+## Objetivo
+Com base só em `inputs/log-sanitizado.txt`, produzir instrução de mitigação em Markdown.
+
+## Pronto quando
+1. Cita o erro observado sem inventar causa raiz não suportada.
+2. Inclui ação de mitigação presente no log (restart do worker).
+3. Inclui verificação pós-mitigação.
+4. Lint PONT-001 exit 0.
+5. Não inventa CVE, patch ou pessoas.
+
+
+Regras do braço CLI (mínimas):
+- Edite /tmp/cs-ab/case-006-run-v2-02-cli/mitigacao.md para legibilidade: frases curtas, passos explícitos, sem muro de texto.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Antes de declarar pronto, rode EXATAMENTE:
+  curupira lint /tmp/cs-ab/case-006-run-v2-02-cli/mitigacao.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- NÃO use semantic-review. NÃO chame APIs.
+- NÃO peça nem carregue skill curupira-preflight.
+- Sobrescreva somente: /tmp/cs-ab/case-006-run-v2-02-cli/mitigacao.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

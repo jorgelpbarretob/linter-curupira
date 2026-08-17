@@ -1,0 +1,47 @@
+Você é o braço CLI do estudo case-015.
+NÃO carregue skill. Use só o binário local curupira.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-015-run-v2-02-cli/task.md
+- artefato a editar: /tmp/cs-ab/case-015-run-v2-02-cli/runbook-envase.md
+
+# Tarefa case-015 — atualização difícil de runbook
+
+## Objetivo de produto
+Aplicar a mudança de tag e enxugar o texto, baixando tokens de leitura.
+Não é só passar no lint.
+
+## Mudança definida
+A válvula XV-201 foi substituída pela XV-205 no projeto. Todo o runbook deve
+referenciar XV-205. O passo de confirmação de posição no painel foi removido
+do projeto e deve sair do runbook.
+
+## Entrada
+`runbook-envase.md`.
+
+## Entregar
+O mesmo arquivo atualizado.
+
+## Pronto quando
+1. Nenhuma referência restante a XV-201.
+2. Tags preservadas: XV-205, P-77, FS-12.
+3. Passo de confirmação de posição no painel removido.
+4. Sem ponto e vírgula em prosa.
+5. Texto final mais curto que o input em caracteres de prosa.
+6. Braço com Curupira: `curupira lint` exit 0 nas regras do aceite.
+
+## Restrições
+- Não altere nenhum outro fato técnico.
+- Não envie a APIs.
+
+
+Regras do braço CLI (mínimas):
+- Edite /tmp/cs-ab/case-015-run-v2-02-cli/runbook-envase.md para legibilidade: frases curtas, passos explícitos, sem muro de texto.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Antes de declarar pronto, rode EXATAMENTE:
+  curupira lint /tmp/cs-ab/case-015-run-v2-02-cli/runbook-envase.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- NÃO use semantic-review. NÃO chame APIs.
+- NÃO peça nem carregue skill curupira-preflight.
+- Sobrescreva somente: /tmp/cs-ab/case-015-run-v2-02-cli/runbook-envase.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

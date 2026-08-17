@@ -1,0 +1,16 @@
+{
+  "case_id": "case-016",
+  "run_id": "run-v2-02",
+  "condition": "cli",
+  "hermes_exit": 0,
+  "wall_s": 64.6,
+  "session_id": "20260817_121459_b25d0b",
+  "work_dir": "/tmp/cs-ab/case-016-run-v2-02-cli",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-016-run-v2-02/mitigacao-parada.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": []
+}

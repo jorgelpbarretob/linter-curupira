@@ -1,0 +1,30 @@
+  ┊ review diff
+a/procedimento-recuperacao.md → b/procedimento-recuperacao.md
+@@ -1,8 +1,13 @@
+-# Insumos técnicos (sintéticos)
++# Recuperacao do servico curupira-api
+ 
+-- Serviço: `curupira-api`
+-- Healthcheck: `GET http://127.0.0.1:8080/health` deve retornar 200
+-- Unidade systemd: `curupira-api.service`
+-- Log: `journalctl -u curupira-api.service -n 100`
+-- Ação de restart permitida: `systemctl restart curupira-api.service`
+-- Se healthcheck falhar 3 vezes após restart, escalar para plantão (sem inventar contato)
++Use este procedimento apos falha de healthcheck.
++
++1. Confirme a unidade systemd `curupira-api.service`.
++2. Leia as ultimas 100 linhas do log com `journalctl -u curupira-api.service -n 100`.
++3. Reinicie o servico com `systemctl restart curupira-api.service`.
++4. Execute o healthcheck: `GET http://127.0.0.1:8080/health`.
++5. Aceite sucesso somente se a resposta for 200.
++6. Se o healthcheck falhar, volte ao passo 3.
++7. Se o healthcheck falhar 3 vezes apos o restart, pare o ciclo.
++8. Escale para o plantao. Nao invente contato.
++9. Verificacao final: `GET http://127.0.0.1:8080/health` deve retornar 200.
+Pronto.
+
+path: /tmp/cs-ab/case-002-run-v2-02-cli/procedimento-recuperacao.md
+lint PONT-001: exit 0
+chars: 642
+
+Resumo: procedimento numerado para restart, health em 127.0.0.1:8080/health e escala apos 3 falhas.

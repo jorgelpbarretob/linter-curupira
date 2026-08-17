@@ -1,0 +1,28 @@
+Você é o braço CLI do estudo case-005.
+NÃO carregue skill. Use só o binário local curupira.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-005-run-v2-02-cli/task.md
+- artefato a editar: /tmp/cs-ab/case-005-run-v2-02-cli/procedimento.md
+
+# Tarefa case-005 — transformação
+
+## Objetivo
+Converter `inputs/notas.txt` em procedimento Markdown com passos claros.
+
+## Pronto quando
+1. Saída `.md` com título e passos numerados.
+2. Cobre backup, migrate e verify mencionados nas notas.
+3. Lint PONT-001 exit 0.
+
+
+Regras do braço CLI (mínimas):
+- Edite /tmp/cs-ab/case-005-run-v2-02-cli/procedimento.md para legibilidade: frases curtas, passos explícitos, sem muro de texto.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Antes de declarar pronto, rode EXATAMENTE:
+  curupira lint /tmp/cs-ab/case-005-run-v2-02-cli/procedimento.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- NÃO use semantic-review. NÃO chame APIs.
+- NÃO peça nem carregue skill curupira-preflight.
+- Sobrescreva somente: /tmp/cs-ab/case-005-run-v2-02-cli/procedimento.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

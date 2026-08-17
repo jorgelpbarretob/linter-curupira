@@ -207,6 +207,7 @@ Fonte: `artifacts/hermes-case-study/v1/battery-run-cli-default-summary.json`
 5. Release v1 **fechada**: `releases/v1-cli-default-2026-08-16.json` e `artifacts/hermes-case-study/v1-sealed/`.
 6. Bateria v2 aberta: `protocol-v2.md` + `artifacts/hermes-case-study/v2/battery-run-v2-01-summary.json`.
 7. Pacote cego: `artifacts/hermes-case-study/v2/blind/` (A/B + template + key).
+8. Bateria v2 extensão (2026-08-17): `battery-run-v2-02-summary.json` cobre cases 015, 016, 002, 005, 006 (16/16). Executor grok-4.6 (v2-01 foi grok-4.5) — não misturar medianas entre baterias.
 
 ### Outliers (síntese)
 

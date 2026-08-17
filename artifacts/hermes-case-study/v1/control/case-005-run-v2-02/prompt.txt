@@ -1,0 +1,24 @@
+Você é o braço CONTROLE do estudo case-005 (sem Curupira).
+
+Leia a tarefa completa abaixo e o arquivo de trabalho:
+- tarefa: /tmp/cs-ab/case-005-run-v2-02-control/task.md
+- artefato a editar: /tmp/cs-ab/case-005-run-v2-02-control/procedimento.md
+
+# Tarefa case-005 — transformação
+
+## Objetivo
+Converter `inputs/notas.txt` em procedimento Markdown com passos claros.
+
+## Pronto quando
+1. Saída `.md` com título e passos numerados.
+2. Cobre backup, migrate e verify mencionados nas notas.
+3. Lint PONT-001 exit 0.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto (menos tokens de leitura).
+- Sobrescreva somente: /tmp/cs-ab/case-005-run-v2-02-control/procedimento.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

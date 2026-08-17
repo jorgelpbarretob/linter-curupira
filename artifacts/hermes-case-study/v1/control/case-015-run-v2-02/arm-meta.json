@@ -1,0 +1,16 @@
+{
+  "case_id": "case-015",
+  "run_id": "run-v2-02",
+  "condition": "control",
+  "hermes_exit": 0,
+  "wall_s": 31.3,
+  "session_id": "20260817_121209_ac4334",
+  "work_dir": "/tmp/cs-ab/case-015-run-v2-02-control",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-015-run-v2-02/runbook-envase.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": []
+}
