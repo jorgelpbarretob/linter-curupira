@@ -323,6 +323,11 @@ def main() -> int:
             prev_lab = prev_labels.get(lab) or {}
             prev_reviews = prev_lab.get("reviews") or {}
             lab_out = {"reviews": {}}
+            # resume must not drop valid reviews from reviewers outside the
+            # current subset (bug fix: a kimi-only rerun once wiped maritaca)
+            for name, prev_rev in prev_reviews.items():
+                if name not in reviewers and "summary" in prev_rev and "findings" in prev_rev:
+                    lab_out["reviews"][name] = prev_rev
             for name in reviewers:
                 prev_rev = prev_reviews.get(name) or {}
                 if "summary" in prev_rev and "findings" in prev_rev:

@@ -1,0 +1,1429 @@
+{
+  "schema_version": "semantic-rubric-kimi-maritaca/v1",
+  "rubric_doc": "docs/hermes-case-study/semantic-rubric-v2.md",
+  "run_id": "run-v2-01",
+  "scored_at": "2026-08-17T02:34:11.950559-03:00",
+  "categories": [
+    "ambiguous-reference",
+    "implicit-agent",
+    "multiple-actions",
+    "terminology"
+  ],
+  "panel_usage_totals": {
+    "maritaca": {
+      "calls": 22,
+      "input_tokens": 13904,
+      "output_tokens": 21717,
+      "total_tokens": 35621
+    }
+  },
+  "cases": [
+    {
+      "case_id": "case-001",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_returned": "kimi-k2.7",
+              "usage": {
+                "input_tokens": 540,
+                "output_tokens": 1395,
+                "total_tokens": 1935
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Feche a válvula V-12.",
+                  "rationale": "Imperativo sem agente definido; não fica claro se é operador, sistema ou controle automático."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Desligue a bomba P-01.",
+                  "rationale": "Imperativo sem agente definido; não fica claro quem executa o desligamento."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Verifique a pressão em PI-01 antes de liberar a área.",
+                  "rationale": "Imperativo sem agente definido; omissão do responsável pela verificação/liberação."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 3,
+                "findings_major": 3,
+                "findings_minor": 0,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 3,
+                  "multiple-actions": 0,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 3,
+              "raw_text": "```json\n{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Feche a válvula V-12.\",\n      \"rationale\": \"Imperativo sem agente definido; não fica claro se é operador, sistema ou controle automático.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Desligue a bomba P-01.\",\n      \"rationale\": \"Imperativo sem agente definido; não fica claro quem executa o desligamento.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Verifique a pressão em PI-01 antes de liberar a área.\",\n      \"rationale\": \"Imperativo sem agente definido; omissão do responsável pela verificação/liberação.\"\n    }\n  ],\n  \"findings_total\": 3\n}\n```"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 531,
+                "output_tokens": 814,
+                "total_tokens": 1345
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Feche a válvula V-12.",
+                  "rationale": "Ação imperativa sem indicar o agente responsável (operador, sistema automático, etc.), o que é essencial para atribuição de responsabilidade operacional."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Desligue a bomba P-01.",
+                  "rationale": "Ação imperativa sem agente definido; não especifica quem deve executar o desligamento, podendo gerar dúvida sobre responsabilidade."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Verifique a pressão em PI-01 antes de liberar a área.",
+                  "rationale": "Ação imperativa sem agente explícito; não indica quem deve realizar a verificação nem quem está autorizado a liberar a área."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 3,
+                "findings_major": 3,
+                "findings_minor": 0,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 3,
+                  "multiple-actions": 0,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 3,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Feche a válvula V-12.\",\n      \"rationale\": \"Ação imperativa sem indicar o agente responsável (operador, sistema automático, etc.), o que é essencial para atribuição de responsabilidade operacional.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Desligue a bomba P-01.\",\n      \"rationale\": \"Ação imperativa sem agente definido; não especifica quem deve executar o desligamento, podendo gerar dúvida sobre responsabilidade.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Verifique a pressão em PI-01 antes de liberar a área.\",\n      \"rationale\": \"Ação imperativa sem agente explícito; não indica quem deve realizar a verificação nem quem está autorizado a liberar a área.\"\n    }\n  ],\n  \"findings_total\": 3\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 557,
+                "output_tokens": 1408,
+                "total_tokens": 1965
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Feche a válvula V-12.",
+                  "rationale": "Ação imperativa sem agente explícito; em procedimentos operacionais o agente (operador) é convencionalmente entendido, mas não está declarado."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "minor",
+                  "excerpt": "Verifique a pressão em PI-01.",
+                  "rationale": "'Pressão' é medida técnica que requer valor de referência, faixa aceitável ou tolerância para que a verificação possa ser executada de forma conclusiva; nenhum "
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 2,
+                "findings_major": 0,
+                "findings_minor": 2,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 1,
+                  "multiple-actions": 0,
+                  "terminology": 1
+                }
+              },
+              "claimed_total": 2,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Feche a válvula V-12.\",\n      \"rationale\": \"Ação imperativa sem agente explícito; em procedimentos operacionais o agente (operador) é convencionalmente entendido, mas não está declarado.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Verifique a pressão em PI-01.\",\n      \"rationale\": \"'Pressão' é medida técnica que requer valor de referência, faixa aceitável ou tolerância para que a verificação possa ser executada de forma conclusiva; nenhum desses qualificadores é fornecido.\"\n    }\n  ],\n  \"findings_total\": 2\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-003",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 557,
+                "output_tokens": 1412,
+                "total_tokens": 1969
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Abra a válvula V-90.",
+                  "rationale": "Instrução imperativa sem agente explícito; presume-se o operador, mas não está declarado."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Abra o registro R-02.",
+                  "rationale": "Instrução imperativa sem agente explícito; presume-se o operador, mas não está declarado."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Confira o sensor S-11.",
+                  "rationale": "Instrução imperativa sem agente explícito; presume-se o operador, mas não está declarado."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Anote o valor de S-11 no turno.",
+                  "rationale": "Instrução imperativa sem agente explícito; presume-se o operador, mas não está declarado."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 4,
+                "findings_major": 0,
+                "findings_minor": 4,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 4,
+                  "multiple-actions": 0,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 4,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Abra a válvula V-90.\",\n      \"rationale\": \"Instrução imperativa sem agente explícito; presume-se o operador, mas não está declarado.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Abra o registro R-02.\",\n      \"rationale\": \"Instrução imperativa sem agente explícito; presume-se o operador, mas não está declarado.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Confira o sensor S-11.\",\n      \"rationale\": \"Instrução imperativa sem agente explícito; presume-se o operador, mas não está declarado.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Anote o valor de S-11 no turno.\",\n      \"rationale\": \"Instrução imperativa sem agente explícito; presume-se o operador, mas não está declarado.\"\n    }\n  ],\n  \"findings_total\": 4\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 535,
+                "output_tokens": 995,
+                "total_tokens": 1530
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Abra a válvula V-90.",
+                  "rationale": "Ação imperativa sem definir quem deve executar (operador, técnico, sistema automático)."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Abra o registro R-02.",
+                  "rationale": "Ação imperativa sem definir quem deve executar."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Confira o sensor S-11.",
+                  "rationale": "Ação imperativa sem definir quem deve executar."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Anote o valor no turno.",
+                  "rationale": "Ação imperativa sem definir quem deve executar."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 4,
+                "findings_major": 0,
+                "findings_minor": 4,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 4,
+                  "multiple-actions": 0,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 4,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Abra a válvula V-90.\",\n      \"rationale\": \"Ação imperativa sem definir quem deve executar (operador, técnico, sistema automático).\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Abra o registro R-02.\",\n      \"rationale\": \"Ação imperativa sem definir quem deve executar.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Confira o sensor S-11.\",\n      \"rationale\": \"Ação imperativa sem definir quem deve executar.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Anote o valor no turno.\",\n      \"rationale\": \"Ação imperativa sem definir quem deve executar.\"\n    }\n  ],\n  \"findings_total\": 4\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-004",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_returned": "kimi-k2.7",
+              "usage": {
+                "input_tokens": 606,
+                "output_tokens": 1500,
+                "total_tokens": 2106
+              },
+              "finish_reason": "length",
+              "findings": [
+                {
+                  "category": "multiple-actions",
+                  "severity": "minor",
+                  "excerpt": "Se houver finding, corrija a prosa e repita até exit 0.",
+                  "rationale": "Um único passo empilha corrigir prosa e repetir execução, com risco de interromper o ciclo."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 1,
+                "findings_major": 0,
+                "findings_minor": 1,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 0,
+                  "multiple-actions": 1,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 1,
+              "raw_text": "We need produce JSON only. We are blind reviewer of pt-BR technical documentation. Evaluate artifact: Runbook preflight de documentação with 4 steps. Count occurrences of 4 categories.\n\nWe need analyze each step for ambiguous-reference, implicit-agent, multiple-actions, terminology.\n\nArtifact: markdown # Runbook — preflight de documentação\n\n1. Instale a ferramenta de lint do time.\n2. Rode `curupira lint doc.md --enable-rule CURUPIRA-PT-PONT-001`.\n3. Se houver finding, corrija a prosa e repita até exit 0.\n4. Anexe a saída JSON no ticket.\n\nNeed decide if any findings. Let's inspect.\n\nTerminology category: jargão técnico sem qualificador necessário para executar (válvula/registro/bomba/sensor/tolerância sem tipo, faixa ou fonte). Here terms: \"lint\" (jargon), \"finding\", \"exit 0\", \"JSON\", \"ticket\", \"curupira\", \"enable-rule\", \"time\"? But category definition specifically examples: válvula/registro/bomba/sensor/tolerância sem tipo, faixa ou fonte. It says \"jargão técnico sem qualificador necessário para executar\". Does \"lint\" need qualifier? It's a tool named \"ferramenta de lint do time\" which gives enough context? \"finding\" maybe term. \"exit 0\" is shell term. \"JSON\" format. \"ticket\" maybe system. However the category likely targets industrial procedures, not software. But definitions say jargão técnico. Should we count? Need decide if terms without qualifier necessary to execute. In a runbook for documentation preflight, \"ferramenta de lint do time\" is vague: which tool? But it says \"do time\", maybe okay. \"finding\" is plural? \"Se houver finding\" - could be considered jargon, but context is lint. \"exit 0\" is shell exit code. \"JSON\" output. \"ticket\" maybe issue tracker. The question: is lack of qualifier causing operational error? Maybe major if user doesn't know which tool, output location, ticket system. But runbook likely internal; but reviewer should not assume context? The instructions say: Não conte o que o próprio texto resolve no contexto. So if text resolves, no count. Step 1 resolves tool as \"ferramenta de lint do time\". Step 2 gives exact command. Step 3 \"finding\" resolved by lint context, \"exit 0\" is command exit code. Step 4 \"saída JSON\" likely output of command; \"ticket\" maybe unspecified system but maybe context knows. But runbook for documentation in team likely knows ticket. Need decide if terminology counts.\n\nimplicit-agent: action imperative without defined agent when agent matters. Step 1 \"Instale\" - agent is reader, but in runbook imperative di"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 557,
+                "output_tokens": 1671,
+                "total_tokens": 2228
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Instale a ferramenta de lint do time.",
+                  "rationale": "Ação imperativa sem agente explícito; o agente (quem instala) é implícito como o leitor do runbook."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Rode `curupira lint doc.md --enable-rule CURUPIRA-PT-PONT-001`.",
+                  "rationale": "Ação imperativa sem agente explícito; o agente (quem executa o comando) é implícito como o leitor do runbook."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Se houver finding, corrija a prosa e repita até exit 0.",
+                  "rationale": "Ações imperativas ('corrija', 'repita') sem agente explícito; o agente é implícito como o leitor do runbook."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Anexe a saída JSON no ticket.",
+                  "rationale": "Ação imperativa sem agente explícito; o agente (quem anexa) é implícito como o leitor do runbook."
+                },
+                {
+                  "category": "multiple-actions",
+                  "severity": "minor",
+                  "excerpt": "Se houver finding, corrija a prosa e repita até exit 0.",
+                  "rationale": "Passo único que empilha duas ações obrigatórias distintas: corrigir a prosa E repetir o comando até sucesso."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 5,
+                "findings_major": 0,
+                "findings_minor": 5,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 4,
+                  "multiple-actions": 1,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 5,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Instale a ferramenta de lint do time.\",\n      \"rationale\": \"Ação imperativa sem agente explícito; o agente (quem instala) é implícito como o leitor do runbook.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Rode `curupira lint doc.md --enable-rule CURUPIRA-PT-PONT-001`.\",\n      \"rationale\": \"Ação imperativa sem agente explícito; o agente (quem executa o comando) é implícito como o leitor do runbook.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Se houver finding, corrija a prosa e repita até exit 0.\",\n      \"rationale\": \"Ações imperativas ('corrija', 'repita') sem agente explícito; o agente é implícito como o leitor do runbook.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Anexe a saída JSON no ticket.\",\n      \"rationale\": \"Ação imperativa sem agente explícito; o agente (quem anexa) é implícito como o leitor do runbook.\"\n    },\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Se houver finding, corrija a prosa e repita até exit 0.\",\n      \"rationale\": \"Passo único que empilha duas ações obrigatórias distintas: corrigir a prosa E repetir o comando até sucesso.\"\n    }\n  ],\n  \"findings_total\": 5\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_returned": "kimi-k2.7",
+              "usage": {
+                "input_tokens": 564,
+                "output_tokens": 1500,
+                "total_tokens": 2064
+              },
+              "finish_reason": "length",
+              "findings": [
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Se houver finding, corrija a prosa e repita até exit 0.",
+                  "rationale": "Um único passo empilha duas ações obrigatórias: corrigir a prosa e repetir a execução, com risco de executar só a correção."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 1,
+                "findings_major": 1,
+                "findings_minor": 0,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 0,
+                  "multiple-actions": 1,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 1,
+              "raw_text": "We need produce JSON only, no reasoning. We are blind reviewer of pt-BR technical documentation. Count occurrences in 4 categories. Artifact is a runbook preflight documentation.\n\nLet's analyze each step.\n\n1. \"Instale a ferramenta de lint do time.\" - imperative no agent? \"Instale\" is imperative directed at reader (user). implicit-agent? Agent matters? The runbook audience is the person following, but maybe it's okay because commands are addressed to operator. The category implicit-agent is action imperative without agent defined when agent matters for executing (\"desligar a bomba\" without saying who). In instructions, implied agent is the reader; generally not counted? We need decide. Usually runbook steps imperative to operator are fine. But no agent defined could count if action could be ambiguous between user/system. Here \"Instale\" likely by user. Not count.\n\n2. \"Rode `curupira doc.md --enable-rule CURUPIRA-PT-PONT-001`.\" - \"Rode\" imperative, user runs. Multiple-actions? single action. terminology? CURUPIRA-PT-PONT-001 is rule ID fine.\n\n3. \"Se houver finding, corrija a prosa e repita até exit 0.\" This sentence has conditional and two imperatives \"corrija a prosa\" and \"repita\". It stacks actions in a single step: fix prose and repeat until exit 0. That could be multiple-actions because single step says do two mandatory actions: corrija a prosa e repita. severity? It could cause incomplete execution (fix but not repeat). major? Could cause not re-running lint, false confidence. Probably minor? But runbook operations: if user only fixes but doesn't re-run, they may attach wrong output. It is a risk of executing half. severity major maybe. We need decide. The user asked count distinct occurrences. Let's mark multiple-actions major.\n\nAlso \"exit 0\" jargon? Not terminology category (jargão técnico sem qualificador). It's a shell term; maybe qualifies output. But the category is about valve/pump/sensor/tolerance etc. Not relevant.\n\n4. \"Anexe a saída JSON no ticket.\" - \"saída JSON\" okay, \"ticket\" maybe jargão? Not category.\n\nambiguous-reference? \"o time\" in \"ferramenta de lint do time\" maybe? That's just team lint tool. Not ambiguous. \"finding\" maybe not defined? It's used as term from previous step (output of lint). Slightly jargão but not category. \"deste\"? none. \"ele\"? none.\n\nterminology: any valve/pump/sensor/tolerance? none.\n\nimplicit-agent: In step 1 and 2 imperatives, but runbooks use imperative for operator. Is agent undefined? The artifact title \"Runboo"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 556,
+                "output_tokens": 1229,
+                "total_tokens": 1785
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "multiple-actions",
+                  "severity": "minor",
+                  "excerpt": "Se houver finding, corrija a prosa e repita até exit 0.",
+                  "rationale": "O passo empilha duas ações obrigatórias — corrigir a prosa E repetir o comando — em uma única instrução, com risco de execução parcial."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 1,
+                "findings_major": 0,
+                "findings_minor": 1,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 0,
+                  "multiple-actions": 1,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 1,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Se houver finding, corrija a prosa e repita até exit 0.\",\n      \"rationale\": \"O passo empilha duas ações obrigatórias — corrigir a prosa E repetir o comando — em uma única instrução, com risco de execução parcial.\"\n    }\n  ],\n  \"findings_total\": 1\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-007",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 758,
+                "output_tokens": 656,
+                "total_tokens": 1414
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "ambiguous-reference",
+                  "severity": "minor",
+                  "excerpt": "Confirme no painel que não há transferência em curso.",
+                  "rationale": "O termo \"no painel\" não especifica qual painel (local, remoto, HMI, painel elétrico), podendo gerar dúvida sobre onde confirmar."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Não force.",
+                  "rationale": "Instrução imperativa negativa sem agente explícito; não fica claro se é o operador, o sistema automático ou outro agente que não deve forçar."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Ligue P-220 só depois de PI-33 indicar coluna mínima conforme placa local.",
+                  "rationale": "Não especifica quem deve ligar P-220 (operador local, painel remoto, automático), essencial para execução segura."
+                },
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Feche XV-101 e trave o volante.",
+                  "rationale": "Empilha duas ações obrigatórias distintas (fechar e trancar) em um único passo, risco de executar apenas uma delas."
+                },
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Abra XV-101 devagar.",
+                  "rationale": "Abrir 'devagar' implica monitoramento simultâneo (abrir e observar), mas não descreve o que monitorar nem como proceder se houver anomalia."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "Espere PI-33 estabilizar em zero relativo da faixa local.",
+                  "rationale": "Não define o que é 'faixa local' nem a tolerância aceitável para 'zero relativo', impedindo execução precisa."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "conforme placa local",
+                  "rationale": "Não especifica onde está a 'placa local', qual valor ela exibe ou como interpretar 'coluna mínima', gerando ambiguidade operacional."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "Ajuste TIC-12 só se a temperatura sair da faixa já marcada no cartão da área.",
+                  "rationale": "Não informa qual é a faixa marcada, nem como acessar ou interpretar o 'cartão da área', essencial para decidir o ajuste."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 8,
+                "findings_major": 7,
+                "findings_minor": 1,
+                "by_category": {
+                  "ambiguous-reference": 1,
+                  "implicit-agent": 2,
+                  "multiple-actions": 2,
+                  "terminology": 3
+                }
+              },
+              "claimed_total": 8,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"ambiguous-reference\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Confirme no painel que não há transferência em curso.\",\n      \"rationale\": \"O termo \\\"no painel\\\" não especifica qual painel (local, remoto, HMI, painel elétrico), podendo gerar dúvida sobre onde confirmar.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Não force.\",\n      \"rationale\": \"Instrução imperativa negativa sem agente explícito; não fica claro se é o operador, o sistema automático ou outro agente que não deve forçar.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Ligue P-220 só depois de PI-33 indicar coluna mínima conforme placa local.\",\n      \"rationale\": \"Não especifica quem deve ligar P-220 (operador local, painel remoto, automático), essencial para execução segura.\"\n    },\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Feche XV-101 e trave o volante.\",\n      \"rationale\": \"Empilha duas ações obrigatórias distintas (fechar e trancar) em um único passo, risco de executar apenas uma delas.\"\n    },\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Abra XV-101 devagar.\",\n      \"rationale\": \"Abrir 'devagar' implica monitoramento simultâneo (abrir e observar), mas não descreve o que monitorar nem como proceder se houver anomalia.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Espere PI-33 estabilizar em zero relativo da faixa local.\",\n      \"rationale\": \"Não define o que é 'faixa local' nem a tolerância aceitável para 'zero relativo', impedindo execução precisa.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"conforme placa local\",\n      \"rationale\": \"Não especifica onde está a 'placa local', qual valor ela exibe ou como interpretar 'coluna mínima', gerando ambiguidade operacional.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Ajuste TIC-12 só se a temperatura sair da faixa já marcada no cartão da área.\",\n      \"rationale\": \"Não informa qual é a faixa marcada, nem como acessar ou interpretar o 'cartão da área', essencial para decidir o ajuste.\"\n    }\n  ],\n  \"findings_total\": 8\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 768,
+                "output_tokens": 501,
+                "total_tokens": 1269
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "ambiguous-reference",
+                  "severity": "minor",
+                  "excerpt": "Trave o volante.",
+                  "rationale": "Não está claro a qual volante o procedimento se refere (volante de XV-101 ou outro equipamento)."
+                },
+                {
+                  "category": "ambiguous-reference",
+                  "severity": "minor",
+                  "excerpt": "Camine a linha.",
+                  "rationale": "O verbo 'caminhar' aplicado à linha é ambíguo quanto ao procedimento exato a ser executado."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Não force.",
+                  "rationale": "Instrução imperativa sem indicar quem deve evitar forçar (operador ou sistema automático), podendo gerar risco operacional."
+                },
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Aguarde PI-33 estabilizar em zero relativo da faixa local.",
+                  "rationale": "Combina a ação de aguardar com a condição de estabilização em valor específico, podendo gerar dúvida sobre o critério exato de continuidade."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "zero relativo da faixa local",
+                  "rationale": "Termo técnico sem definição clara do que constitui 'zero relativo' ou qual é a 'faixa local', impedindo execução precisa."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "coluna mínima conforme placa local",
+                  "rationale": "Não especifica qual valor ou faixa é a 'coluna mínima' nem identifica a 'placa local' referida."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "faixa já marcada no cartão da área",
+                  "rationale": "Não indica qual cartão, qual faixa ou onde encontrar essa informação, dificultando a execução correta do ajuste."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 7,
+                "findings_major": 5,
+                "findings_minor": 2,
+                "by_category": {
+                  "ambiguous-reference": 2,
+                  "implicit-agent": 1,
+                  "multiple-actions": 1,
+                  "terminology": 3
+                }
+              },
+              "claimed_total": 7,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"ambiguous-reference\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Trave o volante.\",\n      \"rationale\": \"Não está claro a qual volante o procedimento se refere (volante de XV-101 ou outro equipamento).\"\n    },\n    {\n      \"category\": \"ambiguous-reference\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Camine a linha.\",\n      \"rationale\": \"O verbo 'caminhar' aplicado à linha é ambíguo quanto ao procedimento exato a ser executado.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Não force.\",\n      \"rationale\": \"Instrução imperativa sem indicar quem deve evitar forçar (operador ou sistema automático), podendo gerar risco operacional.\"\n    },\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Aguarde PI-33 estabilizar em zero relativo da faixa local.\",\n      \"rationale\": \"Combina a ação de aguardar com a condição de estabilização em valor específico, podendo gerar dúvida sobre o critério exato de continuidade.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"zero relativo da faixa local\",\n      \"rationale\": \"Termo técnico sem definição clara do que constitui 'zero relativo' ou qual é a 'faixa local', impedindo execução precisa.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"coluna mínima conforme placa local\",\n      \"rationale\": \"Não especifica qual valor ou faixa é a 'coluna mínima' nem identifica a 'placa local' referida.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"faixa já marcada no cartão da área\",\n      \"rationale\": \"Não indica qual cartão, qual faixa ou onde encontrar essa informação, dificultando a execução correta do ajuste.\"\n    }\n  ],\n  \"findings_total\": 7\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-008",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 634,
+                "output_tokens": 1565,
+                "total_tokens": 2199
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "terminology",
+                  "severity": "minor",
+                  "excerpt": "Não reiniciar o broker sem autorização",
+                  "rationale": "O termo 'broker' é usado sem qualificador (ex.: RabbitMQ, Kafka), o que pode gerar dúvida se houver mais de um broker no sistema."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 1,
+                "findings_major": 0,
+                "findings_minor": 1,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 0,
+                  "multiple-actions": 0,
+                  "terminology": 1
+                }
+              },
+              "claimed_total": 1,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Não reiniciar o broker sem autorização\",\n      \"rationale\": \"O termo 'broker' é usado sem qualificador (ex.: RabbitMQ, Kafka), o que pode gerar dúvida se houver mais de um broker no sistema.\"\n    }\n  ],\n  \"findings_total\": 1\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 648,
+                "output_tokens": 1044,
+                "total_tokens": 1692
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Reiniciar a unit `worker-b.service`",
+                  "rationale": "Ação imperativa sem especificar o agente responsável (operador manual, automação, on-call), embora implícito em procedimentos operacionais."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "Não reiniciar o broker sem autorização",
+                  "rationale": "O termo 'broker' é usado sem qualificação do tipo, nome ou endereço do serviço (RabbitMQ, Kafka, etc.), o que pode levar a ação no componente errado."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 2,
+                "findings_major": 1,
+                "findings_minor": 1,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 1,
+                  "multiple-actions": 0,
+                  "terminology": 1
+                }
+              },
+              "claimed_total": 2,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Reiniciar a unit `worker-b.service`\",\n      \"rationale\": \"Ação imperativa sem especificar o agente responsável (operador manual, automação, on-call), embora implícito em procedimentos operacionais.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Não reiniciar o broker sem autorização\",\n      \"rationale\": \"O termo 'broker' é usado sem qualificação do tipo, nome ou endereço do serviço (RabbitMQ, Kafka, etc.), o que pode levar a ação no componente errado.\"\n    }\n  ],\n  \"findings_total\": 2\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-009",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 676,
+                "output_tokens": 1376,
+                "total_tokens": 2052
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Leve em caixa térmica a 2–8 °C ao lab em até 30 min.",
+                  "rationale": "Empilha duas ações obrigatórias: acondicionar na caixa térmica E transportar ao laboratório dentro do prazo. Risco de executar apenas uma."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "minor",
+                  "excerpt": "Descarte o primeiro jato.",
+                  "rationale": "Termo 'primeiro jato' sem qualificador (volume, tempo ou critério objetivo) para definir o que deve ser descartado."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "minor",
+                  "excerpt": "Identifique com batch e hora.",
+                  "rationale": "Termo 'batch' sem qualificador sobre formato, fonte ou como obter o identificador do lote para registro consistente."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 3,
+                "findings_major": 1,
+                "findings_minor": 2,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 0,
+                  "multiple-actions": 1,
+                  "terminology": 2
+                }
+              },
+              "claimed_total": 3,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Leve em caixa térmica a 2–8 °C ao lab em até 30 min.\",\n      \"rationale\": \"Empilha duas ações obrigatórias: acondicionar na caixa térmica E transportar ao laboratório dentro do prazo. Risco de executar apenas uma.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Descarte o primeiro jato.\",\n      \"rationale\": \"Termo 'primeiro jato' sem qualificador (volume, tempo ou critério objetivo) para definir o que deve ser descartado.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Identifique com batch e hora.\",\n      \"rationale\": \"Termo 'batch' sem qualificador sobre formato, fonte ou como obter o identificador do lote para registro consistente.\"\n    }\n  ],\n  \"findings_total\": 3\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 703,
+                "output_tokens": 18,
+                "total_tokens": 721
+              },
+              "finish_reason": "stop",
+              "findings": [],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 0,
+                "findings_major": 0,
+                "findings_minor": 0,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 0,
+                  "multiple-actions": 0,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": -1,
+              "raw_text": "{\n  \"findings\": [],\n  \"findings_total\": 0\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-010",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 738,
+                "output_tokens": 1003,
+                "total_tokens": 1741
+              },
+              "finish_reason": "stop",
+              "findings": [],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 0,
+                "findings_major": 0,
+                "findings_minor": 0,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 0,
+                  "multiple-actions": 0,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": -1,
+              "raw_text": "{\n  \"findings\": [],\n  \"findings_total\": 0\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 716,
+                "output_tokens": 18,
+                "total_tokens": 734
+              },
+              "finish_reason": "stop",
+              "findings": [],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 0,
+                "findings_major": 0,
+                "findings_minor": 0,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 0,
+                  "multiple-actions": 0,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": -1,
+              "raw_text": "{\n  \"findings\": [],\n  \"findings_total\": 0\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-011",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 626,
+                "output_tokens": 187,
+                "total_tokens": 813
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "ambiguous-reference",
+                  "severity": "minor",
+                  "excerpt": "Confirme amperagem na faixa da placa.",
+                  "rationale": "Não especifica qual placa (placa de identificação do motor, placa do painel elétrico, etc.), gerando dúvida sobre a fonte do valor."
+                },
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Registre no turno P-440, XV-22, PSH-9 e LS-3.",
+                  "rationale": "Empilha múltiplos registros em um único passo, podendo levar a omissão de algum item ao executar parcialmente a instrução."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 2,
+                "findings_major": 1,
+                "findings_minor": 1,
+                "by_category": {
+                  "ambiguous-reference": 1,
+                  "implicit-agent": 0,
+                  "multiple-actions": 1,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 2,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"ambiguous-reference\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Confirme amperagem na faixa da placa.\",\n      \"rationale\": \"Não especifica qual placa (placa de identificação do motor, placa do painel elétrico, etc.), gerando dúvida sobre a fonte do valor.\"\n    },\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Registre no turno P-440, XV-22, PSH-9 e LS-3.\",\n      \"rationale\": \"Empilha múltiplos registros em um único passo, podendo levar a omissão de algum item ao executar parcialmente a instrução.\"\n    }\n  ],\n  \"findings_total\": 2\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 626,
+                "output_tokens": 1739,
+                "total_tokens": 2365
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Se PSH-9 atuar, pare e isole XV-22.",
+                  "rationale": "Sentença condicional que empilha duas ações obrigatórias ('pare' e 'isole') em um único passo, com risco de execução parcial."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "minor",
+                  "excerpt": "sem trip",
+                  "rationale": "Jargão técnico ('trip') sem qualificação ou explicação do que constitui a condição 'sem trip', dificultando verificação objetiva."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "minor",
+                  "excerpt": "faixa da placa",
+                  "rationale": "Referência a parâmetro operacional sem especificar valores numéricos ou fonte documental (placa de dados do motor), exigindo interpretação."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Parta P-440 no local.",
+                  "rationale": "Ação imperativa sem identificar o agente executor (operador local, painel remoto ou sistema automático), relevante para a execução segura."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 4,
+                "findings_major": 1,
+                "findings_minor": 3,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 1,
+                  "multiple-actions": 1,
+                  "terminology": 2
+                }
+              },
+              "claimed_total": 4,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Se PSH-9 atuar, pare e isole XV-22.\",\n      \"rationale\": \"Sentença condicional que empilha duas ações obrigatórias ('pare' e 'isole') em um único passo, com risco de execução parcial.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"sem trip\",\n      \"rationale\": \"Jargão técnico ('trip') sem qualificação ou explicação do que constitui a condição 'sem trip', dificultando verificação objetiva.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"faixa da placa\",\n      \"rationale\": \"Referência a parâmetro operacional sem especificar valores numéricos ou fonte documental (placa de dados do motor), exigindo interpretação.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Parta P-440 no local.\",\n      \"rationale\": \"Ação imperativa sem identificar o agente executor (operador local, painel remoto ou sistema automático), relevante para a execução segura.\"\n    }\n  ],\n  \"findings_total\": 4\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-012",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 586,
+                "output_tokens": 391,
+                "total_tokens": 977
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Ação: checar sensor e válvula de água de resfriamento. Anotar valores do painel.",
+                  "rationale": "Passo único que empilha três ações obrigatórias (checar sensor, checar válvula, anotar valores), aumentando risco de execução parcial."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "checar sensor",
+                  "rationale": "Não especifica qual sensor (tipo, tag, localização) nem método ou faixa aceitável, impossibilitando execução correta."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "válvula de água de resfriamento",
+                  "rationale": "Não identifica qual válvula (tag, linha, tipo) nem o que verificar nela (posição, atuador, vazamento)."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "Anotar valores do painel.",
+                  "rationale": "Não indica quais valores do painel anotar (temperatura, pressão, vazão, tag) nem formato ou referência."
+                },
+                {
+                  "category": "ambiguous-reference",
+                  "severity": "minor",
+                  "excerpt": "HI cai após checagem local.",
+                  "rationale": "Não deixa claro se 'HI' refere-se ao alarme ou ao valor medido, embora o contexto reduza a ambiguidade."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 5,
+                "findings_major": 4,
+                "findings_minor": 1,
+                "by_category": {
+                  "ambiguous-reference": 1,
+                  "implicit-agent": 0,
+                  "multiple-actions": 1,
+                  "terminology": 3
+                }
+              },
+              "claimed_total": 5,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Ação: checar sensor e válvula de água de resfriamento. Anotar valores do painel.\",\n      \"rationale\": \"Passo único que empilha três ações obrigatórias (checar sensor, checar válvula, anotar valores), aumentando risco de execução parcial.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"checar sensor\",\n      \"rationale\": \"Não especifica qual sensor (tipo, tag, localização) nem método ou faixa aceitável, impossibilitando execução correta.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"válvula de água de resfriamento\",\n      \"rationale\": \"Não identifica qual válvula (tag, linha, tipo) nem o que verificar nela (posição, atuador, vazamento).\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Anotar valores do painel.\",\n      \"rationale\": \"Não indica quais valores do painel anotar (temperatura, pressão, vazão, tag) nem formato ou referência.\"\n    },\n    {\n      \"category\": \"ambiguous-reference\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"HI cai após checagem local.\",\n      \"rationale\": \"Não deixa claro se 'HI' refere-se ao alarme ou ao valor medido, embora o contexto reduza a ambiguidade.\"\n    }\n  ],\n  \"findings_total\": 5\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 630,
+                "output_tokens": 1493,
+                "total_tokens": 2123
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Checar sensor e válvula de água de resfriamento",
+                  "rationale": "Passo único que empilha duas ações distintas (checar sensor E checar válvula). Risco de executar apenas uma e considerar o passo completo."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "abrir SEV3",
+                  "rationale": "Ação imperativa sem especificar o agente responsável (operador local, técnico, sistema automático). A identidade do agente importa para execução segura."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "SEV3",
+                  "rationale": "Tag sem qualificação do tipo de dispositivo (válvula de segurança, solenoide, alívio). Sem essa informação, a execução segura da ação é comprometida."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 3,
+                "findings_major": 3,
+                "findings_minor": 0,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 1,
+                  "multiple-actions": 1,
+                  "terminology": 1
+                }
+              },
+              "claimed_total": 3,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Checar sensor e válvula de água de resfriamento\",\n      \"rationale\": \"Passo único que empilha duas ações distintas (checar sensor E checar válvula). Risco de executar apenas uma e considerar o passo completo.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"abrir SEV3\",\n      \"rationale\": \"Ação imperativa sem especificar o agente responsável (operador local, técnico, sistema automático). A identidade do agente importa para execução segura.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"SEV3\",\n      \"rationale\": \"Tag sem qualificação do tipo de dispositivo (válvula de segurança, solenoide, alívio). Sem essa informação, a execução segura da ação é comprometida.\"\n    }\n  ],\n  \"findings_total\": 3\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-013",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 606,
+                "output_tokens": 1771,
+                "total_tokens": 2377
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Liste os Markdown alterados com `git diff --name-only origin/main...HEAD` e filtre `\\.md$`.",
+                  "rationale": "Verbo imperativo 'Liste' sem agente definido; em contexto de CI o agente é implícito (runner/script), mas não explicitado."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Rode `curupira lint` nesses arquivos com `--enable-rule CURUPIRA-PT-PONT-001` e `--format json`.",
+                  "rationale": "Verbo imperativo 'Rode' sem agente definido; agente (runner do CI) é inferido pelo contexto mas não declarado."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Bloqueie o merge até limpar os achados.",
+                  "rationale": "Verbo imperativo 'Bloqueie' sem agente; importa porque pode ser o CI (status check), o mantenedor (proteção de branch) ou outro sistema — afeta quem executa a a"
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Publique o JSON como artifact do pipeline.",
+                  "rationale": "Verbo imperativo 'Publique' sem agente definido; contexto de CI sugere o runner, mas não está explicitado."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Não rode semantic-review no CI.",
+                  "rationale": "Comando negativo imperativo sem agente; embora o contexto sugira 'o job do CI', o agente não é explicitado."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Mantenha cache da toolchain entre jobs se possível.",
+                  "rationale": "Verbo imperativo 'Mantenha' sem agente; o responsável pelo cache (runner, sistema de build) não é declarado."
+                },
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Liste os Markdown alterados com `git diff --name-only origin/main...HEAD` e filtre `\\.md$`.",
+                  "rationale": "Empilha duas ações obrigatórias em um único passo: executar o git diff E filtrar os arquivos por extensão — risco de execução parcial."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 7,
+                "findings_major": 2,
+                "findings_minor": 5,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 6,
+                  "multiple-actions": 1,
+                  "terminology": 0
+                }
+              },
+              "claimed_total": 7,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Liste os Markdown alterados com `git diff --name-only origin/main...HEAD` e filtre `\\\\.md$`.\",\n      \"rationale\": \"Verbo imperativo 'Liste' sem agente definido; em contexto de CI o agente é implícito (runner/script), mas não explicitado.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Rode `curupira lint` nesses arquivos com `--enable-rule CURUPIRA-PT-PONT-001` e `--format json`.\",\n      \"rationale\": \"Verbo imperativo 'Rode' sem agente definido; agente (runner do CI) é inferido pelo contexto mas não declarado.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Bloqueie o merge até limpar os achados.\",\n      \"rationale\": \"Verbo imperativo 'Bloqueie' sem agente; importa porque pode ser o CI (status check), o mantenedor (proteção de branch) ou outro sistema — afeta quem executa a ação.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Publique o JSON como artifact do pipeline.\",\n      \"rationale\": \"Verbo imperativo 'Publique' sem agente definido; contexto de CI sugere o runner, mas não está explicitado.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Não rode semantic-review no CI.\",\n      \"rationale\": \"Comando negativo imperativo sem agente; embora o contexto sugira 'o job do CI', o agente não é explicitado.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Mantenha cache da toolchain entre jobs se possível.\",\n      \"rationale\": \"Verbo imperativo 'Mantenha' sem agente; o responsável pelo cache (runner, sistema de build) não é declarado.\"\n    },\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Liste os Markdown alterados com `git diff --name-only origin/main...HEAD` e filtre `\\\\.md$`.\",\n      \"rationale\": \"Empilha duas ações obrigatórias em um único passo: executar o git diff E filtrar os arquivos por extensão — risco de execução parcial.\"\n    }\n  ],\n  \"findings_total\": 7\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 588,
+                "output_tokens": 327,
+                "total_tokens": 915
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Publique o JSON como artifact.",
+                  "rationale": "Instrução imperativa sem indicar qual componente (job, script, pessoa) deve publicar o artefato, essencial para automação CI."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "major",
+                  "excerpt": "Bloqueie o merge até limpar as falhas.",
+                  "rationale": "Não especifica quem executa o bloqueio (CI, revisor, ferramenta de PR), o que impede implementação automática."
+                },
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "Rode `curupira lint` nesses arquivos com a regra `CURUPIRA-PT-PONT-001`.",
+                  "rationale": "Passo único que exige identificar os arquivos do diff e depois executar o linter com regra específica — duas ações obrigatórias empilhadas."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "minor",
+                  "excerpt": "Mantenha cache da toolchain entre jobs se possível.",
+                  "rationale": "'toolchain' sem qualificar qual ferramenta ou diretório deve ser cacheado dificulta a configuração concreta do cache."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 4,
+                "findings_major": 3,
+                "findings_minor": 1,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 2,
+                  "multiple-actions": 1,
+                  "terminology": 1
+                }
+              },
+              "claimed_total": 4,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Publique o JSON como artifact.\",\n      \"rationale\": \"Instrução imperativa sem indicar qual componente (job, script, pessoa) deve publicar o artefato, essencial para automação CI.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Bloqueie o merge até limpar as falhas.\",\n      \"rationale\": \"Não especifica quem executa o bloqueio (CI, revisor, ferramenta de PR), o que impede implementação automática.\"\n    },\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"Rode `curupira lint` nesses arquivos com a regra `CURUPIRA-PT-PONT-001`.\",\n      \"rationale\": \"Passo único que exige identificar os arquivos do diff e depois executar o linter com regra específica — duas ações obrigatórias empilhadas.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Mantenha cache da toolchain entre jobs se possível.\",\n      \"rationale\": \"'toolchain' sem qualificar qual ferramenta ou diretório deve ser cacheado dificulta a configuração concreta do cache.\"\n    }\n  ],\n  \"findings_total\": 4\n}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "case-014",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 680,
+                "output_tokens": 1699,
+                "total_tokens": 2379
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Aqueça o padrão REF-2 conforme a etiqueta.",
+                  "rationale": "Ação imperativa sem agente explícito (quem deve aquecer). Assume-se o operador, mas não está declarado."
+                },
+                {
+                  "category": "multiple-actions",
+                  "severity": "major",
+                  "excerpt": "ajuste zero e span.",
+                  "rationale": "Passo único que empilha duas ações distintas e sequenciais (ajustar zero E ajustar span), com risco de execução parcial ou ordem incorreta."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "tolerância da placa do instrumento",
+                  "rationale": "Jargão técnico sem qualificador: 'placa' não especifica se é placa de identificação, placa eletrônica ou outro componente, dificultando localizar a tolerância."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 3,
+                "findings_major": 2,
+                "findings_minor": 1,
+                "by_category": {
+                  "ambiguous-reference": 0,
+                  "implicit-agent": 1,
+                  "multiple-actions": 1,
+                  "terminology": 1
+                }
+              },
+              "claimed_total": 3,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Aqueça o padrão REF-2 conforme a etiqueta.\",\n      \"rationale\": \"Ação imperativa sem agente explícito (quem deve aquecer). Assume-se o operador, mas não está declarado.\"\n    },\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"major\",\n      \"excerpt\": \"ajuste zero e span.\",\n      \"rationale\": \"Passo único que empilha duas ações distintas e sequenciais (ajustar zero E ajustar span), com risco de execução parcial ou ordem incorreta.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"tolerância da placa do instrumento\",\n      \"rationale\": \"Jargão técnico sem qualificador: 'placa' não especifica se é placa de identificação, placa eletrônica ou outro componente, dificultando localizar a tolerância.\"\n    }\n  ],\n  \"findings_total\": 3\n}"
+            }
+          }
+        },
+        "B": {
+          "reviews": {
+            "maritaca": {
+              "provider": "maritaca",
+              "model_returned": "sabia-4-thinking",
+              "usage": {
+                "input_tokens": 628,
+                "output_tokens": 400,
+                "total_tokens": 1028
+              },
+              "finish_reason": "stop",
+              "findings": [
+                {
+                  "category": "ambiguous-reference",
+                  "severity": "minor",
+                  "excerpt": "Compare a leitura com a placa do instrumento.",
+                  "rationale": "Não está claro se 'a leitura' refere-se à leitura do REF-2 ou do FI-18; ambos são mencionados e poderiam ser antecedentes."
+                },
+                {
+                  "category": "implicit-agent",
+                  "severity": "minor",
+                  "excerpt": "Estabilize a leitura.",
+                  "rationale": "Instrução imperativa sem indicar quem deve estabilizar (operador, sistema automático), embora o contexto sugira operador."
+                },
+                {
+                  "category": "multiple-actions",
+                  "severity": "minor",
+                  "excerpt": "Se estiver fora da tolerância da placa, ajuste zero ou span somente se o procedimento local permitir.",
+                  "rationale": "A sentença condiciona duas ações distintas (ajustar zero ou ajustar span) e uma verificação de permissão, podendo gerar dúvida sobre qual executar e quando."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "tolerância da placa",
+                  "rationale": "Não especifica qual é a tolerância (valor, percentual, norma), impossibilitando a execução correta sem consulta externa."
+                },
+                {
+                  "category": "terminology",
+                  "severity": "major",
+                  "excerpt": "ajuste zero ou span",
+                  "rationale": "Não indica método, ferramenta, faixa aceitável ou procedimento para realizar o ajuste, exigindo conhecimento externo para execução segura."
+                }
+              ],
+              "invalid_rejected": [],
+              "summary": {
+                "findings_total": 5,
+                "findings_major": 2,
+                "findings_minor": 3,
+                "by_category": {
+                  "ambiguous-reference": 1,
+                  "implicit-agent": 1,
+                  "multiple-actions": 1,
+                  "terminology": 2
+                }
+              },
+              "claimed_total": 5,
+              "raw_text": "{\n  \"findings\": [\n    {\n      \"category\": \"ambiguous-reference\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Compare a leitura com a placa do instrumento.\",\n      \"rationale\": \"Não está claro se 'a leitura' refere-se à leitura do REF-2 ou do FI-18; ambos são mencionados e poderiam ser antecedentes.\"\n    },\n    {\n      \"category\": \"implicit-agent\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Estabilize a leitura.\",\n      \"rationale\": \"Instrução imperativa sem indicar quem deve estabilizar (operador, sistema automático), embora o contexto sugira operador.\"\n    },\n    {\n      \"category\": \"multiple-actions\",\n      \"severity\": \"minor\",\n      \"excerpt\": \"Se estiver fora da tolerância da placa, ajuste zero ou span somente se o procedimento local permitir.\",\n      \"rationale\": \"A sentença condiciona duas ações distintas (ajustar zero ou ajustar span) e uma verificação de permissão, podendo gerar dúvida sobre qual executar e quando.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"tolerância da placa\",\n      \"rationale\": \"Não especifica qual é a tolerância (valor, percentual, norma), impossibilitando a execução correta sem consulta externa.\"\n    },\n    {\n      \"category\": \"terminology\",\n      \"severity\": \"major\",\n      \"excerpt\": \"ajuste zero ou span\",\n      \"rationale\": \"Não indica método, ferramenta, faixa aceitável ou procedimento para realizar o ajuste, exigindo conhecimento externo para execução segura.\"\n    }\n  ],\n  \"findings_total\": 5\n}"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "per_condition_mean_findings": {
+    "maritaca": {
+      "control": 3.36,
+      "cli": 3.27
+    }
+  },
+  "preferences": {
+    "maritaca": [
+      {
+        "case_id": "case-001",
+        "findings_control": 3,
+        "findings_cli": 2,
+        "major_control": 3,
+        "major_cli": 0,
+        "preferred": "cli"
+      },
+      {
+        "case_id": "case-003",
+        "findings_control": 4,
+        "findings_cli": 4,
+        "major_control": 0,
+        "major_cli": 0,
+        "preferred": "tie"
+      },
+      {
+        "case_id": "case-004",
+        "findings_control": 1,
+        "findings_cli": 5,
+        "major_control": 0,
+        "major_cli": 0,
+        "preferred": "control"
+      },
+      {
+        "case_id": "case-007",
+        "findings_control": 8,
+        "findings_cli": 7,
+        "major_control": 7,
+        "major_cli": 5,
+        "preferred": "cli"
+      },
+      {
+        "case_id": "case-008",
+        "findings_control": 2,
+        "findings_cli": 1,
+        "major_control": 1,
+        "major_cli": 0,
+        "preferred": "cli"
+      },
+      {
+        "case_id": "case-009",
+        "findings_control": 3,
+        "findings_cli": 0,
+        "major_control": 1,
+        "major_cli": 0,
+        "preferred": "cli"
+      },
+      {
+        "case_id": "case-010",
+        "findings_control": 0,
+        "findings_cli": 0,
+        "major_control": 0,
+        "major_cli": 0,
+        "preferred": "tie"
+      },
+      {
+        "case_id": "case-011",
+        "findings_control": 4,
+        "findings_cli": 2,
+        "major_control": 1,
+        "major_cli": 1,
+        "preferred": "cli"
+      },
+      {
+        "case_id": "case-012",
+        "findings_control": 5,
+        "findings_cli": 3,
+        "major_control": 4,
+        "major_cli": 3,
+        "preferred": "cli"
+      },
+      {
+        "case_id": "case-013",
+        "findings_control": 4,
+        "findings_cli": 7,
+        "major_control": 3,
+        "major_cli": 2,
+        "preferred": "control"
+      },
+      {
+        "case_id": "case-014",
+        "findings_control": 3,
+        "findings_cli": 5,
+        "major_control": 2,
+        "major_cli": 2,
+        "preferred": "control"
+      }
+    ]
+  },
+  "reviewer_agreement": {
+    "maritaca": {
+      "n_artifacts_paired": 11,
+      "spearman_control_vs_cli_totals": 0.519,
+      "sign_agreement_any_finding": "10/11"
+    }
+  }
+}
