@@ -48,6 +48,9 @@ Regras:
 - Não conte o que o próprio texto resolve no contexto.
 - Não invente trechos. Se não tem certeza do trecho, não reporte o achado.
 
+Responda começando com { e terminando com }. Nenhuma palavra fora do JSON.
+Sem raciocínio, sem plano, sem texto antes ou depois.
+
 Responda APENAS JSON válido:
 {
   "findings": [
@@ -280,6 +283,11 @@ def main() -> int:
     ap.add_argument("--blind-dir", type=Path, default=Path("artifacts/hermes-case-study/v2/blind"))
     ap.add_argument("--limit", type=int, default=0, help="0=all cases")
     ap.add_argument("--reviewers", default="kimi,maritaca")
+    ap.add_argument(
+        "--resume",
+        action="store_true",
+        help="load existing scores file and re-run only reviewer calls missing or in error",
+    )
     args = ap.parse_args()
     load_env()
     reviewers = [r.strip() for r in args.reviewers.split(",") if r.strip() in {"kimi", "maritaca"}]
@@ -291,17 +299,40 @@ def main() -> int:
     if args.limit:
         items = items[: args.limit]
 
+    prev: dict[str, dict] = {}
+    out_path = args.blind_dir / "semantic-rubric-scores.json"
+    if args.resume and out_path.is_file():
+        try:
+            old = json.loads(out_path.read_text(encoding="utf-8"))
+            for row in old.get("cases") or []:
+                prev[row["case_id"]] = row
+        except Exception:
+            prev = {}
+
     totals = {r: {"calls": 0, "input_tokens": 0, "output_tokens": 0, "total_tokens": 0} for r in reviewers}
     cases = []
     for it in items:
         case = it["case_id"]
         mapping = it["label_to_condition"]
+        prev_row = prev.get(case) or {}
+        prev_labels = prev_row.get("labels") or {}
         row = {"case_id": case, "label_to_condition": mapping, "labels": {}}
         for lab in ["A", "B"]:
             path = args.blind_dir / f"{case}-{lab}.md"
             text = path.read_text(encoding="utf-8")
+            prev_lab = prev_labels.get(lab) or {}
+            prev_reviews = prev_lab.get("reviews") or {}
             lab_out = {"reviews": {}}
             for name in reviewers:
+                prev_rev = prev_reviews.get(name) or {}
+                if "summary" in prev_rev and "findings" in prev_rev:
+                    lab_out["reviews"][name] = prev_rev
+                    u = prev_rev.get("usage") or {}
+                    totals[name]["calls"] += 1
+                    for k in ("input_tokens", "output_tokens", "total_tokens"):
+                        totals[name][k] += int(u.get(k) or 0)
+                    print(f"{case} {lab} {name}: KEPT total={prev_rev['summary']['findings_total']}", flush=True)
+                    continue
                 last_err = None
                 for attempt in (1, 2):
                     try:
@@ -372,6 +403,30 @@ def main() -> int:
             "n_artifacts_paired": n,
             "spearman_control_vs_cli_totals": spearman(xs, ys),
             "sign_agreement_any_finding": f"{sign_same}/{n}" if n else None,
+        }
+
+    # inter-reviewer agreement: per-artifact totals across all artifacts
+    artifact_totals: dict[str, dict[str, int | None]] = {}
+    for row in cases:
+        for lab in ["A", "B"]:
+            art_key = f"{row['case_id']}-{lab}"
+            artifact_totals.setdefault(art_key, {})
+            for r in reviewers:
+                rev = row["labels"][lab]["reviews"].get(r) or {}
+                s = rev.get("summary")
+                artifact_totals[art_key][r] = s["findings_total"] if s else None
+    if len(reviewers) >= 2:
+        r1, r2 = reviewers[0], reviewers[1]
+        xs2, ys2 = [], []
+        for art_key in sorted(artifact_totals):
+            v1, v2 = artifact_totals[art_key][r1], artifact_totals[art_key][r2]
+            if v1 is not None and v2 is not None:
+                xs2.append(float(v1))
+                ys2.append(float(v2))
+        agreement["inter_reviewer"] = {
+            "reviewers": [r1, r2],
+            "n_artifacts": len(xs2),
+            "spearman": spearman(xs2, ys2),
         }
 
     payload = {
