@@ -1,0 +1,5 @@
+TRATAMENTO concluído (run-01, CLI-min).
+Arquivo: /tmp/cs-y4/thinkingmachines_inkling-small/case-007-run-01-cli/procedimento.md
+Lint: exit 0 (CURUPIRA-PT-PONT-001, JSON vazio).
+Chars: 628 (antes 811).
+Resumo: 5 tags preservadas; ordem isolamento→drenagem→partida; frases curtas; sem ponto-e-vírgula; prosa enxuta; 1 ciclo.

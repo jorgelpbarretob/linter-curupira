@@ -1,0 +1,3 @@
+Arquivo final: /tmp/cs-y4/nvidia_nemotron-3.5-lightning/case-012-run-01-control/acao.md
+- Tamanho: 162 chars
+- Conteúdo: duas linhas curtas com form sintoma → ação → verify → escala, sem ponto e vírgula, contendo TIC-77, alarme HI, bypass proibido e SEV3 em 15 min.

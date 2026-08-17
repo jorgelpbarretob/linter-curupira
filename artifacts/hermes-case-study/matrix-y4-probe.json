@@ -1,0 +1,100 @@
+{
+  "models": [
+    {
+      "model": "qwen/qwen3.8-27b",
+      "ok": true,
+      "model_returned": "qwen/qwen3.8-27b",
+      "usage": {
+        "prompt_tokens": 60,
+        "completion_tokens": 37,
+        "total_tokens": 97,
+        "cost": 0.0001454,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001454,
+          "upstream_inference_prompt_cost": 2.7e-05,
+          "upstream_inference_completions_cost": 0.0001184
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 33,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "content": "\n\nOK",
+      "finish": "stop"
+    },
+    {
+      "model": "nvidia/nemotron-3.5-asr-streaming-multilingual-0.6b",
+      "ok": false,
+      "http": 400,
+      "err": "{\"error\":{\"message\":\"nvidia/nemotron-3.5-asr-streaming-multilingual-0.6b is a transcription model and cannot be used with the chat/completions endpoint. Use the /api/v1/audio/transcriptions endpoint instead.\",\"code\":400}"
+    },
+    {
+      "model": "meta/muse-glimmer-30b",
+      "ok": true,
+      "model_returned": "meta/muse-glimmer-30b",
+      "usage": {
+        "prompt_tokens": 63,
+        "completion_tokens": 64,
+        "total_tokens": 127,
+        "cost": 9.57e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.57e-05,
+          "upstream_inference_prompt_cost": 1.89e-05,
+          "upstream_inference_completions_cost": 7.68e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 67,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "content": "",
+      "finish": "length"
+    },
+    {
+      "model": "thinkingmachines/inkling-small",
+      "ok": true,
+      "model_returned": "thinkingmachines/inkling-small",
+      "usage": {
+        "prompt_tokens": 22,
+        "completion_tokens": 64,
+        "total_tokens": 86,
+        "cost": 8.67e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.67e-05,
+          "upstream_inference_prompt_cost": 9.9e-06,
+          "upstream_inference_completions_cost": 7.68e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 65,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "content": "",
+      "finish": "length"
+    }
+  ]
+}

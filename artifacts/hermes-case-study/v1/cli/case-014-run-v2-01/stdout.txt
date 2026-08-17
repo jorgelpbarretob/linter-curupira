@@ -1,0 +1,20 @@
+  ┊ review diff
+a/pop.md → b/pop.md
+@@ -1,2 +1,11 @@
+-# rascunho calibração FI-18
+-usar padrão REF-2 aquecido conforme etiqueta; conectar em FI-18; estabilizar leitura; comparar com a placa do instrumento; se fora da tolerância da placa, ajustar zero/span só se o procedimento local permitir; senão abrir nota de desvio; registrar tudo no CAL-01; desconectar e guardar REF-2 na caixa.
++# POP — Calibração FI-18
++
++1. Aqueça o padrão REF-2 conforme a etiqueta.
++2. Conecte o REF-2 ao instrumento FI-18.
++3. Estabilize a leitura.
++4. Compare a leitura com a placa do instrumento.
++5. Se estiver fora da tolerância da placa, ajuste zero ou span somente se o procedimento local permitir.
++6. Se o ajuste não for permitido, abra nota de desvio.
++7. Registre o resultado no formulário CAL-01.
++8. Desconecte o REF-2.
++9. Guarde o REF-2 na caixa.
+path: /tmp/cs-ab/case-014-run-v2-01-cli/pop.md
+exit lint: 0
+chars: 453
+resumo: POP em 9 passos curtos com REF-2, FI-18, tolerância da placa e CAL-01; lint PONT-001 limpo.

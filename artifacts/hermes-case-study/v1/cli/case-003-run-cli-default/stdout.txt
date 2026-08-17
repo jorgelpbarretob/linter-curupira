@@ -1,0 +1,17 @@
+  ┊ review diff
+a/instrucao.md → b/instrucao.md
+@@ -1,5 +1,8 @@
+ # Instrução de bypass
+ 
+-Abra a válvula e o registro se a pressão estiver alta e confira o sensor.
+-Anote o valor no turno.
++1. Se a pressão estiver alta, abra a válvula V-90.
++2. Se a pressão estiver alta, abra o registro R-02.
++3. Confira o sensor S-11.
++4. Anote o valor no turno.
++
+ Tags: V-90, R-02, S-11.
+path: /tmp/cs-ab/case-003-run-cli-default-cli/instrucao.md
+lint exit: 0
+chars: 209
+resumo: Passos 1 ação cada com V-90/R-02/S-11 explícitos; condição de pressão repetida sem multi-ação ambígua.

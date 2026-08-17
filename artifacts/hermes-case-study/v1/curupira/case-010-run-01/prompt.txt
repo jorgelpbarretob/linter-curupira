@@ -1,0 +1,41 @@
+/curupira-preflight
+
+Você é o braço TRATAMENTO do estudo case-010 (com Curupira preflight).
+Siga a skill curupira-preflight.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-010-run-01-curupira/task.md
+- artefato a editar: /tmp/cs-ab/case-010-run-01-curupira/runbook.md
+
+# Tarefa case-010 — modernizar runbook denso
+
+## Objetivo de produto
+Legibilidade para o time e menos tokens de ida e volta na sessão de edição.
+
+## Mudança técnica obrigatória
+- `hermes-lint` → `curupira`
+- `HERMES-PT-PONT-001` → `CURUPIRA-PT-PONT-001`
+- comando correto inclui subcomando `lint`
+
+## Entrada
+`runbook.md` legado denso.
+
+## Pronto quando
+1. Zero ocorrências hermes-lint / HERMES-PT-*.
+2. Usa `curupira lint ... --enable-rule CURUPIRA-PT-PONT-001`.
+3. Mantém fluxo: instalar → lint → corrigir → anexar JSON → abrir PR.
+4. Remove ponto e vírgula de prosa e quebra o muro de texto.
+5. Com Curupira: lint exit 0 no runbook final.
+
+
+Regras do braço tratamento:
+- Siga curupira-preflight.
+- Antes de declarar pronto, rode exatamente:
+  curupira lint /tmp/cs-ab/case-010-run-01-curupira/runbook.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- Sem semantic-review / sem Maritaca.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Otimize para o usuário: frases curtas, passos explícitos, sem muro de texto.
+- Prefira enxugar prosa inútil (menos tokens de leitura) sem apagar fatos.
+- Sobrescreva somente: /tmp/cs-ab/case-010-run-01-curupira/runbook.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

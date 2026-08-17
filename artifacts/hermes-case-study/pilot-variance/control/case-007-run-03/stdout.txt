@@ -1,0 +1,5 @@
+Concluído.
+
+path: /tmp/cs-pilot/case-007-run-03-control/procedimento.md
+chars do arquivo: 794
+resumo: POP reescrito em 14 passos numerados (isolamento → drenagem → partida → liberação), prosa reduzida de 723 para 614 chars, zero ponto e vírgula, tags XV-101, P-220, PI-33, HV-08 e TIC-12 preservadas, sem interlock/setpoint/pessoa inventados.

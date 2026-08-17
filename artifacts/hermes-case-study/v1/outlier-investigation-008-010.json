@@ -1,0 +1,850 @@
+[
+  {
+    "case_id": "case-008",
+    "delta_tokens": 6233,
+    "delta_input": 6184,
+    "delta_output": 49,
+    "tokens_control": 23624,
+    "tokens_cli": 29857,
+    "arms": {
+      "control": {
+        "session_id": "20260816_232907_4d8d77",
+        "session": {
+          "id": "20260816_232907_4d8d77",
+          "model": "grok-4.5",
+          "messages": "10",
+          "tools": "5",
+          "api": "4",
+          "tin": "23049",
+          "tout": "575",
+          "cache_r": "91648",
+          "cache_w": "0",
+          "system_prompt_len": "36420",
+          "started": "2026-08-17 02:29:11.587973+00"
+        },
+        "n_messages": 10,
+        "tool_events": [
+          {
+            "tool": "read_file",
+            "count": 3,
+            "bytes": 1731
+          },
+          {
+            "tool": "terminal",
+            "count": 1,
+            "bytes": 167
+          },
+          {
+            "tool": "write_file",
+            "count": 1,
+            "bytes": 288
+          }
+        ],
+        "sum_tool_bytes": 2186,
+        "msg_content_bytes": 3845,
+        "errorish_msgs": 2,
+        "retryish_msgs": 0,
+        "artifact_name": "mitigacao.md",
+        "artifact_chars": 513,
+        "artifact": "# Mitigação — fila jobs-hot / worker-b\n\n## Sintoma\n- Fila `jobs-hot` cresce após 21h\n- `worker-b` parece preso em batch antigo\n- Latência alta e health instável\n- Drain não esvaziou a fila\n\n## Mitigação imediata\n- Restart da unit `worker-b.service` (já resolveu caso parecido)\n- Não reiniciar o broker sem autorização\n- Se não normalizar em 10 min: abrir SEV2\n\n## Verificação\n- Checar `/health`\n- Conferir tamanho da fila `jobs-hot`\n\n## Escalonamento\n- Se a fila continuar subindo: abrir SEV2 com print do painel\n",
+        "stdout_tail": "ar subindo abrir SEV2 com print do painel; não reiniciar o broker sem autorização.\n+## Sintoma\n+- Fila `jobs-hot` cresce após 21h\n+- `worker-b` parece preso em batch antigo\n+- Latência alta e health instável\n+- Drain não esvaziou a fila\n+\n+## Mitigação imediata\n+- Restart da unit `worker-b.service` (já resolveu caso parecido)\n+- Não reiniciar o broker sem autorização\n+- Se não normalizar em 10 min: abrir SEV2\n+\n+## Verificação\n+- Checar `/health`\n+- Conferir tamanho da fila `jobs-hot`\n+\n+## Escalonamento\n+- Se a fila continuar subindo: abrir SEV2 com print do painel\npath: /tmp/cs-ab/case-008-run-cli-default-control/mitigacao.md\nchars: 513 (530 bytes)\nresumo: Mitigação SEV2 enxuta — sintoma fila jobs-hot/worker-b → restart worker-b.service → /health+fila → SEV2 em 10 min se não normalizar.\n",
+        "stderr": "session_id: 20260816_232907_4d8d77",
+        "message_timeline": [
+          {
+            "seq": "",
+            "role": "user",
+            "tool": "",
+            "content_len": 1285,
+            "preview": "Você é o braço CONTROLE do estudo case-008 (sem Curupira).  Leia a tarefa completa abaixo e o arquivo de trabalho: - tarefa: /tmp/cs-ab/case-008-run-cli-default"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 71,
+            "preview": "Vou ler a tarefa e as notas de entrada para redigir a mitigação enxuta."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 834,
+            "preview": "{\"content\": \"1|# Tarefa case-008 — incidente denso → mitigação legível\\n2|\\n3|## Objetivo de produto\\n4|Menos tokens na sessão e texto que um plantonista leia e"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 323,
+            "preview": "{\"content\": \"\", \"total_lines\": 0, \"file_size\": 0, \"truncated\": false, \"is_binary\": false, \"is_image\": false, \"error\": \"File not found: /tmp/cs-ab/case-008-run-c"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 574,
+            "preview": "{\"content\": \"1|# Notas de turno — 16/08\\n2|\\n3|fila jobs-hot voltou a crescer depois das 21h; worker-b parece preso em batch antigo; latência subiu e o health f"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 77,
+            "preview": "Redigindo `mitigacao.md` enxuto na ordem pedida, só com o que está nas notas."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "write_file",
+            "content_len": 288,
+            "preview": "{\"bytes_written\": 530, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .md files\"}, \"resolved_path\": \"/tmp/cs-ab"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 0,
+            "preview": ""
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "terminal",
+            "content_len": 167,
+            "preview": "{\"output\": \"530 /tmp/cs-ab/case-008-run-cli-default-control/mitigacao.md\\n513 /tmp/cs-ab/case-008-run-cli-default-control/mitigacao.md\", \"exit_code\": 0, \"error\""
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 226,
+            "preview": "path: /tmp/cs-ab/case-008-run-cli-default-control/mitigacao.md chars: 513 (530 bytes) resumo: Mitigação SEV2 enxuta — sintoma fila jobs-hot/worker-b → restart w"
+          }
+        ]
+      },
+      "cli": {
+        "session_id": "20260816_232928_b2314e",
+        "session": {
+          "id": "20260816_232928_b2314e",
+          "model": "grok-4.5",
+          "messages": "10",
+          "tools": "5",
+          "api": "4",
+          "tin": "29233",
+          "tout": "624",
+          "cache_r": "86272",
+          "cache_w": "0",
+          "system_prompt_len": "36420",
+          "started": "2026-08-17 02:29:33.29969+00"
+        },
+        "n_messages": 10,
+        "tool_events": [
+          {
+            "tool": "read_file",
+            "count": 2,
+            "bytes": 1408
+          },
+          {
+            "tool": "terminal",
+            "count": 2,
+            "bytes": 661
+          },
+          {
+            "tool": "write_file",
+            "count": 1,
+            "bytes": 280
+          }
+        ],
+        "sum_tool_bytes": 2349,
+        "msg_content_bytes": 4260,
+        "errorish_msgs": 0,
+        "retryish_msgs": 0,
+        "artifact_name": "mitigacao.md",
+        "artifact_chars": 551,
+        "artifact": "# Mitigação — fila jobs-hot / worker-b\n\n## Sintoma\n- Fila `jobs-hot` voltou a crescer após 21h\n- `worker-b` parece preso em batch antigo\n- Latência subiu e health flipou\n- Drain não esvaziou a fila\n\n## Mitigação imediata\n- Restart da unit `worker-b.service` (já funcionou ontem em caso parecido)\n- Não reiniciar o broker sem autorização\n- Se não normalizar em 10 min tratar como SEV2\n\n## Verificação\n- Checar `/health` após o restart\n- Conferir tamanho da fila `jobs-hot`\n\n## Escalonamento\n- Se a fila continuar subindo abrir SEV2 com print do painel\n",
+        "stdout_tail": "ndo abrir SEV2 com print do painel; não reiniciar o broker sem autorização.\n+## Sintoma\n+- Fila `jobs-hot` voltou a crescer após 21h\n+- `worker-b` parece preso em batch antigo\n+- Latência subiu e health flipou\n+- Drain não esvaziou a fila\n+\n+## Mitigação imediata\n+- Restart da unit `worker-b.service` (já funcionou ontem em caso parecido)\n+- Não reiniciar o broker sem autorização\n+- Se não normalizar em 10 min tratar como SEV2\n+\n+## Verificação\n+- Checar `/health` após o restart\n+- Conferir tamanho da fila `jobs-hot`\n+\n+## Escalonamento\n+- Se a fila continuar subindo abrir SEV2 com print do painel\npath: /tmp/cs-ab/case-008-run-cli-default-cli/mitigacao.md\nlint exit: 0\nchars: 568\nresumo: Mitigação SEV2 em 4 blocos (sintoma → restart worker-b.service → /health+fila → SEV2 se sobe em 10 min).\n",
+        "stderr": "session_id: 20260816_232928_b2314e",
+        "message_timeline": [
+          {
+            "seq": "",
+            "role": "user",
+            "tool": "",
+            "content_len": 1579,
+            "preview": "Você é o braço CLI do estudo case-008. NÃO carregue skill. Use só o binário local curupira.  Arquivos: - tarefa: /tmp/cs-ab/case-008-run-cli-default-cli/task.md"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 76,
+            "preview": "Vou ler a tarefa e o artefato e reescrever a mitigação com o curupira local."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 834,
+            "preview": "{\"content\": \"1|# Tarefa case-008 — incidente denso → mitigação legível\\n2|\\n3|## Objetivo de produto\\n4|Menos tokens na sessão e texto que um plantonista leia e"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 574,
+            "preview": "{\"content\": \"1|# Notas de turno — 16/08\\n2|\\n3|fila jobs-hot voltou a crescer depois das 21h; worker-b parece preso em batch antigo; latência subiu e o health f"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "terminal",
+            "content_len": 491,
+            "preview": "{\"output\": \"total 16\\ndrwx------  2 jorge jorge 120 ago 16 23:29 .\\ndrwx------ 40 jorge jorge 800 ago 16 23:29 ..\\n-rw-------  1 jorge jorge 127 ago 16 23:02 ac"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 61,
+            "preview": "Reescrevendo `mitigacao.md` em listas curtas na ordem pedida."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "write_file",
+            "content_len": 280,
+            "preview": "{\"bytes_written\": 568, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .md files\"}, \"resolved_path\": \"/tmp/cs-ab"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 0,
+            "preview": ""
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "terminal",
+            "content_len": 170,
+            "preview": "{\"output\": \"{\\n  \\\"schema_version\\\": \\\"1.0\\\",\\n  \\\"diagnostics\\\": []\\n}\\nEXIT:0\\n568 /tmp/cs-ab/case-008-run-cli-default-cli/mitigacao.md\", \"exit_code\": 0, \"err"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 195,
+            "preview": "path: /tmp/cs-ab/case-008-run-cli-default-cli/mitigacao.md lint exit: 0 chars: 568 resumo: Mitigação SEV2 em 4 blocos (sintoma → restart worker-b.service → /hea"
+          }
+        ]
+      }
+    },
+    "artifact_diff_lines": 26,
+    "artifact_diff_head": "--- \n+++ \n@@ -3,5 +3,5 @@\n ## Sintoma\n-- Fila `jobs-hot` cresce após 21h\n+- Fila `jobs-hot` voltou a crescer após 21h\n - `worker-b` parece preso em batch antigo\n-- Latência alta e health instável\n+- Latência subiu e health flipou\n - Drain não esvaziou a fila\n@@ -9,8 +9,8 @@\n ## Mitigação imediata\n-- Restart da unit `worker-b.service` (já resolveu caso parecido)\n+- Restart da unit `worker-b.service` (já funcionou ontem em caso parecido)\n - Não reiniciar o broker sem autorização\n-- Se não normalizar em 10 min: abrir SEV2\n+- Se não normalizar em 10 min tratar como SEV2\n \n ## Verificação\n-- Checar `/health`\n+- Checar `/health` após o restart\n - Conferir tamanho da fila `jobs-hot`\n@@ -18,2 +18,2 @@\n ## Escalonamento\n-- Se a fila continuar subindo: abrir SEV2 com print do painel\n+- Se a fila continuar subindo abrir SEV2 com print do painel",
+    "analysis": {
+      "input_token_ratio_cli_over_control": 1.268,
+      "tool_bytes_control": 2186,
+      "tool_bytes_cli": 2349,
+      "tools_control": [
+        {
+          "tool": "read_file",
+          "count": 3,
+          "bytes": 1731
+        },
+        {
+          "tool": "terminal",
+          "count": 1,
+          "bytes": 167
+        },
+        {
+          "tool": "write_file",
+          "count": 1,
+          "bytes": 288
+        }
+      ],
+      "tools_cli": [
+        {
+          "tool": "read_file",
+          "count": 2,
+          "bytes": 1408
+        },
+        {
+          "tool": "terminal",
+          "count": 2,
+          "bytes": 661
+        },
+        {
+          "tool": "write_file",
+          "count": 1,
+          "bytes": 280
+        }
+      ],
+      "likely_drivers": [
+        "inspect_timeline_for_extra_reads_or_search"
+      ]
+    }
+  },
+  {
+    "case_id": "case-009",
+    "delta_tokens": -15424,
+    "delta_input": -15566,
+    "delta_output": 142,
+    "tokens_control": 29457,
+    "tokens_cli": 14033,
+    "arms": {
+      "control": {
+        "session_id": "20260816_232951_87aa78",
+        "session": {
+          "id": "20260816_232951_87aa78",
+          "model": "grok-4.5",
+          "messages": "10",
+          "tools": "5",
+          "api": "4",
+          "tin": "28853",
+          "tout": "604",
+          "cache_r": "85120",
+          "cache_w": "0",
+          "system_prompt_len": "36420",
+          "started": "2026-08-17 02:29:55.503832+00"
+        },
+        "n_messages": 10,
+        "tool_events": [
+          {
+            "tool": "read_file",
+            "count": 2,
+            "bytes": 1105
+          },
+          {
+            "tool": "search_files",
+            "count": 1,
+            "bytes": 18
+          },
+          {
+            "tool": "terminal",
+            "count": 1,
+            "bytes": 155
+          },
+          {
+            "tool": "write_file",
+            "count": 1,
+            "bytes": 276
+          }
+        ],
+        "sum_tool_bytes": 1554,
+        "msg_content_bytes": 2944,
+        "errorish_msgs": 1,
+        "retryish_msgs": 0,
+        "artifact_name": "pop.md",
+        "artifact_chars": 512,
+        "artifact": "# POP — Amostragem de mosto (A-14)\n\n## Material\n- Frasco F90 limpo e íntegro\n- Caixa térmica 2–8 °C\n- Formulário LF-03\n\n## Procedimento\n1. No ponto A-14, use frasco F90 limpo.\n2. Descarte o primeiro jato.\n3. Encha até a marca.\n4. Feche o frasco.\n5. Identifique com batch e hora.\n6. Leve em caixa térmica 2–8 °C ao lab em até 30 min.\n7. Registre no formulário LF-03.\n\n## Critérios de aborto\n- Temperatura da caixa fora de 2–8 °C: aborte e repita.\n- Frasco rachado: não use.\n- Não misture batches no mesmo frasco.\n",
+        "stdout_tail": "ar no LF-03; se a temperatura da caixa sair da faixa, abortar a amostra e repetir; não use frasco rachado; não misture batches no mesmo frasco.\n+## Material\n+- Frasco F90 limpo e íntegro\n+- Caixa térmica 2–8 °C\n+- Formulário LF-03\n+\n+## Procedimento\n+1. No ponto A-14, use frasco F90 limpo.\n+2. Descarte o primeiro jato.\n+3. Encha até a marca.\n+4. Feche o frasco.\n+5. Identifique com batch e hora.\n+6. Leve em caixa térmica 2–8 °C ao lab em até 30 min.\n+7. Registre no formulário LF-03.\n+\n+## Critérios de aborto\n+- Temperatura da caixa fora de 2–8 °C: aborte e repita.\n+- Frasco rachado: não use.\n+- Não misture batches no mesmo frasco.\npath: /tmp/cs-ab/case-009-run-cli-default-control/pop.md\nchars: 512 (bytes: 533)\nresumo: POP numerado com A-14, F90, 2–8 °C, 30 min e LF-03, sem ponto e vírgula.\n",
+        "stderr": "session_id: 20260816_232951_87aa78",
+        "message_timeline": [
+          {
+            "seq": "",
+            "role": "user",
+            "tool": "",
+            "content_len": 1079,
+            "preview": "Você é o braço CONTROLE do estudo case-009 (sem Curupira).  Leia a tarefa completa abaixo e o arquivo de trabalho: - tarefa: /tmp/cs-ab/case-009-run-cli-default"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 68,
+            "preview": "Vou ler a tarefa e os arquivos de trabalho para montar o POP enxuto."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 620,
+            "preview": "{\"content\": \"1|# Tarefa case-009 — lab notes → POP legível\\n2|\\n3|## Objetivo de produto\\n4|Reduzir ruído textual e tokens. Operador executa sem reler o parágra"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 485,
+            "preview": "{\"content\": \"1|# Notas — amostragem mosto\\n2|\\n3|pegar amostra no ponto A-14 com frasco F90 limpo; descartar primeiro jato; encher até a marca; fechar; identifi"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "search_files",
+            "content_len": 18,
+            "preview": "{\"total_count\": 0}"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 49,
+            "preview": "Reescrevendo `pop.md` como POP numerado e enxuto."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "write_file",
+            "content_len": 276,
+            "preview": "{\"bytes_written\": 533, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .md files\"}, \"resolved_path\": \"/tmp/cs-ab"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 33,
+            "preview": "Verificando o tamanho do arquivo."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "terminal",
+            "content_len": 155,
+            "preview": "{\"output\": \"533 /tmp/cs-ab/case-009-run-cli-default-control/pop.md\\n512 /tmp/cs-ab/case-009-run-cli-default-control/pop.md\", \"exit_code\": 0, \"error\": null}"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 161,
+            "preview": "path: /tmp/cs-ab/case-009-run-cli-default-control/pop.md chars: 512 (bytes: 533) resumo: POP numerado com A-14, F90, 2–8 °C, 30 min e LF-03, sem ponto e vírgula"
+          }
+        ]
+      },
+      "cli": {
+        "session_id": "20260816_233014_12c478",
+        "session": {
+          "id": "20260816_233014_12c478",
+          "model": "grok-4.5",
+          "messages": "10",
+          "tools": "5",
+          "api": "4",
+          "tin": "13287",
+          "tout": "746",
+          "cache_r": "102016",
+          "cache_w": "0",
+          "system_prompt_len": "36420",
+          "started": "2026-08-17 02:30:18.624244+00"
+        },
+        "n_messages": 10,
+        "tool_events": [
+          {
+            "tool": "read_file",
+            "count": 2,
+            "bytes": 1105
+          },
+          {
+            "tool": "terminal",
+            "count": 2,
+            "bytes": 643
+          },
+          {
+            "tool": "write_file",
+            "count": 1,
+            "bytes": 268
+          }
+        ],
+        "sum_tool_bytes": 2016,
+        "msg_content_bytes": 3673,
+        "errorish_msgs": 1,
+        "retryish_msgs": 0,
+        "artifact_name": "pop.md",
+        "artifact_chars": 749,
+        "artifact": "# POP — amostragem de mosto\n\n## Identificação\n- Ponto: A-14\n- Frasco: F90 limpo\n- Cadeia fria: 2–8 °C\n- Prazo até o lab: 30 min\n- Registro: formulário LF-03\n\n## Materiais\n- Frasco F90 íntegro e limpo\n- Caixa térmica na faixa 2–8 °C\n- Formulário LF-03\n\n## Procedimento\n1. Confirme o ponto de amostragem A-14.\n2. Use apenas frasco F90 limpo e sem rachadura.\n3. Descarte o primeiro jato.\n4. Encha o frasco até a marca.\n5. Feche o frasco.\n6. Identifique com batch e hora.\n7. Coloque na caixa térmica a 2–8 °C.\n8. Leve ao laboratório em até 30 min.\n9. Registre a coleta no formulário LF-03.\n\n## Critérios de aborto\n1. Se a temperatura da caixa sair de 2–8 °C, aborte a amostra e repita.\n2. Não misture batches no mesmo frasco.\n3. Não use frasco rachado.\n",
+        "stdout_tail": " formulário LF-03\n+\n+## Materiais\n+- Frasco F90 íntegro e limpo\n+- Caixa térmica na faixa 2–8 °C\n+- Formulário LF-03\n+\n+## Procedimento\n+1. Confirme o ponto de amostragem A-14.\n+2. Use apenas frasco F90 limpo e sem rachadura.\n+3. Descarte o primeiro jato.\n+4. Encha o frasco até a marca.\n+5. Feche o frasco.\n+6. Identifique com batch e hora.\n+7. Coloque na caixa térmica a 2–8 °C.\n+8. Leve ao laboratório em até 30 min.\n+9. Registre a coleta no formulário LF-03.\n+\n+## Critérios de aborto\n+1. Se a temperatura da caixa sair de 2–8 °C, aborte a amostra e repita.\n+2. Não misture batches no mesmo frasco.\n+3. Não use frasco rachado.\npath: /tmp/cs-ab/case-009-run-cli-default-cli/pop.md\nlint exit: 0\nchars: 778\nresumo: POP em passos numerados com A-14, F90, 2–8 °C, 30 min e LF-03, sem ponto e vírgula.\n",
+        "stderr": "session_id: 20260816_233014_12c478",
+        "message_timeline": [
+          {
+            "seq": "",
+            "role": "user",
+            "tool": "",
+            "content_len": 1361,
+            "preview": "Você é o braço CLI do estudo case-009. NÃO carregue skill. Use só o binário local curupira.  Arquivos: - tarefa: /tmp/cs-ab/case-009-run-cli-default-cli/task.md"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 72,
+            "preview": "Vou ler a tarefa e os arquivos do case-009 e em seguida editar o pop.md."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 620,
+            "preview": "{\"content\": \"1|# Tarefa case-009 — lab notes → POP legível\\n2|\\n3|## Objetivo de produto\\n4|Reduzir ruído textual e tokens. Operador executa sem reler o parágra"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 485,
+            "preview": "{\"content\": \"1|# Notas — amostragem mosto\\n2|\\n3|pegar amostra no ponto A-14 com frasco F90 limpo; descartar primeiro jato; encher até a marca; fechar; identifi"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "terminal",
+            "content_len": 479,
+            "preview": "{\"output\": \"total 16\\ndrwx------  2 jorge jorge 120 ago 16 23:30 .\\ndrwx------ 42 jorge jorge 840 ago 16 23:30 ..\\n-rw-------  1 jorge jorge 127 ago 16 23:02 ac"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 56,
+            "preview": "Reescrevendo o pop.md em passos curtos e rodando o lint."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "write_file",
+            "content_len": 268,
+            "preview": "{\"bytes_written\": 778, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .md files\"}, \"resolved_path\": \"/tmp/cs-ab"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 0,
+            "preview": ""
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "terminal",
+            "content_len": 164,
+            "preview": "{\"output\": \"{\\n  \\\"schema_version\\\": \\\"1.0\\\",\\n  \\\"diagnostics\\\": []\\n}\\nEXIT:0\\n778 /tmp/cs-ab/case-009-run-cli-default-cli/pop.md\", \"exit_code\": 0, \"error\": n"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 168,
+            "preview": "path: /tmp/cs-ab/case-009-run-cli-default-cli/pop.md lint exit: 0 chars: 778 resumo: POP em passos numerados com A-14, F90, 2–8 °C, 30 min e LF-03, sem ponto e "
+          }
+        ]
+      }
+    },
+    "artifact_diff_lines": 46,
+    "artifact_diff_head": "--- \n+++ \n@@ -1,6 +1,13 @@\n-# POP — Amostragem de mosto (A-14)\n+# POP — amostragem de mosto\n \n-## Material\n-- Frasco F90 limpo e íntegro\n-- Caixa térmica 2–8 °C\n+## Identificação\n+- Ponto: A-14\n+- Frasco: F90 limpo\n+- Cadeia fria: 2–8 °C\n+- Prazo até o lab: 30 min\n+- Registro: formulário LF-03\n+\n+## Materiais\n+- Frasco F90 íntegro e limpo\n+- Caixa térmica na faixa 2–8 °C\n - Formulário LF-03\n@@ -8,13 +15,15 @@\n ## Procedimento\n-1. No ponto A-14, use frasco F90 limpo.\n-2. Descarte o primeiro jato.\n-3. Encha até a marca.\n-4. Feche o frasco.\n-5. Identifique com batch e hora.\n-6. Leve em caixa térmica 2–8 °C ao lab em até 30 min.\n-7. Registre no formulário LF-03.\n+1. Confirme o ponto de amostragem A-14.\n+2. Use apenas frasco F90 limpo e sem rachadura.\n+3. Descarte o primeiro jato.\n+4. Encha o frasco até a marca.\n+5. Feche o frasco.\n+6. Identifique com batch e hora.\n+7. Coloque na caixa térmica a 2–8 °C.\n+8. Leve ao laboratório em até 30 min.\n+9. Registre a coleta no formulário LF-03.\n \n ## Critérios de aborto",
+    "analysis": {
+      "input_token_ratio_cli_over_control": 0.461,
+      "tool_bytes_control": 1554,
+      "tool_bytes_cli": 2016,
+      "tools_control": [
+        {
+          "tool": "read_file",
+          "count": 2,
+          "bytes": 1105
+        },
+        {
+          "tool": "search_files",
+          "count": 1,
+          "bytes": 18
+        },
+        {
+          "tool": "terminal",
+          "count": 1,
+          "bytes": 155
+        },
+        {
+          "tool": "write_file",
+          "count": 1,
+          "bytes": 276
+        }
+      ],
+      "tools_cli": [
+        {
+          "tool": "read_file",
+          "count": 2,
+          "bytes": 1105
+        },
+        {
+          "tool": "terminal",
+          "count": 2,
+          "bytes": 643
+        },
+        {
+          "tool": "write_file",
+          "count": 1,
+          "bytes": 268
+        }
+      ],
+      "likely_drivers": [
+        "artifact_size_diff_material"
+      ]
+    }
+  },
+  {
+    "case_id": "case-010",
+    "delta_tokens": 22445,
+    "delta_input": 22405,
+    "delta_output": 40,
+    "tokens_control": 29789,
+    "tokens_cli": 52234,
+    "arms": {
+      "control": {
+        "session_id": "20260816_233037_4d9878",
+        "session": {
+          "id": "20260816_233037_4d9878",
+          "model": "grok-4.5",
+          "messages": "9",
+          "tools": "4",
+          "api": "4",
+          "tin": "29103",
+          "tout": "686",
+          "cache_r": "85504",
+          "cache_w": "0",
+          "system_prompt_len": "36420",
+          "started": "2026-08-17 02:30:41.133079+00"
+        },
+        "n_messages": 9,
+        "tool_events": [
+          {
+            "tool": "read_file",
+            "count": 2,
+            "bytes": 1536
+          },
+          {
+            "tool": "terminal",
+            "count": 1,
+            "bytes": 120
+          },
+          {
+            "tool": "write_file",
+            "count": 1,
+            "bytes": 284
+          }
+        ],
+        "sum_tool_bytes": 1940,
+        "msg_content_bytes": 3574,
+        "errorish_msgs": 1,
+        "retryish_msgs": 0,
+        "artifact_name": "runbook.md",
+        "artifact_chars": 812,
+        "artifact": "# Runbook — preflight de documentação\n\n## Objetivo\nGarantir ambiente e lint de prosa antes de abrir PR de docs.\n\n## Fluxo\n\n1. **Instalar**  \n   Confirme a toolchain do time. Se faltar, instale `curupira`.\n\n2. **Lint**  \n   Em cada PR de documentação:\n\n   ```bash\n   curupira lint docs/**/*.md --enable-rule CURUPIRA-PT-PONT-001\n   ```\n\n   Checklist falha se o exit code for diferente de 0.\n\n3. **Corrigir**  \n   Se houver finding, ajuste só a prosa (não altere código). Rode o lint de novo até limpar.\n\n4. **Anexar JSON**  \n   Salve a saída JSON no ticket.\n\n5. **Abrir PR**  \n   Abra o PR só com lint limpo e checklist marcado.\n\n## Extras\n\n- Se o documento for procedimento operacional, peça leitura em voz alta a um segundo revisor.\n- Não commite segredos.\n- Não rode semantic-review sem autorização explícita.\n",
+        "stdout_tail": " documentação:\n+\n+   ```bash\n+   curupira lint docs/**/*.md --enable-rule CURUPIRA-PT-PONT-001\n+   ```\n+\n+   Checklist falha se o exit code for diferente de 0.\n+\n+3. **Corrigir**  \n+   Se houver finding, ajuste só a prosa (não altere código). Rode o lint de novo até limpar.\n+\n+4. **Anexar JSON**  \n+   Salve a saída JSON no ticket.\n+\n+5. **Abrir PR**  \n+   Abra o PR só com lint limpo e checklist marcado.\n+\n+## Extras\n+\n+- Se o documento for procedimento operacional, peça leitura em voz alta a um segundo revisor.\n+- Não commite segredos.\n+- Não rode semantic-review sem autorização explícita.\npath: /tmp/cs-ab/case-010-run-cli-default-control/runbook.md\nchars: 830\nresumo: Runbook em 5 passos (instalar→lint→corrigir→JSON→PR) com `curupira lint ... CURUPIRA-PT-PONT-001`, sem legado hermes-lint.\n",
+        "stderr": "session_id: 20260816_233037_4d9878",
+        "message_timeline": [
+          {
+            "seq": "",
+            "role": "user",
+            "tool": "",
+            "content_len": 1282,
+            "preview": "Você é o braço CONTROLE do estudo case-010 (sem Curupira).  Leia a tarefa completa abaixo e o arquivo de trabalho: - tarefa: /tmp/cs-ab/case-010-run-cli-default"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 72,
+            "preview": "Vou ler a tarefa e o runbook legado e modernizar só o artefato indicado."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 823,
+            "preview": "{\"content\": \"1|# Tarefa case-010 — modernizar runbook denso\\n2|\\n3|## Objetivo de produto\\n4|Legibilidade para o time e menos tokens de ida e volta na sessão de"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 713,
+            "preview": "{\"content\": \"1|# Runbook legado — preflight docs\\n2|\\n3|O revisor deve garantir o ambiente com a toolchain do time; instalar hermes-lint se faltar; em cada PR d"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 78,
+            "preview": "Reescrevendo o runbook em fluxo claro, com nomes Curupira e sem muro de texto."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "write_file",
+            "content_len": 284,
+            "preview": "{\"bytes_written\": 830, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .md files\"}, \"resolved_path\": \"/tmp/cs-ab"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 0,
+            "preview": ""
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "terminal",
+            "content_len": 120,
+            "preview": "{\"output\": \"830 /tmp/cs-ab/case-010-run-cli-default-control/runbook.md\\nOK: zero legado\", \"exit_code\": 0, \"error\": null}"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 202,
+            "preview": "path: /tmp/cs-ab/case-010-run-cli-default-control/runbook.md chars: 830 resumo: Runbook em 5 passos (instalar→lint→corrigir→JSON→PR) com `curupira lint ... CURU"
+          }
+        ]
+      },
+      "cli": {
+        "session_id": "20260816_233059_de7bcd",
+        "session": {
+          "id": "20260816_233059_de7bcd",
+          "model": "grok-4.5",
+          "messages": "9",
+          "tools": "4",
+          "api": "4",
+          "tin": "51508",
+          "tout": "726",
+          "cache_r": "63616",
+          "cache_w": "0",
+          "system_prompt_len": "36420",
+          "started": "2026-08-17 02:31:03.75119+00"
+        },
+        "n_messages": 9,
+        "tool_events": [
+          {
+            "tool": "read_file",
+            "count": 2,
+            "bytes": 1536
+          },
+          {
+            "tool": "terminal",
+            "count": 1,
+            "bytes": 181
+          },
+          {
+            "tool": "write_file",
+            "count": 1,
+            "bytes": 276
+          }
+        ],
+        "sum_tool_bytes": 1993,
+        "msg_content_bytes": 3911,
+        "errorish_msgs": 0,
+        "retryish_msgs": 0,
+        "artifact_name": "runbook.md",
+        "artifact_chars": 765,
+        "artifact": "# Runbook — preflight docs\n\n## Objetivo\nGarantir docs legíveis antes do PR. Não alterar código de produto neste fluxo.\n\n## Passos\n\n1. Instalar\n   - Confirme a toolchain do time.\n   - Se faltar, instale `curupira`.\n\n2. Lint\n   - Em cada PR de documentação, rode:\n   - `curupira lint docs/**/*.md --enable-rule CURUPIRA-PT-PONT-001`\n   - Checklist falha se exit != 0.\n\n3. Corrigir\n   - Se houver finding, ajuste só a prosa.\n   - Repita o lint até limpar.\n\n4. Anexar JSON\n   - Salve a saída JSON no ticket.\n\n5. Abrir PR\n   - Abra o PR só com lint limpo e checklist marcado.\n   - Se o documento for procedimento operacional, peça leitura em voz alta por um segundo revisor.\n\n## Restrições\n- Não commitar segredos.\n- Não rodar semantic-review sem autorização explícita.\n",
+        "stdout_tail": "e `curupira`.\n+\n+2. Lint\n+   - Em cada PR de documentação, rode:\n+   - `curupira lint docs/**/*.md --enable-rule CURUPIRA-PT-PONT-001`\n+   - Checklist falha se exit != 0.\n+\n+3. Corrigir\n+   - Se houver finding, ajuste só a prosa.\n+   - Repita o lint até limpar.\n+\n+4. Anexar JSON\n+   - Salve a saída JSON no ticket.\n+\n+5. Abrir PR\n+   - Abra o PR só com lint limpo e checklist marcado.\n+   - Se o documento for procedimento operacional, peça leitura em voz alta por um segundo revisor.\n+\n+## Restrições\n+- Não commitar segredos.\n+- Não rodar semantic-review sem autorização explícita.\nPronto.\n\npath: /tmp/cs-ab/case-010-run-cli-default-cli/runbook.md\nlint exit: 0\nchars: 784\nresumo: Runbook em passos (instalar→lint→corrigir→JSON→PR) com curupira lint + CURUPIRA-PT-PONT-001, sem legado hermes-lint.\n",
+        "stderr": "session_id: 20260816_233059_de7bcd",
+        "message_timeline": [
+          {
+            "seq": "",
+            "role": "user",
+            "tool": "",
+            "content_len": 1572,
+            "preview": "Você é o braço CLI do estudo case-010. NÃO carregue skill. Use só o binário local curupira.  Arquivos: - tarefa: /tmp/cs-ab/case-010-run-cli-default-cli/task.md"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 75,
+            "preview": "Vou ler a tarefa e o runbook legado e modernizar só com o binário curupira."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 823,
+            "preview": "{\"content\": \"1|# Tarefa case-010 — modernizar runbook denso\\n2|\\n3|## Objetivo de produto\\n4|Legibilidade para o time e menos tokens de ida e volta na sessão de"
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "read_file",
+            "content_len": 713,
+            "preview": "{\"content\": \"1|# Runbook legado — preflight docs\\n2|\\n3|O revisor deve garantir o ambiente com a toolchain do time; instalar hermes-lint se faltar; em cada PR d"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 57,
+            "preview": "Reescrevendo o runbook em passos curtos e rodando o lint."
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "write_file",
+            "content_len": 276,
+            "preview": "{\"bytes_written\": 784, \"dirs_created\": true, \"verified\": true, \"lint\": {\"status\": \"skipped\", \"message\": \"No linter for .md files\"}, \"resolved_path\": \"/tmp/cs-ab"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 0,
+            "preview": ""
+          },
+          {
+            "seq": "",
+            "role": "tool",
+            "tool": "terminal",
+            "content_len": 181,
+            "preview": "{\"output\": \"{\\n  \\\"schema_version\\\": \\\"1.0\\\",\\n  \\\"diagnostics\\\": []\\n}\\nEXIT:0\\n784 /tmp/cs-ab/case-010-run-cli-default-cli/runbook.md\\nzero legado\", \"exit_cod"
+          },
+          {
+            "seq": "",
+            "role": "assistant",
+            "tool": "",
+            "content_len": 214,
+            "preview": "Pronto.  path: /tmp/cs-ab/case-010-run-cli-default-cli/runbook.md lint exit: 0 chars: 784 resumo: Runbook em passos (instalar→lint→corrigir→JSON→PR) com curupir"
+          }
+        ]
+      }
+    },
+    "artifact_diff_lines": 57,
+    "artifact_diff_head": "--- \n+++ \n@@ -1,33 +1,30 @@\n-# Runbook — preflight de documentação\n+# Runbook — preflight docs\n \n ## Objetivo\n-Garantir ambiente e lint de prosa antes de abrir PR de docs.\n+Garantir docs legíveis antes do PR. Não alterar código de produto neste fluxo.\n \n-## Fluxo\n+## Passos\n \n-1. **Instalar**  \n-   Confirme a toolchain do time. Se faltar, instale `curupira`.\n+1. Instalar\n+   - Confirme a toolchain do time.\n+   - Se faltar, instale `curupira`.\n \n-2. **Lint**  \n-   Em cada PR de documentação:\n+2. Lint\n+   - Em cada PR de documentação, rode:\n+   - `curupira lint docs/**/*.md --enable-rule CURUPIRA-PT-PONT-001`\n+   - Checklist falha se exit != 0.\n \n-   ```bash\n-   curupira lint docs/**/*.md --enable-rule CURUPIRA-PT-PONT-001\n-   ```\n+3. Corrigir\n+   - Se houver finding, ajuste só a prosa.\n+   - Repita o lint até limpar.\n \n-   Checklist falha se o exit code for diferente de 0.\n+4. Anexar JSON\n+   - Salve a saída JSON no ticket.\n \n-3. **Corrigir**  \n-   Se houver finding, ajuste só a prosa (não altere código). Rode o lint de novo até limpar.\n+5. Abrir PR",
+    "analysis": {
+      "input_token_ratio_cli_over_control": 1.77,
+      "tool_bytes_control": 1940,
+      "tool_bytes_cli": 1993,
+      "tools_control": [
+        {
+          "tool": "read_file",
+          "count": 2,
+          "bytes": 1536
+        },
+        {
+          "tool": "terminal",
+          "count": 1,
+          "bytes": 120
+        },
+        {
+          "tool": "write_file",
+          "count": 1,
+          "bytes": 284
+        }
+      ],
+      "tools_cli": [
+        {
+          "tool": "read_file",
+          "count": 2,
+          "bytes": 1536
+        },
+        {
+          "tool": "terminal",
+          "count": 1,
+          "bytes": 181
+        },
+        {
+          "tool": "write_file",
+          "count": 1,
+          "bytes": 276
+        }
+      ],
+      "likely_drivers": [
+        "input_tokens_cli_much_higher"
+      ]
+    }
+  }
+]

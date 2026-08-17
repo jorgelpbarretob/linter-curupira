@@ -1,0 +1,15 @@
+Case-008 tratamento completed successfully.
+
+**Result:**
+- `/tmp/cs-y4/nvidia_nemotron-3.5-lightning_free/case-008-run-01-cli/mitigacao.md` — 363 chars, 13 lines
+- `curupira lint` exit: **0** (CURUPIRA-PT-PONT-001 passed)
+
+**Content summary:**
+- **Sintoma:** fila jobs-hot cresceu depois das 21h; worker-b preso em batch antigo; latência subiu e health flipou
+- **Mitigação imediata:** restart unit worker-b.service
+- **Verificação:** após restart: checar /health e tamanho da fila
+- **Escalonamento:** se fila não normalizar em 10 min: abrir SEV2 com print do painel; não reiniciar o broker sem autorização
+
+All task requirements satisfied: worker-b, fila jobs-hot, SEV2, 10 min, restart unit `worker-b.service`, correct order, no semicolons, no invented root cause, short list, lint exit 0.
+
+Final: path OK, lint exit 0, 363 chars, 1-lin summary above.

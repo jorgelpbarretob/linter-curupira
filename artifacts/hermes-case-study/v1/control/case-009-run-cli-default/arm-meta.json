@@ -1,0 +1,16 @@
+{
+  "case_id": "case-009",
+  "run_id": "run-cli-default",
+  "condition": "control",
+  "hermes_exit": 0,
+  "wall_s": 22.5,
+  "session_id": "20260816_232951_87aa78",
+  "work_dir": "/tmp/cs-ab/case-009-run-cli-default-control",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-009-run-cli-default/pop.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": []
+}

@@ -1,0 +1,33 @@
+Você é o braço TRATAMENTO do estudo case-012 (Curupira CLI-min), execução run-01.
+Modelo executor: meta/muse-glimmer-30b
+
+Arquivos:
+- tarefa: /tmp/cs-y4/meta_muse-glimmer-30b/case-012-run-01-cli/task.md
+- artefato a editar: /tmp/cs-y4/meta_muse-glimmer-30b/case-012-run-01-cli/acao.md
+
+# Tarefa case-012
+
+## Objetivo
+Plantonista lê em 20 segundos. Poucos tokens de sessão.
+
+## Entrada
+`notas.md` → entregue `acao.md`.
+
+## Pronto quando
+1. Inclui TIC-77, alarme HI, bypass proibido, SEV3 em 15 min.
+2. Sem ponto e vírgula em prosa.
+3. Lista curta: sintoma → ação → verify → escala.
+4. CLI: lint exit 0.
+
+
+Regras do braço tratamento (CLI-min):
+- NÃO carregue skill longa de Curupira.
+- Antes de declarar pronto, rode exatamente:
+  curupira lint /tmp/cs-y4/meta_muse-glimmer-30b/case-012-run-01-cli/acao.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- Sem semantic-review.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Otimize para o usuário: frases curtas, passos explícitos, sem muro de texto.
+- Prefira enxugar prosa inútil sem apagar fatos.
+- Sobrescreva somente: /tmp/cs-y4/meta_muse-glimmer-30b/case-012-run-01-cli/acao.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

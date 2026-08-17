@@ -1,0 +1,114 @@
+[
+  {
+    "model": "qwen/qwen3.8-27b",
+    "usage": {
+      "prompt_tokens": 571,
+      "completion_tokens": 4096,
+      "reasoning_tokens": 3451,
+      "cost_usd": 0.01336415
+    },
+    "wall_s": 76.8,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semicolon_count": 0,
+    "chars": 0
+  },
+  {
+    "model": "meta/muse-glimmer-30b",
+    "usage": {
+      "prompt_tokens": 525,
+      "completion_tokens": 2003,
+      "reasoning_tokens": 1896,
+      "cost_usd": 0.0025611
+    },
+    "wall_s": 11.1,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semicolon_count": 0,
+    "chars": 730
+  },
+  {
+    "model": "nvidia/nemotron-3.5-lightning:free",
+    "usage": {
+      "prompt_tokens": 553,
+      "completion_tokens": 1682,
+      "reasoning_tokens": 1451,
+      "cost_usd": 0
+    },
+    "wall_s": 10.2,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semicolon_count": 9,
+    "chars": 5561
+  },
+  {
+    "model": "poolside/laguna-xs-2.1:free",
+    "usage": {
+      "prompt_tokens": 681,
+      "completion_tokens": 1082,
+      "reasoning_tokens": 794,
+      "cost_usd": 0
+    },
+    "wall_s": 10.1,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semicolon_count": 0,
+    "chars": 750
+  },
+  {
+    "model": "liquid/lfm-2.5-2.6b:free",
+    "usage": {
+      "prompt_tokens": 548,
+      "completion_tokens": 1845,
+      "reasoning_tokens": 1523,
+      "cost_usd": 0
+    },
+    "wall_s": 105.5,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semicolon_count": 0,
+    "chars": 715
+  },
+  {
+    "model": "google/gemma-4-26b-a4b-it:free",
+    "usage": {
+      "prompt_tokens": 530,
+      "completion_tokens": 267,
+      "reasoning_tokens": 0,
+      "cost_usd": 0
+    },
+    "wall_s": 7.0,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semicolon_count": 0,
+    "chars": 798
+  },
+  {
+    "model": "mistralai/mistral-medium-3-5",
+    "usage": {
+      "prompt_tokens": 552,
+      "completion_tokens": 233,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0025755
+    },
+    "wall_s": 1.9,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semicolon_count": 0,
+    "chars": 682
+  }
+]

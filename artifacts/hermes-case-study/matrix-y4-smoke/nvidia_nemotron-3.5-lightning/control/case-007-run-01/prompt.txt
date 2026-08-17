@@ -1,0 +1,40 @@
+Você é o braço CONTROLE do estudo case-007 (sem Curupira), execução run-01.
+Modelo executor: nvidia/nemotron-3.5-lightning
+
+Leia a tarefa e o arquivo de trabalho:
+- tarefa: /tmp/cs-y4/nvidia_nemotron-3.5-lightning/case-007-run-01-control/task.md
+- artefato a editar: /tmp/cs-y4/nvidia_nemotron-3.5-lightning/case-007-run-01-control/procedimento.md
+
+# Tarefa case-007 — legibilidade + residual difícil
+
+## Objetivo de produto
+Baixar custo de tokens da sessão e deixar o texto **mais legível para o operador**.
+Não é só “passar no lint”.
+
+## Entrada
+`procedimento.md` (sujo, denso).
+
+## Entregar
+O mesmo arquivo, pronto para chão de fábrica.
+
+## Pronto quando
+1. Tags preservadas: XV-101, P-220, PI-33, HV-08, TIC-12.
+2. Mesma ordem lógica: isolamento → drenagem → partida.
+3. Frases curtas. Uma ação principal por passo quando possível.
+4. Sem ponto e vírgula em prosa.
+5. Sem parágrafo denso com múltiplas ordens escondidas.
+6. Texto final preferencialmente **mais curto** que o input em caracteres de prosa.
+7. Braço com Curupira: `curupira lint` exit 0 nas regras do aceite.
+
+## Restrições
+- Não invente interlocks, setpoints ou pessoas.
+- Não envie a APIs.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs externas além das tools do agent.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto.
+- Sobrescreva somente: /tmp/cs-y4/nvidia_nemotron-3.5-lightning/case-007-run-01-control/procedimento.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

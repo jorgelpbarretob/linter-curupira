@@ -1,0 +1,33 @@
+Você é o braço CLI do estudo case-001.
+NÃO carregue skill. Use só o binário local curupira.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-001-run-v2-01-cli/task.md
+- artefato a editar: /tmp/cs-ab/case-001-run-v2-01-cli/procedimento.md
+
+# Tarefa case-001 — regressão PONT-001
+
+## Objetivo
+Reescrever o procedimento em `inputs/procedimento.md` para entrega operacional.
+Não altere fatos técnicos (tags V-12, P-01, PI-01).
+
+## Pronto quando
+1. Arquivo final em Markdown com os mesmos três atos na mesma ordem.
+2. `curupira lint FINAL --enable-rule CURUPIRA-PT-PONT-001` retorna exit 0.
+3. Nenhuma tag de equipamento inventada ou removida.
+
+## Restrições
+- Não enviar o documento a APIs.
+- Não usar holdout selado.
+
+
+Regras do braço CLI (mínimas):
+- Edite /tmp/cs-ab/case-001-run-v2-01-cli/procedimento.md para legibilidade: frases curtas, passos explícitos, sem muro de texto.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Antes de declarar pronto, rode EXATAMENTE:
+  curupira lint /tmp/cs-ab/case-001-run-v2-01-cli/procedimento.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- NÃO use semantic-review. NÃO chame APIs.
+- NÃO peça nem carregue skill curupira-preflight.
+- Sobrescreva somente: /tmp/cs-ab/case-001-run-v2-01-cli/procedimento.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

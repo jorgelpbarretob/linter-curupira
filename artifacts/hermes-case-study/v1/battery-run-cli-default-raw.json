@@ -1,0 +1,226 @@
+[
+  {
+    "case_id": "case-001",
+    "run_id": "run-cli-default",
+    "condition": "control",
+    "hermes_exit": 0,
+    "wall_s": 23.2,
+    "session_id": "20260816_232611_cf9197",
+    "work_dir": "/tmp/cs-ab/case-001-run-cli-default-control",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-001-run-cli-default/procedimento.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-001",
+    "run_id": "run-cli-default",
+    "condition": "cli",
+    "hermes_exit": 0,
+    "wall_s": 24.5,
+    "session_id": "20260816_232634_00535f",
+    "work_dir": "/tmp/cs-ab/case-001-run-cli-default-cli",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-001-run-cli-default/procedimento.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-003",
+    "run_id": "run-cli-default",
+    "condition": "control",
+    "hermes_exit": 0,
+    "wall_s": 18.6,
+    "session_id": "20260816_232659_b6b90d",
+    "work_dir": "/tmp/cs-ab/case-003-run-cli-default-control",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-003-run-cli-default/instrucao.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-003",
+    "run_id": "run-cli-default",
+    "condition": "cli",
+    "hermes_exit": 0,
+    "wall_s": 22.0,
+    "session_id": "20260816_232718_db999d",
+    "work_dir": "/tmp/cs-ab/case-003-run-cli-default-cli",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-003-run-cli-default/instrucao.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-004",
+    "run_id": "run-cli-default",
+    "condition": "control",
+    "hermes_exit": 0,
+    "wall_s": 21.1,
+    "session_id": "20260816_232740_1315a0",
+    "work_dir": "/tmp/cs-ab/case-004-run-cli-default-control",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-004-run-cli-default/runbook.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-004",
+    "run_id": "run-cli-default",
+    "condition": "cli",
+    "hermes_exit": 0,
+    "wall_s": 19.7,
+    "session_id": "20260816_232801_ff0de8",
+    "work_dir": "/tmp/cs-ab/case-004-run-cli-default-cli",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-004-run-cli-default/runbook.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-007",
+    "run_id": "run-cli-default",
+    "condition": "control",
+    "hermes_exit": 0,
+    "wall_s": 21.9,
+    "session_id": "20260816_232821_2c7c63",
+    "work_dir": "/tmp/cs-ab/case-007-run-cli-default-control",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-007-run-cli-default/procedimento.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-007",
+    "run_id": "run-cli-default",
+    "condition": "cli",
+    "hermes_exit": 0,
+    "wall_s": 24.0,
+    "session_id": "20260816_232843_c45c98",
+    "work_dir": "/tmp/cs-ab/case-007-run-cli-default-cli",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-007-run-cli-default/procedimento.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-008",
+    "run_id": "run-cli-default",
+    "condition": "control",
+    "hermes_exit": 0,
+    "wall_s": 21.2,
+    "session_id": "20260816_232907_4d8d77",
+    "work_dir": "/tmp/cs-ab/case-008-run-cli-default-control",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-008-run-cli-default/mitigacao.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-008",
+    "run_id": "run-cli-default",
+    "condition": "cli",
+    "hermes_exit": 0,
+    "wall_s": 22.5,
+    "session_id": "20260816_232928_b2314e",
+    "work_dir": "/tmp/cs-ab/case-008-run-cli-default-cli",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-008-run-cli-default/mitigacao.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-009",
+    "run_id": "run-cli-default",
+    "condition": "control",
+    "hermes_exit": 0,
+    "wall_s": 22.5,
+    "session_id": "20260816_232951_87aa78",
+    "work_dir": "/tmp/cs-ab/case-009-run-cli-default-control",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-009-run-cli-default/pop.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-009",
+    "run_id": "run-cli-default",
+    "condition": "cli",
+    "hermes_exit": 0,
+    "wall_s": 22.8,
+    "session_id": "20260816_233014_12c478",
+    "work_dir": "/tmp/cs-ab/case-009-run-cli-default-cli",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-009-run-cli-default/pop.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-010",
+    "run_id": "run-cli-default",
+    "condition": "control",
+    "hermes_exit": 0,
+    "wall_s": 22.4,
+    "session_id": "20260816_233037_4d9878",
+    "work_dir": "/tmp/cs-ab/case-010-run-cli-default-control",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-010-run-cli-default/runbook.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  },
+  {
+    "case_id": "case-010",
+    "run_id": "run-cli-default",
+    "condition": "cli",
+    "hermes_exit": 0,
+    "wall_s": 27.4,
+    "session_id": "20260816_233059_de7bcd",
+    "work_dir": "/tmp/cs-ab/case-010-run-cli-default-cli",
+    "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-010-run-cli-default/runbook.md",
+    "residual": {
+      "exit_code": 0,
+      "findings_n": 0,
+      "diagnostics": []
+    },
+    "skills": []
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "estimated_cost_usd": 0.0601501,
+  "cost_status": "estimated",
+  "cost_source": "provider_models_api",
+  "input_tokens": 117578,
+  "output_tokens": 1209,
+  "cache_read_tokens": 67424,
+  "cache_write_tokens": 0,
+  "reasoning_tokens": 518,
+  "total_tokens": 186211,
+  "api_calls": 6,
+  "model": "qwen/qwen3.8-27b",
+  "provider": "openrouter",
+  "session_id": "20260817_005432_92f7e5",
+  "completed": true,
+  "failed": false,
+  "service_tier": null
+}

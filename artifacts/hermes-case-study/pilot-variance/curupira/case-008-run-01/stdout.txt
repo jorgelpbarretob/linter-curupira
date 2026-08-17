@@ -1,0 +1,7 @@
+Pronto. Resultado:
+
+- Path: /tmp/cs-pilot/case-008-run-01-curupira/mitigacao.md
+- Lint: exit 0 (0 diagnostics, regra CURUPIRA-PT-PONT-001)
+- Chars: 592
+
+Resumo: mitigação SEV2 em 4 seções (sintoma → mitigação → verificação → escalonamento), restart de `worker-b.service` como ação imediata, sem causa raiz inventada e sem ponto e vírgula em prosa.

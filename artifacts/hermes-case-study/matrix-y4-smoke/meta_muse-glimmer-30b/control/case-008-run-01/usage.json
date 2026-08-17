@@ -1,0 +1,18 @@
+{
+  "estimated_cost_usd": 0.01679642,
+  "cost_status": "estimated",
+  "cost_source": "provider_models_api",
+  "input_tokens": 3930,
+  "output_tokens": 3058,
+  "cache_read_tokens": 270848,
+  "cache_write_tokens": 0,
+  "reasoning_tokens": 2114,
+  "total_tokens": 277836,
+  "api_calls": 9,
+  "model": "meta/muse-glimmer-30b",
+  "provider": "openrouter",
+  "session_id": "20260817_010644_e8f602",
+  "completed": true,
+  "failed": false,
+  "service_tier": null
+}

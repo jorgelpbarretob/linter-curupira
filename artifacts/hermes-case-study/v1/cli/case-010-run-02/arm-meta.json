@@ -1,0 +1,16 @@
+{
+  "case_id": "case-010",
+  "run_id": "run-02",
+  "condition": "cli",
+  "hermes_exit": 0,
+  "wall_s": 26.5,
+  "session_id": "20260816_231721_d4b518",
+  "work_dir": "/tmp/cs-ab/case-010-run-02-cli",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-010-run-02/runbook.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": []
+}

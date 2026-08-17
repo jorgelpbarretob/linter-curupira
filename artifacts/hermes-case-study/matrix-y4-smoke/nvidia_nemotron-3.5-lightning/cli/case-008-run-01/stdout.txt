@@ -1,0 +1,13 @@
+**Result**
+
+`mitigacao.md` escrito em `/tmp/cs-y4/nvidia_nemotron-3.5-lightning/case-008-run-01-cli/mitigacao.md`
+
+| Item | Valor |
+|------|-------|
+| Exit do lint | **0** |
+| Tamanho do arquivo | 347 chars |
+| Estrutura | sintoma → mitigação imediata → verificação → escalonamento |
+| Checklist atendido | worker-b, fila jobs-hot, SEV2, 10 min, restart unit `worker-b.service` |
+| Proibidos | ponto e vírgula em prosa, causa raiz inventada, API externa |
+
+Resumo em 1 linha: worker-b preso em batch antigo → restart unit worker-b.service → checar /health e fila → se não normalizar em 10 min abrir SEV2 com print do painel.

@@ -1,0 +1,6 @@
+Pronto.
+
+Arquivo: /tmp/cs-y4/qwen_qwen3.8-27b/case-007-run-01-control/procedimento.md
+Chars: 792 (input era 811)
+
+Resumo: POP reescrito em 4 seções (isolamento, drenagem, partida, verificação) com passos numerados, uma ação por passo, sem ponto e vírgula. As 5 tags (XV-101, P-220, PI-33, HV-08, TIC-12) preservadas na ordem lógica. Texto final mais curto e legível para o operador.

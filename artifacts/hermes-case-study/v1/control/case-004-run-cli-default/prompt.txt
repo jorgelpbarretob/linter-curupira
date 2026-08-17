@@ -1,0 +1,28 @@
+Você é o braço CONTROLE do estudo case-004 (sem Curupira).
+
+Leia a tarefa completa abaixo e o arquivo de trabalho:
+- tarefa: /tmp/cs-ab/case-004-run-cli-default-control/task.md
+- artefato a editar: /tmp/cs-ab/case-004-run-cli-default-control/runbook.md
+
+# Tarefa case-004 — atualização
+
+## Mudança definida
+A CLI antiga `hermes-lint` foi substituída por `curupira`.
+Flag de regra: `--enable-rule CURUPIRA-PT-PONT-001` (antes `HERMES-PT-PONT-001`).
+
+## Entrada
+Atualize `inputs/runbook.md` para a CLI nova sem mudar o restante do fluxo.
+
+## Pronto quando
+1. Nenhuma ocorrência de `hermes-lint` ou `HERMES-PT-PONT-001`.
+2. Comandos usam `curupira`.
+3. Lint PONT-001 exit 0 no runbook final.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto (menos tokens de leitura).
+- Sobrescreva somente: /tmp/cs-ab/case-004-run-cli-default-control/runbook.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

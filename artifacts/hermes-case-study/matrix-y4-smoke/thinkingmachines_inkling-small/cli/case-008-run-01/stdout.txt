@@ -1,0 +1,1 @@
+Pronto. Path: /tmp/cs-y4/thinkingmachines_inkling-small/case-008-run-01-cli/mitigacao.md. Lint exit 0. Chars: 291. Resumo: sintoma→mitigação (restart worker-b.service, 10 min, SEV2)→verificação→escalonamento, sem ponto-e-vírgula, sem causa raiz inventada.

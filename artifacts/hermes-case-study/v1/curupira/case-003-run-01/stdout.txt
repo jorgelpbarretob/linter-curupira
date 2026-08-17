@@ -1,0 +1,17 @@
+  ┊ review diff
+a/instrucao.md → b/instrucao.md
+@@ -1,5 +1,8 @@
+ # Instrução de bypass
+ 
+-Abra a válvula e o registro se a pressão estiver alta e confira o sensor.
+-Anote o valor no turno.
+-Tags: V-90, R-02, S-11.
++Condição: pressão alta.
++
++1. Abra a válvula V-90.
++2. Abra o registro R-02.
++3. Confira o sensor S-11.
++4. Anote o valor no turno.
+path: /tmp/cs-ab/case-003-run-01-curupira/instrucao.md
+lint PONT-001: exit 0
+resumo: passos únicos (V-90, R-02, S-11) sob condição de pressão alta; sem multi-ação ambígua.

@@ -1,0 +1,114 @@
+{
+  "schema_version": "hermes-case-study-batch-summary/v1",
+  "pairs": [
+    {
+      "case_id": "case-001",
+      "run_id": "run-01",
+      "residual_control": 0,
+      "residual_curupira": 0,
+      "tools_control": 10,
+      "tools_curupira": 4,
+      "tokens_control": 32061,
+      "tokens_curupira": 29617,
+      "wall_control": 69,
+      "wall_curupira": 19,
+      "req_control": true,
+      "req_curupira": true,
+      "curupira_lint_invoked": true,
+      "session_control": "20260816_224657_f96c25",
+      "session_curupira": "20260816_224828_f00058"
+    },
+    {
+      "case_id": "case-001",
+      "run_id": "run-02",
+      "residual_control": 0,
+      "residual_curupira": 0,
+      "tools_control": 3,
+      "tools_curupira": 5,
+      "tokens_control": 28845,
+      "tokens_curupira": 30306,
+      "wall_control": 21.8,
+      "wall_curupira": 23.1,
+      "req_control": true,
+      "req_curupira": true,
+      "curupira_lint_invoked": true,
+      "session_control": "20260816_225209_ba3067",
+      "session_curupira": "20260816_225231_0ea6e1"
+    },
+    {
+      "case_id": "case-001",
+      "run_id": "run-03",
+      "residual_control": 0,
+      "residual_curupira": 0,
+      "tools_control": 3,
+      "tools_curupira": 5,
+      "tokens_control": 28845,
+      "tokens_curupira": 30267,
+      "wall_control": 20.4,
+      "wall_curupira": 24.7,
+      "req_control": true,
+      "req_curupira": true,
+      "curupira_lint_invoked": true,
+      "session_control": "20260816_225254_c38349",
+      "session_curupira": "20260816_225314_3a99a6"
+    },
+    {
+      "case_id": "case-003",
+      "run_id": "run-01",
+      "residual_control": 0,
+      "residual_curupira": 0,
+      "tools_control": 3,
+      "tools_curupira": 4,
+      "tokens_control": 28624,
+      "tokens_curupira": 29640,
+      "wall_control": 21.2,
+      "wall_curupira": 22.5,
+      "req_control": true,
+      "req_curupira": true,
+      "curupira_lint_invoked": true,
+      "session_control": "20260816_225339_68b53c",
+      "session_curupira": "20260816_225401_9f3ff6"
+    },
+    {
+      "case_id": "case-004",
+      "run_id": "run-01",
+      "residual_control": 0,
+      "residual_curupira": 0,
+      "tools_control": 3,
+      "tools_curupira": 4,
+      "tokens_control": 28562,
+      "tokens_curupira": 29389,
+      "wall_control": 16.8,
+      "wall_curupira": 19.3,
+      "req_control": true,
+      "req_curupira": true,
+      "curupira_lint_invoked": true,
+      "session_control": "20260816_225423_5688b6",
+      "session_curupira": "20260816_225440_3099ff"
+    }
+  ],
+  "case_001_n_runs": 3,
+  "case_001_median": {
+    "residual": [
+      0,
+      0
+    ],
+    "tools": [
+      3,
+      5
+    ],
+    "tokens": [
+      28845,
+      30267
+    ],
+    "wall_s": [
+      21.8,
+      23.1
+    ]
+  },
+  "notes": [
+    "Todos os pares desta leva fecharam residual PONT-001 = 0 nos dois braços.",
+    "case-001: modelo resolve PONT-001 sem ferramenta; tratamento ainda invoca lint na maioria das runs.",
+    "case-003/004: requisitos de conteúdo checados deterministicamente além do residual."
+  ]
+}

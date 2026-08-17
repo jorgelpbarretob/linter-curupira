@@ -1,0 +1,12 @@
+Pronto.
+
+- Path: /tmp/cs-pilot/case-007-run-03-curupira/procedimento.md
+- Lint: `curupira lint ... --enable-rule CURUPIRA-PT-PONT-001 --format json` → exit 0, 0 diagnostics (1º ciclo)
+- Chars: 779 no arquivo. Prosa: 603 → 535 (-68). Pontos e vírgula: 8 → 0.
+
+Verificações:
+1. Tags preservadas com mesma contagem: XV-101 (3), P-220 (2), PI-33 (4), HV-08 (2), TIC-12 (2).
+2. Ordem mantida: isolamento → drenagem → partida → liberação.
+3. 13 passos numerados, uma ação por passo, sem parágrafo denso.
+
+Resumo: bloco único de prosa virou 4 seções com passos curtos. Nenhum fato, interlock ou setpoint alterado.

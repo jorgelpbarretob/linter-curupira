@@ -1,0 +1,6 @@
+Entregue.
+
+Path: /tmp/cs-pilot/case-007-run-01-control/procedimento.md
+Chars: 817 no arquivo (811 no original). Prosa sem cabeçalhos/números: 522 chars contra 603 do input.
+
+Resumo: POP reescrito em 16 passos curtos nas seções isolamento → drenagem → partida → encerramento, sem ponto e vírgula, com as 5 tags preservadas (XV-101, P-220, PI-33, HV-08, TIC-12) e nenhum interlock/setpoint/pessoa inventado.

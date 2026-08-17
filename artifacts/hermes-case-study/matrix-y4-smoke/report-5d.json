@@ -1,0 +1,1894 @@
+{
+  "schema_version": "hermes-case-study-report-5d/v1",
+  "report_id": "matrix-y4-smoke-run-01",
+  "generated_at": "2026-08-17T01:11:43.289238-03:00",
+  "models": {
+    "Y": [
+      "qwen/qwen3.8-27b",
+      "nvidia/nemotron-3.5-lightning:free",
+      "meta/muse-glimmer-30b",
+      "thinkingmachines/inkling-small"
+    ],
+    "executor_route": "hermes -z --provider openrouter --usage-file",
+    "treatment": "cli-min"
+  },
+  "dimensions_present": [
+    "executor_session",
+    "panel_reviewer",
+    "operational_gate",
+    "quality_blind",
+    "integrity"
+  ],
+  "pairs": [
+    {
+      "model": "meta/muse-glimmer-30b",
+      "case_id": "case-007",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 50205,
+          "output_tokens": 1908,
+          "total_tokens": 153809,
+          "reasoning_tokens": 961
+        },
+        "cli": {
+          "input_tokens": 2793,
+          "output_tokens": 2216,
+          "total_tokens": 153105,
+          "reasoning_tokens": 1645
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": -47412,
+          "output_tokens": 308,
+          "total_tokens": -704
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": false,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": false
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "cli_lint_not_observed_in_logs",
+          "evidence": "stdout/stderr posthoc"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=153105 in+out=5009"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/meta_muse-glimmer-30b/control/case-007-run-01/procedimento.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/meta_muse-glimmer-30b/cli/case-007-run-01/procedimento.md",
+      "readability_control": {
+        "chars": 710,
+        "words": 128,
+        "semicolon_count": 0,
+        "sentence_n": 14,
+        "avg_sentence_words": 8.43,
+        "max_sentence_words": 14,
+        "list_line_ratio": 0.0,
+        "lines": 15,
+        "delta_chars_vs_input": -77,
+        "delta_words_vs_input": -16
+      },
+      "readability_cli": {
+        "chars": 626,
+        "words": 115,
+        "semicolon_count": 0,
+        "sentence_n": 16,
+        "avg_sentence_words": 6.56,
+        "max_sentence_words": 14,
+        "list_line_ratio": 0.0,
+        "lines": 17,
+        "delta_chars_vs_input": -161,
+        "delta_words_vs_input": -29
+      },
+      "wall_control": 25.5,
+      "wall_cli": 21.5,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 1,
+          "S": 4,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 3,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 1,
+          "S": 4,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 3,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "tie",
+        "S_control": 4,
+        "S_cli": 4
+      }
+    },
+    {
+      "model": "meta/muse-glimmer-30b",
+      "case_id": "case-008",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 3930,
+          "output_tokens": 3058,
+          "total_tokens": 277836,
+          "reasoning_tokens": 2114
+        },
+        "cli": {
+          "input_tokens": 4611,
+          "output_tokens": 3436,
+          "total_tokens": 374191,
+          "reasoning_tokens": 2347
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 681,
+          "output_tokens": 378,
+          "total_tokens": 96355
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": true
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=277836 in+out=6988"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=374191 in+out=8047"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/meta_muse-glimmer-30b/control/case-008-run-01/mitigacao.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/meta_muse-glimmer-30b/cli/case-008-run-01/mitigacao.md",
+      "readability_control": {
+        "chars": 425,
+        "words": 62,
+        "semicolon_count": 0,
+        "sentence_n": 16,
+        "avg_sentence_words": 3.56,
+        "max_sentence_words": 7,
+        "list_line_ratio": 0.706,
+        "lines": 17,
+        "delta_chars_vs_input": -28,
+        "delta_words_vs_input": -16
+      },
+      "readability_cli": {
+        "chars": 507,
+        "words": 73,
+        "semicolon_count": 0,
+        "sentence_n": 13,
+        "avg_sentence_words": 5.0,
+        "max_sentence_words": 10,
+        "list_line_ratio": 0.722,
+        "lines": 18,
+        "delta_chars_vs_input": 54,
+        "delta_words_vs_input": -5
+      },
+      "wall_control": 31.6,
+      "wall_cli": 35.6,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.71 acts=12 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.72 acts=13 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "tie",
+        "S_control": 8,
+        "S_cli": 8
+      }
+    },
+    {
+      "model": "meta/muse-glimmer-30b",
+      "case_id": "case-012",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 50715,
+          "output_tokens": 3003,
+          "total_tokens": 367254,
+          "reasoning_tokens": 1898
+        },
+        "cli": {
+          "input_tokens": 6462,
+          "output_tokens": 3626,
+          "total_tokens": 505768,
+          "reasoning_tokens": 2147
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": -44253,
+          "output_tokens": 623,
+          "total_tokens": 138514
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": true
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=367254 in+out=53718"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=505768 in+out=10088"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/meta_muse-glimmer-30b/control/case-012-run-01/acao.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/meta_muse-glimmer-30b/cli/case-012-run-01/acao.md",
+      "readability_control": {
+        "chars": 282,
+        "words": 48,
+        "semicolon_count": 0,
+        "sentence_n": 6,
+        "avg_sentence_words": 7.5,
+        "max_sentence_words": 9,
+        "list_line_ratio": 0.0,
+        "lines": 7,
+        "delta_chars_vs_input": 20,
+        "delta_words_vs_input": 2
+      },
+      "readability_cli": {
+        "chars": 361,
+        "words": 59,
+        "semicolon_count": 0,
+        "sentence_n": 13,
+        "avg_sentence_words": 4.31,
+        "max_sentence_words": 8,
+        "list_line_ratio": 0.643,
+        "lines": 14,
+        "delta_chars_vs_input": 99,
+        "delta_words_vs_input": 13
+      },
+      "wall_control": 37.3,
+      "wall_cli": 43.6,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.64 acts=9 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "cli",
+        "S_control": 5,
+        "S_cli": 8
+      }
+    },
+    {
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "case_id": "case-007",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 74586,
+          "output_tokens": 3978,
+          "total_tokens": 206948,
+          "reasoning_tokens": 2448
+        },
+        "cli": {
+          "input_tokens": 15196,
+          "output_tokens": 4035,
+          "total_tokens": 321695,
+          "reasoning_tokens": 2643
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": -59390,
+          "output_tokens": 57,
+          "total_tokens": 114747
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": false,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": false
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "cli_lint_not_observed_in_logs",
+          "evidence": "stdout/stderr posthoc"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=321695 in+out=19231"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/control/case-007-run-01/procedimento.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/cli/case-007-run-01/procedimento.md",
+      "readability_control": {
+        "chars": 771,
+        "words": 143,
+        "semicolon_count": 0,
+        "sentence_n": 22,
+        "avg_sentence_words": 5.91,
+        "max_sentence_words": 18,
+        "list_line_ratio": 0.733,
+        "lines": 15,
+        "delta_chars_vs_input": -16,
+        "delta_words_vs_input": -1
+      },
+      "readability_cli": {
+        "chars": 761,
+        "words": 139,
+        "semicolon_count": 0,
+        "sentence_n": 12,
+        "avg_sentence_words": 10.75,
+        "max_sentence_words": 18,
+        "list_line_ratio": 0.0,
+        "lines": 2,
+        "delta_chars_vs_input": -26,
+        "delta_words_vs_input": -5
+      },
+      "wall_control": 31.9,
+      "wall_cli": 34.5,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 1,
+          "S": 7,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.73 acts=11 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 0,
+          "C4_ambiguity": 1,
+          "S": 3,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 2,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "control",
+        "S_control": 7,
+        "S_cli": 3
+      }
+    },
+    {
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "case_id": "case-008",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 14042,
+          "output_tokens": 3631,
+          "total_tokens": 291849,
+          "reasoning_tokens": 2414
+        },
+        "cli": {
+          "input_tokens": 27314,
+          "output_tokens": 5978,
+          "total_tokens": 638220,
+          "reasoning_tokens": 3571
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 13272,
+          "output_tokens": 2347,
+          "total_tokens": 346371
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": true
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=291849 in+out=17673"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=638220 in+out=33292"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/control/case-008-run-01/mitigacao.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/cli/case-008-run-01/mitigacao.md",
+      "readability_control": {
+        "chars": 458,
+        "words": 69,
+        "semicolon_count": 0,
+        "sentence_n": 10,
+        "avg_sentence_words": 6.9,
+        "max_sentence_words": 13,
+        "list_line_ratio": 0.0,
+        "lines": 4,
+        "delta_chars_vs_input": 5,
+        "delta_words_vs_input": -9
+      },
+      "readability_cli": {
+        "chars": 353,
+        "words": 55,
+        "semicolon_count": 0,
+        "sentence_n": 11,
+        "avg_sentence_words": 5.0,
+        "max_sentence_words": 13,
+        "list_line_ratio": 0.636,
+        "lines": 11,
+        "delta_chars_vs_input": -100,
+        "delta_words_vs_input": -23
+      },
+      "wall_control": 250.2,
+      "wall_cli": 59.0,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.64 acts=7 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "cli",
+        "S_control": 5,
+        "S_cli": 8
+      }
+    },
+    {
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "case_id": "case-012",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 6813,
+          "output_tokens": 2978,
+          "total_tokens": 168639,
+          "reasoning_tokens": 1709
+        },
+        "cli": {
+          "input_tokens": 7661,
+          "output_tokens": 1696,
+          "total_tokens": 200845,
+          "reasoning_tokens": 965
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 848,
+          "output_tokens": -1282,
+          "total_tokens": 32206
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": false,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": false
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=168639 in+out=9791"
+        },
+        {
+          "code": "cli_lint_not_observed_in_logs",
+          "evidence": "stdout/stderr posthoc"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=200845 in+out=9357"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/control/case-012-run-01/acao.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/cli/case-012-run-01/acao.md",
+      "readability_control": {
+        "chars": 205,
+        "words": 37,
+        "semicolon_count": 0,
+        "sentence_n": 5,
+        "avg_sentence_words": 7.4,
+        "max_sentence_words": 9,
+        "list_line_ratio": 0.0,
+        "lines": 5,
+        "delta_chars_vs_input": -57,
+        "delta_words_vs_input": -9
+      },
+      "readability_cli": {
+        "chars": 287,
+        "words": 49,
+        "semicolon_count": 0,
+        "sentence_n": 6,
+        "avg_sentence_words": 7.0,
+        "max_sentence_words": 8,
+        "list_line_ratio": 0.455,
+        "lines": 11,
+        "delta_chars_vs_input": 25,
+        "delta_words_vs_input": 3
+      },
+      "wall_control": 59.8,
+      "wall_cli": 23.6,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 7,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.45 acts=5 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "cli",
+        "S_control": 5,
+        "S_cli": 7
+      }
+    },
+    {
+      "model": "qwen/qwen3.8-27b",
+      "case_id": "case-007",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 124253,
+          "output_tokens": 1615,
+          "total_tokens": 125868,
+          "reasoning_tokens": 805
+        },
+        "cli": {
+          "input_tokens": 179667,
+          "output_tokens": 4722,
+          "total_tokens": 261221,
+          "reasoning_tokens": 2599
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 55414,
+          "output_tokens": 3107,
+          "total_tokens": 135353
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": true
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/qwen_qwen3.8-27b/control/case-007-run-01/procedimento.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/qwen_qwen3.8-27b/cli/case-007-run-01/procedimento.md",
+      "readability_control": {
+        "chars": 771,
+        "words": 150,
+        "semicolon_count": 0,
+        "sentence_n": 32,
+        "avg_sentence_words": 4.25,
+        "max_sentence_words": 17,
+        "list_line_ratio": 0.722,
+        "lines": 18,
+        "delta_chars_vs_input": -16,
+        "delta_words_vs_input": 6
+      },
+      "readability_cli": {
+        "chars": 770,
+        "words": 144,
+        "semicolon_count": 0,
+        "sentence_n": 27,
+        "avg_sentence_words": 4.81,
+        "max_sentence_words": 14,
+        "list_line_ratio": 0.722,
+        "lines": 18,
+        "delta_chars_vs_input": -17,
+        "delta_words_vs_input": 0
+      },
+      "wall_control": 91.1,
+      "wall_cli": 141.1,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 1,
+          "S": 7,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.72 acts=13 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.72 acts=13 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "cli",
+        "S_control": 7,
+        "S_cli": 8
+      }
+    },
+    {
+      "model": "qwen/qwen3.8-27b",
+      "case_id": "case-008",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 76752,
+          "output_tokens": 1041,
+          "total_tokens": 93473,
+          "reasoning_tokens": 391
+        },
+        "cli": {
+          "input_tokens": 69049,
+          "output_tokens": 4152,
+          "total_tokens": 193937,
+          "reasoning_tokens": 2997
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": -7703,
+          "output_tokens": 3111,
+          "total_tokens": 100464
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": false,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": false
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "cli_lint_not_observed_in_logs",
+          "evidence": "stdout/stderr posthoc"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/qwen_qwen3.8-27b/control/case-008-run-01/mitigacao.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/qwen_qwen3.8-27b/cli/case-008-run-01/mitigacao.md",
+      "readability_control": {
+        "chars": 582,
+        "words": 87,
+        "semicolon_count": 0,
+        "sentence_n": 11,
+        "avg_sentence_words": 6.91,
+        "max_sentence_words": 10,
+        "list_line_ratio": 0.688,
+        "lines": 16,
+        "delta_chars_vs_input": 129,
+        "delta_words_vs_input": 9
+      },
+      "readability_cli": {
+        "chars": 606,
+        "words": 95,
+        "semicolon_count": 0,
+        "sentence_n": 11,
+        "avg_sentence_words": 7.64,
+        "max_sentence_words": 12,
+        "list_line_ratio": 0.688,
+        "lines": 16,
+        "delta_chars_vs_input": 153,
+        "delta_words_vs_input": 17
+      },
+      "wall_control": 40.7,
+      "wall_cli": 84.1,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.69 acts=11 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.69 acts=11 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "tie",
+        "S_control": 8,
+        "S_cli": 8
+      }
+    },
+    {
+      "model": "qwen/qwen3.8-27b",
+      "case_id": "case-012",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 117578,
+          "output_tokens": 1209,
+          "total_tokens": 186211,
+          "reasoning_tokens": 518
+        },
+        "cli": {
+          "input_tokens": 100414,
+          "output_tokens": 4841,
+          "total_tokens": 196983,
+          "reasoning_tokens": 3531
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": -17164,
+          "output_tokens": 3632,
+          "total_tokens": 10772
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": false,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": false
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "cli_lint_not_observed_in_logs",
+          "evidence": "stdout/stderr posthoc"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/qwen_qwen3.8-27b/control/case-012-run-01/acao.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/qwen_qwen3.8-27b/cli/case-012-run-01/acao.md",
+      "readability_control": {
+        "chars": 346,
+        "words": 60,
+        "semicolon_count": 0,
+        "sentence_n": 8,
+        "avg_sentence_words": 7.12,
+        "max_sentence_words": 11,
+        "list_line_ratio": 0.8,
+        "lines": 5,
+        "delta_chars_vs_input": 84,
+        "delta_words_vs_input": 14
+      },
+      "readability_cli": {
+        "chars": 373,
+        "words": 64,
+        "semicolon_count": 0,
+        "sentence_n": 13,
+        "avg_sentence_words": 4.85,
+        "max_sentence_words": 11,
+        "list_line_ratio": 0.643,
+        "lines": 14,
+        "delta_chars_vs_input": 111,
+        "delta_words_vs_input": 18
+      },
+      "wall_control": 69.0,
+      "wall_cli": 154.8,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.80 acts=4 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.64 acts=9 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "tie",
+        "S_control": 8,
+        "S_cli": 8
+      }
+    },
+    {
+      "model": "thinkingmachines/inkling-small",
+      "case_id": "case-007",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 40639,
+          "output_tokens": 615,
+          "total_tokens": 141222,
+          "reasoning_tokens": 60
+        },
+        "cli": {
+          "input_tokens": 2504,
+          "output_tokens": 995,
+          "total_tokens": 199467,
+          "reasoning_tokens": 161
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": -38135,
+          "output_tokens": 380,
+          "total_tokens": 58245
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": false,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": false
+      },
+      "residual_control": 0,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=141222 in+out=41254"
+        },
+        {
+          "code": "cli_lint_not_observed_in_logs",
+          "evidence": "stdout/stderr posthoc"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=199467 in+out=3499"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/thinkingmachines_inkling-small/control/case-007-run-01/procedimento.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/thinkingmachines_inkling-small/cli/case-007-run-01/procedimento.md",
+      "readability_control": {
+        "chars": 581,
+        "words": 102,
+        "semicolon_count": 0,
+        "sentence_n": 15,
+        "avg_sentence_words": 6.13,
+        "max_sentence_words": 13,
+        "list_line_ratio": 0.0,
+        "lines": 11,
+        "delta_chars_vs_input": -206,
+        "delta_words_vs_input": -42
+      },
+      "readability_cli": {
+        "chars": 610,
+        "words": 109,
+        "semicolon_count": 0,
+        "sentence_n": 15,
+        "avg_sentence_words": 6.6,
+        "max_sentence_words": 14,
+        "list_line_ratio": 0.909,
+        "lines": 11,
+        "delta_chars_vs_input": -177,
+        "delta_words_vs_input": -35
+      },
+      "wall_control": 16.6,
+      "wall_cli": 19.9,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.91 acts=10 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "cli",
+        "S_control": 5,
+        "S_cli": 8
+      }
+    },
+    {
+      "model": "thinkingmachines/inkling-small",
+      "case_id": "case-008",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 2237,
+          "output_tokens": 549,
+          "total_tokens": 168546,
+          "reasoning_tokens": 19
+        },
+        "cli": {
+          "input_tokens": 2089,
+          "output_tokens": 482,
+          "total_tokens": 140555,
+          "reasoning_tokens": 64
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": -148,
+          "output_tokens": -67,
+          "total_tokens": -27991
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": true
+      },
+      "residual_control": 5,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=168546 in+out=2786"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=140555 in+out=2571"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/thinkingmachines_inkling-small/control/case-008-run-01/mitigacao.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/thinkingmachines_inkling-small/cli/case-008-run-01/mitigacao.md",
+      "readability_control": {
+        "chars": 244,
+        "words": 36,
+        "semicolon_count": 5,
+        "sentence_n": 4,
+        "avg_sentence_words": 9.0,
+        "max_sentence_words": 12,
+        "list_line_ratio": 0.0,
+        "lines": 4,
+        "delta_chars_vs_input": -209,
+        "delta_words_vs_input": -42
+      },
+      "readability_cli": {
+        "chars": 283,
+        "words": 42,
+        "semicolon_count": 0,
+        "sentence_n": 11,
+        "avg_sentence_words": 3.82,
+        "max_sentence_words": 8,
+        "list_line_ratio": 0.0,
+        "lines": 4,
+        "delta_chars_vs_input": -170,
+        "delta_words_vs_input": -36
+      },
+      "wall_control": 17.0,
+      "wall_cli": 15.2,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 0,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 3,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 2,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=5",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "cli",
+        "S_control": 3,
+        "S_cli": 5
+      }
+    },
+    {
+      "model": "thinkingmachines/inkling-small",
+      "case_id": "case-012",
+      "run_id": "run-01",
+      "executor": {
+        "control": {
+          "input_tokens": 2058,
+          "output_tokens": 877,
+          "total_tokens": 141943,
+          "reasoning_tokens": 90
+        },
+        "cli": {
+          "input_tokens": 3338,
+          "output_tokens": 641,
+          "total_tokens": 200715,
+          "reasoning_tokens": 40
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 1280,
+          "output_tokens": -236,
+          "total_tokens": 58772
+        },
+        "token_source_control": "usage-file",
+        "token_source_cli": "usage-file"
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "residual_n": 0,
+        "residual_zero": true,
+        "operational_pass": true
+      },
+      "residual_control": 1,
+      "residual_cli": 0,
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=141943 in+out=2935"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=200715 in+out=3979"
+        }
+      ],
+      "artifact_control": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/thinkingmachines_inkling-small/control/case-012-run-01/acao.md",
+      "artifact_cli": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/thinkingmachines_inkling-small/cli/case-012-run-01/acao.md",
+      "readability_control": {
+        "chars": 241,
+        "words": 41,
+        "semicolon_count": 1,
+        "sentence_n": 8,
+        "avg_sentence_words": 5.12,
+        "max_sentence_words": 8,
+        "list_line_ratio": 0.0,
+        "lines": 6,
+        "delta_chars_vs_input": -21,
+        "delta_words_vs_input": -5
+      },
+      "readability_cli": {
+        "chars": 276,
+        "words": 46,
+        "semicolon_count": 0,
+        "sentence_n": 8,
+        "avg_sentence_words": 5.25,
+        "max_sentence_words": 8,
+        "list_line_ratio": 0.8,
+        "lines": 5,
+        "delta_chars_vs_input": 14,
+        "delta_words_vs_input": 0
+      },
+      "wall_control": 16.7,
+      "wall_cli": 18.2,
+      "quality_semantic_pilot": {
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 0,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 3,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 2,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=1",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.80 acts=4 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": "cli",
+        "S_control": 3,
+        "S_cli": 8
+      }
+    }
+  ],
+  "aggregate": {
+    "n_pairs": 12,
+    "median_delta_input": -3925.5,
+    "median_delta_output": 379.0,
+    "median_delta_total": 77563.5,
+    "gate_pass_n": 6,
+    "lint_invoked_n": 6,
+    "residual0_control_n": 10,
+    "residual0_cli_n": 12,
+    "integrity_flag_codes": {
+      "cli_lint_not_observed_in_logs": 6,
+      "total_much_greater_than_in_plus_out": 16
+    },
+    "semantic_pref_counts": {
+      "tie": 4,
+      "cli": 7,
+      "control": 1
+    },
+    "median_S_control": 5.0,
+    "median_S_cli": 8.0
+  },
+  "by_model": [
+    {
+      "model": "meta/muse-glimmer-30b",
+      "n": 3,
+      "median_delta_in": -44253,
+      "median_delta_out": 378,
+      "median_delta_tot": 96355,
+      "gate_pass": 2,
+      "lint_invoked": 2,
+      "residual0_control": 3,
+      "residual0_cli": 3,
+      "semantic_pref": {
+        "tie": 2,
+        "cli": 1
+      },
+      "median_S_control": 5,
+      "median_S_cli": 8
+    },
+    {
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "n": 3,
+      "median_delta_in": 848,
+      "median_delta_out": 57,
+      "median_delta_tot": 114747,
+      "gate_pass": 1,
+      "lint_invoked": 1,
+      "residual0_control": 3,
+      "residual0_cli": 3,
+      "semantic_pref": {
+        "control": 1,
+        "cli": 2
+      },
+      "median_S_control": 5,
+      "median_S_cli": 7
+    },
+    {
+      "model": "qwen/qwen3.8-27b",
+      "n": 3,
+      "median_delta_in": -7703,
+      "median_delta_out": 3111,
+      "median_delta_tot": 100464,
+      "gate_pass": 1,
+      "lint_invoked": 1,
+      "residual0_control": 3,
+      "residual0_cli": 3,
+      "semantic_pref": {
+        "cli": 1,
+        "tie": 2
+      },
+      "median_S_control": 8,
+      "median_S_cli": 8
+    },
+    {
+      "model": "thinkingmachines/inkling-small",
+      "n": 3,
+      "median_delta_in": -148,
+      "median_delta_out": -67,
+      "median_delta_tot": 58245,
+      "gate_pass": 2,
+      "lint_invoked": 2,
+      "residual0_control": 1,
+      "residual0_cli": 3,
+      "semantic_pref": {
+        "cli": 3
+      },
+      "median_S_control": 3,
+      "median_S_cli": 8
+    }
+  ],
+  "panel": {
+    "status": "not_run_on_y4_smoke",
+    "note": "Painel Kimi/Maritaca ainda é da bateria v2 Grok. Próximo: painel nos artefatos Y4."
+  },
+  "quality_blind": {
+    "status": "semantic_heuristic_pilot",
+    "rubric": "docs/hermes-case-study/semantic-rubric-v1.md",
+    "preference_counts": {
+      "tie": 4,
+      "cli": 7,
+      "control": 1
+    },
+    "scores": [
+      {
+        "model": "meta/muse-glimmer-30b",
+        "case_id": "case-007",
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 1,
+          "S": 4,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 3,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 1,
+          "S": 4,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 3,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "tie",
+          "tie_break_rule": "tie",
+          "S_A": 4,
+          "S_B": 4,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "tie",
+          "S_control": 4,
+          "S_cli": 4
+        }
+      },
+      {
+        "model": "meta/muse-glimmer-30b",
+        "case_id": "case-008",
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.71 acts=12 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.72 acts=13 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "tie",
+          "tie_break_rule": "tie",
+          "S_A": 8,
+          "S_B": 8,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "tie",
+          "S_control": 8,
+          "S_cli": 8
+        }
+      },
+      {
+        "model": "meta/muse-glimmer-30b",
+        "case_id": "case-012",
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.64 acts=9 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "B",
+          "tie_break_rule": "higher_S",
+          "S_A": 5,
+          "S_B": 8,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "cli",
+          "S_control": 5,
+          "S_cli": 8
+        }
+      },
+      {
+        "model": "nvidia/nemotron-3.5-lightning:free",
+        "case_id": "case-007",
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 1,
+          "S": 7,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.73 acts=11 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 0,
+          "C4_ambiguity": 1,
+          "S": 3,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 2,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "A",
+          "tie_break_rule": "higher_S",
+          "S_A": 7,
+          "S_B": 3,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "control",
+          "S_control": 7,
+          "S_cli": 3
+        }
+      },
+      {
+        "model": "nvidia/nemotron-3.5-lightning:free",
+        "case_id": "case-008",
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.64 acts=7 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "B",
+          "tie_break_rule": "higher_S",
+          "S_A": 5,
+          "S_B": 8,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "cli",
+          "S_control": 5,
+          "S_cli": 8
+        }
+      },
+      {
+        "model": "nvidia/nemotron-3.5-lightning:free",
+        "case_id": "case-012",
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 7,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.45 acts=5 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "B",
+          "tie_break_rule": "higher_S",
+          "S_A": 5,
+          "S_B": 7,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "cli",
+          "S_control": 5,
+          "S_cli": 7
+        }
+      },
+      {
+        "model": "qwen/qwen3.8-27b",
+        "case_id": "case-007",
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 1,
+          "S": 7,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.72 acts=13 amb=1 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.72 acts=13 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "B",
+          "tie_break_rule": "higher_S",
+          "S_A": 7,
+          "S_B": 8,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "cli",
+          "S_control": 7,
+          "S_cli": 8
+        }
+      },
+      {
+        "model": "qwen/qwen3.8-27b",
+        "case_id": "case-008",
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.69 acts=11 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.69 acts=11 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "tie",
+          "tie_break_rule": "tie",
+          "S_A": 8,
+          "S_B": 8,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "tie",
+          "S_control": 8,
+          "S_cli": 8
+        }
+      },
+      {
+        "model": "qwen/qwen3.8-27b",
+        "case_id": "case-012",
+        "control": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.80 acts=4 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.64 acts=9 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "tie",
+          "tie_break_rule": "tie",
+          "S_A": 8,
+          "S_B": 8,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "tie",
+          "S_control": 8,
+          "S_cli": 8
+        }
+      },
+      {
+        "model": "thinkingmachines/inkling-small",
+        "case_id": "case-007",
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.91 acts=10 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "B",
+          "tie_break_rule": "higher_S",
+          "S_A": 5,
+          "S_B": 8,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "cli",
+          "S_control": 5,
+          "S_cli": 8
+        }
+      },
+      {
+        "model": "thinkingmachines/inkling-small",
+        "case_id": "case-008",
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 0,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 3,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 2,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=5",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 5,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 4,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "B",
+          "tie_break_rule": "higher_S",
+          "S_A": 3,
+          "S_B": 5,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "cli",
+          "S_control": 3,
+          "S_cli": 5
+        }
+      },
+      {
+        "model": "thinkingmachines/inkling-small",
+        "case_id": "case-012",
+        "control": {
+          "C1_executability": 0,
+          "C2_fidelity_coverage": 0,
+          "C3_structure_scan": 1,
+          "C4_ambiguity": 2,
+          "S": 3,
+          "critical_block": false,
+          "accept_class": "rejeitado_retrabalho_maior",
+          "clarity_1to5_compat": 2,
+          "justification": "auto-pilot list_ratio=0.00 acts=0 amb=0 residual=1",
+          "method": "heuristic_pilot_not_human"
+        },
+        "cli": {
+          "C1_executability": 2,
+          "C2_fidelity_coverage": 2,
+          "C3_structure_scan": 2,
+          "C4_ambiguity": 2,
+          "S": 8,
+          "critical_block": false,
+          "accept_class": "aceito",
+          "clarity_1to5_compat": 5,
+          "justification": "auto-pilot list_ratio=0.80 acts=4 amb=0 residual=0",
+          "method": "heuristic_pilot_not_human"
+        },
+        "preference": {
+          "preferred_label": "B",
+          "tie_break_rule": "higher_S",
+          "S_A": 3,
+          "S_B": 8,
+          "critical_block_A": false,
+          "critical_block_B": false,
+          "preferred_condition": "cli",
+          "S_control": 3,
+          "S_cli": 8
+        }
+      }
+    ],
+    "caveat": "piloto heurístico Hermes-A, não painel multi-revisor cego humano"
+  },
+  "integrity": {
+    "policy": "anomalies marked, never silently dropped",
+    "flags": [
+      {
+        "code": "cli_lint_not_observed_in_logs",
+        "evidence": "stdout/stderr posthoc"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=153105 in+out=5009"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=277836 in+out=6988"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=374191 in+out=8047"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=367254 in+out=53718"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=505768 in+out=10088"
+      },
+      {
+        "code": "cli_lint_not_observed_in_logs",
+        "evidence": "stdout/stderr posthoc"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=321695 in+out=19231"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=291849 in+out=17673"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=638220 in+out=33292"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=168639 in+out=9791"
+      },
+      {
+        "code": "cli_lint_not_observed_in_logs",
+        "evidence": "stdout/stderr posthoc"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=200845 in+out=9357"
+      },
+      {
+        "code": "cli_lint_not_observed_in_logs",
+        "evidence": "stdout/stderr posthoc"
+      },
+      {
+        "code": "cli_lint_not_observed_in_logs",
+        "evidence": "stdout/stderr posthoc"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=141222 in+out=41254"
+      },
+      {
+        "code": "cli_lint_not_observed_in_logs",
+        "evidence": "stdout/stderr posthoc"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=199467 in+out=3499"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=168546 in+out=2786"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=140555 in+out=2571"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=141943 in+out=2935"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=200715 in+out=3979"
+      }
+    ]
+  }
+}

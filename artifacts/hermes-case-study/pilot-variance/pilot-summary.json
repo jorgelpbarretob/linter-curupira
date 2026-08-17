@@ -1,0 +1,69 @@
+{
+  "schema_version": "hermes-case-study-pilot-summary/v1",
+  "runs_total": 12,
+  "capture": {
+    "missing_usage": [],
+    "missing_artifact": [],
+    "ok": true
+  },
+  "intra_task_cv_pct": {
+    "control": {
+      "input_tokens": 45.9,
+      "output_tokens": 34.5,
+      "total_tokens": 11.8,
+      "api_calls": 12.1,
+      "wall_seconds": 18.0
+    },
+    "curupira": {
+      "input_tokens": 14.5,
+      "output_tokens": 27.1,
+      "total_tokens": 7.8,
+      "api_calls": 7.7,
+      "wall_seconds": 15.7
+    }
+  },
+  "preliminary_direction": [
+    {
+      "case_id": "case-007",
+      "n_control": 3,
+      "n_curupira": 3,
+      "ctrl_input_tokens": 3592.0,
+      "trat_input_tokens": 7144.0,
+      "ctrl_output_tokens": 3399.0,
+      "trat_output_tokens": 4631.0,
+      "ctrl_total_tokens": 103261.0,
+      "trat_total_tokens": 211841.0,
+      "ctrl_api_calls": 4.0,
+      "trat_api_calls": 8.0,
+      "ctrl_wall_seconds": 83.6,
+      "trat_wall_seconds": 118.0,
+      "ctrl_residual_findings_n": 0.0,
+      "trat_residual_findings_n": 0.0,
+      "ctrl_chars": 794.0,
+      "trat_chars": 779.0,
+      "ctrl_avg_sentence_words": 4.22,
+      "trat_avg_sentence_words": 4.17
+    },
+    {
+      "case_id": "case-008",
+      "n_control": 3,
+      "n_curupira": 3,
+      "ctrl_input_tokens": 3044.0,
+      "trat_input_tokens": 5935.0,
+      "ctrl_output_tokens": 1768.0,
+      "trat_output_tokens": 2870.0,
+      "ctrl_total_tokens": 125836.0,
+      "trat_total_tokens": 184548.0,
+      "ctrl_api_calls": 5.0,
+      "trat_api_calls": 7.0,
+      "ctrl_wall_seconds": 63.4,
+      "trat_wall_seconds": 89.0,
+      "ctrl_residual_findings_n": 0.0,
+      "trat_residual_findings_n": 0.0,
+      "ctrl_chars": 636.0,
+      "trat_chars": 619.0,
+      "ctrl_avg_sentence_words": 5.92,
+      "trat_avg_sentence_words": 5.0
+    }
+  ]
+}

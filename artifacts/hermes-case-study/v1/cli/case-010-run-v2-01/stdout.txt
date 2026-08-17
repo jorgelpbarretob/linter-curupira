@@ -1,0 +1,44 @@
+  ┊ review diff
+a/runbook.md → b/runbook.md
+@@ -1,3 +1,35 @@
+-# Runbook legado — preflight docs
++# Runbook — preflight docs
+ 
+-O revisor deve garantir o ambiente com a toolchain do time; instalar hermes-lint se faltar; em cada PR de documentação rodar hermes-lint docs/**/*.md --enable-rule HERMES-PT-PONT-001 e falhar o checklist se exit != 0; quando houver finding, ajustar a prosa sem alterar código e repetir até limpar; salvar a saída JSON no ticket; se o documento for procedimento operacional, pedir leitura em voz alta por um segundo revisor; abrir PR só depois do lint limpo e do checklist marcado; não commitar segredos; não rodar semantic-review sem autorização explícita.
++## Objetivo
++Garantir ambiente e lint de documentação antes de abrir PR.
++
++## Fluxo
++
++### 1. Instalar
++Garantir a toolchain do time.
++Se faltar o binário, instalar `curupira`.
++
++### 2. Lint
++Em cada PR de documentação, rodar:
++
++```bash
++curupira lint docs/**/*.md --enable-rule CURUPIRA-PT-PONT-001
++```
++
++Falhar o checklist se exit for diferente de 0.
++
++### 3. Corrigir
++Se houver finding, ajustar só a prosa.
++Não alterar código.
++Repetir o lint até limpar.
++
++### 4. Anexar JSON
++Salvar a saída JSON no ticket.
++
++### 5. Abrir PR
++Abrir PR só depois do lint limpo e do checklist marcado.
++
++## Regras extras
++- Se o documento for procedimento operacional, pedir leitura em voz alta por um segundo revisor.
++- Não commitar segredos.
++- Não rodar semantic-review sem autorização explícita.
+path: /tmp/cs-ab/case-010-run-v2-01-cli/runbook.md
+exit lint: 0
+chars: 811
+resumo: Runbook modernizado (curupira lint + CURUPIRA-PT-PONT-001), fluxo instalar→lint→corrigir→JSON→PR, prosa sem muro/ponto-e-vírgula.

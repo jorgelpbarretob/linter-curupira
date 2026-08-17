@@ -1,0 +1,36 @@
+Você é o braço CLI do estudo case-009.
+NÃO carregue skill. Use só o binário local curupira.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-009-run-cli-default-cli/task.md
+- artefato a editar: /tmp/cs-ab/case-009-run-cli-default-cli/pop.md
+
+# Tarefa case-009 — lab notes → POP legível
+
+## Objetivo de produto
+Reduzir ruído textual e tokens. Operador executa sem reler o parágrafo.
+
+## Entrada
+`notas-lab.md`
+
+## Entregar
+`pop.md` no diretório de trabalho.
+
+## Pronto quando
+1. Inclui amostragem A-14, frasco F90, cadeia fria 2–8 °C, prazo 30 min, formulário LF-03.
+2. Passos numerados curtos.
+3. Sem ponto e vírgula em prosa.
+4. Sem equipamentos inventados.
+5. Com Curupira: lint exit 0.
+
+
+Regras do braço CLI (mínimas):
+- Edite /tmp/cs-ab/case-009-run-cli-default-cli/pop.md para legibilidade: frases curtas, passos explícitos, sem muro de texto.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Antes de declarar pronto, rode EXATAMENTE:
+  curupira lint /tmp/cs-ab/case-009-run-cli-default-cli/pop.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- NÃO use semantic-review. NÃO chame APIs.
+- NÃO peça nem carregue skill curupira-preflight.
+- Sobrescreva somente: /tmp/cs-ab/case-009-run-cli-default-cli/pop.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

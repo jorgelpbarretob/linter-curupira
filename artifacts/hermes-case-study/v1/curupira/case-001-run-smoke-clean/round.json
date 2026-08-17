@@ -1,0 +1,23 @@
+{
+  "schema_version": "hermes-case-study-round/v1",
+  "run_id": "case-001-run-smoke-clean",
+  "case_id": "case-001",
+  "condition": "curupira",
+  "case_package_sha256": "905a3f4a80a8f623927db96f91a871e8635030f922ed1bcf7c4d515a606f50cb",
+  "artifact_sha256": "8603494c053f859dcfcf246e8154ff4b3a00000fd805b74f616e7c4ac4262625",
+  "ts": 1786931090.0912254,
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "agent_metrics": {
+    "tool_calls": null,
+    "turns": null,
+    "duration_s": null,
+    "tokens": null,
+    "note": "preencher a partir da sessão Hermes"
+  },
+  "acceptance_class": null,
+  "notes": ""
+}

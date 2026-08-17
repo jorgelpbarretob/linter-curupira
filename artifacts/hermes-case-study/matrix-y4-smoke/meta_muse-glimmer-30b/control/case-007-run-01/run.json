@@ -1,0 +1,49 @@
+{
+  "schema_version": "hermes-case-study-matrix-y4-run/v1",
+  "case_id": "case-007",
+  "run_id": "run-01",
+  "condition": "control",
+  "model_requested": "meta/muse-glimmer-30b",
+  "provider_requested": "openrouter",
+  "case_package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+  "wall_seconds": 25.5,
+  "timed_out": false,
+  "exit_code": 0,
+  "token_source": "usage-file",
+  "usage": {
+    "input_tokens": 50205,
+    "output_tokens": 1908,
+    "reasoning_tokens": 961,
+    "cache_read_tokens": 101696,
+    "total_tokens": 153809,
+    "api_calls": 5,
+    "model": "meta/muse-glimmer-30b",
+    "provider": "openrouter",
+    "session_id": "20260817_010557_0e41f7"
+  },
+  "artifact_present": true,
+  "gate": {
+    "treatment_lint_invoked": null,
+    "residual_n": 0,
+    "residual_zero": true,
+    "operational_pass": null
+  },
+  "integrity_flags": [],
+  "artifact_path": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/meta_muse-glimmer-30b/control/case-007-run-01/procedimento.md",
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0
+  },
+  "readability": {
+    "chars": 710,
+    "words": 128,
+    "semicolon_count": 0,
+    "sentence_n": 14,
+    "avg_sentence_words": 8.43,
+    "max_sentence_words": 14,
+    "list_line_ratio": 0.0,
+    "lines": 15,
+    "delta_chars_vs_input": -77,
+    "delta_words_vs_input": -16
+  }
+}

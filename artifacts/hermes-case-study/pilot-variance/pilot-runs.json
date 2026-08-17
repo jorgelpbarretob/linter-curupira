@@ -1,0 +1,458 @@
+[
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-007",
+    "run_id": "run-01",
+    "condition": "control",
+    "case_package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+    "wall_seconds": 83.6,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 9128,
+      "output_tokens": 3399,
+      "reasoning_tokens": 2336,
+      "cache_read_tokens": 89728,
+      "total_tokens": 102255,
+      "api_calls": 4,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_233001_f174c0"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 800,
+      "words": 149,
+      "semicolon_count": 0,
+      "sentence_n": 32,
+      "avg_sentence_words": 4.22,
+      "max_sentence_words": 15,
+      "list_line_ratio": 0.762,
+      "lines": 21,
+      "delta_chars_vs_input": 13,
+      "delta_words_vs_input": 5
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-007",
+    "run_id": "run-02",
+    "condition": "control",
+    "case_package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+    "wall_seconds": 103.2,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 2980,
+      "output_tokens": 4793,
+      "reasoning_tokens": 4033,
+      "cache_read_tokens": 95488,
+      "total_tokens": 103261,
+      "api_calls": 4,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_233125_d0720f"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 770,
+      "words": 143,
+      "semicolon_count": 0,
+      "sentence_n": 29,
+      "avg_sentence_words": 4.45,
+      "max_sentence_words": 18,
+      "list_line_ratio": 0.737,
+      "lines": 19,
+      "delta_chars_vs_input": -17,
+      "delta_words_vs_input": -1
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-007",
+    "run_id": "run-03",
+    "condition": "control",
+    "case_package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+    "wall_seconds": 75.7,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 3592,
+      "output_tokens": 2498,
+      "reasoning_tokens": 1548,
+      "cache_read_tokens": 120064,
+      "total_tokens": 126154,
+      "api_calls": 5,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_233308_f62af6"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 794,
+      "words": 150,
+      "semicolon_count": 0,
+      "sentence_n": 33,
+      "avg_sentence_words": 4.12,
+      "max_sentence_words": 15,
+      "list_line_ratio": 0.737,
+      "lines": 19,
+      "delta_chars_vs_input": 7,
+      "delta_words_vs_input": 6
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-007",
+    "run_id": "run-01",
+    "condition": "curupira",
+    "case_package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+    "wall_seconds": 118.6,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 7144,
+      "output_tokens": 4849,
+      "reasoning_tokens": 2522,
+      "cache_read_tokens": 175488,
+      "total_tokens": 187481,
+      "api_calls": 7,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_233424_3b507c"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 830,
+      "words": 160,
+      "semicolon_count": 0,
+      "sentence_n": 35,
+      "avg_sentence_words": 4.17,
+      "max_sentence_words": 16,
+      "list_line_ratio": 0.75,
+      "lines": 20,
+      "delta_chars_vs_input": 43,
+      "delta_words_vs_input": 16
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-007",
+    "run_id": "run-02",
+    "condition": "curupira",
+    "case_package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+    "wall_seconds": 118.0,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 6890,
+      "output_tokens": 4631,
+      "reasoning_tokens": 3246,
+      "cache_read_tokens": 200320,
+      "total_tokens": 211841,
+      "api_calls": 8,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_233623_7fb2d5"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 756,
+      "words": 143,
+      "semicolon_count": 0,
+      "sentence_n": 32,
+      "avg_sentence_words": 4.03,
+      "max_sentence_words": 15,
+      "list_line_ratio": 0.737,
+      "lines": 19,
+      "delta_chars_vs_input": -31,
+      "delta_words_vs_input": -1
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-007",
+    "run_id": "run-03",
+    "condition": "curupira",
+    "case_package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+    "wall_seconds": 103.6,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 8781,
+      "output_tokens": 3743,
+      "reasoning_tokens": 2483,
+      "cache_read_tokens": 201472,
+      "total_tokens": 213996,
+      "api_calls": 8,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_233821_541faa"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 779,
+      "words": 147,
+      "semicolon_count": 0,
+      "sentence_n": 31,
+      "avg_sentence_words": 4.29,
+      "max_sentence_words": 18,
+      "list_line_ratio": 0.722,
+      "lines": 18,
+      "delta_chars_vs_input": -8,
+      "delta_words_vs_input": 3
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-008",
+    "run_id": "run-01",
+    "condition": "control",
+    "case_package_sha256": "dbb40cb87899cd0c0f17c16990ca58aac3fb067def18dfbd5513ff826c6daf3f",
+    "wall_seconds": 60.2,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 2710,
+      "output_tokens": 1692,
+      "reasoning_tokens": 920,
+      "cache_read_tokens": 120064,
+      "total_tokens": 124466,
+      "api_calls": 5,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_234005_bbd253"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 554,
+      "words": 83,
+      "semicolon_count": 0,
+      "sentence_n": 12,
+      "avg_sentence_words": 5.92,
+      "max_sentence_words": 12,
+      "list_line_ratio": 0.667,
+      "lines": 15,
+      "delta_chars_vs_input": 101,
+      "delta_words_vs_input": 5
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-008",
+    "run_id": "run-02",
+    "condition": "control",
+    "case_package_sha256": "dbb40cb87899cd0c0f17c16990ca58aac3fb067def18dfbd5513ff826c6daf3f",
+    "wall_seconds": 63.4,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 4440,
+      "output_tokens": 1768,
+      "reasoning_tokens": 613,
+      "cache_read_tokens": 145408,
+      "total_tokens": 151616,
+      "api_calls": 6,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_234105_7ab575"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 636,
+      "words": 102,
+      "semicolon_count": 0,
+      "sentence_n": 19,
+      "avg_sentence_words": 4.79,
+      "max_sentence_words": 10,
+      "list_line_ratio": 0.722,
+      "lines": 18,
+      "delta_chars_vs_input": 183,
+      "delta_words_vs_input": 24
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-008",
+    "run_id": "run-03",
+    "condition": "control",
+    "case_package_sha256": "dbb40cb87899cd0c0f17c16990ca58aac3fb067def18dfbd5513ff826c6daf3f",
+    "wall_seconds": 85.5,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 3044,
+      "output_tokens": 3112,
+      "reasoning_tokens": 2381,
+      "cache_read_tokens": 119680,
+      "total_tokens": 125836,
+      "api_calls": 5,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_234208_89f9b7"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 751,
+      "words": 119,
+      "semicolon_count": 0,
+      "sentence_n": 13,
+      "avg_sentence_words": 8.15,
+      "max_sentence_words": 16,
+      "list_line_ratio": 0.625,
+      "lines": 16,
+      "delta_chars_vs_input": 298,
+      "delta_words_vs_input": 41
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-008",
+    "run_id": "run-01",
+    "condition": "curupira",
+    "case_package_sha256": "dbb40cb87899cd0c0f17c16990ca58aac3fb067def18dfbd5513ff826c6daf3f",
+    "wall_seconds": 69.9,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 5935,
+      "output_tokens": 1845,
+      "reasoning_tokens": 1067,
+      "cache_read_tokens": 176768,
+      "total_tokens": 184548,
+      "api_calls": 7,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_234334_5a8998"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 592,
+      "words": 93,
+      "semicolon_count": 0,
+      "sentence_n": 14,
+      "avg_sentence_words": 5.71,
+      "max_sentence_words": 11,
+      "list_line_ratio": 0.688,
+      "lines": 16,
+      "delta_chars_vs_input": 139,
+      "delta_words_vs_input": 15
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-008",
+    "run_id": "run-02",
+    "condition": "curupira",
+    "case_package_sha256": "dbb40cb87899cd0c0f17c16990ca58aac3fb067def18dfbd5513ff826c6daf3f",
+    "wall_seconds": 89.0,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 6829,
+      "output_tokens": 2870,
+      "reasoning_tokens": 1790,
+      "cache_read_tokens": 203520,
+      "total_tokens": 213219,
+      "api_calls": 8,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_234444_da04ff"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 619,
+      "words": 98,
+      "semicolon_count": 0,
+      "sentence_n": 18,
+      "avg_sentence_words": 4.78,
+      "max_sentence_words": 11,
+      "list_line_ratio": 0.706,
+      "lines": 17,
+      "delta_chars_vs_input": 166,
+      "delta_words_vs_input": 20
+    }
+  },
+  {
+    "schema_version": "hermes-case-study-pilot-run/v1",
+    "case_id": "case-008",
+    "run_id": "run-03",
+    "condition": "curupira",
+    "case_package_sha256": "dbb40cb87899cd0c0f17c16990ca58aac3fb067def18dfbd5513ff826c6daf3f",
+    "wall_seconds": 113.0,
+    "timed_out": false,
+    "exit_code": 0,
+    "usage": {
+      "input_tokens": 4992,
+      "output_tokens": 4295,
+      "reasoning_tokens": 3115,
+      "cache_read_tokens": 175232,
+      "total_tokens": 184519,
+      "api_calls": 7,
+      "model": "qwen3.8-max",
+      "provider": "custom",
+      "session_id": "20260816_234614_71baf8"
+    },
+    "artifact_present": true,
+    "residual_lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "readability": {
+      "chars": 707,
+      "words": 109,
+      "semicolon_count": 0,
+      "sentence_n": 19,
+      "avg_sentence_words": 5.0,
+      "max_sentence_words": 12,
+      "list_line_ratio": 0.684,
+      "lines": 19,
+      "delta_chars_vs_input": 254,
+      "delta_words_vs_input": 31
+    }
+  }
+]

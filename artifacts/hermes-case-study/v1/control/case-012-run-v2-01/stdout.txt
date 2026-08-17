@@ -1,0 +1,14 @@
+  ┊ review diff
+a/acao.md → b/acao.md
+@@ -1,2 +1,6 @@
+-# Notas
+-TIC-77 em HI desde 02:10; operador aumentou vazão sem efeito claro; NÃO usar bypass de interlock; se não cair em 15 min abrir SEV3; checar sensor e válvula de água de resfriamento; anotar valores do painel; chamar utilidades só depois da checagem local.
++# TIC-77 — alarme HI
++
++- Sintoma: HI desde 02:10. Vazão ↑ sem efeito claro.
++- Ação: checar sensor e válvula de água de resfriamento. Anotar valores do painel. Bypass de interlock proibido.
++- Verify: HI cai após checagem local.
++- Escala: se não cair em 15 min → SEV3. Utilidades só depois da checagem local.
+path: /tmp/cs-ab/case-012-run-v2-01-control/acao.md
+chars: 306 (320 bytes)
+resumo: card plantão TIC-77 HI → checagem local s/ bypass → verify → SEV3 em 15 min

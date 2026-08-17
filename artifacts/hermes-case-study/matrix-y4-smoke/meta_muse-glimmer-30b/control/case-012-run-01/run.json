@@ -1,0 +1,54 @@
+{
+  "schema_version": "hermes-case-study-matrix-y4-run/v1",
+  "case_id": "case-012",
+  "run_id": "run-01",
+  "condition": "control",
+  "model_requested": "meta/muse-glimmer-30b",
+  "provider_requested": "openrouter",
+  "case_package_sha256": "ac7e451e4f545ad534baea29d1bed0422a9546c51eae7d91c3fe41ece0f974aa",
+  "wall_seconds": 37.3,
+  "timed_out": false,
+  "exit_code": 0,
+  "token_source": "usage-file",
+  "usage": {
+    "input_tokens": 50715,
+    "output_tokens": 3003,
+    "reasoning_tokens": 1898,
+    "cache_read_tokens": 313536,
+    "total_tokens": 367254,
+    "api_calls": 12,
+    "model": "meta/muse-glimmer-30b",
+    "provider": "openrouter",
+    "session_id": "20260817_010752_202b3b"
+  },
+  "artifact_present": true,
+  "gate": {
+    "treatment_lint_invoked": null,
+    "residual_n": 0,
+    "residual_zero": true,
+    "operational_pass": null
+  },
+  "integrity_flags": [
+    {
+      "code": "total_much_greater_than_in_plus_out",
+      "evidence": "total=367254 in+out=53718"
+    }
+  ],
+  "artifact_path": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/meta_muse-glimmer-30b/control/case-012-run-01/acao.md",
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0
+  },
+  "readability": {
+    "chars": 282,
+    "words": 48,
+    "semicolon_count": 0,
+    "sentence_n": 6,
+    "avg_sentence_words": 7.5,
+    "max_sentence_words": 9,
+    "list_line_ratio": 0.0,
+    "lines": 7,
+    "delta_chars_vs_input": 20,
+    "delta_words_vs_input": 2
+  }
+}

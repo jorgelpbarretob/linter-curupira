@@ -1,0 +1,121 @@
+[
+  {
+    "model": "qwen/qwen3.8-27b",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 259,
+      "completion_tokens": 693,
+      "reasoning_tokens": 469,
+      "cost_usd": 0.00233415
+    },
+    "wall_s": 23.3,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semis_in_prose": 0,
+    "chars": 771
+  },
+  {
+    "model": "meta/muse-glimmer-30b",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 260,
+      "completion_tokens": 1044,
+      "reasoning_tokens": 932,
+      "cost_usd": 0.0013308
+    },
+    "wall_s": 14.7,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semis_in_prose": 0,
+    "chars": 639
+  },
+  {
+    "model": "nvidia/nemotron-3.5-lightning:free",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 246,
+      "completion_tokens": 2359,
+      "reasoning_tokens": 2062,
+      "cost_usd": 0
+    },
+    "wall_s": 20.9,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semis_in_prose": 0,
+    "chars": 758
+  },
+  {
+    "model": "poolside/laguna-xs-2.1:free",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 314,
+      "completion_tokens": 830,
+      "reasoning_tokens": 654,
+      "cost_usd": 0
+    },
+    "wall_s": 5.8,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semis_in_prose": 0,
+    "chars": 546
+  },
+  {
+    "model": "liquid/lfm-2.5-2.6b:free",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 240,
+      "completion_tokens": 2774,
+      "reasoning_tokens": 2527,
+      "cost_usd": 0
+    },
+    "wall_s": 178.7,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semis_in_prose": 0,
+    "chars": 501
+  },
+  {
+    "model": "google/gemma-4-26b-a4b-it:free",
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 232,
+      "completion_tokens": 8192,
+      "reasoning_tokens": 0,
+      "cost_usd": 0
+    },
+    "wall_s": 503.4,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semis_in_prose": 0,
+    "chars": 112077
+  },
+  {
+    "model": "mistralai/mistral-medium-3-5",
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 245,
+      "completion_tokens": 126,
+      "reasoning_tokens": 0,
+      "cost_usd": 0.0013125
+    },
+    "wall_s": 1.2,
+    "lint": {
+      "exit_code": 0,
+      "findings_n": 0
+    },
+    "semis_in_prose": 0,
+    "chars": 403
+  }
+]

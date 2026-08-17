@@ -1,0 +1,32 @@
+Você é o braço CONTROLE do estudo case-009 (sem Curupira).
+
+Leia a tarefa completa abaixo e o arquivo de trabalho:
+- tarefa: /tmp/cs-ab/case-009-run-v2-01-control/task.md
+- artefato a editar: /tmp/cs-ab/case-009-run-v2-01-control/pop.md
+
+# Tarefa case-009 — lab notes → POP legível
+
+## Objetivo de produto
+Reduzir ruído textual e tokens. Operador executa sem reler o parágrafo.
+
+## Entrada
+`notas-lab.md`
+
+## Entregar
+`pop.md` no diretório de trabalho.
+
+## Pronto quando
+1. Inclui amostragem A-14, frasco F90, cadeia fria 2–8 °C, prazo 30 min, formulário LF-03.
+2. Passos numerados curtos.
+3. Sem ponto e vírgula em prosa.
+4. Sem equipamentos inventados.
+5. Com Curupira: lint exit 0.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto (menos tokens de leitura).
+- Sobrescreva somente: /tmp/cs-ab/case-009-run-v2-01-control/pop.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

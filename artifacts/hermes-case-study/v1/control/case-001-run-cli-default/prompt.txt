@@ -1,0 +1,29 @@
+Você é o braço CONTROLE do estudo case-001 (sem Curupira).
+
+Leia a tarefa completa abaixo e o arquivo de trabalho:
+- tarefa: /tmp/cs-ab/case-001-run-cli-default-control/task.md
+- artefato a editar: /tmp/cs-ab/case-001-run-cli-default-control/procedimento.md
+
+# Tarefa case-001 — regressão PONT-001
+
+## Objetivo
+Reescrever o procedimento em `inputs/procedimento.md` para entrega operacional.
+Não altere fatos técnicos (tags V-12, P-01, PI-01).
+
+## Pronto quando
+1. Arquivo final em Markdown com os mesmos três atos na mesma ordem.
+2. `curupira lint FINAL --enable-rule CURUPIRA-PT-PONT-001` retorna exit 0.
+3. Nenhuma tag de equipamento inventada ou removida.
+
+## Restrições
+- Não enviar o documento a APIs.
+- Não usar holdout selado.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto (menos tokens de leitura).
+- Sobrescreva somente: /tmp/cs-ab/case-001-run-cli-default-control/procedimento.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

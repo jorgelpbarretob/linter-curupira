@@ -1,0 +1,2 @@
+# rascunho calibração FI-18  
+Utilizar o padrão REF-2 aquecido conforme indicado na etiqueta. Conectar o REF-2 ao instrumento FI-18. Aguardar estabilização da leitura. Comparar o valor exibido com a tolerância da placa do instrumento. Caso a leitura esteja fora da tolerância da placa, ajustar zero e span somente se permitido pelo procedimento local. Se não for possível ajustar, abrir nota de desvio conforme protocolo. Registrar todas as informações no formulário CAL-01. Desconectar o REF-2 e armazená-lo na caixa de armazenamento apropriada.

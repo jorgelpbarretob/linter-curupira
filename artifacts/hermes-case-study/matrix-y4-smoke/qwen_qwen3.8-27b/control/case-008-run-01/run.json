@@ -1,0 +1,49 @@
+{
+  "schema_version": "hermes-case-study-matrix-y4-run/v1",
+  "case_id": "case-008",
+  "run_id": "run-01",
+  "condition": "control",
+  "model_requested": "qwen/qwen3.8-27b",
+  "provider_requested": "openrouter",
+  "case_package_sha256": "dbb40cb87899cd0c0f17c16990ca58aac3fb067def18dfbd5513ff826c6daf3f",
+  "wall_seconds": 40.7,
+  "timed_out": false,
+  "exit_code": 0,
+  "token_source": "usage-file",
+  "usage": {
+    "input_tokens": 76752,
+    "output_tokens": 1041,
+    "reasoning_tokens": 391,
+    "cache_read_tokens": 15680,
+    "total_tokens": 93473,
+    "api_calls": 3,
+    "model": "qwen/qwen3.8-27b",
+    "provider": "openrouter",
+    "session_id": "20260817_005227_cc887f"
+  },
+  "artifact_present": true,
+  "gate": {
+    "treatment_lint_invoked": null,
+    "residual_n": 0,
+    "residual_zero": true,
+    "operational_pass": null
+  },
+  "integrity_flags": [],
+  "artifact_path": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/qwen_qwen3.8-27b/control/case-008-run-01/mitigacao.md",
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0
+  },
+  "readability": {
+    "chars": 582,
+    "words": 87,
+    "semicolon_count": 0,
+    "sentence_n": 11,
+    "avg_sentence_words": 6.91,
+    "max_sentence_words": 10,
+    "list_line_ratio": 0.688,
+    "lines": 16,
+    "delta_chars_vs_input": 129,
+    "delta_words_vs_input": 9
+  }
+}

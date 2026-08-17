@@ -1,0 +1,32 @@
+/curupira-preflight
+
+Você é o braço TRATAMENTO do estudo case-004 (com Curupira preflight).
+Siga a skill curupira-preflight.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-004-run-01-curupira/task.md
+- artefato a editar: /tmp/cs-ab/case-004-run-01-curupira/runbook.md
+
+# Tarefa case-004 — atualização
+
+## Mudança definida
+A CLI antiga `hermes-lint` foi substituída por `curupira`.
+Flag de regra: `--enable-rule CURUPIRA-PT-PONT-001` (antes `HERMES-PT-PONT-001`).
+
+## Entrada
+Atualize `inputs/runbook.md` para a CLI nova sem mudar o restante do fluxo.
+
+## Pronto quando
+1. Nenhuma ocorrência de `hermes-lint` ou `HERMES-PT-PONT-001`.
+2. Comandos usam `curupira`.
+3. Lint PONT-001 exit 0 no runbook final.
+
+
+Regras do braço tratamento:
+- Antes de declarar pronto, rode exatamente:
+  curupira lint /tmp/cs-ab/case-004-run-01-curupira/runbook.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- Sem semantic-review / sem Maritaca.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Sobrescreva somente: /tmp/cs-ab/case-004-run-01-curupira/runbook.md
+- Ao terminar: path, exit do lint, resumo 1 linha.

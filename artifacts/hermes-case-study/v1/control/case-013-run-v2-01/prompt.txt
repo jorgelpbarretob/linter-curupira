@@ -1,0 +1,26 @@
+Você é o braço CONTROLE do estudo case-013 (sem Curupira).
+
+Leia a tarefa completa abaixo e o arquivo de trabalho:
+- tarefa: /tmp/cs-ab/case-013-run-v2-01-control/task.md
+- artefato a editar: /tmp/cs-ab/case-013-run-v2-01-control/runbook.md
+
+# Tarefa case-013
+
+## Mudança
+Trocar hermes-lint/HERMES-PT por curupira lint/CURUPIRA-PT-PONT-001.
+Manter: fail job, upload JSON, bloquear merge.
+
+## Pronto quando
+1. Zero hermes-lint/HERMES-PT.
+2. Comando com subcomando lint.
+3. Prosa em passos curtos sem ponto e vírgula.
+4. CLI: lint exit 0.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto (menos tokens de leitura).
+- Sobrescreva somente: /tmp/cs-ab/case-013-run-v2-01-control/runbook.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

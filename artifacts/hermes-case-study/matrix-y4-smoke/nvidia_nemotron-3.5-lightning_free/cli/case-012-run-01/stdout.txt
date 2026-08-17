@@ -1,0 +1,4 @@
+path: /tmp/cs-y4/nvidia_nemotron-3.5-lightning_free/case-012-run-01-cli/acao.md  
+exit: 0  
+chars: 297  
+resumo: Ação case-012 formatada sem ponto e vírgula, lista curta sintoma→ação→verify→escala, TIC-77/alarme HI/bypass proibido/SEV3 em 15 min incluídos.

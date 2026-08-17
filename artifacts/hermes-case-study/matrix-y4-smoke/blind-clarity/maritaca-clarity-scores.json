@@ -1,0 +1,1186 @@
+{
+  "schema_version": "matrix-y4-maritaca-clarity/v1",
+  "run_id": "matrix-y4-clarity-run-01",
+  "scored_at": "2026-08-17T01:31:20.807277-03:00",
+  "panel_usage_totals": {
+    "calls": 24,
+    "input_tokens": 16855,
+    "output_tokens": 20831,
+    "total_tokens": 37686
+  },
+  "scores": [
+    {
+      "label": "M01",
+      "case_id": "case-007",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.84,
+      "usage": {
+        "input_tokens": 838,
+        "output_tokens": 722,
+        "total_tokens": 1560
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Procedimento claro e operacional para operador treinado. Sugere-se explicitar o agente em 'chame supervisão' e detalhar o que constitui 'coluna mínima' no PI-33.",
+      "findings": [],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": -1
+    },
+    {
+      "label": "M02",
+      "case_id": "case-008",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 3.51,
+      "usage": {
+        "input_tokens": 722,
+        "output_tokens": 575,
+        "total_tokens": 1297
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito",
+      "critical_errors": 0,
+      "notes": "Texto claro e operacional para operador experiente. Poderia detalhar o que 'health flipou' significa tecnicamente, mas não há erros críticos.",
+      "findings": [],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": -1
+    },
+    {
+      "label": "M03",
+      "case_id": "case-012",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 4.15,
+      "usage": {
+        "input_tokens": 670,
+        "output_tokens": 798,
+        "total_tokens": 1468
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 5,
+      "accept_class": "aceito",
+      "critical_errors": 0,
+      "notes": "Procedimento conciso e completo: sintoma, ação, verificação e escalonamento bem definidos. Linguagem direta adequada a operadores.",
+      "findings": [],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": -1
+    },
+    {
+      "label": "M04",
+      "case_id": "case-007",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 3.76,
+      "usage": {
+        "input_tokens": 828,
+        "output_tokens": 727,
+        "total_tokens": 1555
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito",
+      "critical_errors": 0,
+      "notes": "Procedimento claro e bem estruturado para operador experiente. Sem erros técnicos ou omissões críticas. Nenhum retrabalho necessário.",
+      "findings": [],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": -1
+    },
+    {
+      "label": "M05",
+      "case_id": "case-008",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 3.4,
+      "usage": {
+        "input_tokens": 725,
+        "output_tokens": 577,
+        "total_tokens": 1302
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 5,
+      "accept_class": "aceito",
+      "critical_errors": 0,
+      "notes": "Runbook claro, direto e operacional. Mitigação, verificação e escalonamento bem definidos. Nenhum risco técnico identificado.",
+      "findings": [],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": -1
+    },
+    {
+      "label": "M06",
+      "case_id": "case-012",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.51,
+      "usage": {
+        "input_tokens": 680,
+        "output_tokens": 1124,
+        "total_tokens": 1804
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Procedimento claro e bem estruturado para operador experiente. Poderia explicitar o agente responsável por cada ação e definir brevemente TIC-77 e SEV3.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Checar sensor e válvula de água de resfriamento",
+          "rationale": "Ação imperativa sem agente explícito; presume-se o operador, mas não está declarado."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Checar sensor e válvula de água de resfriamento",
+          "rationale": "Passo único que exige duas verificações distintas (sensor + válvula), podendo gerar omissão de um dos itens."
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "TIC-77",
+          "rationale": "Tag técnica sem qualificação (tipo de instrumento, função), exigindo conhecimento prévio do sistema para execução segura."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 1
+        }
+      },
+      "claimed_total": 3
+    },
+    {
+      "label": "M07",
+      "case_id": "case-007",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.11,
+      "usage": {
+        "input_tokens": 786,
+        "output_tokens": 925,
+        "total_tokens": 1711
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito",
+      "critical_errors": 0,
+      "notes": "Procedimento claro e sequencial para operador experiente. Tags de instrumentos e termos como 'cartão' e 'caminhar a linha' são jargão padrão do setor, sem prejuízo à execução.",
+      "findings": [],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": -1
+    },
+    {
+      "label": "M08",
+      "case_id": "case-008",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.75,
+      "usage": {
+        "input_tokens": 667,
+        "output_tokens": 875,
+        "total_tokens": 1542
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Documento claro e operacional para operador experiente. Recomenda-se qualificar 'SEV2' (canal/procedimento) e explicitar o agente do restart.",
+      "findings": [
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "SEV2",
+          "rationale": "Jargão de escalonamento sem indicação de canal, responsável ou critério objetivo para abertura."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 1,
+        "findings_major": 0,
+        "findings_minor": 1,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 1
+        }
+      },
+      "claimed_total": 1
+    },
+    {
+      "label": "M09",
+      "case_id": "case-012",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.26,
+      "usage": {
+        "input_tokens": 595,
+        "output_tokens": 857,
+        "total_tokens": 1452
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 1,
+      "accept_class": "rejeitado_retrabalho_maior",
+      "critical_errors": 1,
+      "notes": "Texto telegráfico sem contexto. Códigos como TIC-77, HI e SEV3 sem definição. Múltiplas ações empilhadas sem agentes ou condições. Incompreensível para operador sem conhecimento prévio.",
+      "findings": [
+        {
+          "category": "multiple-actions",
+          "severity": "major",
+          "excerpt": "TIC-77 em HI → aumentar vazão → checar sensor válvula → SEV3 em 15 min",
+          "rationale": "Linha empilha 4 ações distintas sem separação clara de passos ou responsáveis."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "major",
+          "excerpt": "Bypass interlock: proibido → não acionar → confirmar bloqueio → manutenção",
+          "rationale": "Encadeia 4 instruções sem explicitar sequência, agente ou critérios de verificação."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "major",
+          "excerpt": "aumentar vazão → checar sensor válvula",
+          "rationale": "Ações imperativas sem agente definido (quem deve executar?), crítico em procedimento operacional."
+        }
+      ],
+      "invalid_rejected": [
+        {
+          "reason": "excerpt-not-found",
+          "category": "terminology",
+          "excerpt": "TIC-77, HI, SEV3"
+        }
+      ],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 3,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 1,
+          "multiple-actions": 2,
+          "terminology": 0
+        }
+      },
+      "claimed_total": 4
+    },
+    {
+      "label": "M10",
+      "case_id": "case-007",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.34,
+      "usage": {
+        "input_tokens": 812,
+        "output_tokens": 830,
+        "total_tokens": 1642
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito",
+      "critical_errors": 0,
+      "notes": "Procedimento claro e seguro para operador experiente. Poderia explicitar 'caminhar a linha' e separar anotação de liberação em passos distintos.",
+      "findings": [
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Anotar XV-101, P-220, PI-33, HV-08 e TIC-12 no checklist e liberar a área.",
+          "rationale": "Empilha duas ações obrigatórias (registrar dados e liberar área) em um único passo, podendo causar omissão de uma delas."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 1,
+        "findings_major": 0,
+        "findings_minor": 1,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "claimed_total": 1
+    },
+    {
+      "label": "M11",
+      "case_id": "case-008",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.39,
+      "usage": {
+        "input_tokens": 638,
+        "output_tokens": 939,
+        "total_tokens": 1577
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Runbook funcional e direto, mas faltam qualificadores mínimos (host do /health, como acessar o painel) e a separação de ações verificatórias.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "checar /health",
+          "rationale": "Ação imperativa sem agente definido; embora implícito no runbook, o operador poderia precisar de indicação de qual serviço/host consultar."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "checar /health e tamanho da fila após restart",
+          "rationale": "Passo único que empilha duas verificações obrigatórias distintas (endpoint de saúde e métrica de fila), dificultando checklist."
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "/health",
+          "rationale": "Endpoint citado sem qualificador (serviço, host ou URL completa), o que pode gerar dúvida operacional em ambientes com múltiplos serviços."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 0,
+        "findings_minor": 3,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 1
+        }
+      },
+      "claimed_total": 3
+    },
+    {
+      "label": "M12",
+      "case_id": "case-012",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 4.4,
+      "usage": {
+        "input_tokens": 622,
+        "output_tokens": 690,
+        "total_tokens": 1312
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 5,
+      "accept_class": "aceito",
+      "critical_errors": 0,
+      "notes": "Texto conciso e direto para operador experiente. Contém sintoma, ação, verificação, escalonamento e restrição de segurança clara.",
+      "findings": [],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": -1
+    },
+    {
+      "label": "M13",
+      "case_id": "case-007",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.66,
+      "usage": {
+        "input_tokens": 779,
+        "output_tokens": 1037,
+        "total_tokens": 1816
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Procedimento claro para operador experiente. Recomenda-se qualificar 'coluna mínima' e explicitar o agente em alguns passos para maior robustez.",
+      "findings": [
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "coluna mínima conforme placa local",
+          "rationale": "O termo 'coluna mínima' é jargão técnico que pode não ser imediatamente compreensível sem consulta à placa local; um qualificador numérico ajudaria."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 1,
+        "findings_major": 0,
+        "findings_minor": 1,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 1
+        }
+      },
+      "claimed_total": 1
+    },
+    {
+      "label": "M14",
+      "case_id": "case-008",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 3.74,
+      "usage": {
+        "input_tokens": 675,
+        "output_tokens": 532,
+        "total_tokens": 1207
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito",
+      "critical_errors": 0,
+      "notes": "Runbook curto e funcional. Claro para operador do time. Instruções de escalonamento adequadas. Nenhum risco operacional identificado.",
+      "findings": [],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": -1
+    },
+    {
+      "label": "M15",
+      "case_id": "case-012",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 6.64,
+      "usage": {
+        "input_tokens": 644,
+        "output_tokens": 1077,
+        "total_tokens": 1721
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Procedimento claro para operador experiente, mas com termos não qualificados (SEV3) e passos empilhados que exigem desambiguação.",
+      "findings": [
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "checar sensor e válvula de água de resfriamento",
+          "rationale": "Passo único que exige duas verificações distintas (sensor e válvula), podendo gerar omissão de um dos itens."
+        },
+        {
+          "category": "terminology",
+          "severity": "major",
+          "excerpt": "abrir SEV3",
+          "rationale": "Termo 'SEV3' sem qualificação — não identifica se é ticket, procedimento ou sistema, impedindo execução por pessoal não familiarizado."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 2,
+        "findings_major": 1,
+        "findings_minor": 1,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 1,
+          "terminology": 1
+        }
+      },
+      "claimed_total": 2
+    },
+    {
+      "label": "M16",
+      "case_id": "case-007",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 7.05,
+      "usage": {
+        "input_tokens": 764,
+        "output_tokens": 1137,
+        "total_tokens": 1901
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Procedimento claro para operador treinado. Pequena ambiguidade em 'Isole XV-101 fechada' e instruções condicionais poderiam ser formatadas com mais destaque. Sem erros técnicos críticos.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Isole XV-101 fechada.",
+          "rationale": "Não fica claro se o operador deve fechar a válvula e depois isolar, ou se deve apenas confirmar que ela já está fechada antes de isolar."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 1,
+        "findings_major": 0,
+        "findings_minor": 1,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": 1
+    },
+    {
+      "label": "M17",
+      "case_id": "case-008",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.81,
+      "usage": {
+        "input_tokens": 698,
+        "output_tokens": 1061,
+        "total_tokens": 1759
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Texto operacional e direto, mas usa gírias ('flipou') e termos sem qualificação ('drain'). Suficiente para operador experiente, com melhorias pontuais.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "restart unit worker-b.service",
+          "rationale": "Ação imperativa sem especificar o agente executor (operador humano ou automação)."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "abrir SEV2 com print do painel",
+          "rationale": "Empilha duas ações obrigatórias: gerar/printar o painel e abrir o SEV2."
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "health flipou",
+          "rationale": "Uso de gíria informal sem definição técnica do que constitui 'flipou' no endpoint /health."
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "drain não esvaziou",
+          "rationale": "Termo 'drain' sem qualificador: não indica qual comando, ferramenta ou procedimento foi usado."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 2
+        }
+      },
+      "claimed_total": 4
+    },
+    {
+      "label": "M18",
+      "case_id": "case-012",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 6.24,
+      "usage": {
+        "input_tokens": 669,
+        "output_tokens": 976,
+        "total_tokens": 1645
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Procedimento claro para operador experiente, mas termos como 'HI' e 'SEV3' carecem de qualificação/explicação para garantir execução universal.",
+      "findings": [],
+      "invalid_rejected": [
+        {
+          "reason": "excerpt-not-found",
+          "category": "terminology",
+          "excerpt": "TIC-77 em HI; abrir SEV3"
+        }
+      ],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": 1
+    },
+    {
+      "label": "M19",
+      "case_id": "case-007",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 4.82,
+      "usage": {
+        "input_tokens": 750,
+        "output_tokens": 719,
+        "total_tokens": 1469
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito",
+      "critical_errors": 0,
+      "notes": "Procedimento claro e sequencial para operador experiente. Referências a tags e cartão da área são adequadas ao contexto operacional. Sem erros técnicos identificados.",
+      "findings": [],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 0,
+        "findings_major": 0,
+        "findings_minor": 0,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": -1
+    },
+    {
+      "label": "M20",
+      "case_id": "case-008",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.47,
+      "usage": {
+        "input_tokens": 620,
+        "output_tokens": 900,
+        "total_tokens": 1520
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Texto funcional e direto, mas empilha ações em um único passo e usa jargão ('drenar') sem qualificador. Adequado para operador experiente.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "reiniciar unit worker-b.service; drenar fila jobs-hot.",
+          "rationale": "Ações imperativas sem agente explícito (quem executa). Comum em runbooks, mas o agente deveria ser declarado para formalidade."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "major",
+          "excerpt": "Mitigação: reiniciar unit worker-b.service; drenar fila jobs-hot.",
+          "rationale": "Passo único que empilha duas ações obrigatórias e independentes. Se uma falhar, a outra pode ser omitida. Devem ser passos separados."
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "drenar fila jobs-hot",
+          "rationale": "'Drenar' é jargão operacional sem instrução de como executar (comando/tool específico). Pode dificultar execução por operador menos experiente."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 3,
+        "findings_major": 1,
+        "findings_minor": 2,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 1
+        }
+      },
+      "claimed_total": 3
+    },
+    {
+      "label": "M21",
+      "case_id": "case-012",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 4.92,
+      "usage": {
+        "input_tokens": 630,
+        "output_tokens": 1094,
+        "total_tokens": 1724
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Texto claro e conciso para operador experiente. Inconsistência sobre uso de ponto e vírgula e ação com múltiplos passos exigem ajuste.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Ação → verificar sensor e válvula de resfriamento",
+          "rationale": "Ação imperativa sem identificar o responsável pela verificação; presume-se o operador, mas deveria ser explícito."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "Verify → anotar painel; confirmar queda",
+          "rationale": "Passo único que empilha duas ações distintas (anotar e confirmar), podendo gerar ambiguidade sobre sequência ou obrigatoriedade."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 2,
+        "findings_major": 0,
+        "findings_minor": 2,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 0
+        }
+      },
+      "claimed_total": 2
+    },
+    {
+      "label": "M22",
+      "case_id": "case-007",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 5.42,
+      "usage": {
+        "input_tokens": 767,
+        "output_tokens": 1039,
+        "total_tokens": 1806
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Procedimento claro para operador treinado. Recomenda-se explicitar o que é o 'cartão da área' e o valor/definição de 'coluna mínima' para reduzir dependência de conhecimento tácito.",
+      "findings": [
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "cartão da área",
+          "rationale": "Referência a documento/controle sem identificação ou link; operador novo pode não saber qual documento consultar."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 1,
+        "findings_major": 0,
+        "findings_minor": 1,
+        "by_category": {
+          "ambiguous-reference": 0,
+          "implicit-agent": 0,
+          "multiple-actions": 0,
+          "terminology": 1
+        }
+      },
+      "claimed_total": 1
+    },
+    {
+      "label": "M23",
+      "case_id": "case-008",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 3.13,
+      "usage": {
+        "input_tokens": 628,
+        "output_tokens": 520,
+        "total_tokens": 1148
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 4,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Texto telegráfico mas suficiente para operador experiente. Poderia explicitar agente das ações e detalhar o que significa 'SEV2' e 'flipou'.",
+      "findings": [
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "Não reiniciar broker sem autorização.",
+          "rationale": "Ação proibitiva sem agente explícito; assume-se o operador, mas poderia ser mais claro."
+        },
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Health flipou.",
+          "rationale": "Não está claro se 'Health' refere-se ao endpoint /health ou a outro sistema de healthcheck."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 2,
+        "findings_major": 0,
+        "findings_minor": 2,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 1,
+          "multiple-actions": 0,
+          "terminology": 0
+        }
+      },
+      "claimed_total": 2
+    },
+    {
+      "label": "M24",
+      "case_id": "case-012",
+      "reviewer": "maritaca",
+      "model_requested": "sabia-4-thinking",
+      "model_returned": "sabia-4-thinking",
+      "wall_s": 6.31,
+      "usage": {
+        "input_tokens": 648,
+        "output_tokens": 1100,
+        "total_tokens": 1748
+      },
+      "finish_reason": "stop",
+      "clarity_1to5": 3,
+      "accept_class": "aceito_retrabalho_menor",
+      "critical_errors": 0,
+      "notes": "Procedimento usável por operador experiente, mas contém ambiguidades de referência, agente implícito e terminologia não qualificada que merecem ajuste.",
+      "findings": [
+        {
+          "category": "ambiguous-reference",
+          "severity": "minor",
+          "excerpt": "Anotar painel",
+          "rationale": "Não especifica qual painel deve ser anotado (painel local, IHM, SCADA), gerando dúvida sobre o registro correto."
+        },
+        {
+          "category": "implicit-agent",
+          "severity": "minor",
+          "excerpt": "checar sensor e válvula de resfriamento",
+          "rationale": "Imperativo sem agente definido; não esclarece se a ação cabe ao operador de turno, técnico de instrumentação ou manutenção."
+        },
+        {
+          "category": "multiple-actions",
+          "severity": "minor",
+          "excerpt": "checar sensor e válvula de resfriamento",
+          "rationale": "Empilha duas ações distintas (verificar sensor e verificar válvula) em um único passo, dificultando rastreabilidade e checklist."
+        },
+        {
+          "category": "terminology",
+          "severity": "minor",
+          "excerpt": "SEV3",
+          "rationale": "Sigla de severidade sem definição ou referência; operador sem treinamento prévio pode não saber o que implica o nível SEV3."
+        }
+      ],
+      "invalid_rejected": [],
+      "summary": {
+        "findings_total": 4,
+        "findings_major": 0,
+        "findings_minor": 4,
+        "by_category": {
+          "ambiguous-reference": 1,
+          "implicit-agent": 1,
+          "multiple-actions": 1,
+          "terminology": 1
+        }
+      },
+      "claimed_total": 4
+    }
+  ],
+  "aggregate_by_model": {
+    "meta/muse-glimmer-30b": {
+      "n_pairs": 3,
+      "clarity_control_mean": 4.0,
+      "clarity_cli_mean": 4.0,
+      "findings_control_mean": 1.0,
+      "findings_cli_mean": 1.67,
+      "accept_control": [
+        "aceito_retrabalho_menor",
+        "aceito",
+        "aceito_retrabalho_menor"
+      ],
+      "accept_cli": [
+        "aceito_retrabalho_menor",
+        "aceito_retrabalho_menor",
+        "aceito_retrabalho_menor"
+      ],
+      "preference_counts": {
+        "tie": 1,
+        "control": 1,
+        "cli": 1
+      },
+      "preferences": [
+        {
+          "case_id": "case-007",
+          "preferred": "tie",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "findings_control": 1,
+          "findings_cli": 1
+        },
+        {
+          "case_id": "case-008",
+          "preferred": "control",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "findings_control": 0,
+          "findings_cli": 4
+        },
+        {
+          "case_id": "case-012",
+          "preferred": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "findings_control": 2,
+          "findings_cli": 0
+        }
+      ]
+    },
+    "nvidia/nemotron-3.5-lightning": {
+      "n_pairs": 3,
+      "clarity_control_mean": 3.0,
+      "clarity_cli_mean": 4.33,
+      "findings_control_mean": 1.33,
+      "findings_cli_mean": 1.33,
+      "accept_control": [
+        "aceito",
+        "aceito_retrabalho_menor",
+        "rejeitado_retrabalho_maior"
+      ],
+      "accept_cli": [
+        "aceito",
+        "aceito_retrabalho_menor",
+        "aceito"
+      ],
+      "preference_counts": {
+        "control": 2,
+        "cli": 1
+      },
+      "preferences": [
+        {
+          "case_id": "case-007",
+          "preferred": "control",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "findings_control": 0,
+          "findings_cli": 1
+        },
+        {
+          "case_id": "case-008",
+          "preferred": "control",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "findings_control": 1,
+          "findings_cli": 3
+        },
+        {
+          "case_id": "case-012",
+          "preferred": "cli",
+          "clarity_control": 1,
+          "clarity_cli": 5,
+          "findings_control": 3,
+          "findings_cli": 0
+        }
+      ]
+    },
+    "qwen/qwen3.8-27b": {
+      "n_pairs": 3,
+      "clarity_control_mean": 4.33,
+      "clarity_cli_mean": 4.33,
+      "findings_control_mean": 0.0,
+      "findings_cli_mean": 1.0,
+      "accept_control": [
+        "aceito_retrabalho_menor",
+        "aceito",
+        "aceito"
+      ],
+      "accept_cli": [
+        "aceito",
+        "aceito",
+        "aceito_retrabalho_menor"
+      ],
+      "preference_counts": {
+        "tie": 1,
+        "cli": 1,
+        "control": 1
+      },
+      "preferences": [
+        {
+          "case_id": "case-007",
+          "preferred": "tie",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "findings_control": 0,
+          "findings_cli": 0
+        },
+        {
+          "case_id": "case-008",
+          "preferred": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 5,
+          "findings_control": 0,
+          "findings_cli": 0
+        },
+        {
+          "case_id": "case-012",
+          "preferred": "control",
+          "clarity_control": 5,
+          "clarity_cli": 4,
+          "findings_control": 0,
+          "findings_cli": 3
+        }
+      ]
+    },
+    "thinkingmachines/inkling-small": {
+      "n_pairs": 3,
+      "clarity_control_mean": 4.0,
+      "clarity_cli_mean": 3.67,
+      "findings_control_mean": 1.67,
+      "findings_cli_mean": 2.33,
+      "accept_control": [
+        "aceito",
+        "aceito_retrabalho_menor",
+        "aceito_retrabalho_menor"
+      ],
+      "accept_cli": [
+        "aceito_retrabalho_menor",
+        "aceito_retrabalho_menor",
+        "aceito_retrabalho_menor"
+      ],
+      "preference_counts": {
+        "control": 2,
+        "cli": 1
+      },
+      "preferences": [
+        {
+          "case_id": "case-007",
+          "preferred": "control",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "findings_control": 0,
+          "findings_cli": 1
+        },
+        {
+          "case_id": "case-008",
+          "preferred": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "findings_control": 3,
+          "findings_cli": 2
+        },
+        {
+          "case_id": "case-012",
+          "preferred": "control",
+          "clarity_control": 4,
+          "clarity_cli": 3,
+          "findings_control": 2,
+          "findings_cli": 4
+        }
+      ]
+    }
+  },
+  "unblind": true
+}

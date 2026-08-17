@@ -1,0 +1,18 @@
+{
+  "case_id": "case-004",
+  "run_id": "run-01",
+  "condition": "curupira",
+  "hermes_exit": 0,
+  "wall_s": 19.3,
+  "session_id": "20260816_225440_3099ff",
+  "work_dir": "/tmp/cs-ab/case-004-run-01-curupira",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/curupira/case-004-run-01/runbook.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": [
+    "curupira-preflight"
+  ]
+}

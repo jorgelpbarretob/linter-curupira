@@ -1,0 +1,171 @@
+{
+  "run_id": "run-v2-01",
+  "reviewer_id": "",
+  "scores": [
+    {
+      "case_id": "case-001",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-003",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-004",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-007",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-008",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-009",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-010",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-011",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-012",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-013",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    },
+    {
+      "case_id": "case-014",
+      "A": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      },
+      "B": {
+        "clarity_1to5": null,
+        "accept_class": null,
+        "critical_errors": 0,
+        "notes": ""
+      }
+    }
+  ]
+}

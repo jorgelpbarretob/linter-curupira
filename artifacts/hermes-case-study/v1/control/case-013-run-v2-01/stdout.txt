@@ -1,0 +1,16 @@
+  ┊ review diff
+a/runbook.md → b/runbook.md
+@@ -1,2 +1,9 @@
+ # CI docs
+-no pipeline rode hermes-lint $(git diff --name-only origin/main...HEAD | grep -E '\.md$') --enable-rule HERMES-PT-PONT-001; se exit!=0 falhe o job; publique o JSON como artifact; bloqueie merge até limpar; não rode semantic-review no CI; mantenha cache da toolchain entre jobs se possível.
++
++1. No pipeline liste os `.md` do diff contra `origin/main`.
++2. Rode `curupira lint` nesses arquivos com a regra `CURUPIRA-PT-PONT-001`.
++3. Se o exit code for diferente de 0 falhe o job.
++4. Publique o JSON como artifact.
++5. Bloqueie o merge até limpar as falhas.
++6. Não rode semantic-review no CI.
++7. Mantenha cache da toolchain entre jobs se possível.
+/tmp/cs-ab/case-013-run-v2-01-control/runbook.md
+chars: 366
+resumo: Runbook CI em 7 passos curtos com `curupira lint` + `CURUPIRA-PT-PONT-001`, fail job, artifact JSON e bloqueio de merge.

@@ -1,0 +1,16 @@
+{
+  "case_id": "case-008",
+  "run_id": "run-cli-default",
+  "condition": "cli",
+  "hermes_exit": 0,
+  "wall_s": 22.5,
+  "session_id": "20260816_232928_b2314e",
+  "work_dir": "/tmp/cs-ab/case-008-run-cli-default-cli",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-008-run-cli-default/mitigacao.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": []
+}

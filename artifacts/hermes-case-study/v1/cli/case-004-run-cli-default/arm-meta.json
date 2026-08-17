@@ -1,0 +1,16 @@
+{
+  "case_id": "case-004",
+  "run_id": "run-cli-default",
+  "condition": "cli",
+  "hermes_exit": 0,
+  "wall_s": 19.7,
+  "session_id": "20260816_232801_ff0de8",
+  "work_dir": "/tmp/cs-ab/case-004-run-cli-default-cli",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/cli/case-004-run-cli-default/runbook.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": []
+}

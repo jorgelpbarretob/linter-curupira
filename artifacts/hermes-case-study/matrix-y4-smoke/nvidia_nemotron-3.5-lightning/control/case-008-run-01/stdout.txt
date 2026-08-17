@@ -1,0 +1,5 @@
+Tarefa concluída com sucesso.
+
+**Path:** `/tmp/cs-y4/nvidia_nemotron-3.5-lightning/case-008-run-01-control/mitigacao.md`  
+**Chars:** 439  
+**Resumo:** Mitigação case-008 estruturada em 4 seções (sintoma, mitigação imediata, verificação, escalonamento) contendo worker-b, fila jobs-hot, SEV2, janela de 10 min e restart de worker-b.service. Texto sem ponto e vírgula em prosa, sem causas raiz inventadas, formatação em lista curta.

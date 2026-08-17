@@ -1,0 +1,29 @@
+  ┊ review diff
+a/procedimento.md → b/procedimento.md
+@@ -1,3 +1,22 @@
+ # POP — isolamento e retorno parcial da linha de mosto quente
+ 
+-Antes de qualquer intervenção o operador deve confirmar com o painel que não há transferência em curso; em seguida isolar XV-101 na posição fechada e travar o volante; registrar o horário no turno. Com a linha quieta, drenar pelo HV-08 até PI-33 estabilizar em zero relativo da faixa local; se PI-33 não cair em 5 min chamar supervisão sem forçar. Para retorno, abrir XV-101 devagar; ligar P-220 só depois de PI-33 indicar coluna mínima conforme placa local; ajustar TIC-12 somente se a temperatura sair da faixa já marcada no cartão da área; não altere setpoints fora do cartão. Ao final, caminhar a linha; confirmar ausência de vazamento visível; anotar XV-101, P-220, PI-33, HV-08 e TIC-12 no checklist e liberar a área.
++## Isolamento
++1. Confirme no painel que não há transferência em curso.
++2. Feche XV-101 e trave o volante.
++3. Registre o horário no turno.
++
++## Drenagem
++4. Com a linha quieta, drene pelo HV-08.
++5. Espere PI-33 estabilizar em zero relativo da faixa local.
++6. Se PI-33 não cair em 5 min, chame supervisão. Não force.
++
++## Partida
++7. Abra XV-101 devagar.
++8. Ligue P-220 só depois de PI-33 indicar coluna mínima conforme placa local.
++9. Ajuste TIC-12 só se a temperatura sair da faixa já marcada no cartão da área.
++10. Não altere setpoints fora do cartão.
++
++## Encerramento
++11. Caminhe a linha e confirme ausência de vazamento visível.
++12. Anote XV-101, P-220, PI-33, HV-08 e TIC-12 no checklist.
++13. Libere a área.
+path: /tmp/cs-ab/case-007-run-v2-01-control/procedimento.md
+chars: 791 bytes / 771 chars
+resumo: POP em 13 passos curtos (isolamento → drenagem → partida → encerramento), tags intactas, sem ponto e vírgula.

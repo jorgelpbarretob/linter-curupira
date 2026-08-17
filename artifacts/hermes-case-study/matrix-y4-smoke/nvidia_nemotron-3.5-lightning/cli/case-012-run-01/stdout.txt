@@ -1,0 +1,6 @@
+| Item | Valor |
+|------|-------|
+| Path | /tmp/cs-y4/nvidia_nemotron-3.5-lightning/case-012-run-01-cli/acao.md |
+| Lint exit | 0 |
+| Chars | 231 |
+| Resumo 1 linha | TIC-77: alarme HI desde 02:10. Sintoma: aumento vazão sem efeito claro. Ação: checar sensor e válvula água resfriamento. Verify: confirmar leitura painel. Escala: se não cair em 15 min → SEV3. NÃO usar bypass de interlock.

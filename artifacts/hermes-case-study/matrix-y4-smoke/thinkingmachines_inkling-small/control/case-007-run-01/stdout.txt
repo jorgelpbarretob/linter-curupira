@@ -1,0 +1,2 @@
+Arquivo editado: `/tmp/cs-y4/thinkingmachines_inkling-small/case-007-run-01-control/procedimento.md` (599 chars).
+Tags preservadas (XV-101, P-220, PI-33, HV-08, TIC-12). Ordem: isolamento → drenagem → partida. Frases curtas, uma ação por passo, sem ponto e vírgula, sem parágrafo denso. Nenhum interlock/setpoint/pessoa inventado. Curupira não chamado (braço controle). Resumo: procedimento enxuto e legível para chão de fábrica.

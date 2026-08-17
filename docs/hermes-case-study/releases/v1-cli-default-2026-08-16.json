@@ -1,0 +1,40 @@
+{
+  "schema_version": "hermes-case-study-release/v1",
+  "release_id": "v1-cli-default-2026-08-16",
+  "sealed_at": "2026-08-16T23:36:02.197696-03:00",
+  "status": "CLOSED",
+  "policy": {
+    "default_preflight": "cli-min",
+    "skill_preload_default": false,
+    "operational_gate": [
+      "curupira_lint_executed",
+      "residual_zero_on_enabled_rules"
+    ],
+    "quality_outcomes_independent": [
+      "readability",
+      "human_accept",
+      "rework_cycles",
+      "session_tokens"
+    ]
+  },
+  "bundle_sha256": "026d77a8761582e4b9dc2a0689f2f66e8b3c8e70b141d09b07fccea09959adb6",
+  "files": [
+    {
+      "file": "batch-3way-cli-run-02-summary.json",
+      "sha256": "50647b8989e44a9e885cd7dbdf667348c7c29c488f9cb04ecbaaaddefc6524ce",
+      "bytes": 6237
+    },
+    {
+      "file": "batch-hard-2026-08-16-summary.json",
+      "sha256": "8f4bae5a41647c89470ac5556069ca7b0ffefa8ff99bee0e16ff4e2587e534b9",
+      "bytes": 3453
+    },
+    {
+      "file": "battery-run-cli-default-summary.json",
+      "sha256": "80b6599fc49e979c562ba7e828b2e8132e64ae5834f0f7a5c43c53f57d8feea2",
+      "bytes": 6438
+    }
+  ],
+  "no_post_hoc_protocol_edit": true,
+  "notes": "Protocolo e resultados v1 fechados. Mudanças futuras = v2+."
+}

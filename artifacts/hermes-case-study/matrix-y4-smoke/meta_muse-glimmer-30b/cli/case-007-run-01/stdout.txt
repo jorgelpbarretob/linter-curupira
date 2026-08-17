@@ -1,0 +1,7 @@
+Path: `/tmp/cs-y4/meta_muse-glimmer-30b/case-007-run-01-cli/procedimento.md`
+
+Exit do lint: 0 (diagnostics vazios)
+
+Chars do arquivo: 626
+
+Resumo: Procedimento reescrito em passos curtos, ordem preservada e tags mantidas, com texto reduzido e sem ponto e vírgula.

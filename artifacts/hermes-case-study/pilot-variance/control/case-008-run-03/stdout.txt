@@ -1,0 +1,14 @@
+Pronto. Verificação dos critérios concluída.
+
+Path: /tmp/cs-pilot/case-008-run-03-control/mitigacao.md
+Chars: 768 bytes
+
+Resumo: Playbook SEV2 do worker-b em 4 blocos: sintoma, mitigação imediata com restart de `worker-b.service`, verificação via /health e fila, escalonamento em 10 min.
+
+Conformidade:
+- Identificadores preservados: worker-b, jobs-hot, SEV2, 10 min, `worker-b.service`.
+- Ordem exigida respeitada.
+- Zero ponto e vírgula em prosa.
+- Nenhuma causa raiz inventada. Marca "Causa raiz não confirmada".
+- Sem CVE, patch ou nomes. Sem API externa.
+- Lint Curupira não chamado. Regra do braço controle.

@@ -1,0 +1,4 @@
+Controle case-008 run-01 (inkling-small). Sem Curupira (não chamado). Sem APIs externas.
+
+Path: /tmp/cs-y4/.../mitigacao.md · 248 chars.
+Resumo: ordem sintoma→mitigação→verifica→escalona; contém worker-b, fila jobs-hot, SEV2, 10 min, restart `worker-b.service`; sem ponto-e-vírgula em prosa; sem causa raiz inventada.

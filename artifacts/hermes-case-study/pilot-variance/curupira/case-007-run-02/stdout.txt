@@ -1,0 +1,9 @@
+Pronto.
+
+- Path: /tmp/cs-pilot/case-007-run-02-curupira/procedimento.md
+- Lint: exit 0 (diagnostics vazio, regra CURUPIRA-PT-PONT-001)
+- Chars: 775 no arquivo (prosa ~620; input tinha ~764 de prosa)
+- Tags verificadas: XV-101, P-220, PI-33, HV-08, TIC-12 presentes.
+- Ponto e vírgula: 0 ocorrência.
+
+Resumo: texto reestruturado em 4 seções numeradas (isolamento → drenagem → partida → encerramento), um passo por ação, sem fatos alterados e mais curto que o input.

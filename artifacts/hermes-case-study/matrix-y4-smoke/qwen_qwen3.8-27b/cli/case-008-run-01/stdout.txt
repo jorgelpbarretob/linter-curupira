@@ -1,0 +1,10 @@
+Pronto.
+
+- path: /tmp/cs-y4/qwen_qwen3.8-27b/case-008-run-001-cli/mitigacao.md
+- exit do lint: 0 (diagnostics vazios)
+- chars: 606
+- resumo: distilei a nota de turno em sintoma, mitigação, verificação e escalonamento; preservei worker-b, jobs-hot, SEV2, 10 min e o restart de worker-b.service.
+
+Verifiquei os requisitos: ordem sintoma, mitigação, verificação, escalonamento; lista curta, sem ponto e vírgula; sem causa raiz inventada; sem reiniciar o broker sem autorização.
+
+Nota: `notas.md` não existe no diretório. O conteúdo de turno estava dentro do `mitigacao.md` original. Usei ele como entrada.

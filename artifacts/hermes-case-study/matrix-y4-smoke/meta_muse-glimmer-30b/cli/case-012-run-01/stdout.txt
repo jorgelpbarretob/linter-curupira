@@ -1,0 +1,5 @@
+Arquivo /tmp/cs-y4/meta_muse-glimmer-30b/case-012-run-01-cli/acao.md
+lint exit 0
+chars 374
+
+Resumo 1 linha: Ação TIC-77 com sintoma, ação, verify e escala, sem ponto e vírgula e com TIC-77, alarme HI, bypass proibido e SEV3 em 15 min.

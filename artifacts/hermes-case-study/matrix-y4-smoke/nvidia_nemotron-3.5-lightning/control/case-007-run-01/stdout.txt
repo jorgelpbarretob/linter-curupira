@@ -1,0 +1,13 @@
+Tarefa case-007 concluída.
+
+**Arquivo:** `/tmp/cs-y4/nvidia_nemotron-3.5-lightning/case-007-run-01-control/procedimento.md`
+
+**Caracteres:** 684 (input original: 811 — 15% mais curto)
+
+**Resumo:**
+- Tags preservadas: XV-101, P-220, PI-33, HV-08, TIC-12 ✅
+- Ordem lógica: isolamento → drenagem → partida ✅
+- 13 passos numéricos com frases curtas, uma ação principal cada ✅
+- Nenhum ponto e vírgula em prose ✅
+- Nenhum parágrafo denso com ordens escondidas ✅
+- Não chamei curupira (restrição obeyed) ✅

@@ -1,0 +1,13 @@
+  ┊ review diff
+a/runbook.md → b/runbook.md
+@@ -1,6 +1,6 @@
+ # Runbook — preflight de documentação
+ 
+ 1. Instale a ferramenta de lint do time.
+-2. Rode `hermes-lint doc.md --enable-rule HERMES-PT-PONT-001`.
++2. Rode `curupira doc.md --enable-rule CURUPIRA-PT-PONT-001`.
+ 3. Se houver finding, corrija a prosa e repita até exit 0.
+ 4. Anexe a saída JSON no ticket.
+/tmp/cs-ab/case-004-run-v2-01-control/runbook.md
+chars: 240
+resumo: troquei hermes-lint/HERMES-PT-PONT-001 por curupira/CURUPIRA-PT-PONT-001; fluxo intacto.

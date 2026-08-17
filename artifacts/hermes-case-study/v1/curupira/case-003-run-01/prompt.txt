@@ -1,0 +1,29 @@
+/curupira-preflight
+
+Você é o braço TRATAMENTO do estudo case-003 (com Curupira preflight).
+Siga a skill curupira-preflight.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-003-run-01-curupira/task.md
+- artefato a editar: /tmp/cs-ab/case-003-run-01-curupira/instrucao.md
+
+# Tarefa case-003 — revisão
+
+## Objetivo
+Revisar `inputs/instrucao.md`. Elimine ambiguidade de referência e multi-ação indevida.
+Preserve todos os identificadores técnicos.
+
+## Pronto quando
+1. Cada passo tem uma ação principal clara.
+2. Fatos técnicos intactos.
+3. Lint PONT-001 exit 0.
+
+
+Regras do braço tratamento:
+- Antes de declarar pronto, rode exatamente:
+  curupira lint /tmp/cs-ab/case-003-run-01-curupira/instrucao.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- Sem semantic-review / sem Maritaca.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Sobrescreva somente: /tmp/cs-ab/case-003-run-01-curupira/instrucao.md
+- Ao terminar: path, exit do lint, resumo 1 linha.

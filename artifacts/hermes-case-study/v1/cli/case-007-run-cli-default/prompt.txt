@@ -1,0 +1,43 @@
+Você é o braço CLI do estudo case-007.
+NÃO carregue skill. Use só o binário local curupira.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-007-run-cli-default-cli/task.md
+- artefato a editar: /tmp/cs-ab/case-007-run-cli-default-cli/procedimento.md
+
+# Tarefa case-007 — legibilidade + residual difícil
+
+## Objetivo de produto
+Baixar custo de tokens da sessão e deixar o texto **mais legível para o operador**.
+Não é só “passar no lint”.
+
+## Entrada
+`procedimento.md` (sujo, denso).
+
+## Entregar
+O mesmo arquivo, pronto para chão de fábrica.
+
+## Pronto quando
+1. Tags preservadas: XV-101, P-220, PI-33, HV-08, TIC-12.
+2. Mesma ordem lógica: isolamento → drenagem → partida.
+3. Frases curtas. Uma ação principal por passo quando possível.
+4. Sem ponto e vírgula em prosa.
+5. Sem parágrafo denso com múltiplas ordens escondidas.
+6. Texto final preferencialmente **mais curto** que o input em caracteres de prosa.
+7. Braço com Curupira: `curupira lint` exit 0 nas regras do aceite.
+
+## Restrições
+- Não invente interlocks, setpoints ou pessoas.
+- Não envie a APIs.
+
+
+Regras do braço CLI (mínimas):
+- Edite /tmp/cs-ab/case-007-run-cli-default-cli/procedimento.md para legibilidade: frases curtas, passos explícitos, sem muro de texto.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Antes de declarar pronto, rode EXATAMENTE:
+  curupira lint /tmp/cs-ab/case-007-run-cli-default-cli/procedimento.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- NÃO use semantic-review. NÃO chame APIs.
+- NÃO peça nem carregue skill curupira-preflight.
+- Sobrescreva somente: /tmp/cs-ab/case-007-run-cli-default-cli/procedimento.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

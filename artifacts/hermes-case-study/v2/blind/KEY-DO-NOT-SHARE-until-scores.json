@@ -1,0 +1,150 @@
+{
+  "schema_version": "blind-key/v1",
+  "run_id": "run-v2-01",
+  "items": [
+    {
+      "case_id": "case-001",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-001-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-001-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-003",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-003-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-003-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-004",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-004-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-004-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-007",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-007-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-007-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-008",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-008-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-008-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-009",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-009-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-009-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-010",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-010-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-010-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-011",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-011-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-011-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-012",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-012-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-012-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-013",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-013-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-013-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    },
+    {
+      "case_id": "case-014",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "files": {
+        "A": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-014-A.md",
+        "B": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v2/blind/case-014-B.md"
+      },
+      "rubric_path": "docs/hermes-case-study/rubric-v1.md",
+      "status": "awaiting_human_blind_review"
+    }
+  ],
+  "instruction": "Revisores veem só A/B. Não abrir este key até scores submetidos."
+}

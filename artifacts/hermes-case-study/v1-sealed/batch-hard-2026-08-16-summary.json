@@ -1,0 +1,121 @@
+{
+  "schema_version": "hermes-case-study-hard-batch/v1",
+  "product_goals": [
+    "tokens",
+    "readability"
+  ],
+  "pairs": [
+    {
+      "case_id": "case-007",
+      "input_residual": 8,
+      "residual_control": 0,
+      "residual_curupira": 0,
+      "tokens_control": 13711,
+      "tokens_curupira": 30087,
+      "delta_tokens": 16376,
+      "chars_control": 774,
+      "chars_curupira": 771,
+      "delta_chars_artifact": -3,
+      "max_sent_control": 16,
+      "max_sent_curupira": 14,
+      "list_ratio_control": 0.722,
+      "list_ratio_curupira": 0.722,
+      "delta_chars_vs_input_control": -13,
+      "delta_chars_vs_input_curupira": -16,
+      "wall_control": 21.9,
+      "wall_curupira": 23.0,
+      "tools_control": 4,
+      "tools_curupira": 4,
+      "sessions": {
+        "control": "20260816_230256_9abc8f",
+        "curupira": "20260816_230318_d3d6b3"
+      },
+      "winner_tokens": "control",
+      "winner_readability": "curupira"
+    },
+    {
+      "case_id": "case-008",
+      "input_residual": 8,
+      "residual_control": 0,
+      "residual_curupira": 0,
+      "tokens_control": 29545,
+      "tokens_curupira": 30429,
+      "delta_tokens": 884,
+      "chars_control": 574,
+      "chars_curupira": 543,
+      "delta_chars_artifact": -31,
+      "max_sent_control": 12,
+      "max_sent_curupira": 11,
+      "list_ratio_control": 0.688,
+      "list_ratio_curupira": 0.667,
+      "delta_chars_vs_input_control": 121,
+      "delta_chars_vs_input_curupira": 90,
+      "wall_control": 20.8,
+      "wall_curupira": 20.7,
+      "tools_control": 5,
+      "tools_curupira": 5,
+      "sessions": {
+        "control": "20260816_230341_d1e8bb",
+        "curupira": "20260816_230402_105edf"
+      },
+      "winner_tokens": "control",
+      "winner_readability": "curupira"
+    },
+    {
+      "case_id": "case-009",
+      "input_residual": 9,
+      "residual_control": 0,
+      "residual_curupira": 0,
+      "tokens_control": 29281,
+      "tokens_curupira": 29809,
+      "delta_tokens": 528,
+      "chars_control": 500,
+      "chars_curupira": 597,
+      "delta_chars_artifact": 97,
+      "max_sent_control": 14,
+      "max_sent_curupira": 16,
+      "list_ratio_control": 0.765,
+      "list_ratio_curupira": 0.824,
+      "delta_chars_vs_input_control": 136,
+      "delta_chars_vs_input_curupira": 233,
+      "wall_control": 23.6,
+      "wall_curupira": 23.6,
+      "tools_control": 5,
+      "tools_curupira": 5,
+      "sessions": {
+        "control": "20260816_230423_138036",
+        "curupira": "20260816_230446_d58a97"
+      },
+      "winner_tokens": "control",
+      "winner_readability": "control"
+    },
+    {
+      "case_id": "case-010",
+      "input_residual": 8,
+      "residual_control": 0,
+      "residual_curupira": 0,
+      "tokens_control": 29592,
+      "tokens_curupira": 30541,
+      "delta_tokens": 949,
+      "chars_control": 794,
+      "chars_curupira": 816,
+      "delta_chars_artifact": 22,
+      "max_sent_control": 12,
+      "max_sent_curupira": 15,
+      "list_ratio_control": 0.185,
+      "list_ratio_curupira": 0.667,
+      "delta_chars_vs_input_control": 202,
+      "delta_chars_vs_input_curupira": 224,
+      "wall_control": 23.9,
+      "wall_curupira": 24.7,
+      "tools_control": 4,
+      "tools_curupira": 4,
+      "sessions": {
+        "control": "20260816_230510_fb2d88",
+        "curupira": "20260816_230534_5fccff"
+      },
+      "winner_tokens": "control",
+      "winner_readability": "control"
+    }
+  ]
+}

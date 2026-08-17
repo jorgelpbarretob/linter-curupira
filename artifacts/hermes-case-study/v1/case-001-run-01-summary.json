@@ -1,0 +1,91 @@
+{
+  "schema_version": "hermes-case-study-summary/v1",
+  "case_id": "case-001",
+  "run_id": "case-001-run-01",
+  "protocol": "docs/hermes-case-study/protocol-v1.md",
+  "executed_at": "2026-08-16T22:50:09.199045-03:00",
+  "constants": {
+    "model": "grok-4.5",
+    "reasoning": "low",
+    "hermes": "0.20.1",
+    "curupira_rule": "CURUPIRA-PT-PONT-001",
+    "provenance_case": "synthetic",
+    "surface": "hermes chat -q --source tool --ignore-rules --yolo"
+  },
+  "arms": {
+    "control": {
+      "session_id": "20260816_224657_f96c25",
+      "model": "grok-4.5",
+      "reasoning": "low",
+      "hermes_version": "0.20.1",
+      "tool_calls": 10,
+      "messages": 16,
+      "api_calls": 5,
+      "input_tokens": 31118,
+      "output_tokens": 943,
+      "duration_wall_s": 69,
+      "duration_s": 69,
+      "tokens": 32061,
+      "curupira_invoked": false,
+      "skill": null,
+      "note": "usage.json não emitido pelo chat -q; tokens de SessionDB",
+      "residual_findings": 0,
+      "residual_exit": 0,
+      "tags_preserved": true,
+      "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-001-run-01/procedimento.md",
+      "acceptance_class": "aceito"
+    },
+    "curupira": {
+      "session_id": "20260816_224828_f00058",
+      "model": "grok-4.5",
+      "reasoning": "low",
+      "hermes_version": "0.20.1",
+      "tool_calls": 4,
+      "messages": 9,
+      "api_calls": 4,
+      "input_tokens": 29216,
+      "output_tokens": 401,
+      "duration_wall_s": 19,
+      "duration_s": 19,
+      "tokens": 29617,
+      "curupira_invoked": true,
+      "skill": "curupira-preflight",
+      "note": "terminal curupira lint exit 0; usage.json não emitido",
+      "residual_findings": 0,
+      "residual_exit": 0,
+      "tags_preserved": true,
+      "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/curupira/case-001-run-01/procedimento.md",
+      "acceptance_class": "aceito"
+    }
+  },
+  "deltas": {
+    "residual_findings": 0,
+    "tool_calls": -6,
+    "messages": -7,
+    "api_calls": -1,
+    "duration_wall_s": -50,
+    "input_tokens": -1902,
+    "output_tokens": -542,
+    "total_tokens": -2444
+  },
+  "interpretation": [
+    "Nesta rodada ambos os braços entregaram artefato com 0 findings residuais e tags preservadas.",
+    "O delta de residual Curupira foi 0 (não houve ganho de qualidade residual vs controle).",
+    "O tratamento foi mais barato operacionalmente: menos tool calls, mensagens, tokens e wall time.",
+    "O controle limpou o ponto e vírgula sem invocar o linter (modelo já conhecia o padrão da tarefa).",
+    "O tratamento invocou curupira lint e fechou com exit 0 (gate real aplicado).",
+    "Não generalizar: n=1 tarefa, n=1 run, agente não determinístico, sem avaliação cega humana ainda.",
+    "usage.json via --usage-file não materializou nesta superfície chat -q; tokens vieram do SessionDB."
+  ],
+  "limitations": [
+    "Sem repetição ×3",
+    "Sem rubrica cega de 2 revisores",
+    "Controle escreveu primeiro em Hermes-workspace (cwd/--in frágil); snapshot corrigido",
+    "Tarefa de regressão estreita (PONT-001) — modelo pode resolver sem ferramenta"
+  ],
+  "next": [
+    "Repetir case-001 run-02 e run-03",
+    "Rodar case-003/004 onde a solução não é óbvia só por ponto e vírgula",
+    "Preencher aceite humano cego"
+  ]
+}

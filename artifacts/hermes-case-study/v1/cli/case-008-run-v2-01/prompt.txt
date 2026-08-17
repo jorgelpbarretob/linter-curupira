@@ -1,0 +1,41 @@
+Você é o braço CLI do estudo case-008.
+NÃO carregue skill. Use só o binário local curupira.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-008-run-v2-01-cli/task.md
+- artefato a editar: /tmp/cs-ab/case-008-run-v2-01-cli/mitigacao.md
+
+# Tarefa case-008 — incidente denso → mitigação legível
+
+## Objetivo de produto
+Menos tokens na sessão e texto que um plantonista leia em 30 segundos.
+
+## Entrada
+`notas.md`
+
+## Entregar
+Grave o resultado em `mitigacao.md` no diretório de trabalho.
+
+## Pronto quando
+1. Contém: worker-b, fila jobs-hot, SEV2, 10 min, restart unit `worker-b.service`.
+2. Ordem: sintoma → mitigação imediata → verificação → escalonamento.
+3. Sem ponto e vírgula em prosa.
+4. Sem causa raiz inventada.
+5. Preferir lista curta a parágrafo único.
+6. Com Curupira: lint exit 0.
+
+## Restrições
+- Não invente CVE, patch ou nomes de pessoas.
+- Não chame API externa.
+
+
+Regras do braço CLI (mínimas):
+- Edite /tmp/cs-ab/case-008-run-v2-01-cli/mitigacao.md para legibilidade: frases curtas, passos explícitos, sem muro de texto.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Antes de declarar pronto, rode EXATAMENTE:
+  curupira lint /tmp/cs-ab/case-008-run-v2-01-cli/mitigacao.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- NÃO use semantic-review. NÃO chame APIs.
+- NÃO peça nem carregue skill curupira-preflight.
+- Sobrescreva somente: /tmp/cs-ab/case-008-run-v2-01-cli/mitigacao.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

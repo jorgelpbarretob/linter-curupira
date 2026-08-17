@@ -1,0 +1,2363 @@
+{
+  "schema_version": "blind-panel-kimi-maritaca/v1",
+  "run_id": "run-v2-01",
+  "scored_at": "2026-08-17T00:11:40.816414-03:00",
+  "models": {
+    "kimi": "kimi-k2.7",
+    "maritaca": "sabia-4-thinking"
+  },
+  "token_policy": "Always include reviewer call tokens and A/B session tokens side-by-side.",
+  "panel_usage_totals": {
+    "kimi": {
+      "input_tokens": 9147,
+      "output_tokens": 17539,
+      "total_tokens": 26686,
+      "calls": 22
+    },
+    "maritaca": {
+      "input_tokens": 8690,
+      "output_tokens": 9209,
+      "total_tokens": 17899,
+      "calls": 22
+    }
+  },
+  "cases": [
+    {
+      "case_id": "case-001",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 15.65,
+              "usage": {
+                "input_tokens": 314,
+                "output_tokens": 540,
+                "total_tokens": 854,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Sequência lógica e clara. Instruções diretas com identificação de equipamentos. Não há erros técnicos críticos."
+              },
+              "raw_text": "```json\n{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Sequência lógica e clara. Instruções diretas com identificação de equipamentos. Não há erros técnicos críticos.\"\n}\n```",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.57,
+              "usage": {
+                "input_tokens": 294,
+                "output_tokens": 327,
+                "total_tokens": 621,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Procedimento claro e sequencial, porém carece de detalhes essenciais como valores de pressão aceitáveis, uso de EPIs e procedimentos de bloqueio/sinalização (LOTO)."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro e sequencial, porém carece de detalhes essenciais como valores de pressão aceitáveis, uso de EPIs e procedimentos de bloqueio/sinalização (LOTO).\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "usage": {
+                "input_tokens": 322,
+                "output_tokens": 496,
+                "total_tokens": 818,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento sequencial claro, mas 'libere a área' é genérico; seria útil especificar ação (ex.: liberar para manutenção) e indicar EPIs se aplicável."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento sequencial claro, mas 'libere a área' é genérico; seria útil especificar ação (ex.: liberar para manutenção) e indicar EPIs se aplicável.\"\n}",
+              "retry": "single_message"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.98,
+              "usage": {
+                "input_tokens": 320,
+                "output_tokens": 474,
+                "total_tokens": 794,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Procedimento claro e sequencial para operador experiente. Recomenda-se incluir EPIs obrigatórios, critério numérico de pressão em PI-01 e procedimento de bloqueio/etiquetagem antes de liberar a área."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro e sequencial para operador experiente. Recomenda-se incluir EPIs obrigatórios, critério numérico de pressão em PI-01 e procedimento de bloqueio/etiquetagem antes de liberar a área.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 28719,
+          "output_tokens": 556,
+          "total_tokens": 29275
+        },
+        "cli": {
+          "input_tokens": 29146,
+          "output_tokens": 571,
+          "total_tokens": 29717
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 427,
+          "output_tokens": 15,
+          "total_tokens": 442
+        }
+      }
+    },
+    {
+      "case_id": "case-003",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 32.44,
+              "usage": {
+                "input_tokens": 336,
+                "output_tokens": 1112,
+                "total_tokens": 1448,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Procedimento direto, mas carece de aviso de segurança para manipulação sob pressão e de clareza sobre onde anotar o valor de S-11."
+              },
+              "raw_text": "{\"clarity_1to5\":4,\"accept_class\":\"aceito_retrabalho_menor\",\"critical_errors\":0,\"notes\":\"Procedimento direto, mas carece de aviso de segurança para manipulação sob pressão e de clareza sobre onde anotar o valor de S-11.\"}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.67,
+              "usage": {
+                "input_tokens": 320,
+                "output_tokens": 330,
+                "total_tokens": 650,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Instrução clara, sequencial e direta. Equipamentos bem identificados. Poderia incluir verificação de normalização da pressão ao final, mas não é obrigatório."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Instrução clara, sequencial e direta. Equipamentos bem identificados. Poderia incluir verificação de normalização da pressão ao final, mas não é obrigatório.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 17.46,
+              "usage": {
+                "input_tokens": 318,
+                "output_tokens": 1167,
+                "total_tokens": 1485,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 3,
+                "accept_class": "rejeitado_retrabalho_maior",
+                "critical_errors": 2,
+                "notes": "Procedimento de bypass sem valores de pressão, alertas de segurança, autorização, fechamento de bypass nem registro específico. Passos claros, mas contexto operacional crítico ausente."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 3,\n  \"accept_class\": \"rejeitado_retrabalho_maior\",\n  \"critical_errors\": 2,\n  \"notes\": \"Procedimento de bypass sem valores de pressão, alertas de segurança, autorização, fechamento de bypass nem registro específico. Passos claros, mas contexto operacional crítico ausente.\"\n}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 3.33,
+              "usage": {
+                "input_tokens": 298,
+                "output_tokens": 382,
+                "total_tokens": 680,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 3,
+                "accept_class": "rejeitado_retrabalho_maior",
+                "critical_errors": 1,
+                "notes": "Procedimento omite medidas de segurança essenciais para operação com pressão alta (EPIs, limites, advertências). Falta especificação de unidades e critérios de verificação do sensor. Necessita reestruturação completa com requisitos de segur"
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 3,\n  \"accept_class\": \"rejeitado_retrabalho_maior\",\n  \"critical_errors\": 1,\n  \"notes\": \"Procedimento omite medidas de segurança essenciais para operação com pressão alta (EPIs, limites, advertências). Falta especificação de unidades e critérios de verificação do sensor. Necessita reestruturação completa com requisitos de segurança.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 21714,
+          "output_tokens": 508,
+          "total_tokens": 22222
+        },
+        "cli": {
+          "input_tokens": 28584,
+          "output_tokens": 490,
+          "total_tokens": 29074
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 6870,
+          "output_tokens": -18,
+          "total_tokens": 6852
+        }
+      }
+    },
+    {
+      "case_id": "case-004",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 17.27,
+              "usage": {
+                "input_tokens": 339,
+                "output_tokens": 608,
+                "total_tokens": 947,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Runbook claro e direto. Sem erros críticos. O termo 'finding' é entendido no contexto técnico."
+              },
+              "raw_text": "```json\n{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Runbook claro e direto. Sem erros críticos. O termo 'finding' é entendido no contexto técnico.\"\n}\n```",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.35,
+              "usage": {
+                "input_tokens": 320,
+                "output_tokens": 242,
+                "total_tokens": 562,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Instruções sequenciais, comandos explícitos e saída esperada bem definida. Nenhum erro técnico ou ambiguidade relevante."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Instruções sequenciais, comandos explícitos e saída esperada bem definida. Nenhum erro técnico ou ambiguidade relevante.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 27.51,
+              "usage": {
+                "input_tokens": 338,
+                "output_tokens": 809,
+                "total_tokens": 1147,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Runbook direto, mas passo 1 (instalação) e a geração da saída JSON precisam de detalhes para evitar ambiguidade."
+              },
+              "raw_text": "{\"clarity_1to5\": 4, \"accept_class\": \"aceito_retrabalho_menor\", \"critical_errors\": 0, \"notes\": \"Runbook direto, mas passo 1 (instalação) e a geração da saída JSON precisam de detalhes para evitar ambiguidade.\"}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.49,
+              "usage": {
+                "input_tokens": 319,
+                "output_tokens": 331,
+                "total_tokens": 650,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Instruções sequenciais e objetivas, claras para operador familiarizado. Poderia melhorar indicando onde obter a ferramenta e o que a rule CURUPIRA-PT-PONT-001 valida."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Instruções sequenciais e objetivas, claras para operador familiarizado. Poderia melhorar indicando onde obter a ferramenta e o que a rule CURUPIRA-PT-PONT-001 valida.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 22180,
+          "output_tokens": 496,
+          "total_tokens": 22676
+        },
+        "cli": {
+          "input_tokens": 28619,
+          "output_tokens": 462,
+          "total_tokens": 29081
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 6439,
+          "output_tokens": -34,
+          "total_tokens": 6405
+        }
+      }
+    },
+    {
+      "case_id": "case-007",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 18.33,
+              "usage": {
+                "input_tokens": 535,
+                "output_tokens": 1182,
+                "total_tokens": 1717,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento claro e sequencial. Referências a placa/cartão local dependem de artefatos de campo, mas são comuns. Verificar se PI-33 vs coluna mínima está explicitado no local."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro e sequencial. Referências a placa/cartão local dependem de artefatos de campo, mas são comuns. Verificar se PI-33 vs coluna mínima está explicitado no local.\"\n}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.06,
+              "usage": {
+                "input_tokens": 521,
+                "output_tokens": 332,
+                "total_tokens": 853,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento claro, sequencial e seguro. Referência ao cartão da área para setpoints evita ajustes indevidos. Checkpoints de segurança adequados (tempo limite, não forçar, travamento)."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro, sequencial e seguro. Referência ao cartão da área para setpoints evita ajustes indevidos. Checkpoints de segurança adequados (tempo limite, não forçar, travamento).\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 57.79,
+              "usage": {
+                "input_tokens": 542,
+                "output_tokens": 968,
+                "total_tokens": 1510,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Procedimento claro, mas termos 'coluna mínima', 'faixa local' e 'cartão da área' dependem de referências externas; recomenda-se verificar se esses documentos estão atualizados e acessíveis."
+              },
+              "raw_text": "{\"clarity_1to5\":4,\"accept_class\":\"aceito_retrabalho_menor\",\"critical_errors\":0,\"notes\":\"Procedimento claro, mas termos 'coluna mínima', 'faixa local' e 'cartão da área' dependem de referências externas; recomenda-se verificar se esses documentos estão atualizados e acessíveis.\"}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 3.78,
+              "usage": {
+                "input_tokens": 531,
+                "output_tokens": 548,
+                "total_tokens": 1079,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Procedimento claro e sequencial para operador experiente. Sugere-se esclarecer o termo 'camine a linha' (provável inspeção/caminhamento). Sem erros técnicos críticos identificados."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro e sequencial para operador experiente. Sugere-se esclarecer o termo 'camine a linha' (provável inspeção/caminhamento). Sem erros técnicos críticos identificados.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 28439,
+          "output_tokens": 590,
+          "total_tokens": 29029
+        },
+        "cli": {
+          "input_tokens": 29187,
+          "output_tokens": 622,
+          "total_tokens": 29809
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 748,
+          "output_tokens": 32,
+          "total_tokens": 780
+        }
+      }
+    },
+    {
+      "case_id": "case-008",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 11.85,
+              "usage": {
+                "input_tokens": 430,
+                "output_tokens": 372,
+                "total_tokens": 802,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Instruções objetivas, escopo bem delimitado e ações de escalonamento claras. Nenhum erro técnico crítico identificado."
+              },
+              "raw_text": "```json\n{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Instruções objetivas, escopo bem delimitado e ações de escalonamento claras. Nenhum erro técnico crítico identificado.\"\n}\n```",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 3.0,
+              "usage": {
+                "input_tokens": 397,
+                "output_tokens": 506,
+                "total_tokens": 903,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Claro e acionável para operador experiente. Pequena ambiguidade em 'health flipou' e falta de comandos exatos para verificação. Sem erros técnicos críticos."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Claro e acionável para operador experiente. Pequena ambiguidade em 'health flipou' e falta de comandos exatos para verificação. Sem erros técnicos críticos.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 19.81,
+              "usage": {
+                "input_tokens": 445,
+                "output_tokens": 535,
+                "total_tokens": 980,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento claro e estruturado. Advertência sobre não reiniciar broker é boa prática. Critérios de escalonamento um pouco redundantes. Poderia incluir comandos exatos e link do painel."
+              },
+              "raw_text": "```json\n{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro e estruturado. Advertência sobre não reiniciar broker é boa prática. Critérios de escalonamento um pouco redundantes. Poderia incluir comandos exatos e link do painel.\"\n}\n```",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 12.28,
+              "usage": {
+                "input_tokens": 411,
+                "output_tokens": 309,
+                "total_tokens": 720,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Artefato claro, objetivo e acionável. Sintomas, mitigação, verificação e escalonamento bem definidos, com critérios temporais e de evidência adequados para operadores."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Artefato claro, objetivo e acionável. Sintomas, mitigação, verificação e escalonamento bem definidos, com critérios temporais e de evidência adequados para operadores.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 29115,
+          "output_tokens": 598,
+          "total_tokens": 29713
+        },
+        "cli": {
+          "input_tokens": 29295,
+          "output_tokens": 640,
+          "total_tokens": 29935
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 180,
+          "output_tokens": 42,
+          "total_tokens": 222
+        }
+      }
+    },
+    {
+      "case_id": "case-009",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 20.37,
+              "usage": {
+                "input_tokens": 458,
+                "output_tokens": 500,
+                "total_tokens": 958,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Procedimento claro e seguro; recomenda-se detalhar o registro no LF-03 e como aferir/monitorar a temperatura da caixa térmica."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro e seguro; recomenda-se detalhar o registro no LF-03 e como aferir/monitorar a temperatura da caixa térmica.\"\n}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 4.2,
+              "usage": {
+                "input_tokens": 439,
+                "output_tokens": 506,
+                "total_tokens": 945,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento claro, completo e sequencial. Todos os requisitos críticos estão presentes (controle de temperatura, identificação, descarte de primeira fração). Sugestão menor: detalhar o destino da amostra abortada."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro, completo e sequencial. Todos os requisitos críticos estão presentes (controle de temperatura, identificação, descarte de primeira fração). Sugestão menor: detalhar o destino da amostra abortada.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 16.76,
+              "usage": {
+                "input_tokens": 486,
+                "output_tokens": 425,
+                "total_tokens": 911,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Documento claro e sequencial. A etapa 9 ('repita') poderia especificar se se trata de nova coleta completa ou novo frasco."
+              },
+              "raw_text": "```json\n{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Documento claro e sequencial. A etapa 9 ('repita') poderia especificar se se trata de nova coleta completa ou novo frasco.\"\n}\n```",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.65,
+              "usage": {
+                "input_tokens": 466,
+                "output_tokens": 375,
+                "total_tokens": 841,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "POP claro, sequencial e completo. Cobre identificação, procedimento, controle de qualidade (cadeia fria) e registro. Sem ambiguidades ou omissões críticas."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"POP claro, sequencial e completo. Cobre identificação, procedimento, controle de qualidade (cadeia fria) e registro. Sem ambiguidades ou omissões críticas.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 22016,
+          "output_tokens": 661,
+          "total_tokens": 22677
+        },
+        "cli": {
+          "input_tokens": 29222,
+          "output_tokens": 708,
+          "total_tokens": 29930
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 7206,
+          "output_tokens": 47,
+          "total_tokens": 7253
+        }
+      }
+    },
+    {
+      "case_id": "case-010",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 26.22,
+              "usage": {
+                "input_tokens": 527,
+                "output_tokens": 1014,
+                "total_tokens": 1541,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Comando do passo 2 não gera JSON, mas passo 4 exige anexar JSON. Passo 1 carece de instrução de instalação. 'exit != 0' pode ser mais preciso como 'código de saída != 0'."
+              },
+              "raw_text": "{\"clarity_1to5\": 4, \"accept_class\": \"aceito_retrabalho_menor\", \"critical_errors\": 0, \"notes\": \"Comando do passo 2 não gera JSON, mas passo 4 exige anexar JSON. Passo 1 carece de instrução de instalação. 'exit != 0' pode ser mais preciso como 'código de saída != 0'.\"}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.79,
+              "usage": {
+                "input_tokens": 501,
+                "output_tokens": 515,
+                "total_tokens": 1016,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Artefato claro e bem estruturado para operador experiente. Sugestão de melhoria: adicionar o comando exato de instalação do curupira e especificar o caminho/ nome do arquivo JSON a ser anexado ao ticket."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Artefato claro e bem estruturado para operador experiente. Sugestão de melhoria: adicionar o comando exato de instalação do curupira e especificar o caminho/ nome do arquivo JSON a ser anexado ao ticket.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 19.09,
+              "usage": {
+                "input_tokens": 510,
+                "output_tokens": 722,
+                "total_tokens": 1232,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Runbook claro. Pequenos ajustes: 'exit' → 'código de saída'; 'salvar JSON no ticket' precisa de local/link; falta comando para instalar curupira."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Runbook claro. Pequenos ajustes: 'exit' → 'código de saída'; 'salvar JSON no ticket' precisa de local/link; falta comando para instalar curupira.\"\n}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.27,
+              "usage": {
+                "input_tokens": 479,
+                "output_tokens": 409,
+                "total_tokens": 888,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Runbook claro, objetivo e completo. Sequência lógica, comandos explícitos e regras extras pertinentes. Nenhum erro técnico identificado."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Runbook claro, objetivo e completo. Sequência lógica, comandos explícitos e regras extras pertinentes. Nenhum erro técnico identificado.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 2149,
+          "output_tokens": 737,
+          "total_tokens": 2886
+        },
+        "cli": {
+          "input_tokens": 2141,
+          "output_tokens": 683,
+          "total_tokens": 2824
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": -8,
+          "output_tokens": -54,
+          "total_tokens": -62
+        }
+      }
+    },
+    {
+      "case_id": "case-011",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 19.49,
+              "usage": {
+                "input_tokens": 409,
+                "output_tokens": 574,
+                "total_tokens": 983,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Passo 8 omite o que registrar (estado/valor). Passo 9 é advertência, não etapa numerada; recomendado nota de rodapé."
+              },
+              "raw_text": "{\"clarity_1to5\":4,\"accept_class\":\"aceito_retrabalho_menor\",\"critical_errors\":0,\"notes\":\"Passo 8 omite o que registrar (estado/valor). Passo 9 é advertência, não etapa numerada; recomendado nota de rodapé.\"}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 4.58,
+              "usage": {
+                "input_tokens": 389,
+                "output_tokens": 434,
+                "total_tokens": 823,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento claro, sequencial e seguro. Nomenclatura padrão ISA, cobre permissivos, partida, contingência e verificação. Único ponto menor: instrução negativa 'Não invente setpoints' poderia ser positiva ('Consulte os setpoints da placa')."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro, sequencial e seguro. Nomenclatura padrão ISA, cobre permissivos, partida, contingência e verificação. Único ponto menor: instrução negativa 'Não invente setpoints' poderia ser positiva ('Consulte os setpoints da placa').\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 20.23,
+              "usage": {
+                "input_tokens": 409,
+                "output_tokens": 1053,
+                "total_tokens": 1462,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 3,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Passo 5: 'isole XV-22' é ambíguo. Item 9 ('Não invente setpoints') é informal e não pertence ao procedimento. Revisar."
+              },
+              "raw_text": "```json\n{\n  \"clarity_1to5\": 3,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Passo 5: 'isole XV-22' é ambíguo. Item 9 ('Não invente setpoints') é informal e não pertence ao procedimento. Revisar.\"\n}\n```",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 3.57,
+              "usage": {
+                "input_tokens": 389,
+                "output_tokens": 601,
+                "total_tokens": 990,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Procedimento claro e sequencial para operador experiente. Sugere-se adicionar descrição dos tags (LS-3, PSH-9, XV-22) e critérios quantitativos de aceitação para maior robustez."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro e sequencial para operador experiente. Sugere-se adicionar descrição dos tags (LS-3, PSH-9, XV-22) e critérios quantitativos de aceitação para maior robustez.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 27996,
+          "output_tokens": 583,
+          "total_tokens": 28579
+        },
+        "cli": {
+          "input_tokens": 28767,
+          "output_tokens": 545,
+          "total_tokens": 29312
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 771,
+          "output_tokens": -38,
+          "total_tokens": 733
+        }
+      }
+    },
+    {
+      "case_id": "case-012",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 18.88,
+              "usage": {
+                "input_tokens": 369,
+                "output_tokens": 942,
+                "total_tokens": 1311,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 3,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Termo 'HI' e 'Vazão ↑' ambíguos; ações de checagem do sensor e medições no painel pouco específicas. Falta sequência operacional. Não há erro crítico."
+              },
+              "raw_text": "```json\n{\n  \"clarity_1to5\": 3,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Termo 'HI' e 'Vazão ↑' ambíguos; ações de checagem do sensor e medições no painel pouco específicas. Falta sequência operacional. Não há erro crítico.\"\n}\n```",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 3.16,
+              "usage": {
+                "input_tokens": 349,
+                "output_tokens": 632,
+                "total_tokens": 981,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Claro para operador experiente. Poderia explicitar o significado de 'HI' e detalhar quais valores do painel registrar. Procedimento lógico e seguro, sem erros técnicos."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Claro para operador experiente. Poderia explicitar o significado de 'HI' e detalhar quais valores do painel registrar. Procedimento lógico e seguro, sem erros técnicos.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 29.08,
+              "usage": {
+                "input_tokens": 412,
+                "output_tokens": 1085,
+                "total_tokens": 1497,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Ações claras e sequenciadas; 'abrir SEV3' depende de conhecimento interno do operador, recomendável contextualizar brevemente."
+              },
+              "raw_text": "```json\n{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Ações claras e sequenciadas; 'abrir SEV3' depende de conhecimento interno do operador, recomendável contextualizar brevemente.\"\n}\n```",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.33,
+              "usage": {
+                "input_tokens": 393,
+                "output_tokens": 304,
+                "total_tokens": 697,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento claro, sequencial e objetivo. Restrições e escalonamento bem definidos. Sem ambiguidades ou omissões críticas."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro, sequencial e objetivo. Restrições e escalonamento bem definidos. Sem ambiguidades ou omissões críticas.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 1566,
+          "output_tokens": 484,
+          "total_tokens": 2050
+        },
+        "cli": {
+          "input_tokens": 28963,
+          "output_tokens": 624,
+          "total_tokens": 29587
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 27397,
+          "output_tokens": 140,
+          "total_tokens": 27537
+        }
+      }
+    },
+    {
+      "case_id": "case-013",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 11.8,
+              "usage": {
+                "input_tokens": 389,
+                "output_tokens": 557,
+                "total_tokens": 946,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 3,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Passos claros, mas faltam detalhes: regex sem aspas, sem caminho do artifact, sem mecanismo de bloqueio de merge e cache vago."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 3,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Passos claros, mas faltam detalhes: regex sem aspas, sem caminho do artifact, sem mecanismo de bloqueio de merge e cache vago.\"\n}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 3.64,
+              "usage": {
+                "input_tokens": 369,
+                "output_tokens": 415,
+                "total_tokens": 784,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento CI claro e completo. Sete passos sequenciais, todos acionáveis e sem ambiguidade. Nenhum requisito faltante ou erro técnico identificado."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento CI claro e completo. Sete passos sequenciais, todos acionáveis e sem ambiguidade. Nenhum requisito faltante ou erro técnico identificado.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 26.79,
+              "usage": {
+                "input_tokens": 373,
+                "output_tokens": 747,
+                "total_tokens": 1120,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 3,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Passos claros, mas contêm ambiguidades: \"o JSON\" sem origem definida, \"semantic-review\" não explicado e erro de grafia \"Mantea\" no item 7. Retrabalho menor para ajustar precisão e ortografia."
+              },
+              "raw_text": "{\"clarity_1to5\": 3, \"accept_class\": \"aceito_retrabalho_menor\", \"critical_errors\": 0, \"notes\": \"Passos claros, mas contêm ambiguidades: \\\"o JSON\\\" sem origem definida, \\\"semantic-review\\\" não explicado e erro de grafia \\\"Mantea\\\" no item 7. Retrabalho menor para ajustar precisão e ortografia.\"}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 5.16,
+              "usage": {
+                "input_tokens": 351,
+                "output_tokens": 624,
+                "total_tokens": 975,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Instruções claras para operador de CI experiente. Ambiguidade menor: formato JSON não especificado, mecanismo de cache indefinido. Sem erros técnicos críticos."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 0,\n  \"notes\": \"Instruções claras para operador de CI experiente. Ambiguidade menor: formato JSON não especificado, mecanismo de cache indefinido. Sem erros técnicos críticos.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 12567,
+          "output_tokens": 591,
+          "total_tokens": 13158
+        },
+        "cli": {
+          "input_tokens": 28116,
+          "output_tokens": 575,
+          "total_tokens": 28691
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 15549,
+          "output_tokens": -16,
+          "total_tokens": 15533
+        }
+      }
+    },
+    {
+      "case_id": "case-014",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "control",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 25.12,
+              "usage": {
+                "input_tokens": 469,
+                "output_tokens": 1093,
+                "total_tokens": 1562,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 1,
+                "notes": "Passo 9 cita 'REF-18', mas o padrão referenciado é REF-2. Corrigir para evitar confusão na guarda do padrão."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito_retrabalho_menor\",\n  \"critical_errors\": 1,\n  \"notes\": \"Passo 9 cita 'REF-18', mas o padrão referenciado é REF-2. Corrigir para evitar confusão na guarda do padrão.\"\n}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 2.12,
+              "usage": {
+                "input_tokens": 443,
+                "output_tokens": 259,
+                "total_tokens": 702,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 5,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento sequencial, objetivo e sem ambiguidades. Referências e critérios claros. Decisão entre ajuste e desvio bem definida. Nenhum erro técnico identificado."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 5,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento sequencial, objetivo e sem ambiguidades. Referências e critérios claros. Decisão entre ajuste e desvio bem definida. Nenhum erro técnico identificado.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "cli",
+          "reviews": {
+            "kimi": {
+              "provider": "kimi",
+              "model_requested": "kimi-k2.7",
+              "model_returned": "kimi-k2.7",
+              "wall_s": 18.34,
+              "usage": {
+                "input_tokens": 417,
+                "output_tokens": 1038,
+                "total_tokens": 1455,
+                "raw_keys": [
+                  "cached_tokens",
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Sequência lógica e direta; alguns passos (ex.: estabilizar leitura, ajustar zero/span) pressupõem conhecimento prévio do operador."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Sequência lógica e direta; alguns passos (ex.: estabilizar leitura, ajustar zero/span) pressupõem conhecimento prévio do operador.\"\n}",
+              "finish_reason": "stop"
+            },
+            "maritaca": {
+              "provider": "maritaca",
+              "model_requested": "sabia-4-thinking",
+              "model_returned": "sabia-4-thinking",
+              "wall_s": 3.35,
+              "usage": {
+                "input_tokens": 391,
+                "output_tokens": 354,
+                "total_tokens": 745,
+                "raw_keys": [
+                  "completion_tokens",
+                  "completion_tokens_details",
+                  "extraction_details",
+                  "prompt_tokens",
+                  "prompt_tokens_details",
+                  "tool_execution_details",
+                  "total_tokens"
+                ]
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito",
+                "critical_errors": 0,
+                "notes": "Procedimento claro e sequencial para operador treinado. Poderia detalhar como estabilizar a leitura e definir 'tolerância da placa', mas não há erros técnicos ou omissões críticas."
+              },
+              "raw_text": "{\n  \"clarity_1to5\": 4,\n  \"accept_class\": \"aceito\",\n  \"critical_errors\": 0,\n  \"notes\": \"Procedimento claro e sequencial para operador treinado. Poderia detalhar como estabilizar a leitura e definir 'tolerância da placa', mas não há erros técnicos ou omissões críticas.\"\n}",
+              "finish_reason": "stop"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 23035,
+          "output_tokens": 750,
+          "total_tokens": 23785
+        },
+        "cli": {
+          "input_tokens": 29122,
+          "output_tokens": 577,
+          "total_tokens": 29699
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 6087,
+          "output_tokens": -173,
+          "total_tokens": 5914
+        }
+      }
+    }
+  ],
+  "unblind_preferences": {
+    "kimi": [
+      {
+        "case_id": "case-001",
+        "reviewer": "kimi",
+        "preferred_label": "A",
+        "preferred_condition": "control",
+        "clarity_control": 5,
+        "clarity_cli": 4,
+        "class_control": "aceito",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 28719,
+            "output_tokens": 556,
+            "total_tokens": 29275
+          },
+          "cli": {
+            "input_tokens": 29146,
+            "output_tokens": 571,
+            "total_tokens": 29717
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 427,
+            "output_tokens": 15,
+            "total_tokens": 442
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 636,
+          "output_tokens": 1036,
+          "total_tokens": 1672
+        }
+      },
+      {
+        "case_id": "case-003",
+        "reviewer": "kimi",
+        "preferred_label": "A",
+        "preferred_condition": "control",
+        "clarity_control": 4,
+        "clarity_cli": 3,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "rejeitado_retrabalho_maior",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 21714,
+            "output_tokens": 508,
+            "total_tokens": 22222
+          },
+          "cli": {
+            "input_tokens": 28584,
+            "output_tokens": 490,
+            "total_tokens": 29074
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 6870,
+            "output_tokens": -18,
+            "total_tokens": 6852
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 654,
+          "output_tokens": 2279,
+          "total_tokens": 2933
+        }
+      },
+      {
+        "case_id": "case-004",
+        "reviewer": "kimi",
+        "preferred_label": "A",
+        "preferred_condition": "cli",
+        "clarity_control": 4,
+        "clarity_cli": 5,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 22180,
+            "output_tokens": 496,
+            "total_tokens": 22676
+          },
+          "cli": {
+            "input_tokens": 28619,
+            "output_tokens": 462,
+            "total_tokens": 29081
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 6439,
+            "output_tokens": -34,
+            "total_tokens": 6405
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 677,
+          "output_tokens": 1417,
+          "total_tokens": 2094
+        }
+      },
+      {
+        "case_id": "case-007",
+        "reviewer": "kimi",
+        "preferred_label": "A",
+        "preferred_condition": "control",
+        "clarity_control": 4,
+        "clarity_cli": 4,
+        "class_control": "aceito",
+        "class_cli": "aceito_retrabalho_menor",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 28439,
+            "output_tokens": 590,
+            "total_tokens": 29029
+          },
+          "cli": {
+            "input_tokens": 29187,
+            "output_tokens": 622,
+            "total_tokens": 29809
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 748,
+            "output_tokens": 32,
+            "total_tokens": 780
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 1077,
+          "output_tokens": 2150,
+          "total_tokens": 3227
+        }
+      },
+      {
+        "case_id": "case-008",
+        "reviewer": "kimi",
+        "preferred_label": "A",
+        "preferred_condition": "cli",
+        "clarity_control": 4,
+        "clarity_cli": 5,
+        "class_control": "aceito",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 29115,
+            "output_tokens": 598,
+            "total_tokens": 29713
+          },
+          "cli": {
+            "input_tokens": 29295,
+            "output_tokens": 640,
+            "total_tokens": 29935
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 180,
+            "output_tokens": 42,
+            "total_tokens": 222
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 875,
+          "output_tokens": 907,
+          "total_tokens": 1782
+        }
+      },
+      {
+        "case_id": "case-009",
+        "reviewer": "kimi",
+        "preferred_label": "B",
+        "preferred_condition": "cli",
+        "clarity_control": 4,
+        "clarity_cli": 5,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 22016,
+            "output_tokens": 661,
+            "total_tokens": 22677
+          },
+          "cli": {
+            "input_tokens": 29222,
+            "output_tokens": 708,
+            "total_tokens": 29930
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 7206,
+            "output_tokens": 47,
+            "total_tokens": 7253
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 944,
+          "output_tokens": 925,
+          "total_tokens": 1869
+        }
+      },
+      {
+        "case_id": "case-010",
+        "reviewer": "kimi",
+        "preferred_label": "tie",
+        "preferred_condition": "tie",
+        "clarity_control": 4,
+        "clarity_cli": 4,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito_retrabalho_menor",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 2149,
+            "output_tokens": 737,
+            "total_tokens": 2886
+          },
+          "cli": {
+            "input_tokens": 2141,
+            "output_tokens": 683,
+            "total_tokens": 2824
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": -8,
+            "output_tokens": -54,
+            "total_tokens": -62
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 1037,
+          "output_tokens": 1736,
+          "total_tokens": 2773
+        }
+      },
+      {
+        "case_id": "case-011",
+        "reviewer": "kimi",
+        "preferred_label": "A",
+        "preferred_condition": "cli",
+        "clarity_control": 3,
+        "clarity_cli": 4,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito_retrabalho_menor",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 27996,
+            "output_tokens": 583,
+            "total_tokens": 28579
+          },
+          "cli": {
+            "input_tokens": 28767,
+            "output_tokens": 545,
+            "total_tokens": 29312
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 771,
+            "output_tokens": -38,
+            "total_tokens": 733
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 818,
+          "output_tokens": 1627,
+          "total_tokens": 2445
+        }
+      },
+      {
+        "case_id": "case-012",
+        "reviewer": "kimi",
+        "preferred_label": "B",
+        "preferred_condition": "cli",
+        "clarity_control": 3,
+        "clarity_cli": 4,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito_retrabalho_menor",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 1566,
+            "output_tokens": 484,
+            "total_tokens": 2050
+          },
+          "cli": {
+            "input_tokens": 28963,
+            "output_tokens": 624,
+            "total_tokens": 29587
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 27397,
+            "output_tokens": 140,
+            "total_tokens": 27537
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 781,
+          "output_tokens": 2027,
+          "total_tokens": 2808
+        }
+      },
+      {
+        "case_id": "case-013",
+        "reviewer": "kimi",
+        "preferred_label": "tie",
+        "preferred_condition": "tie",
+        "clarity_control": 3,
+        "clarity_cli": 3,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito_retrabalho_menor",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 12567,
+            "output_tokens": 591,
+            "total_tokens": 13158
+          },
+          "cli": {
+            "input_tokens": 28116,
+            "output_tokens": 575,
+            "total_tokens": 28691
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 15549,
+            "output_tokens": -16,
+            "total_tokens": 15533
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 762,
+          "output_tokens": 1304,
+          "total_tokens": 2066
+        }
+      },
+      {
+        "case_id": "case-014",
+        "reviewer": "kimi",
+        "preferred_label": "B",
+        "preferred_condition": "cli",
+        "clarity_control": 4,
+        "clarity_cli": 4,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 23035,
+            "output_tokens": 750,
+            "total_tokens": 23785
+          },
+          "cli": {
+            "input_tokens": 29122,
+            "output_tokens": 577,
+            "total_tokens": 29699
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 6087,
+            "output_tokens": -173,
+            "total_tokens": 5914
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 886,
+          "output_tokens": 2131,
+          "total_tokens": 3017
+        }
+      }
+    ],
+    "maritaca": [
+      {
+        "case_id": "case-001",
+        "reviewer": "maritaca",
+        "preferred_label": "tie",
+        "preferred_condition": "tie",
+        "clarity_control": 4,
+        "clarity_cli": 4,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito_retrabalho_menor",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 28719,
+            "output_tokens": 556,
+            "total_tokens": 29275
+          },
+          "cli": {
+            "input_tokens": 29146,
+            "output_tokens": 571,
+            "total_tokens": 29717
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 427,
+            "output_tokens": 15,
+            "total_tokens": 442
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 614,
+          "output_tokens": 801,
+          "total_tokens": 1415
+        }
+      },
+      {
+        "case_id": "case-003",
+        "reviewer": "maritaca",
+        "preferred_label": "A",
+        "preferred_condition": "control",
+        "clarity_control": 5,
+        "clarity_cli": 3,
+        "class_control": "aceito",
+        "class_cli": "rejeitado_retrabalho_maior",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 21714,
+            "output_tokens": 508,
+            "total_tokens": 22222
+          },
+          "cli": {
+            "input_tokens": 28584,
+            "output_tokens": 490,
+            "total_tokens": 29074
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 6870,
+            "output_tokens": -18,
+            "total_tokens": 6852
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 618,
+          "output_tokens": 712,
+          "total_tokens": 1330
+        }
+      },
+      {
+        "case_id": "case-004",
+        "reviewer": "maritaca",
+        "preferred_label": "A",
+        "preferred_condition": "cli",
+        "clarity_control": 4,
+        "clarity_cli": 5,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 22180,
+            "output_tokens": 496,
+            "total_tokens": 22676
+          },
+          "cli": {
+            "input_tokens": 28619,
+            "output_tokens": 462,
+            "total_tokens": 29081
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 6439,
+            "output_tokens": -34,
+            "total_tokens": 6405
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 639,
+          "output_tokens": 573,
+          "total_tokens": 1212
+        }
+      },
+      {
+        "case_id": "case-007",
+        "reviewer": "maritaca",
+        "preferred_label": "A",
+        "preferred_condition": "control",
+        "clarity_control": 5,
+        "clarity_cli": 4,
+        "class_control": "aceito",
+        "class_cli": "aceito_retrabalho_menor",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 28439,
+            "output_tokens": 590,
+            "total_tokens": 29029
+          },
+          "cli": {
+            "input_tokens": 29187,
+            "output_tokens": 622,
+            "total_tokens": 29809
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 748,
+            "output_tokens": 32,
+            "total_tokens": 780
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 1052,
+          "output_tokens": 880,
+          "total_tokens": 1932
+        }
+      },
+      {
+        "case_id": "case-008",
+        "reviewer": "maritaca",
+        "preferred_label": "B",
+        "preferred_condition": "control",
+        "clarity_control": 5,
+        "clarity_cli": 4,
+        "class_control": "aceito",
+        "class_cli": "aceito_retrabalho_menor",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 29115,
+            "output_tokens": 598,
+            "total_tokens": 29713
+          },
+          "cli": {
+            "input_tokens": 29295,
+            "output_tokens": 640,
+            "total_tokens": 29935
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 180,
+            "output_tokens": 42,
+            "total_tokens": 222
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 808,
+          "output_tokens": 815,
+          "total_tokens": 1623
+        }
+      },
+      {
+        "case_id": "case-009",
+        "reviewer": "maritaca",
+        "preferred_label": "tie",
+        "preferred_condition": "tie",
+        "clarity_control": 5,
+        "clarity_cli": 5,
+        "class_control": "aceito",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 22016,
+            "output_tokens": 661,
+            "total_tokens": 22677
+          },
+          "cli": {
+            "input_tokens": 29222,
+            "output_tokens": 708,
+            "total_tokens": 29930
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 7206,
+            "output_tokens": 47,
+            "total_tokens": 7253
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 905,
+          "output_tokens": 881,
+          "total_tokens": 1786
+        }
+      },
+      {
+        "case_id": "case-010",
+        "reviewer": "maritaca",
+        "preferred_label": "B",
+        "preferred_condition": "cli",
+        "clarity_control": 4,
+        "clarity_cli": 5,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 2149,
+            "output_tokens": 737,
+            "total_tokens": 2886
+          },
+          "cli": {
+            "input_tokens": 2141,
+            "output_tokens": 683,
+            "total_tokens": 2824
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": -8,
+            "output_tokens": -54,
+            "total_tokens": -62
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 980,
+          "output_tokens": 924,
+          "total_tokens": 1904
+        }
+      },
+      {
+        "case_id": "case-011",
+        "reviewer": "maritaca",
+        "preferred_label": "A",
+        "preferred_condition": "cli",
+        "clarity_control": 4,
+        "clarity_cli": 5,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 27996,
+            "output_tokens": 583,
+            "total_tokens": 28579
+          },
+          "cli": {
+            "input_tokens": 28767,
+            "output_tokens": 545,
+            "total_tokens": 29312
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 771,
+            "output_tokens": -38,
+            "total_tokens": 733
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 778,
+          "output_tokens": 1035,
+          "total_tokens": 1813
+        }
+      },
+      {
+        "case_id": "case-012",
+        "reviewer": "maritaca",
+        "preferred_label": "B",
+        "preferred_condition": "cli",
+        "clarity_control": 4,
+        "clarity_cli": 5,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 1566,
+            "output_tokens": 484,
+            "total_tokens": 2050
+          },
+          "cli": {
+            "input_tokens": 28963,
+            "output_tokens": 624,
+            "total_tokens": 29587
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 27397,
+            "output_tokens": 140,
+            "total_tokens": 27537
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 742,
+          "output_tokens": 936,
+          "total_tokens": 1678
+        }
+      },
+      {
+        "case_id": "case-013",
+        "reviewer": "maritaca",
+        "preferred_label": "A",
+        "preferred_condition": "cli",
+        "clarity_control": 4,
+        "clarity_cli": 5,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 12567,
+            "output_tokens": 591,
+            "total_tokens": 13158
+          },
+          "cli": {
+            "input_tokens": 28116,
+            "output_tokens": 575,
+            "total_tokens": 28691
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 15549,
+            "output_tokens": -16,
+            "total_tokens": 15533
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 720,
+          "output_tokens": 1039,
+          "total_tokens": 1759
+        }
+      },
+      {
+        "case_id": "case-014",
+        "reviewer": "maritaca",
+        "preferred_label": "A",
+        "preferred_condition": "control",
+        "clarity_control": 5,
+        "clarity_cli": 4,
+        "class_control": "aceito",
+        "class_cli": "aceito",
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 23035,
+            "output_tokens": 750,
+            "total_tokens": 23785
+          },
+          "cli": {
+            "input_tokens": 29122,
+            "output_tokens": 577,
+            "total_tokens": 29699
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 6087,
+            "output_tokens": -173,
+            "total_tokens": 5914
+          }
+        },
+        "reviewer_tokens": {
+          "input_tokens": 834,
+          "output_tokens": 613,
+          "total_tokens": 1447
+        }
+      }
+    ]
+  }
+}

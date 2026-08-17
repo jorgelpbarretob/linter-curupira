@@ -1,0 +1,18 @@
+  ┊ review diff
+a/procedimento.md → b/procedimento.md
+@@ -1,4 +1,13 @@
+ # Procedimento — parada de linha
+ 
+-Feche a válvula V-12; desligue a bomba P-01.
++## 1. Isolamento da linha
++
++Feche a válvula V-12.
++
++## 2. Desligamento da bomba
++
++Desligue a bomba P-01.
++
++## 3. Verificação de pressão
++
+ Verifique a pressão em PI-01 antes de liberar a área.
+/tmp/cs-ab/case-001-run-03-control/procedimento.md — procedimento operacional em 3 atos (V-12 → P-01 → PI-01), frases finais com ponto e tags preservadas.

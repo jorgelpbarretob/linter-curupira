@@ -1,0 +1,28 @@
+Você é o braço CONTROLE do estudo case-012 (sem Curupira).
+
+Leia a tarefa completa abaixo e o arquivo de trabalho:
+- tarefa: /tmp/cs-ab/case-012-run-v2-01-control/task.md
+- artefato a editar: /tmp/cs-ab/case-012-run-v2-01-control/acao.md
+
+# Tarefa case-012
+
+## Objetivo
+Plantonista lê em 20 segundos. Poucos tokens de sessão.
+
+## Entrada
+`notas.md` → entregue `acao.md`.
+
+## Pronto quando
+1. Inclui TIC-77, alarme HI, bypass proibido, SEV3 em 15 min.
+2. Sem ponto e vírgula em prosa.
+3. Lista curta: sintoma → ação → verify → escala.
+4. CLI: lint exit 0.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto (menos tokens de leitura).
+- Sobrescreva somente: /tmp/cs-ab/case-012-run-v2-01-control/acao.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

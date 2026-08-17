@@ -1,0 +1,6 @@
+Pronto. Lint limpo na primeira iteração.
+
+- Path: /tmp/cs-y4/qwen_qwen3.8-27b/case-012-run-01-cli/acao.md
+- Exit do lint: 0 (0 diagnostics, sem ponto-e-vírgula)
+- Chars: 382
+- Resumo: lista sintoma → ação → verify → escala com TIC-77 HI, bypass proibido e SEV3 em 15 min.

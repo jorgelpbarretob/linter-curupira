@@ -1,0 +1,9 @@
+Pronto.
+
+- Arquivo: /tmp/cs-y4/qwen_qwen3.8-27b/case-007-run-01-cli/procedimento.md
+- Lint: exit 0, 0 diagnostic (CURUPIRA-PT-PONT-001)
+- Tamanho: 789 bytes (input 811). Prosa: 578 chars vs 723 do input → mais curta
+- 13 passos numerados em 4 seções: Isolamento → Drenagem → Partida → Fechamento
+- Tags preservadas: XV-101, P-220, PI-33, HV-08, TIC-12. Sem ponto e vírgula. Sem interlock, setpoint ou pessoa inventados.
+
+Resumo 1 linha: POP denso de 1 parágrafo virou 13 passos curtos com uma ação principal por linha, prosa 20% mais curta, lint exit 0.

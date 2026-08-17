@@ -1,0 +1,4 @@
+Arquivo salvo: /tmp/cs-y4/meta_muse-glimmer-30b/case-008-run-01-control/mitigacao.md
+Chars: 439
+
+Resumo: mitigação legível com sintoma → mitigação imediata → verificação → escalonamento, contém worker-b, fila jobs-hot, SEV2, 10 min e restart unit worker-b.service sem ponto e vírgula em prosa e sem causa raiz inventada.

@@ -1,0 +1,221 @@
+{
+  "schema_version": "hermes-case-study-3way-cli/v1",
+  "run_id": "run-02",
+  "conditions": [
+    "control",
+    "curupira(skill)",
+    "cli"
+  ],
+  "hypothesis": "CLI-only (no skill preload) reduces session input tokens vs skill arm while keeping residual 0 and readability",
+  "pairs": [
+    {
+      "case_id": "case-007",
+      "input_residual": 8,
+      "arms": {
+        "control": {
+          "residual": 0,
+          "total_tokens": 29028,
+          "input_tokens": 28423,
+          "output_tokens": 605,
+          "tool_calls": 4,
+          "wall_s": 22.3,
+          "chars": 779,
+          "max_sentence_words": 16,
+          "list_line_ratio": 0.75,
+          "session_id": "20260816_231300_c17d9d"
+        },
+        "curupira": {
+          "residual": 0,
+          "total_tokens": 31532,
+          "input_tokens": 30651,
+          "output_tokens": 881,
+          "tool_calls": 6,
+          "wall_s": 25.4,
+          "chars": 788,
+          "max_sentence_words": 16,
+          "list_line_ratio": 0.75,
+          "session_id": "20260816_231322_ce27dd"
+        },
+        "cli": {
+          "residual": 0,
+          "total_tokens": 31184,
+          "input_tokens": 30060,
+          "output_tokens": 1124,
+          "tool_calls": 6,
+          "wall_s": 30.0,
+          "chars": 747,
+          "max_sentence_words": 14,
+          "list_line_ratio": 0.722,
+          "session_id": "20260816_231348_9e8490"
+        }
+      },
+      "winner_tokens": "control",
+      "winner_readability": "cli",
+      "delta_tokens_cli_vs_control": 2156,
+      "delta_tokens_cli_vs_skill": -348,
+      "delta_tokens_skill_vs_control": 2504,
+      "delta_input_cli_vs_skill": -591
+    },
+    {
+      "case_id": "case-008",
+      "input_residual": 8,
+      "arms": {
+        "control": {
+          "residual": 0,
+          "total_tokens": 22781,
+          "input_tokens": 22219,
+          "output_tokens": 562,
+          "tool_calls": 5,
+          "wall_s": 18.8,
+          "chars": 490,
+          "max_sentence_words": 11,
+          "list_line_ratio": 0.667,
+          "session_id": "20260816_231418_3824e3"
+        },
+        "curupira": {
+          "residual": 0,
+          "total_tokens": 30104,
+          "input_tokens": 29485,
+          "output_tokens": 619,
+          "tool_calls": 5,
+          "wall_s": 25.5,
+          "chars": 616,
+          "max_sentence_words": 11,
+          "list_line_ratio": 0.706,
+          "session_id": "20260816_231437_178f1a"
+        },
+        "cli": {
+          "residual": 0,
+          "total_tokens": 30405,
+          "input_tokens": 29753,
+          "output_tokens": 652,
+          "tool_calls": 5,
+          "wall_s": 20.0,
+          "chars": 484,
+          "max_sentence_words": 10,
+          "list_line_ratio": 0.688,
+          "session_id": "20260816_231503_926cd0"
+        }
+      },
+      "winner_tokens": "control",
+      "winner_readability": "cli",
+      "delta_tokens_cli_vs_control": 7624,
+      "delta_tokens_cli_vs_skill": 301,
+      "delta_tokens_skill_vs_control": 7323,
+      "delta_input_cli_vs_skill": 268
+    },
+    {
+      "case_id": "case-009",
+      "input_residual": 9,
+      "arms": {
+        "control": {
+          "residual": 0,
+          "total_tokens": 29795,
+          "input_tokens": 29107,
+          "output_tokens": 688,
+          "tool_calls": 7,
+          "wall_s": 22.9,
+          "chars": 606,
+          "max_sentence_words": 15,
+          "list_line_ratio": 0.75,
+          "session_id": "20260816_231523_1350d1"
+        },
+        "curupira": {
+          "residual": 0,
+          "total_tokens": 29971,
+          "input_tokens": 29310,
+          "output_tokens": 661,
+          "tool_calls": 5,
+          "wall_s": 20.9,
+          "chars": 554,
+          "max_sentence_words": 15,
+          "list_line_ratio": 0.765,
+          "session_id": "20260816_231546_b1e7bb"
+        },
+        "cli": {
+          "residual": 0,
+          "total_tokens": 29225,
+          "input_tokens": 28564,
+          "output_tokens": 661,
+          "tool_calls": 5,
+          "wall_s": 26.2,
+          "chars": 578,
+          "max_sentence_words": 15,
+          "list_line_ratio": 0.81,
+          "session_id": "20260816_231607_f91d44"
+        }
+      },
+      "winner_tokens": "cli",
+      "winner_readability": "cli",
+      "delta_tokens_cli_vs_control": -570,
+      "delta_tokens_cli_vs_skill": -746,
+      "delta_tokens_skill_vs_control": 176,
+      "delta_input_cli_vs_skill": -746
+    },
+    {
+      "case_id": "case-010",
+      "input_residual": 8,
+      "arms": {
+        "control": {
+          "residual": 0,
+          "total_tokens": 29384,
+          "input_tokens": 28648,
+          "output_tokens": 736,
+          "tool_calls": 4,
+          "wall_s": 23.8,
+          "chars": 742,
+          "max_sentence_words": 11,
+          "list_line_ratio": 0.364,
+          "session_id": "20260816_231633_b0c8ff"
+        },
+        "curupira": {
+          "residual": 0,
+          "total_tokens": 30738,
+          "input_tokens": 30008,
+          "output_tokens": 730,
+          "tool_calls": 4,
+          "wall_s": 23.8,
+          "chars": 816,
+          "max_sentence_words": 17,
+          "list_line_ratio": 0.529,
+          "session_id": "20260816_231657_67f376"
+        },
+        "cli": {
+          "residual": 0,
+          "total_tokens": 30022,
+          "input_tokens": 29338,
+          "output_tokens": 684,
+          "tool_calls": 5,
+          "wall_s": 26.5,
+          "chars": 836,
+          "max_sentence_words": 15,
+          "list_line_ratio": 0.077,
+          "session_id": "20260816_231721_d4b518"
+        }
+      },
+      "winner_tokens": "control",
+      "winner_readability": "control",
+      "delta_tokens_cli_vs_control": 638,
+      "delta_tokens_cli_vs_skill": -716,
+      "delta_tokens_skill_vs_control": 1354,
+      "delta_input_cli_vs_skill": -670
+    }
+  ],
+  "aggregate": {
+    "mean_delta_tokens_cli_vs_control": 2462,
+    "mean_delta_tokens_cli_vs_skill": -377.2,
+    "mean_delta_tokens_skill_vs_control": 2839.2,
+    "mean_delta_input_cli_vs_skill": -434.8,
+    "token_wins": {
+      "control": 3,
+      "curupira": 0,
+      "cli": 1
+    },
+    "read_wins": {
+      "control": 1,
+      "curupira": 0,
+      "cli": 3
+    },
+    "residual_all_zero": true
+  }
+}

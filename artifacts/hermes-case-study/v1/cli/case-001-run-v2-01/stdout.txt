@@ -1,0 +1,24 @@
+  ┊ review diff
+a/procedimento.md → b/procedimento.md
+@@ -1,4 +1,15 @@
+ # Procedimento — parada de linha
+ 
+-Feche a válvula V-12; desligue a bomba P-01.
+-Verifique a pressão em PI-01 antes de liberar a área.
++## 1. Isolar a linha
++
++Feche a válvula V-12.
++
++## 2. Parar o equipamento
++
++Desligue a bomba P-01.
++
++## 3. Conferir e liberar
++
++Verifique a pressão em PI-01.
++
++Só então libere a área.
+path: /tmp/cs-ab/case-001-run-v2-01-cli/procedimento.md
+exit lint: 0
+chars: 218
+resumo: Três atos em MD (V-12 → P-01 → PI-01), frases curtas, sem ponto e vírgula; PONT-001 limpo.

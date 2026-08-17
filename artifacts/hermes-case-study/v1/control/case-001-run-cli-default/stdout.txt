@@ -1,0 +1,18 @@
+  ┊ review diff
+a/procedimento.md → b/procedimento.md
+@@ -1,4 +1,10 @@
+ # Procedimento — parada de linha
+ 
+-Feche a válvula V-12; desligue a bomba P-01.
+-Verifique a pressão em PI-01 antes de liberar a área.
++## 1. Isolar o fluxo
++Feche a válvula V-12.
++
++## 2. Parar o acionamento
++Desligue a bomba P-01.
++
++## 3. Conferir e liberar
++Verifique a pressão em PI-01. Só então libere a área.
+path: /tmp/cs-ab/case-001-run-cli-default-control/procedimento.md
+chars: 207
+resumo: Três atos (V-12 → P-01 → PI-01) em seções curtas, sem tags novas/removidas.

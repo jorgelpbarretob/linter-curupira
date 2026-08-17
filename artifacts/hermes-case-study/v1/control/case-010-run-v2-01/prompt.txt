@@ -1,0 +1,34 @@
+Você é o braço CONTROLE do estudo case-010 (sem Curupira).
+
+Leia a tarefa completa abaixo e o arquivo de trabalho:
+- tarefa: /tmp/cs-ab/case-010-run-v2-01-control/task.md
+- artefato a editar: /tmp/cs-ab/case-010-run-v2-01-control/runbook.md
+
+# Tarefa case-010 — modernizar runbook denso
+
+## Objetivo de produto
+Legibilidade para o time e menos tokens de ida e volta na sessão de edição.
+
+## Mudança técnica obrigatória
+- `hermes-lint` → `curupira`
+- `HERMES-PT-PONT-001` → `CURUPIRA-PT-PONT-001`
+- comando correto inclui subcomando `lint`
+
+## Entrada
+`runbook.md` legado denso.
+
+## Pronto quando
+1. Zero ocorrências hermes-lint / HERMES-PT-*.
+2. Usa `curupira lint ... --enable-rule CURUPIRA-PT-PONT-001`.
+3. Mantém fluxo: instalar → lint → corrigir → anexar JSON → abrir PR.
+4. Remove ponto e vírgula de prosa e quebra o muro de texto.
+5. Com Curupira: lint exit 0 no runbook final.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto (menos tokens de leitura).
+- Sobrescreva somente: /tmp/cs-ab/case-010-run-v2-01-control/runbook.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

@@ -1,0 +1,24 @@
+  ┊ review diff
+a/procedimento.md → b/procedimento.md
+@@ -1,3 +1,16 @@
+ # Partida P-440
+ 
+-Antes de partir confirme LS-3 em nível mínimo e PSH-9 sem trip; abra XV-22 totalmente; verifique ruído/vazamento na selagem; parta P-440 no local e confirme amperagem na faixa da placa; se PSH-9 atuar, pare e isole XV-22; registre no turno P-440, XV-22, PSH-9 e LS-3 sem inventar setpoints.
++## Permissivos
++1. Confirme LS-3 em nível mínimo.
++2. Confirme PSH-9 sem trip.
++3. Abra XV-22 totalmente.
++
++## Partida
++4. Parta P-440 no local.
++5. Se PSH-9 atuar, pare e isole XV-22.
++
++## Verificação
++6. Verifique ruído e vazamento na selagem.
++7. Confirme amperagem na faixa da placa.
++8. Registre no turno P-440, XV-22, PSH-9 e LS-3.
++9. Não invente setpoints.
+path: /tmp/cs-ab/case-011-run-v2-01-cli/procedimento.md
+exit lint: 0
+chars: 377
+resumo: procedimento em passos numerados (permissivos → partida → verificação), tags P-440/XV-22/PSH-9/LS-3 intactas, sem ponto e vírgula.

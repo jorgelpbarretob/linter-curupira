@@ -1,0 +1,49 @@
+{
+  "schema_version": "hermes-case-study-matrix-y4-run/v1",
+  "case_id": "case-007",
+  "run_id": "run-01",
+  "condition": "control",
+  "model_requested": "nvidia/nemotron-3.5-lightning:free",
+  "provider_requested": "openrouter",
+  "case_package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+  "wall_seconds": 31.9,
+  "timed_out": false,
+  "exit_code": 0,
+  "token_source": "usage-file",
+  "usage": {
+    "input_tokens": 74586,
+    "output_tokens": 3978,
+    "reasoning_tokens": 2448,
+    "cache_read_tokens": 128384,
+    "total_tokens": 206948,
+    "api_calls": 6,
+    "model": "nvidia/nemotron-3.5-lightning:free",
+    "provider": "openrouter",
+    "session_id": "20260817_005817_35a8e7"
+  },
+  "artifact_present": true,
+  "gate": {
+    "treatment_lint_invoked": null,
+    "residual_n": 0,
+    "residual_zero": true,
+    "operational_pass": null
+  },
+  "integrity_flags": [],
+  "artifact_path": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/control/case-007-run-01/procedimento.md",
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0
+  },
+  "readability": {
+    "chars": 771,
+    "words": 143,
+    "semicolon_count": 0,
+    "sentence_n": 22,
+    "avg_sentence_words": 5.91,
+    "max_sentence_words": 18,
+    "list_line_ratio": 0.733,
+    "lines": 15,
+    "delta_chars_vs_input": -16,
+    "delta_words_vs_input": -1
+  }
+}

@@ -1,0 +1,32 @@
+Você é o braço CLI do estudo case-012.
+NÃO carregue skill. Use só o binário local curupira.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-012-run-v2-01-cli/task.md
+- artefato a editar: /tmp/cs-ab/case-012-run-v2-01-cli/acao.md
+
+# Tarefa case-012
+
+## Objetivo
+Plantonista lê em 20 segundos. Poucos tokens de sessão.
+
+## Entrada
+`notas.md` → entregue `acao.md`.
+
+## Pronto quando
+1. Inclui TIC-77, alarme HI, bypass proibido, SEV3 em 15 min.
+2. Sem ponto e vírgula em prosa.
+3. Lista curta: sintoma → ação → verify → escala.
+4. CLI: lint exit 0.
+
+
+Regras do braço CLI (mínimas):
+- Edite /tmp/cs-ab/case-012-run-v2-01-cli/acao.md para legibilidade: frases curtas, passos explícitos, sem muro de texto.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Antes de declarar pronto, rode EXATAMENTE:
+  curupira lint /tmp/cs-ab/case-012-run-v2-01-cli/acao.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- NÃO use semantic-review. NÃO chame APIs.
+- NÃO peça nem carregue skill curupira-preflight.
+- Sobrescreva somente: /tmp/cs-ab/case-012-run-v2-01-cli/acao.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

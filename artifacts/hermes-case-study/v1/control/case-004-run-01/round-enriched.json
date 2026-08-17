@@ -1,0 +1,27 @@
+{
+  "case_id": "case-004",
+  "run_id": "run-01",
+  "condition": "control",
+  "hermes_exit": 0,
+  "wall_s": 16.8,
+  "session_id": "20260816_225423_5688b6",
+  "work_dir": "/tmp/cs-ab/case-004-run-01-control",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/control/case-004-run-01/runbook.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": [],
+  "session": {
+    "messages": 7,
+    "tool_calls": 3,
+    "api_calls": 3,
+    "input_tokens": 28211,
+    "output_tokens": 351,
+    "model": "grok-4.5"
+  },
+  "curupira_invoked": false,
+  "requirements_ok": true,
+  "artifact_chars": 234
+}

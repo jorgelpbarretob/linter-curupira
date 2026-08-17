@@ -1,0 +1,2007 @@
+{
+  "schema_version": "hermes-case-study-report-5d/v1",
+  "report_id": "pilot-variance-athena-qwen3.8-max",
+  "generated_at": "2026-08-17T00:50:19.880327-03:00",
+  "models": {
+    "executor": "qwen3.8-max",
+    "executor_route": "athena bailian / hermes -z --usage-file",
+    "panel": {
+      "kimi": "kimi-k2.7",
+      "maritaca": "sabia-4-thinking"
+    },
+    "semantic_panel": {
+      "kimi": null,
+      "maritaca": null
+    }
+  },
+  "dimensions_present": [
+    "executor_session",
+    "panel_reviewer",
+    "operational_gate",
+    "quality_blind",
+    "integrity"
+  ],
+  "pairs": [
+    {
+      "case_id": "case-007",
+      "run_id": "run-01",
+      "executor": {
+        "model": "qwen3.8-max",
+        "provider_note": "athena bailian qwen3.8-max",
+        "token_source": "usage-file",
+        "control": {
+          "input_tokens": 9128,
+          "output_tokens": 3399,
+          "total_tokens": 102255,
+          "reasoning_tokens": 2336,
+          "cache_read_tokens": 89728,
+          "api_calls": 4,
+          "session_id": "20260816_233001_f174c0",
+          "wall_s": 83.6
+        },
+        "treatment": {
+          "input_tokens": 7144,
+          "output_tokens": 4849,
+          "total_tokens": 187481,
+          "reasoning_tokens": 2522,
+          "cache_read_tokens": 175488,
+          "api_calls": 7,
+          "session_id": "20260816_233424_3b507c",
+          "wall_s": 118.6
+        },
+        "delta_treatment_minus_control": {
+          "input_tokens": -1984,
+          "output_tokens": 1450,
+          "total_tokens": 85226
+        }
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "treatment_residual_zero": true,
+        "control_residual_n": 0,
+        "treatment_residual_n": 0,
+        "operational_pass": true,
+        "note": "pilot treatment=skill; lint invocation assumed via skill, not CLI-min evidence"
+      },
+      "quality_auto": {
+        "control": {
+          "chars": 800,
+          "words": 149,
+          "semicolon_count": 0,
+          "sentence_n": 32,
+          "avg_sentence_words": 4.22,
+          "max_sentence_words": 15,
+          "list_line_ratio": 0.762,
+          "lines": 21,
+          "delta_chars_vs_input": 13,
+          "delta_words_vs_input": 5
+        },
+        "treatment": {
+          "chars": 830,
+          "words": 160,
+          "semicolon_count": 0,
+          "sentence_n": 35,
+          "avg_sentence_words": 4.17,
+          "max_sentence_words": 16,
+          "list_line_ratio": 0.75,
+          "lines": 20,
+          "delta_chars_vs_input": 43,
+          "delta_words_vs_input": 16
+        }
+      },
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=102255 in+out=12527 (cache/reasoning likely)",
+          "arm": "control",
+          "case_id": "case-007",
+          "run_id": "run-01"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=187481 in+out=11993 (cache/reasoning likely)",
+          "arm": "curupira",
+          "case_id": "case-007",
+          "run_id": "run-01"
+        },
+        {
+          "code": "treatment_was_skill_preload_not_cli_min",
+          "case_id": "case-007",
+          "run_id": "run-01",
+          "evidence": "pilot-variance used --skills curupira-preflight"
+        }
+      ]
+    },
+    {
+      "case_id": "case-007",
+      "run_id": "run-02",
+      "executor": {
+        "model": "qwen3.8-max",
+        "provider_note": "athena bailian qwen3.8-max",
+        "token_source": "usage-file",
+        "control": {
+          "input_tokens": 2980,
+          "output_tokens": 4793,
+          "total_tokens": 103261,
+          "reasoning_tokens": 4033,
+          "cache_read_tokens": 95488,
+          "api_calls": 4,
+          "session_id": "20260816_233125_d0720f",
+          "wall_s": 103.2
+        },
+        "treatment": {
+          "input_tokens": 6890,
+          "output_tokens": 4631,
+          "total_tokens": 211841,
+          "reasoning_tokens": 3246,
+          "cache_read_tokens": 200320,
+          "api_calls": 8,
+          "session_id": "20260816_233623_7fb2d5",
+          "wall_s": 118.0
+        },
+        "delta_treatment_minus_control": {
+          "input_tokens": 3910,
+          "output_tokens": -162,
+          "total_tokens": 108580
+        }
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "treatment_residual_zero": true,
+        "control_residual_n": 0,
+        "treatment_residual_n": 0,
+        "operational_pass": true,
+        "note": "pilot treatment=skill; lint invocation assumed via skill, not CLI-min evidence"
+      },
+      "quality_auto": {
+        "control": {
+          "chars": 770,
+          "words": 143,
+          "semicolon_count": 0,
+          "sentence_n": 29,
+          "avg_sentence_words": 4.45,
+          "max_sentence_words": 18,
+          "list_line_ratio": 0.737,
+          "lines": 19,
+          "delta_chars_vs_input": -17,
+          "delta_words_vs_input": -1
+        },
+        "treatment": {
+          "chars": 756,
+          "words": 143,
+          "semicolon_count": 0,
+          "sentence_n": 32,
+          "avg_sentence_words": 4.03,
+          "max_sentence_words": 15,
+          "list_line_ratio": 0.737,
+          "lines": 19,
+          "delta_chars_vs_input": -31,
+          "delta_words_vs_input": -1
+        }
+      },
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=103261 in+out=7773 (cache/reasoning likely)",
+          "arm": "control",
+          "case_id": "case-007",
+          "run_id": "run-02"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=211841 in+out=11521 (cache/reasoning likely)",
+          "arm": "curupira",
+          "case_id": "case-007",
+          "run_id": "run-02"
+        },
+        {
+          "code": "treatment_was_skill_preload_not_cli_min",
+          "case_id": "case-007",
+          "run_id": "run-02",
+          "evidence": "pilot-variance used --skills curupira-preflight"
+        }
+      ]
+    },
+    {
+      "case_id": "case-007",
+      "run_id": "run-03",
+      "executor": {
+        "model": "qwen3.8-max",
+        "provider_note": "athena bailian qwen3.8-max",
+        "token_source": "usage-file",
+        "control": {
+          "input_tokens": 3592,
+          "output_tokens": 2498,
+          "total_tokens": 126154,
+          "reasoning_tokens": 1548,
+          "cache_read_tokens": 120064,
+          "api_calls": 5,
+          "session_id": "20260816_233308_f62af6",
+          "wall_s": 75.7
+        },
+        "treatment": {
+          "input_tokens": 8781,
+          "output_tokens": 3743,
+          "total_tokens": 213996,
+          "reasoning_tokens": 2483,
+          "cache_read_tokens": 201472,
+          "api_calls": 8,
+          "session_id": "20260816_233821_541faa",
+          "wall_s": 103.6
+        },
+        "delta_treatment_minus_control": {
+          "input_tokens": 5189,
+          "output_tokens": 1245,
+          "total_tokens": 87842
+        }
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "treatment_residual_zero": true,
+        "control_residual_n": 0,
+        "treatment_residual_n": 0,
+        "operational_pass": true,
+        "note": "pilot treatment=skill; lint invocation assumed via skill, not CLI-min evidence"
+      },
+      "quality_auto": {
+        "control": {
+          "chars": 794,
+          "words": 150,
+          "semicolon_count": 0,
+          "sentence_n": 33,
+          "avg_sentence_words": 4.12,
+          "max_sentence_words": 15,
+          "list_line_ratio": 0.737,
+          "lines": 19,
+          "delta_chars_vs_input": 7,
+          "delta_words_vs_input": 6
+        },
+        "treatment": {
+          "chars": 779,
+          "words": 147,
+          "semicolon_count": 0,
+          "sentence_n": 31,
+          "avg_sentence_words": 4.29,
+          "max_sentence_words": 18,
+          "list_line_ratio": 0.722,
+          "lines": 18,
+          "delta_chars_vs_input": -8,
+          "delta_words_vs_input": 3
+        }
+      },
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=126154 in+out=6090 (cache/reasoning likely)",
+          "arm": "control",
+          "case_id": "case-007",
+          "run_id": "run-03"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=213996 in+out=12524 (cache/reasoning likely)",
+          "arm": "curupira",
+          "case_id": "case-007",
+          "run_id": "run-03"
+        },
+        {
+          "code": "treatment_was_skill_preload_not_cli_min",
+          "case_id": "case-007",
+          "run_id": "run-03",
+          "evidence": "pilot-variance used --skills curupira-preflight"
+        }
+      ]
+    },
+    {
+      "case_id": "case-008",
+      "run_id": "run-01",
+      "executor": {
+        "model": "qwen3.8-max",
+        "provider_note": "athena bailian qwen3.8-max",
+        "token_source": "usage-file",
+        "control": {
+          "input_tokens": 2710,
+          "output_tokens": 1692,
+          "total_tokens": 124466,
+          "reasoning_tokens": 920,
+          "cache_read_tokens": 120064,
+          "api_calls": 5,
+          "session_id": "20260816_234005_bbd253",
+          "wall_s": 60.2
+        },
+        "treatment": {
+          "input_tokens": 5935,
+          "output_tokens": 1845,
+          "total_tokens": 184548,
+          "reasoning_tokens": 1067,
+          "cache_read_tokens": 176768,
+          "api_calls": 7,
+          "session_id": "20260816_234334_5a8998",
+          "wall_s": 69.9
+        },
+        "delta_treatment_minus_control": {
+          "input_tokens": 3225,
+          "output_tokens": 153,
+          "total_tokens": 60082
+        }
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "treatment_residual_zero": true,
+        "control_residual_n": 0,
+        "treatment_residual_n": 0,
+        "operational_pass": true,
+        "note": "pilot treatment=skill; lint invocation assumed via skill, not CLI-min evidence"
+      },
+      "quality_auto": {
+        "control": {
+          "chars": 554,
+          "words": 83,
+          "semicolon_count": 0,
+          "sentence_n": 12,
+          "avg_sentence_words": 5.92,
+          "max_sentence_words": 12,
+          "list_line_ratio": 0.667,
+          "lines": 15,
+          "delta_chars_vs_input": 101,
+          "delta_words_vs_input": 5
+        },
+        "treatment": {
+          "chars": 592,
+          "words": 93,
+          "semicolon_count": 0,
+          "sentence_n": 14,
+          "avg_sentence_words": 5.71,
+          "max_sentence_words": 11,
+          "list_line_ratio": 0.688,
+          "lines": 16,
+          "delta_chars_vs_input": 139,
+          "delta_words_vs_input": 15
+        }
+      },
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=124466 in+out=4402 (cache/reasoning likely)",
+          "arm": "control",
+          "case_id": "case-008",
+          "run_id": "run-01"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=184548 in+out=7780 (cache/reasoning likely)",
+          "arm": "curupira",
+          "case_id": "case-008",
+          "run_id": "run-01"
+        },
+        {
+          "code": "treatment_was_skill_preload_not_cli_min",
+          "case_id": "case-008",
+          "run_id": "run-01",
+          "evidence": "pilot-variance used --skills curupira-preflight"
+        }
+      ]
+    },
+    {
+      "case_id": "case-008",
+      "run_id": "run-02",
+      "executor": {
+        "model": "qwen3.8-max",
+        "provider_note": "athena bailian qwen3.8-max",
+        "token_source": "usage-file",
+        "control": {
+          "input_tokens": 4440,
+          "output_tokens": 1768,
+          "total_tokens": 151616,
+          "reasoning_tokens": 613,
+          "cache_read_tokens": 145408,
+          "api_calls": 6,
+          "session_id": "20260816_234105_7ab575",
+          "wall_s": 63.4
+        },
+        "treatment": {
+          "input_tokens": 6829,
+          "output_tokens": 2870,
+          "total_tokens": 213219,
+          "reasoning_tokens": 1790,
+          "cache_read_tokens": 203520,
+          "api_calls": 8,
+          "session_id": "20260816_234444_da04ff",
+          "wall_s": 89.0
+        },
+        "delta_treatment_minus_control": {
+          "input_tokens": 2389,
+          "output_tokens": 1102,
+          "total_tokens": 61603
+        }
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "treatment_residual_zero": true,
+        "control_residual_n": 0,
+        "treatment_residual_n": 0,
+        "operational_pass": true,
+        "note": "pilot treatment=skill; lint invocation assumed via skill, not CLI-min evidence"
+      },
+      "quality_auto": {
+        "control": {
+          "chars": 636,
+          "words": 102,
+          "semicolon_count": 0,
+          "sentence_n": 19,
+          "avg_sentence_words": 4.79,
+          "max_sentence_words": 10,
+          "list_line_ratio": 0.722,
+          "lines": 18,
+          "delta_chars_vs_input": 183,
+          "delta_words_vs_input": 24
+        },
+        "treatment": {
+          "chars": 619,
+          "words": 98,
+          "semicolon_count": 0,
+          "sentence_n": 18,
+          "avg_sentence_words": 4.78,
+          "max_sentence_words": 11,
+          "list_line_ratio": 0.706,
+          "lines": 17,
+          "delta_chars_vs_input": 166,
+          "delta_words_vs_input": 20
+        }
+      },
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=151616 in+out=6208 (cache/reasoning likely)",
+          "arm": "control",
+          "case_id": "case-008",
+          "run_id": "run-02"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=213219 in+out=9699 (cache/reasoning likely)",
+          "arm": "curupira",
+          "case_id": "case-008",
+          "run_id": "run-02"
+        },
+        {
+          "code": "treatment_was_skill_preload_not_cli_min",
+          "case_id": "case-008",
+          "run_id": "run-02",
+          "evidence": "pilot-variance used --skills curupira-preflight"
+        }
+      ]
+    },
+    {
+      "case_id": "case-008",
+      "run_id": "run-03",
+      "executor": {
+        "model": "qwen3.8-max",
+        "provider_note": "athena bailian qwen3.8-max",
+        "token_source": "usage-file",
+        "control": {
+          "input_tokens": 3044,
+          "output_tokens": 3112,
+          "total_tokens": 125836,
+          "reasoning_tokens": 2381,
+          "cache_read_tokens": 119680,
+          "api_calls": 5,
+          "session_id": "20260816_234208_89f9b7",
+          "wall_s": 85.5
+        },
+        "treatment": {
+          "input_tokens": 4992,
+          "output_tokens": 4295,
+          "total_tokens": 184519,
+          "reasoning_tokens": 3115,
+          "cache_read_tokens": 175232,
+          "api_calls": 7,
+          "session_id": "20260816_234614_71baf8",
+          "wall_s": 113.0
+        },
+        "delta_treatment_minus_control": {
+          "input_tokens": 1948,
+          "output_tokens": 1183,
+          "total_tokens": 58683
+        }
+      },
+      "gate": {
+        "treatment_lint_invoked": true,
+        "treatment_residual_zero": true,
+        "control_residual_n": 0,
+        "treatment_residual_n": 0,
+        "operational_pass": true,
+        "note": "pilot treatment=skill; lint invocation assumed via skill, not CLI-min evidence"
+      },
+      "quality_auto": {
+        "control": {
+          "chars": 751,
+          "words": 119,
+          "semicolon_count": 0,
+          "sentence_n": 13,
+          "avg_sentence_words": 8.15,
+          "max_sentence_words": 16,
+          "list_line_ratio": 0.625,
+          "lines": 16,
+          "delta_chars_vs_input": 298,
+          "delta_words_vs_input": 41
+        },
+        "treatment": {
+          "chars": 707,
+          "words": 109,
+          "semicolon_count": 0,
+          "sentence_n": 19,
+          "avg_sentence_words": 5.0,
+          "max_sentence_words": 12,
+          "list_line_ratio": 0.684,
+          "lines": 19,
+          "delta_chars_vs_input": 254,
+          "delta_words_vs_input": 31
+        }
+      },
+      "integrity_flags": [
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=125836 in+out=6156 (cache/reasoning likely)",
+          "arm": "control",
+          "case_id": "case-008",
+          "run_id": "run-03"
+        },
+        {
+          "code": "total_much_greater_than_in_plus_out",
+          "evidence": "total=184519 in+out=9287 (cache/reasoning likely)",
+          "arm": "curupira",
+          "case_id": "case-008",
+          "run_id": "run-03"
+        },
+        {
+          "code": "treatment_was_skill_preload_not_cli_min",
+          "case_id": "case-008",
+          "run_id": "run-03",
+          "evidence": "pilot-variance used --skills curupira-preflight"
+        }
+      ]
+    }
+  ],
+  "aggregate": {
+    "n_pairs": 6,
+    "median_delta_input": 2807.0,
+    "median_delta_output": 1142.5,
+    "median_delta_total": 73414.5,
+    "mean_delta_input": 2446.17,
+    "mean_delta_output": 828.5,
+    "mean_delta_total": 77002.67,
+    "gate_pass_n": 6,
+    "integrity_flag_codes": {
+      "total_much_greater_than_in_plus_out": 12,
+      "treatment_was_skill_preload_not_cli_min": 6
+    }
+  },
+  "panel": {
+    "status": "attached",
+    "path": "artifacts/hermes-case-study/v2/blind/scores-panel-kimi-maritaca.json",
+    "models": {
+      "kimi": "kimi-k2.7",
+      "maritaca": "sabia-4-thinking"
+    },
+    "totals": {
+      "kimi": {
+        "input_tokens": 9147,
+        "output_tokens": 17539,
+        "total_tokens": 26686,
+        "calls": 22
+      },
+      "maritaca": {
+        "input_tokens": 8690,
+        "output_tokens": 9209,
+        "total_tokens": 17899,
+        "calls": 22
+      }
+    },
+    "preference_counts": {
+      "kimi": {
+        "control": 3,
+        "cli": 6,
+        "tie": 2
+      },
+      "maritaca": {
+        "tie": 2,
+        "control": 4,
+        "cli": 5
+      }
+    },
+    "per_case": [
+      {
+        "case_id": "case-001",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 636,
+            "output_tokens": 1036,
+            "total_tokens": 1672,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 614,
+            "output_tokens": 801,
+            "total_tokens": 1415,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 28719,
+            "output_tokens": 556,
+            "total_tokens": 29275
+          },
+          "cli": {
+            "input_tokens": 29146,
+            "output_tokens": 571,
+            "total_tokens": 29717
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 427,
+            "output_tokens": 15,
+            "total_tokens": 442
+          }
+        }
+      },
+      {
+        "case_id": "case-003",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 654,
+            "output_tokens": 2279,
+            "total_tokens": 2933,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 618,
+            "output_tokens": 712,
+            "total_tokens": 1330,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 21714,
+            "output_tokens": 508,
+            "total_tokens": 22222
+          },
+          "cli": {
+            "input_tokens": 28584,
+            "output_tokens": 490,
+            "total_tokens": 29074
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 6870,
+            "output_tokens": -18,
+            "total_tokens": 6852
+          }
+        }
+      },
+      {
+        "case_id": "case-004",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 677,
+            "output_tokens": 1417,
+            "total_tokens": 2094,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 639,
+            "output_tokens": 573,
+            "total_tokens": 1212,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 22180,
+            "output_tokens": 496,
+            "total_tokens": 22676
+          },
+          "cli": {
+            "input_tokens": 28619,
+            "output_tokens": 462,
+            "total_tokens": 29081
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 6439,
+            "output_tokens": -34,
+            "total_tokens": 6405
+          }
+        }
+      },
+      {
+        "case_id": "case-007",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 1077,
+            "output_tokens": 2150,
+            "total_tokens": 3227,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 1052,
+            "output_tokens": 880,
+            "total_tokens": 1932,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 28439,
+            "output_tokens": 590,
+            "total_tokens": 29029
+          },
+          "cli": {
+            "input_tokens": 29187,
+            "output_tokens": 622,
+            "total_tokens": 29809
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 748,
+            "output_tokens": 32,
+            "total_tokens": 780
+          }
+        }
+      },
+      {
+        "case_id": "case-008",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 875,
+            "output_tokens": 907,
+            "total_tokens": 1782,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 808,
+            "output_tokens": 815,
+            "total_tokens": 1623,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 29115,
+            "output_tokens": 598,
+            "total_tokens": 29713
+          },
+          "cli": {
+            "input_tokens": 29295,
+            "output_tokens": 640,
+            "total_tokens": 29935
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 180,
+            "output_tokens": 42,
+            "total_tokens": 222
+          }
+        }
+      },
+      {
+        "case_id": "case-009",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 944,
+            "output_tokens": 925,
+            "total_tokens": 1869,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 905,
+            "output_tokens": 881,
+            "total_tokens": 1786,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 22016,
+            "output_tokens": 661,
+            "total_tokens": 22677
+          },
+          "cli": {
+            "input_tokens": 29222,
+            "output_tokens": 708,
+            "total_tokens": 29930
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 7206,
+            "output_tokens": 47,
+            "total_tokens": 7253
+          }
+        }
+      },
+      {
+        "case_id": "case-010",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 1037,
+            "output_tokens": 1736,
+            "total_tokens": 2773,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 980,
+            "output_tokens": 924,
+            "total_tokens": 1904,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 2149,
+            "output_tokens": 737,
+            "total_tokens": 2886
+          },
+          "cli": {
+            "input_tokens": 2141,
+            "output_tokens": 683,
+            "total_tokens": 2824
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": -8,
+            "output_tokens": -54,
+            "total_tokens": -62
+          }
+        }
+      },
+      {
+        "case_id": "case-011",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 818,
+            "output_tokens": 1627,
+            "total_tokens": 2445,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 778,
+            "output_tokens": 1035,
+            "total_tokens": 1813,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 27996,
+            "output_tokens": 583,
+            "total_tokens": 28579
+          },
+          "cli": {
+            "input_tokens": 28767,
+            "output_tokens": 545,
+            "total_tokens": 29312
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 771,
+            "output_tokens": -38,
+            "total_tokens": 733
+          }
+        }
+      },
+      {
+        "case_id": "case-012",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 781,
+            "output_tokens": 2027,
+            "total_tokens": 2808,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 742,
+            "output_tokens": 936,
+            "total_tokens": 1678,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 1566,
+            "output_tokens": 484,
+            "total_tokens": 2050
+          },
+          "cli": {
+            "input_tokens": 28963,
+            "output_tokens": 624,
+            "total_tokens": 29587
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 27397,
+            "output_tokens": 140,
+            "total_tokens": 27537
+          }
+        }
+      },
+      {
+        "case_id": "case-013",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 762,
+            "output_tokens": 1304,
+            "total_tokens": 2066,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 720,
+            "output_tokens": 1039,
+            "total_tokens": 1759,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 12567,
+            "output_tokens": 591,
+            "total_tokens": 13158
+          },
+          "cli": {
+            "input_tokens": 28116,
+            "output_tokens": 575,
+            "total_tokens": 28691
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 15549,
+            "output_tokens": -16,
+            "total_tokens": 15533
+          }
+        }
+      },
+      {
+        "case_id": "case-014",
+        "reviewers": {
+          "kimi": {
+            "input_tokens": 886,
+            "output_tokens": 2131,
+            "total_tokens": 3017,
+            "calls": 2,
+            "errors": 0
+          },
+          "maritaca": {
+            "input_tokens": 834,
+            "output_tokens": 613,
+            "total_tokens": 1447,
+            "calls": 2,
+            "errors": 0
+          }
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 23035,
+            "output_tokens": 750,
+            "total_tokens": 23785
+          },
+          "cli": {
+            "input_tokens": 29122,
+            "output_tokens": 577,
+            "total_tokens": 29699
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 6087,
+            "output_tokens": -173,
+            "total_tokens": 5914
+          }
+        }
+      }
+    ],
+    "unblind_preferences": {
+      "kimi": [
+        {
+          "case_id": "case-001",
+          "reviewer": "kimi",
+          "preferred_label": "A",
+          "preferred_condition": "control",
+          "clarity_control": 5,
+          "clarity_cli": 4,
+          "class_control": "aceito",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 28719,
+              "output_tokens": 556,
+              "total_tokens": 29275
+            },
+            "cli": {
+              "input_tokens": 29146,
+              "output_tokens": 571,
+              "total_tokens": 29717
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 427,
+              "output_tokens": 15,
+              "total_tokens": 442
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 636,
+            "output_tokens": 1036,
+            "total_tokens": 1672
+          }
+        },
+        {
+          "case_id": "case-003",
+          "reviewer": "kimi",
+          "preferred_label": "A",
+          "preferred_condition": "control",
+          "clarity_control": 4,
+          "clarity_cli": 3,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "rejeitado_retrabalho_maior",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 21714,
+              "output_tokens": 508,
+              "total_tokens": 22222
+            },
+            "cli": {
+              "input_tokens": 28584,
+              "output_tokens": 490,
+              "total_tokens": 29074
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 6870,
+              "output_tokens": -18,
+              "total_tokens": 6852
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 654,
+            "output_tokens": 2279,
+            "total_tokens": 2933
+          }
+        },
+        {
+          "case_id": "case-004",
+          "reviewer": "kimi",
+          "preferred_label": "A",
+          "preferred_condition": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 5,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 22180,
+              "output_tokens": 496,
+              "total_tokens": 22676
+            },
+            "cli": {
+              "input_tokens": 28619,
+              "output_tokens": 462,
+              "total_tokens": 29081
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 6439,
+              "output_tokens": -34,
+              "total_tokens": 6405
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 677,
+            "output_tokens": 1417,
+            "total_tokens": 2094
+          }
+        },
+        {
+          "case_id": "case-007",
+          "reviewer": "kimi",
+          "preferred_label": "A",
+          "preferred_condition": "control",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "class_control": "aceito",
+          "class_cli": "aceito_retrabalho_menor",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 28439,
+              "output_tokens": 590,
+              "total_tokens": 29029
+            },
+            "cli": {
+              "input_tokens": 29187,
+              "output_tokens": 622,
+              "total_tokens": 29809
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 748,
+              "output_tokens": 32,
+              "total_tokens": 780
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 1077,
+            "output_tokens": 2150,
+            "total_tokens": 3227
+          }
+        },
+        {
+          "case_id": "case-008",
+          "reviewer": "kimi",
+          "preferred_label": "A",
+          "preferred_condition": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 5,
+          "class_control": "aceito",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 29115,
+              "output_tokens": 598,
+              "total_tokens": 29713
+            },
+            "cli": {
+              "input_tokens": 29295,
+              "output_tokens": 640,
+              "total_tokens": 29935
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 180,
+              "output_tokens": 42,
+              "total_tokens": 222
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 875,
+            "output_tokens": 907,
+            "total_tokens": 1782
+          }
+        },
+        {
+          "case_id": "case-009",
+          "reviewer": "kimi",
+          "preferred_label": "B",
+          "preferred_condition": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 5,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 22016,
+              "output_tokens": 661,
+              "total_tokens": 22677
+            },
+            "cli": {
+              "input_tokens": 29222,
+              "output_tokens": 708,
+              "total_tokens": 29930
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 7206,
+              "output_tokens": 47,
+              "total_tokens": 7253
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 944,
+            "output_tokens": 925,
+            "total_tokens": 1869
+          }
+        },
+        {
+          "case_id": "case-010",
+          "reviewer": "kimi",
+          "preferred_label": "tie",
+          "preferred_condition": "tie",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito_retrabalho_menor",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 2149,
+              "output_tokens": 737,
+              "total_tokens": 2886
+            },
+            "cli": {
+              "input_tokens": 2141,
+              "output_tokens": 683,
+              "total_tokens": 2824
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": -8,
+              "output_tokens": -54,
+              "total_tokens": -62
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 1037,
+            "output_tokens": 1736,
+            "total_tokens": 2773
+          }
+        },
+        {
+          "case_id": "case-011",
+          "reviewer": "kimi",
+          "preferred_label": "A",
+          "preferred_condition": "cli",
+          "clarity_control": 3,
+          "clarity_cli": 4,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito_retrabalho_menor",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 27996,
+              "output_tokens": 583,
+              "total_tokens": 28579
+            },
+            "cli": {
+              "input_tokens": 28767,
+              "output_tokens": 545,
+              "total_tokens": 29312
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 771,
+              "output_tokens": -38,
+              "total_tokens": 733
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 818,
+            "output_tokens": 1627,
+            "total_tokens": 2445
+          }
+        },
+        {
+          "case_id": "case-012",
+          "reviewer": "kimi",
+          "preferred_label": "B",
+          "preferred_condition": "cli",
+          "clarity_control": 3,
+          "clarity_cli": 4,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito_retrabalho_menor",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 1566,
+              "output_tokens": 484,
+              "total_tokens": 2050
+            },
+            "cli": {
+              "input_tokens": 28963,
+              "output_tokens": 624,
+              "total_tokens": 29587
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 27397,
+              "output_tokens": 140,
+              "total_tokens": 27537
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 781,
+            "output_tokens": 2027,
+            "total_tokens": 2808
+          }
+        },
+        {
+          "case_id": "case-013",
+          "reviewer": "kimi",
+          "preferred_label": "tie",
+          "preferred_condition": "tie",
+          "clarity_control": 3,
+          "clarity_cli": 3,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito_retrabalho_menor",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 12567,
+              "output_tokens": 591,
+              "total_tokens": 13158
+            },
+            "cli": {
+              "input_tokens": 28116,
+              "output_tokens": 575,
+              "total_tokens": 28691
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 15549,
+              "output_tokens": -16,
+              "total_tokens": 15533
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 762,
+            "output_tokens": 1304,
+            "total_tokens": 2066
+          }
+        },
+        {
+          "case_id": "case-014",
+          "reviewer": "kimi",
+          "preferred_label": "B",
+          "preferred_condition": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 23035,
+              "output_tokens": 750,
+              "total_tokens": 23785
+            },
+            "cli": {
+              "input_tokens": 29122,
+              "output_tokens": 577,
+              "total_tokens": 29699
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 6087,
+              "output_tokens": -173,
+              "total_tokens": 5914
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 886,
+            "output_tokens": 2131,
+            "total_tokens": 3017
+          }
+        }
+      ],
+      "maritaca": [
+        {
+          "case_id": "case-001",
+          "reviewer": "maritaca",
+          "preferred_label": "tie",
+          "preferred_condition": "tie",
+          "clarity_control": 4,
+          "clarity_cli": 4,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito_retrabalho_menor",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 28719,
+              "output_tokens": 556,
+              "total_tokens": 29275
+            },
+            "cli": {
+              "input_tokens": 29146,
+              "output_tokens": 571,
+              "total_tokens": 29717
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 427,
+              "output_tokens": 15,
+              "total_tokens": 442
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 614,
+            "output_tokens": 801,
+            "total_tokens": 1415
+          }
+        },
+        {
+          "case_id": "case-003",
+          "reviewer": "maritaca",
+          "preferred_label": "A",
+          "preferred_condition": "control",
+          "clarity_control": 5,
+          "clarity_cli": 3,
+          "class_control": "aceito",
+          "class_cli": "rejeitado_retrabalho_maior",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 21714,
+              "output_tokens": 508,
+              "total_tokens": 22222
+            },
+            "cli": {
+              "input_tokens": 28584,
+              "output_tokens": 490,
+              "total_tokens": 29074
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 6870,
+              "output_tokens": -18,
+              "total_tokens": 6852
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 618,
+            "output_tokens": 712,
+            "total_tokens": 1330
+          }
+        },
+        {
+          "case_id": "case-004",
+          "reviewer": "maritaca",
+          "preferred_label": "A",
+          "preferred_condition": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 5,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 22180,
+              "output_tokens": 496,
+              "total_tokens": 22676
+            },
+            "cli": {
+              "input_tokens": 28619,
+              "output_tokens": 462,
+              "total_tokens": 29081
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 6439,
+              "output_tokens": -34,
+              "total_tokens": 6405
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 639,
+            "output_tokens": 573,
+            "total_tokens": 1212
+          }
+        },
+        {
+          "case_id": "case-007",
+          "reviewer": "maritaca",
+          "preferred_label": "A",
+          "preferred_condition": "control",
+          "clarity_control": 5,
+          "clarity_cli": 4,
+          "class_control": "aceito",
+          "class_cli": "aceito_retrabalho_menor",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 28439,
+              "output_tokens": 590,
+              "total_tokens": 29029
+            },
+            "cli": {
+              "input_tokens": 29187,
+              "output_tokens": 622,
+              "total_tokens": 29809
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 748,
+              "output_tokens": 32,
+              "total_tokens": 780
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 1052,
+            "output_tokens": 880,
+            "total_tokens": 1932
+          }
+        },
+        {
+          "case_id": "case-008",
+          "reviewer": "maritaca",
+          "preferred_label": "B",
+          "preferred_condition": "control",
+          "clarity_control": 5,
+          "clarity_cli": 4,
+          "class_control": "aceito",
+          "class_cli": "aceito_retrabalho_menor",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 29115,
+              "output_tokens": 598,
+              "total_tokens": 29713
+            },
+            "cli": {
+              "input_tokens": 29295,
+              "output_tokens": 640,
+              "total_tokens": 29935
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 180,
+              "output_tokens": 42,
+              "total_tokens": 222
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 808,
+            "output_tokens": 815,
+            "total_tokens": 1623
+          }
+        },
+        {
+          "case_id": "case-009",
+          "reviewer": "maritaca",
+          "preferred_label": "tie",
+          "preferred_condition": "tie",
+          "clarity_control": 5,
+          "clarity_cli": 5,
+          "class_control": "aceito",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 22016,
+              "output_tokens": 661,
+              "total_tokens": 22677
+            },
+            "cli": {
+              "input_tokens": 29222,
+              "output_tokens": 708,
+              "total_tokens": 29930
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 7206,
+              "output_tokens": 47,
+              "total_tokens": 7253
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 905,
+            "output_tokens": 881,
+            "total_tokens": 1786
+          }
+        },
+        {
+          "case_id": "case-010",
+          "reviewer": "maritaca",
+          "preferred_label": "B",
+          "preferred_condition": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 5,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 2149,
+              "output_tokens": 737,
+              "total_tokens": 2886
+            },
+            "cli": {
+              "input_tokens": 2141,
+              "output_tokens": 683,
+              "total_tokens": 2824
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": -8,
+              "output_tokens": -54,
+              "total_tokens": -62
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 980,
+            "output_tokens": 924,
+            "total_tokens": 1904
+          }
+        },
+        {
+          "case_id": "case-011",
+          "reviewer": "maritaca",
+          "preferred_label": "A",
+          "preferred_condition": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 5,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 27996,
+              "output_tokens": 583,
+              "total_tokens": 28579
+            },
+            "cli": {
+              "input_tokens": 28767,
+              "output_tokens": 545,
+              "total_tokens": 29312
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 771,
+              "output_tokens": -38,
+              "total_tokens": 733
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 778,
+            "output_tokens": 1035,
+            "total_tokens": 1813
+          }
+        },
+        {
+          "case_id": "case-012",
+          "reviewer": "maritaca",
+          "preferred_label": "B",
+          "preferred_condition": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 5,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 1566,
+              "output_tokens": 484,
+              "total_tokens": 2050
+            },
+            "cli": {
+              "input_tokens": 28963,
+              "output_tokens": 624,
+              "total_tokens": 29587
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 27397,
+              "output_tokens": 140,
+              "total_tokens": 27537
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 742,
+            "output_tokens": 936,
+            "total_tokens": 1678
+          }
+        },
+        {
+          "case_id": "case-013",
+          "reviewer": "maritaca",
+          "preferred_label": "A",
+          "preferred_condition": "cli",
+          "clarity_control": 4,
+          "clarity_cli": 5,
+          "class_control": "aceito_retrabalho_menor",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 12567,
+              "output_tokens": 591,
+              "total_tokens": 13158
+            },
+            "cli": {
+              "input_tokens": 28116,
+              "output_tokens": 575,
+              "total_tokens": 28691
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 15549,
+              "output_tokens": -16,
+              "total_tokens": 15533
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 720,
+            "output_tokens": 1039,
+            "total_tokens": 1759
+          }
+        },
+        {
+          "case_id": "case-014",
+          "reviewer": "maritaca",
+          "preferred_label": "A",
+          "preferred_condition": "control",
+          "clarity_control": 5,
+          "clarity_cli": 4,
+          "class_control": "aceito",
+          "class_cli": "aceito",
+          "ab_session_tokens": {
+            "control": {
+              "input_tokens": 23035,
+              "output_tokens": 750,
+              "total_tokens": 23785
+            },
+            "cli": {
+              "input_tokens": 29122,
+              "output_tokens": 577,
+              "total_tokens": 29699
+            },
+            "delta_cli_minus_control": {
+              "input_tokens": 6087,
+              "output_tokens": -173,
+              "total_tokens": 5914
+            }
+          },
+          "reviewer_tokens": {
+            "input_tokens": 834,
+            "output_tokens": 613,
+            "total_tokens": 1447
+          }
+        }
+      ]
+    }
+  },
+  "quality_blind": {
+    "status": "attached_from_panel",
+    "preference_counts": {
+      "kimi": {
+        "control": 3,
+        "cli": 6,
+        "tie": 2
+      },
+      "maritaca": {
+        "tie": 2,
+        "control": 4,
+        "cli": 5
+      }
+    },
+    "source": "artifacts/hermes-case-study/v2/blind/scores-panel-kimi-maritaca.json",
+    "semantic_rubric": "attached",
+    "semantic_source": "artifacts/hermes-case-study/v2/blind/semantic-rubric-scores.json",
+    "semantic_preference_counts": {
+      "kimi": {
+        "n/a": 1
+      },
+      "maritaca": {
+        "cli": 1
+      }
+    }
+  },
+  "integrity": {
+    "policy": "anomalies marked, never silently dropped",
+    "flags": [
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=102255 in+out=12527 (cache/reasoning likely)",
+        "arm": "control",
+        "case_id": "case-007",
+        "run_id": "run-01"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=187481 in+out=11993 (cache/reasoning likely)",
+        "arm": "curupira",
+        "case_id": "case-007",
+        "run_id": "run-01"
+      },
+      {
+        "code": "treatment_was_skill_preload_not_cli_min",
+        "case_id": "case-007",
+        "run_id": "run-01",
+        "evidence": "pilot-variance used --skills curupira-preflight"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=103261 in+out=7773 (cache/reasoning likely)",
+        "arm": "control",
+        "case_id": "case-007",
+        "run_id": "run-02"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=211841 in+out=11521 (cache/reasoning likely)",
+        "arm": "curupira",
+        "case_id": "case-007",
+        "run_id": "run-02"
+      },
+      {
+        "code": "treatment_was_skill_preload_not_cli_min",
+        "case_id": "case-007",
+        "run_id": "run-02",
+        "evidence": "pilot-variance used --skills curupira-preflight"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=126154 in+out=6090 (cache/reasoning likely)",
+        "arm": "control",
+        "case_id": "case-007",
+        "run_id": "run-03"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=213996 in+out=12524 (cache/reasoning likely)",
+        "arm": "curupira",
+        "case_id": "case-007",
+        "run_id": "run-03"
+      },
+      {
+        "code": "treatment_was_skill_preload_not_cli_min",
+        "case_id": "case-007",
+        "run_id": "run-03",
+        "evidence": "pilot-variance used --skills curupira-preflight"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=124466 in+out=4402 (cache/reasoning likely)",
+        "arm": "control",
+        "case_id": "case-008",
+        "run_id": "run-01"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=184548 in+out=7780 (cache/reasoning likely)",
+        "arm": "curupira",
+        "case_id": "case-008",
+        "run_id": "run-01"
+      },
+      {
+        "code": "treatment_was_skill_preload_not_cli_min",
+        "case_id": "case-008",
+        "run_id": "run-01",
+        "evidence": "pilot-variance used --skills curupira-preflight"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=151616 in+out=6208 (cache/reasoning likely)",
+        "arm": "control",
+        "case_id": "case-008",
+        "run_id": "run-02"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=213219 in+out=9699 (cache/reasoning likely)",
+        "arm": "curupira",
+        "case_id": "case-008",
+        "run_id": "run-02"
+      },
+      {
+        "code": "treatment_was_skill_preload_not_cli_min",
+        "case_id": "case-008",
+        "run_id": "run-02",
+        "evidence": "pilot-variance used --skills curupira-preflight"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=125836 in+out=6156 (cache/reasoning likely)",
+        "arm": "control",
+        "case_id": "case-008",
+        "run_id": "run-03"
+      },
+      {
+        "code": "total_much_greater_than_in_plus_out",
+        "evidence": "total=184519 in+out=9287 (cache/reasoning likely)",
+        "arm": "curupira",
+        "case_id": "case-008",
+        "run_id": "run-03"
+      },
+      {
+        "code": "treatment_was_skill_preload_not_cli_min",
+        "case_id": "case-008",
+        "run_id": "run-03",
+        "evidence": "pilot-variance used --skills curupira-preflight"
+      },
+      {
+        "code": "semantic_reviewer_error",
+        "case_id": "case-001",
+        "label": "A",
+        "reviewer": "kimi",
+        "evidence": "no json in model output: We need respond JSON only. Evaluate artifact for four categories. Artifact is markdown: Procedure line shutdown. Steps: 1. Feche a válvula V-12. 2. Desligue a bomba P-01. 3. V"
+      },
+      {
+        "code": "session_tokens_suspiciously_low",
+        "evidence": "total=2886 input=2149 source=sessiondb",
+        "case_id": "case-010",
+        "arm": "control",
+        "source_run": "run-v2-01"
+      },
+      {
+        "code": "session_tokens_suspiciously_low",
+        "evidence": "total=2824 input=2141 source=sessiondb",
+        "case_id": "case-010",
+        "arm": "cli",
+        "source_run": "run-v2-01"
+      },
+      {
+        "code": "session_tokens_suspiciously_low",
+        "evidence": "total=2050 input=1566 source=sessiondb",
+        "case_id": "case-012",
+        "arm": "control",
+        "source_run": "run-v2-01"
+      }
+    ]
+  },
+  "semantic_rubric": {
+    "status": "attached",
+    "path": "artifacts/hermes-case-study/v2/blind/semantic-rubric-scores.json",
+    "schema_version": "semantic-rubric-kimi-maritaca/v1",
+    "rubric_doc": "docs/hermes-case-study/semantic-rubric-v2.md",
+    "categories": [
+      "ambiguous-reference",
+      "implicit-agent",
+      "multiple-actions",
+      "terminology"
+    ],
+    "panel_usage_totals": {
+      "kimi": {
+        "calls": 1,
+        "input_tokens": 554,
+        "output_tokens": 969,
+        "total_tokens": 1523
+      },
+      "maritaca": {
+        "calls": 2,
+        "input_tokens": 992,
+        "output_tokens": 1531,
+        "total_tokens": 2523
+      }
+    },
+    "per_condition_mean_findings": {
+      "kimi": {
+        "control": null,
+        "cli": null
+      },
+      "maritaca": {
+        "control": 3.0,
+        "cli": 0.0
+      }
+    },
+    "reviewer_agreement": {
+      "kimi": {
+        "n_artifacts_paired": 0,
+        "spearman_control_vs_cli_totals": null,
+        "sign_agreement_any_finding": null
+      },
+      "maritaca": {
+        "n_artifacts_paired": 1,
+        "spearman_control_vs_cli_totals": null,
+        "sign_agreement_any_finding": "0/1"
+      }
+    },
+    "preference_counts": {
+      "kimi": {
+        "n/a": 1
+      },
+      "maritaca": {
+        "cli": 1
+      }
+    },
+    "preferences": {
+      "kimi": [
+        {
+          "case_id": "case-001",
+          "preferred": "n/a"
+        }
+      ],
+      "maritaca": [
+        {
+          "case_id": "case-001",
+          "findings_control": 3,
+          "findings_cli": 0,
+          "major_control": 3,
+          "major_cli": 0,
+          "preferred": "cli"
+        }
+      ]
+    }
+  },
+  "cross_sources": {
+    "v2_battery": {
+      "path": "artifacts/hermes-case-study/v2/battery-run-v2-01-summary.json",
+      "n_pairs": 11,
+      "median_delta_tokens": 5914,
+      "token_source": "sessiondb",
+      "integrity_flags": [
+        {
+          "code": "session_tokens_suspiciously_low",
+          "evidence": "total=2886 input=2149 source=sessiondb",
+          "case_id": "case-010",
+          "arm": "control",
+          "source_run": "run-v2-01"
+        },
+        {
+          "code": "session_tokens_suspiciously_low",
+          "evidence": "total=2824 input=2141 source=sessiondb",
+          "case_id": "case-010",
+          "arm": "cli",
+          "source_run": "run-v2-01"
+        },
+        {
+          "code": "session_tokens_suspiciously_low",
+          "evidence": "total=2050 input=1566 source=sessiondb",
+          "case_id": "case-012",
+          "arm": "control",
+          "source_run": "run-v2-01"
+        }
+      ],
+      "note": "v2 battery used grok-4.5 + chat -q; kept for comparison, not mixed into pilot medians"
+    }
+  }
+}

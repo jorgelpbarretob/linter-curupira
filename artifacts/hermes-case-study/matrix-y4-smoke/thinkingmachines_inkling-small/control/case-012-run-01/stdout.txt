@@ -1,0 +1,3 @@
+Path: /tmp/cs-y4/thinkingmachines_inkling-small/case-012-run-01-control/acao.md · 255 chars.
+
+Resumo 1 linha: TIC-77 HI com bypass proibido; lista sintoma→ação→verify→escala; SEV3 aos 15 min; sem ponto e vírgula em prosa; lint skip (md); curupira não chamado.

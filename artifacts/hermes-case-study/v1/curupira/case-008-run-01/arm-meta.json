@@ -1,0 +1,18 @@
+{
+  "case_id": "case-008",
+  "run_id": "run-01",
+  "condition": "curupira",
+  "hermes_exit": 0,
+  "wall_s": 20.7,
+  "session_id": "20260816_230402_105edf",
+  "work_dir": "/tmp/cs-ab/case-008-run-01-curupira",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/curupira/case-008-run-01/mitigacao.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": [
+    "curupira-preflight"
+  ]
+}

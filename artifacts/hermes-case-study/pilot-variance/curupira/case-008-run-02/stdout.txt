@@ -1,0 +1,8 @@
+Pronto.
+
+- Path: /tmp/cs-pilot/case-008-run-02-curupira/mitigacao.md
+- Lint: exit 0 (0 diagnostics)
+- Tamanho: 619 chars
+- Resumo: runbook worker-b/jobs-hot em 4 blocos (sintoma → mitigação → verificação → escalonamento), SEV2 em janela de 10 min, restart de worker-b.service, sem ponto e vírgula e sem causa raiz inventada.
+
+Nota: `notas.md` não existia como arquivo separado. O texto-fonte denso estava no próprio `mitigacao.md`. Usei esse parágrafo como entrada e sobrescrevi o artefato.

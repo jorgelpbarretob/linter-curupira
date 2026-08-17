@@ -1,0 +1,18 @@
+{
+  "estimated_cost_usd": 0.01824145,
+  "cost_status": "estimated",
+  "cost_source": "provider_models_api",
+  "input_tokens": 2237,
+  "output_tokens": 549,
+  "cache_read_tokens": 165760,
+  "cache_write_tokens": 0,
+  "reasoning_tokens": 19,
+  "total_tokens": 168546,
+  "api_calls": 6,
+  "model": "thinkingmachines/inkling-small",
+  "provider": "openrouter",
+  "session_id": "20260817_010950_c47a62",
+  "completed": true,
+  "failed": false,
+  "service_tier": null
+}

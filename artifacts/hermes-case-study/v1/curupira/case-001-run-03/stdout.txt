@@ -1,0 +1,15 @@
+  ┊ review diff
+a/procedimento.md → b/procedimento.md
+@@ -1,4 +1,7 @@
+ # Procedimento — parada de linha
+ 
+-Feche a válvula V-12; desligue a bomba P-01.
+-Verifique a pressão em PI-01 antes de liberar a área.
++## Atos
++
++1. Feche a válvula V-12.
++2. Desligue a bomba P-01.
++3. Verifique a pressão em PI-01 antes de liberar a área.
+path: /tmp/cs-ab/case-001-run-03-curupira/procedimento.md
+exit lint: 0
+resumo: PONT-001 sanado (`;` → 3 atos); tags V-12, P-01 e PI-01 intactas.

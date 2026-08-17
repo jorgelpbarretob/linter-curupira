@@ -1,0 +1,34 @@
+{
+  "schema_version": "hermes-case-study-round/v1",
+  "run_id": "case-001-run-01",
+  "case_id": "case-001",
+  "condition": "control",
+  "case_package_sha256": "905a3f4a80a8f623927db96f91a871e8635030f922ed1bcf7c4d515a606f50cb",
+  "artifact_sha256": "60a831ce8c7f46c71177e2b470e4cd46985586d270ff7ec962b025d36ce375c7",
+  "ts": 1786931346.4572446,
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "agent_metrics": {
+    "session_id": "20260816_224657_f96c25",
+    "model": "grok-4.5",
+    "reasoning": "low",
+    "hermes_version": "0.20.1",
+    "tool_calls": 10,
+    "messages": 16,
+    "api_calls": 5,
+    "input_tokens": 31118,
+    "output_tokens": 943,
+    "duration_wall_s": 69,
+    "duration_s": 69,
+    "tokens": 32061,
+    "curupira_invoked": false,
+    "skill": null,
+    "note": "usage.json não emitido pelo chat -q; tokens de SessionDB"
+  },
+  "acceptance_class": "aceito",
+  "notes": "Controle sem skill. Artefato limpo sem chamar curupira. Write inicial foi para Hermes-workspace (corrigido no snapshot).",
+  "session_id": "20260816_224657_f96c25"
+}

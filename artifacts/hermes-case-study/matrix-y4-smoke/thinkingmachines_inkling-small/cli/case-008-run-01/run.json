@@ -1,0 +1,54 @@
+{
+  "schema_version": "hermes-case-study-matrix-y4-run/v1",
+  "case_id": "case-008",
+  "run_id": "run-01",
+  "condition": "cli",
+  "model_requested": "thinkingmachines/inkling-small",
+  "provider_requested": "openrouter",
+  "case_package_sha256": "dbb40cb87899cd0c0f17c16990ca58aac3fb067def18dfbd5513ff826c6daf3f",
+  "wall_seconds": 15.2,
+  "timed_out": false,
+  "exit_code": 0,
+  "token_source": "usage-file",
+  "usage": {
+    "input_tokens": 2089,
+    "output_tokens": 482,
+    "reasoning_tokens": 64,
+    "cache_read_tokens": 137984,
+    "total_tokens": 140555,
+    "api_calls": 5,
+    "model": "thinkingmachines/inkling-small",
+    "provider": "openrouter",
+    "session_id": "20260817_011007_9b9b89"
+  },
+  "artifact_present": true,
+  "gate": {
+    "treatment_lint_invoked": true,
+    "residual_n": 0,
+    "residual_zero": true,
+    "operational_pass": true
+  },
+  "integrity_flags": [
+    {
+      "code": "total_much_greater_than_in_plus_out",
+      "evidence": "total=140555 in+out=2571"
+    }
+  ],
+  "artifact_path": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/thinkingmachines_inkling-small/cli/case-008-run-01/mitigacao.md",
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0
+  },
+  "readability": {
+    "chars": 283,
+    "words": 42,
+    "semicolon_count": 0,
+    "sentence_n": 11,
+    "avg_sentence_words": 3.82,
+    "max_sentence_words": 8,
+    "list_line_ratio": 0.0,
+    "lines": 4,
+    "delta_chars_vs_input": -170,
+    "delta_words_vs_input": -36
+  }
+}

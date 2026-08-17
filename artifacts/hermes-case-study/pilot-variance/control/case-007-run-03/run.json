@@ -1,0 +1,38 @@
+{
+  "schema_version": "hermes-case-study-pilot-run/v1",
+  "case_id": "case-007",
+  "run_id": "run-03",
+  "condition": "control",
+  "case_package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+  "wall_seconds": 75.7,
+  "timed_out": false,
+  "exit_code": 0,
+  "usage": {
+    "input_tokens": 3592,
+    "output_tokens": 2498,
+    "reasoning_tokens": 1548,
+    "cache_read_tokens": 120064,
+    "total_tokens": 126154,
+    "api_calls": 5,
+    "model": "qwen3.8-max",
+    "provider": "custom",
+    "session_id": "20260816_233308_f62af6"
+  },
+  "artifact_present": true,
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0
+  },
+  "readability": {
+    "chars": 794,
+    "words": 150,
+    "semicolon_count": 0,
+    "sentence_n": 33,
+    "avg_sentence_words": 4.12,
+    "max_sentence_words": 15,
+    "list_line_ratio": 0.737,
+    "lines": 19,
+    "delta_chars_vs_input": 7,
+    "delta_words_vs_input": 6
+  }
+}

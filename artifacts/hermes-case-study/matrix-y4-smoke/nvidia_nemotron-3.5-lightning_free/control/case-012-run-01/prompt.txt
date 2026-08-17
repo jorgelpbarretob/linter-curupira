@@ -1,0 +1,29 @@
+Você é o braço CONTROLE do estudo case-012 (sem Curupira), execução run-01.
+Modelo executor: nvidia/nemotron-3.5-lightning:free
+
+Leia a tarefa e o arquivo de trabalho:
+- tarefa: /tmp/cs-y4/nvidia_nemotron-3.5-lightning_free/case-012-run-01-control/task.md
+- artefato a editar: /tmp/cs-y4/nvidia_nemotron-3.5-lightning_free/case-012-run-01-control/acao.md
+
+# Tarefa case-012
+
+## Objetivo
+Plantonista lê em 20 segundos. Poucos tokens de sessão.
+
+## Entrada
+`notas.md` → entregue `acao.md`.
+
+## Pronto quando
+1. Inclui TIC-77, alarme HI, bypass proibido, SEV3 em 15 min.
+2. Sem ponto e vírgula em prosa.
+3. Lista curta: sintoma → ação → verify → escala.
+4. CLI: lint exit 0.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs externas além das tools do agent.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto.
+- Sobrescreva somente: /tmp/cs-y4/nvidia_nemotron-3.5-lightning_free/case-012-run-01-control/acao.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

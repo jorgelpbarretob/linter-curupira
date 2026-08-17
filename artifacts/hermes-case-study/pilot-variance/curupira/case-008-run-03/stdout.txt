@@ -1,0 +1,14 @@
+Pronto. Resultado do braço tratamento (run-03):
+
+- Path: /tmp/cs-pilot/case-008-run-03-curupira/mitigacao.md
+- Lint: exit 0 (diagnostics vazio, 1º ciclo, sem correções)
+- Chars: 707
+- Resumo: incidente da fila jobs-hot e worker-b convertido em runbook de 4 seções (sintoma, mitigação, verificação, escalonamento) com causa raiz declarada como não confirmada.
+
+Verificação de requisitos:
+- Identificadores presentes: worker-b, jobs-hot, SEV2, 10 min, worker-b.service.
+- Ordem exigida respeitada: sintoma → mitigação imediata → verificação → escalonamento.
+- Ponto e vírgula em prosa: 0 ocorrências.
+- Proibição de restart do broker sem autorização preservada.
+- Sem CVE, patch, nomes de pessoas ou causa raiz inventada.
+- Sem chamada a API externa.

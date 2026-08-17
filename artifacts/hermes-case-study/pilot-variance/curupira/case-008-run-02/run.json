@@ -1,0 +1,38 @@
+{
+  "schema_version": "hermes-case-study-pilot-run/v1",
+  "case_id": "case-008",
+  "run_id": "run-02",
+  "condition": "curupira",
+  "case_package_sha256": "dbb40cb87899cd0c0f17c16990ca58aac3fb067def18dfbd5513ff826c6daf3f",
+  "wall_seconds": 89.0,
+  "timed_out": false,
+  "exit_code": 0,
+  "usage": {
+    "input_tokens": 6829,
+    "output_tokens": 2870,
+    "reasoning_tokens": 1790,
+    "cache_read_tokens": 203520,
+    "total_tokens": 213219,
+    "api_calls": 8,
+    "model": "qwen3.8-max",
+    "provider": "custom",
+    "session_id": "20260816_234444_da04ff"
+  },
+  "artifact_present": true,
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0
+  },
+  "readability": {
+    "chars": 619,
+    "words": 98,
+    "semicolon_count": 0,
+    "sentence_n": 18,
+    "avg_sentence_words": 4.78,
+    "max_sentence_words": 11,
+    "list_line_ratio": 0.706,
+    "lines": 17,
+    "delta_chars_vs_input": 166,
+    "delta_words_vs_input": 20
+  }
+}

@@ -1,0 +1,28 @@
+  ┊ review diff
+a/mitigacao.md → b/mitigacao.md
+@@ -1,3 +1,20 @@
+-# Notas de turno — 16/08
++# Mitigação — fila jobs-hot / worker-b
+ 
+-fila jobs-hot voltou a crescer depois das 21h; worker-b parece preso em batch antigo; latência subiu e o health flipou; tentei drain mas não esvaziou; supervisor pediu mitigação SEV2 se não normalizar em 10 min; restart de worker-b.service já funcionou ontem em caso parecido; depois do restart checar /health e tamanho da fila; se fila continuar subindo abrir SEV2 com print do painel; não reiniciar o broker sem autorização.
++## Sintoma
++- Fila `jobs-hot` crescendo após 21h
++- `worker-b` aparenta preso em batch antigo
++- Latência alta e health instável
++- Drain não esvaziou a fila
++
++## Mitigação imediata
++1. Restart da unit `worker-b.service` (já estabilizou caso parecido)
++2. Não reiniciar o broker sem autorização
++
++## Verificação
++- Checar `/health`
++- Conferir tamanho da fila `jobs-hot`
++- Observar se a fila para de subir
++
++## Escalonamento
++- Se não normalizar em **10 min**: abrir **SEV2** com print do painel
++- Manter broker intacto até autorização explícita
+path: /tmp/cs-ab/case-008-run-01-control/mitigacao.md
+chars: 595 (bytes) / 574 (caracteres)
+resumo: playbook SEV2 enxuto — sintoma jobs-hot/worker-b → restart worker-b.service → /health+fila → SEV2 em 10 min.

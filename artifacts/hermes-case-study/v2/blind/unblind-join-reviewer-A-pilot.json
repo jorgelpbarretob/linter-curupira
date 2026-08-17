@@ -1,0 +1,174 @@
+{
+  "schema_version": "blind-unblind-join/v1",
+  "run_id": "run-v2-01",
+  "reviewer_id": "hermes-time-pilot-A",
+  "scored_before_key": true,
+  "pairs": [
+    {
+      "case_id": "case-001",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "clarity_control": 5,
+      "clarity_cli": 5,
+      "class_control": "aceito",
+      "class_cli": "aceito",
+      "preferred_condition": "control",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-003",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "clarity_control": 5,
+      "clarity_cli": 5,
+      "class_control": "aceito",
+      "class_cli": "aceito",
+      "preferred_condition": "control",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-004",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "clarity_control": 4,
+      "clarity_cli": 5,
+      "class_control": "rejeitado_retrabalho_maior",
+      "class_cli": "aceito",
+      "preferred_condition": "cli",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-007",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "clarity_control": 5,
+      "clarity_cli": 4,
+      "class_control": "aceito",
+      "class_cli": "aceito_retrabalho_menor",
+      "preferred_condition": "control",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-008",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "clarity_control": 4,
+      "clarity_cli": 5,
+      "class_control": "aceito",
+      "class_cli": "aceito",
+      "preferred_condition": "cli",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-009",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "clarity_control": 5,
+      "clarity_cli": 5,
+      "class_control": "aceito",
+      "class_cli": "aceito",
+      "preferred_condition": "cli",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-010",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "clarity_control": 5,
+      "clarity_cli": 5,
+      "class_control": "aceito",
+      "class_cli": "aceito",
+      "preferred_condition": "cli",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-011",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "clarity_control": 5,
+      "clarity_cli": 5,
+      "class_control": "aceito",
+      "class_cli": "aceito",
+      "preferred_condition": "control",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-012",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "clarity_control": 4,
+      "clarity_cli": 5,
+      "class_control": "aceito",
+      "class_cli": "aceito",
+      "preferred_condition": "cli",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-013",
+      "label_to_condition": {
+        "A": "cli",
+        "B": "control"
+      },
+      "clarity_control": 4,
+      "clarity_cli": 5,
+      "class_control": "aceito",
+      "class_cli": "aceito",
+      "preferred_condition": "cli",
+      "residual_control": 0,
+      "residual_cli": 0
+    },
+    {
+      "case_id": "case-014",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "clarity_control": 5,
+      "clarity_cli": 5,
+      "class_control": "aceito",
+      "class_cli": "aceito",
+      "preferred_condition": "control",
+      "residual_control": 0,
+      "residual_cli": 0
+    }
+  ],
+  "aggregate": {
+    "n": 11,
+    "preferred_condition_counts": {
+      "control": 5,
+      "cli": 6
+    },
+    "clarity_cli_gt_control": 4,
+    "clarity_control_gt_cli": 1,
+    "clarity_tie": 6,
+    "accept_aceito_cli": 10,
+    "accept_aceito_control": 10
+  }
+}

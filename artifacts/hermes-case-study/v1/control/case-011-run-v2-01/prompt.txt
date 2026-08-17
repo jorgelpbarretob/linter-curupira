@@ -1,0 +1,32 @@
+Você é o braço CONTROLE do estudo case-011 (sem Curupira).
+
+Leia a tarefa completa abaixo e o arquivo de trabalho:
+- tarefa: /tmp/cs-ab/case-011-run-v2-01-control/task.md
+- artefato a editar: /tmp/cs-ab/case-011-run-v2-01-control/procedimento.md
+
+# Tarefa case-011
+
+## Objetivo de produto
+Tokens de sessão sob controle e texto legível para operador.
+
+## Entrada
+`procedimento.md`
+
+## Entregar
+Reescreva o mesmo arquivo.
+
+## Pronto quando
+1. Tags P-440, XV-22, PSH-9, LS-3 preservadas.
+2. Ordem: permissivos → partida → verificação.
+3. Sem ponto e vírgula em prosa.
+4. Passos curtos numerados.
+5. Tratamento CLI: `curupira lint` exit 0.
+
+
+Regras do braço controle:
+- NÃO chame curupira nem skill de lint.
+- NÃO envie documento a APIs.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Priorize legibilidade para o usuário final e texto enxuto (menos tokens de leitura).
+- Sobrescreva somente: /tmp/cs-ab/case-011-run-v2-01-control/procedimento.md
+- Ao terminar: imprima path, chars do arquivo e resumo de 1 linha.

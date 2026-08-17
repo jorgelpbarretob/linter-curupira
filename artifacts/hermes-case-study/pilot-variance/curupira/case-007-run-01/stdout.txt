@@ -1,0 +1,18 @@
+Pronto. Braço TRATAMENTO do case-007 concluído em 1 ciclo.
+
+Resultado
+- path: /tmp/cs-pilot/case-007-run-01-curupira/procedimento.md
+- exit do lint: 0 (diagnostics vazio, comando canônico exato)
+- chars do arquivo: 853
+- resumo: bloco denso convertido em 15 passos numerados (1 ação cada), tags e ordem preservadas, prosa 5% menor e sem ponto e vírgula.
+
+Aceite verificado
+1. Tags presentes: XV-101, P-220, PI-33, HV-08, TIC-12.
+2. Ordem mantida: isolamento → drenagem → partida → liberação.
+3. Frases curtas. Passo 8 original tinha 2 ordens. Separei em passos 8 e 9.
+4. Zero ponto e vírgula em prosa.
+5. Zero parágrafo denso.
+6. Prosa final menor que o input: 617 vs 652 chars sem espaços (-5,4%).
+7. `curupira lint ... --enable-rule CURUPIRA-PT-PONT-001 --format json` exit 0.
+
+Resíduos: nenhum. Fatos conservados sem inventar interlock, setpoint ou pessoa. Nenhuma chamada a API.

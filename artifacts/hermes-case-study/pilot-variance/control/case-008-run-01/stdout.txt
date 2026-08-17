@@ -1,0 +1,13 @@
+Pronto.
+
+- Path: /tmp/cs-pilot/case-008-run-01-control/mitigacao.md
+- Chars: 571 bytes (verificado via wc -c)
+- Resumo: notas de turno convertidas em runbook SEV2 com 4 seções (sintoma → mitigação imediata → verificação → escalonamento), restart de `worker-b.service` como ação primária e gatilho de 10 min para SEV2.
+
+Verificação executada:
+- 5 identificadores exigidos presentes (worker-b, jobs-hot, SEV2, 10 min, `worker-b.service`).
+- Zero ponto e vírgula em prosa.
+- Ordem sintoma → mitigação → verificação → escalonamento respeitada.
+- Sem causa raiz inventada: "batch antigo" veio das notas como observação de sintoma.
+- Sem CVE, patch, nomes ou chamada de API.
+- Curupira não invocado (braço controle).

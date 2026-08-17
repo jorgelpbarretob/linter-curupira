@@ -1,0 +1,188 @@
+{
+  "schema_version": "blind-panel-athena-qwen/v1",
+  "run_id": "run-v2-01",
+  "scored_at": "2026-08-17T00:27:23.474822-03:00",
+  "models": {
+    "qwen3.8-27b": "qwen/qwen3.8-27b@openrouter-cloud",
+    "qwen3.8-max": "qwen3.8-max@bailian-cloud"
+  },
+  "token_policy": "Always include reviewer call tokens and A/B session tokens side-by-side.",
+  "cloud_only_oss": true,
+  "panel_usage_totals": {
+    "qwen3.8-27b": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "calls": 0,
+      "errors": 2
+    },
+    "qwen3.8-max": {
+      "input_tokens": 641,
+      "output_tokens": 1551,
+      "total_tokens": 2192,
+      "calls": 2,
+      "errors": 0
+    }
+  },
+  "cases": [
+    {
+      "case_id": "case-001",
+      "label_to_condition": {
+        "A": "control",
+        "B": "cli"
+      },
+      "labels": {
+        "A": {
+          "label": "A",
+          "condition": "control",
+          "reviews": {
+            "qwen3.8-27b": {
+              "error": "no json: Precisamos responder apenas JSON. O usuário pede avaliação de artefato A, caso case-001. Texto: \"Procedimento — parada de linha\" com 3 passos: Feche válvula V-12, desligue bomba P-"
+            },
+            "qwen3.8-max": {
+              "provider": "bailian",
+              "model_requested": "qwen3.8-max",
+              "model_returned": "qwen3.8-max",
+              "wall_s": 18.45,
+              "usage": {
+                "input_tokens": 308,
+                "output_tokens": 727,
+                "total_tokens": 1035,
+                "reasoning_tokens": 657,
+                "cost_usd": null
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Procedimento claro, mas faltam critérios de pressão segura, EPI e bloqueio/etiquetagem; adicionar valores/condições."
+              },
+              "raw_text": "{\"clarity_1to5\":4,\"accept_class\":\"aceito_retrabalho_menor\",\"critical_errors\":0,\"notes\":\"Procedimento claro, mas faltam critérios de pressão segura, EPI e bloqueio/etiquetagem; adicionar valores/condições.\",\"preferred_if_pair\":null}",
+              "route": "cloud"
+            }
+          }
+        },
+        "B": {
+          "label": "B",
+          "condition": "cli",
+          "reviews": {
+            "qwen3.8-27b": {
+              "error": "no json: {\"clarity_1to5\":3,\"accept_class\":\"rejeitado_retrabalho_maior\",\"critical_errors\":1,\"notes\":\"Falta critério de pressão segura/zero e confirmação de isolamento/LOTO antes de liberar; "
+            },
+            "qwen3.8-max": {
+              "provider": "bailian",
+              "model_requested": "qwen3.8-max",
+              "model_returned": "qwen3.8-max",
+              "wall_s": 22.92,
+              "usage": {
+                "input_tokens": 333,
+                "output_tokens": 824,
+                "total_tokens": 1157,
+                "reasoning_tokens": 757,
+                "cost_usd": null
+              },
+              "score": {
+                "clarity_1to5": 4,
+                "accept_class": "aceito_retrabalho_menor",
+                "critical_errors": 0,
+                "notes": "Sequência clara, mas falta critério de pressão segura e referência a bloqueio/etiquetagem antes da liberação."
+              },
+              "raw_text": "{\"clarity_1to5\":4,\"accept_class\":\"aceito_retrabalho_menor\",\"critical_errors\":0,\"notes\":\"Sequência clara, mas falta critério de pressão segura e referência a bloqueio/etiquetagem antes da liberação.\",\"preferred_if_pair\":null}",
+              "route": "cloud"
+            }
+          }
+        }
+      },
+      "ab_session_tokens": {
+        "control": {
+          "input_tokens": 28719,
+          "output_tokens": 556,
+          "total_tokens": 29275
+        },
+        "cli": {
+          "input_tokens": 29146,
+          "output_tokens": 571,
+          "total_tokens": 29717
+        },
+        "delta_cli_minus_control": {
+          "input_tokens": 427,
+          "output_tokens": 15,
+          "total_tokens": 442
+        },
+        "token_source": "sessiondb",
+        "integrity_note": "v2 battery sessiondb; may be anomalous on some cases"
+      }
+    }
+  ],
+  "unblind_preferences": {
+    "qwen3.8-27b": [
+      {
+        "case_id": "case-001",
+        "preferred_condition": "n/a",
+        "reviewer": "qwen3.8-27b",
+        "reviewer_tokens": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 28719,
+            "output_tokens": 556,
+            "total_tokens": 29275
+          },
+          "cli": {
+            "input_tokens": 29146,
+            "output_tokens": 571,
+            "total_tokens": 29717
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 427,
+            "output_tokens": 15,
+            "total_tokens": 442
+          },
+          "token_source": "sessiondb",
+          "integrity_note": "v2 battery sessiondb; may be anomalous on some cases"
+        }
+      }
+    ],
+    "qwen3.8-max": [
+      {
+        "case_id": "case-001",
+        "reviewer": "qwen3.8-max",
+        "preferred_label": "tie",
+        "preferred_condition": "tie",
+        "clarity_control": 4,
+        "clarity_cli": 4,
+        "class_control": "aceito_retrabalho_menor",
+        "class_cli": "aceito_retrabalho_menor",
+        "notes_control": "Procedimento claro, mas faltam critérios de pressão segura, EPI e bloqueio/etiquetagem; adicionar valores/condições.",
+        "notes_cli": "Sequência clara, mas falta critério de pressão segura e referência a bloqueio/etiquetagem antes da liberação.",
+        "reviewer_tokens": {
+          "input_tokens": 641,
+          "output_tokens": 1551,
+          "total_tokens": 2192
+        },
+        "ab_session_tokens": {
+          "control": {
+            "input_tokens": 28719,
+            "output_tokens": 556,
+            "total_tokens": 29275
+          },
+          "cli": {
+            "input_tokens": 29146,
+            "output_tokens": 571,
+            "total_tokens": 29717
+          },
+          "delta_cli_minus_control": {
+            "input_tokens": 427,
+            "output_tokens": 15,
+            "total_tokens": 442
+          },
+          "token_source": "sessiondb",
+          "integrity_note": "v2 battery sessiondb; may be anomalous on some cases"
+        }
+      }
+    ]
+  }
+}

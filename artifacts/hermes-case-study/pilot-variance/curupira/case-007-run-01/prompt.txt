@@ -1,0 +1,46 @@
+/curupira-preflight
+
+Você é o braço TRATAMENTO do estudo case-007 (com Curupira preflight), execução run-01.
+Siga a skill curupira-preflight.
+
+Arquivos:
+- tarefa: /tmp/cs-pilot/case-007-run-01-curupira/task.md
+- artefato a editar: /tmp/cs-pilot/case-007-run-01-curupira/procedimento.md
+
+# Tarefa case-007 — legibilidade + residual difícil
+
+## Objetivo de produto
+Baixar custo de tokens da sessão e deixar o texto **mais legível para o operador**.
+Não é só “passar no lint”.
+
+## Entrada
+`procedimento.md` (sujo, denso).
+
+## Entregar
+O mesmo arquivo, pronto para chão de fábrica.
+
+## Pronto quando
+1. Tags preservadas: XV-101, P-220, PI-33, HV-08, TIC-12.
+2. Mesma ordem lógica: isolamento → drenagem → partida.
+3. Frases curtas. Uma ação principal por passo quando possível.
+4. Sem ponto e vírgula em prosa.
+5. Sem parágrafo denso com múltiplas ordens escondidas.
+6. Texto final preferencialmente **mais curto** que o input em caracteres de prosa.
+7. Braço com Curupira: `curupira lint` exit 0 nas regras do aceite.
+
+## Restrições
+- Não invente interlocks, setpoints ou pessoas.
+- Não envie a APIs.
+
+
+Regras do braço tratamento:
+- Siga curupira-preflight.
+- Antes de declarar pronto, rode exatamente:
+  curupira lint /tmp/cs-pilot/case-007-run-01-curupira/procedimento.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- Sem semantic-review / sem Maritaca.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Otimize para o usuário: frases curtas, passos explícitos, sem muro de texto.
+- Prefira enxugar prosa inútil (menos tokens de leitura) sem apagar fatos.
+- Sobrescreva somente: /tmp/cs-pilot/case-007-run-01-curupira/procedimento.md
+- Ao terminar: path, exit do lint, chars do arquivo, resumo 1 linha.

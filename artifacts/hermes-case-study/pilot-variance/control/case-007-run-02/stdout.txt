@@ -1,0 +1,5 @@
+Pronto. Braço CONTROLE, sem Curupira.
+
+- Path: /tmp/cs-pilot/case-007-run-02-control/procedimento.md
+- Chars do arquivo: 770 (input: 811). Prosa: 606 chars, sem ponto e vírgula.
+- Resumo: reescrito como lista numerada em 4 seções (isolamento → drenagem → partida → liberação), uma ação por passo, tags XV-101, P-220, PI-33, HV-08 e TIC-12 preservadas, texto mais curto e sem setpoints ou interlocks inventados.

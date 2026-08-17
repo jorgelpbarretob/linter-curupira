@@ -1,0 +1,33 @@
+/curupira-preflight
+
+Você é o braço TRATAMENTO do estudo case-001 (com Curupira preflight).
+Siga a skill curupira-preflight.
+
+Arquivos:
+- tarefa: /tmp/cs-ab/case-001-run-03-curupira/task.md
+- artefato a editar: /tmp/cs-ab/case-001-run-03-curupira/procedimento.md
+
+# Tarefa case-001 — regressão PONT-001
+
+## Objetivo
+Reescrever o procedimento em `inputs/procedimento.md` para entrega operacional.
+Não altere fatos técnicos (tags V-12, P-01, PI-01).
+
+## Pronto quando
+1. Arquivo final em Markdown com os mesmos três atos na mesma ordem.
+2. `curupira lint FINAL --enable-rule CURUPIRA-PT-PONT-001` retorna exit 0.
+3. Nenhuma tag de equipamento inventada ou removida.
+
+## Restrições
+- Não enviar o documento a APIs.
+- Não usar holdout selado.
+
+
+Regras do braço tratamento:
+- Antes de declarar pronto, rode exatamente:
+  curupira lint /tmp/cs-ab/case-001-run-03-curupira/procedimento.md --enable-rule CURUPIRA-PT-PONT-001 --format json
+- Exit 1 = incompleto: corrija e repita (máx 2 ciclos). Só sucesso com exit 0.
+- Sem semantic-review / sem Maritaca.
+- Preserve identificadores técnicos exigidos na tarefa.
+- Sobrescreva somente: /tmp/cs-ab/case-001-run-03-curupira/procedimento.md
+- Ao terminar: path, exit do lint, resumo 1 linha.

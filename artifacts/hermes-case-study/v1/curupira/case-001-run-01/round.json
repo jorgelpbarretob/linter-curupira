@@ -1,0 +1,34 @@
+{
+  "schema_version": "hermes-case-study-round/v1",
+  "run_id": "case-001-run-01",
+  "case_id": "case-001",
+  "condition": "curupira",
+  "case_package_sha256": "905a3f4a80a8f623927db96f91a871e8635030f922ed1bcf7c4d515a606f50cb",
+  "artifact_sha256": "60a831ce8c7f46c71177e2b470e4cd46985586d270ff7ec962b025d36ce375c7",
+  "ts": 1786931346.5869887,
+  "residual_lint": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "agent_metrics": {
+    "session_id": "20260816_224828_f00058",
+    "model": "grok-4.5",
+    "reasoning": "low",
+    "hermes_version": "0.20.1",
+    "tool_calls": 4,
+    "messages": 9,
+    "api_calls": 4,
+    "input_tokens": 29216,
+    "output_tokens": 401,
+    "duration_wall_s": 19,
+    "duration_s": 19,
+    "tokens": 29617,
+    "curupira_invoked": true,
+    "skill": "curupira-preflight",
+    "note": "terminal curupira lint exit 0; usage.json não emitido"
+  },
+  "acceptance_class": "aceito",
+  "notes": "Tratamento com -s curupira-preflight + prefixo /curupira-preflight. Lint local exit 0 registrado.",
+  "session_id": "20260816_224828_f00058"
+}

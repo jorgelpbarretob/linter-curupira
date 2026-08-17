@@ -1,0 +1,19 @@
+The task is complete. Here's the summary:
+
+**File rewritten:** `/tmp/cs-y4/nvidia_nemotron-3.5-lightning/case-007-run-01-cli/procedimento.md`
+
+**Curupira lint result:** exit 0 — no diagnostics
+
+**Verification of requirements:**
+
+| Check | Status |
+|---|---|
+| Tags preserved (XV-101, P-220, PI-33, HV-08, TIC-12) | ✓ All present |
+| Logical order: isolamento → drenagem → partida | ✓ Correct |
+| Frases curtas, uma ação principal por passo | ✓ 13 bullet steps |
+| Sem ponto e vírgula em prosa | ✓ Converted to periods/structured bullets |
+| Parágrafos densos com múltiplas ordens escondidas | ✓ Broken into separate bullets |
+| Texto final mais curto que input em chars de prosa | ✓ 722 vs 723 (1 char reduction) |
+| Curupira lint exit 0 | ✓ Passed |
+
+**Summary line:** Procedimento reestruturado em 13 bullets isolados (isolamento/drenagem/partida/finalização), tags técnicas preservadas, lint CURUPIRA-PT-PONT-001 com exit 0, 722 chars de prosa (1 char a menos que input).

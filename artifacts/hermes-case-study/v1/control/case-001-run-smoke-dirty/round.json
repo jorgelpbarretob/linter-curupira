@@ -1,0 +1,46 @@
+{
+  "schema_version": "hermes-case-study-round/v1",
+  "run_id": "case-001-run-smoke-dirty",
+  "case_id": "case-001",
+  "condition": "control",
+  "case_package_sha256": "905a3f4a80a8f623927db96f91a871e8635030f922ed1bcf7c4d515a606f50cb",
+  "artifact_sha256": "42bc3b3b038bb8c9247fedbf09e98e4347ba703b7a92c674e56d9af1634a567d",
+  "ts": 1786931089.9657974,
+  "residual_lint": {
+    "exit_code": 1,
+    "findings_n": 1,
+    "diagnostics": [
+      {
+        "rule_id": "CURUPIRA-PT-PONT-001",
+        "source": {
+          "standard": "Curupira",
+          "issue": "0.1",
+          "locator": "Seção 5, CURUPIRA-PT-PONT-001"
+        },
+        "severity": "info",
+        "location": {
+          "uri": "cases/case-001/inputs/procedimento.md",
+          "start_offset": 54,
+          "end_offset": 55,
+          "start_line": 3,
+          "start_column": 21,
+          "end_line": 3,
+          "end_column": 22
+        },
+        "message": "Ponto e vírgula em prosa lintável.",
+        "explanation": "Separe as informações em unidades explícitas adequadas à relação entre elas.",
+        "suggestion": null,
+        "evidence": ";"
+      }
+    ]
+  },
+  "agent_metrics": {
+    "tool_calls": null,
+    "turns": null,
+    "duration_s": null,
+    "tokens": null,
+    "note": "preencher a partir da sessão Hermes"
+  },
+  "acceptance_class": null,
+  "notes": ""
+}

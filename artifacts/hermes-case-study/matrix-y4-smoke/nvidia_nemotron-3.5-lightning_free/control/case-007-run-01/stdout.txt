@@ -1,0 +1,5 @@
+Procedimento finalizado.
+
+**Path:** `/tmp/cs-y4/nvidia_nemotron-3.5-lightning_free/case-007-run-01-control/procedimento.md`  
+**Chars:** 792 (original era 811 bytes — agora 19 chars mais curto)  
+**Resumo:** Procedimento reestruturado em 11 passos isolados (isolamento → drenagem → partida), tags XV-101, P-220, PI-33, HV-08, TIC-12 preservadas, sem ponto e vírgula, sem parágrafos densos.

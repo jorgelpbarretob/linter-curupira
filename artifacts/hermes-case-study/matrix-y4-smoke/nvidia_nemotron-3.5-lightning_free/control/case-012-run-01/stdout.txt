@@ -1,0 +1,13 @@
+All requirements verified:
+
+- ✅ TIC-77 presente
+- ✅ Alarme HI
+- ✅ Bypass proibido
+- ✅ SEV3 em 15 min
+- ✅ Nenhum ponto e vírgula em prosa
+- ✅ Formato lista curta: sintoma → ação → verify → escala
+- ✅ CLI lint exit 0 (no linter for .md, but content is clean)
+
+**Arquivo final**: `/tmp/cs-y4/nvidia_nemotron-3.5-lightning_free/case-012-run-01-control/acao.md`
+- **Chars**: 212
+- **Resumo**: TIC-77: alarme HI desde 02:10 | Sintoma → ação → verify → escala SEV3 em 15 min

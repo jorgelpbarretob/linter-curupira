@@ -1,0 +1,18 @@
+{
+  "estimated_cost_usd": 0.0,
+  "cost_status": "unknown",
+  "cost_source": "provider_models_api",
+  "input_tokens": 6813,
+  "output_tokens": 2978,
+  "cache_read_tokens": 158848,
+  "cache_write_tokens": 0,
+  "reasoning_tokens": 1709,
+  "total_tokens": 168639,
+  "api_calls": 5,
+  "model": "nvidia/nemotron-3.5-lightning:free",
+  "provider": "openrouter",
+  "session_id": "20260817_010433_10596c",
+  "completed": true,
+  "failed": false,
+  "service_tier": null
+}

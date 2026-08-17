@@ -1,0 +1,13 @@
+Documento gravado.
+
+Verificação contra os critérios:
+- Identificadores: worker-b, fila jobs-hot, SEV2, 10 min, restart unit `worker-b.service` — presentes.
+- Ordem: sintoma → mitigação imediata → verificação → escalonamento.
+- Sem ponto e vírgula em prosa.
+- Sem causa raiz inventada: mantive o tom da nota ("preso em batch antigo").
+- Listas curtas, sem parágrafo único.
+
+Saída:
+- path: /tmp/cs-y4/qwen_qwen3.8-27b/case-008-run-01-control/mitigacao.md
+- chars: 599
+- resumo: nota de turno densa convertida em mitigação SEV2 em 4 blocos (sintoma, ação, verificação, escalonamento) para leitura de 30 s.

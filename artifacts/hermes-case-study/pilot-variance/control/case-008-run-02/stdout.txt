@@ -1,0 +1,13 @@
+Pronto. Verificação completa.
+
+path: /tmp/cs-pilot/case-008-run-02-control/mitigacao.md
+chars: 655 bytes
+resumo: runbook SEV2 em 4 seções (sintoma → mitigação → verificação → escalonamento) para fila jobs-hot presa no worker-b.
+
+Conformidade:
+- Identificadores presentes: worker-b, jobs-hot, SEV2, 10 min, `worker-b.service`.
+- Ordem das seções correta.
+- Zero ponto e vírgula em prosa.
+- Sem causa raiz inventada (marcada como não diagnosticada).
+- Proibição de restart do broker sem autorização preservada.
+- Sem Curupira e sem API externa, conforme regras do braço controle.

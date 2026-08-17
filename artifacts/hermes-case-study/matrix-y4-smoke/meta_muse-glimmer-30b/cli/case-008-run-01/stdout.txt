@@ -1,0 +1,4 @@
+path /tmp/cs-y4/meta_muse-glimmer-30b/case-008-run-01-cli/mitigacao.md
+lint exit 0
+chars 522
+Resumo: síntoma, restart worker-b.service, verificação e escalonamento SEV2 em 10 min sem ponto e vírgula em prosa.

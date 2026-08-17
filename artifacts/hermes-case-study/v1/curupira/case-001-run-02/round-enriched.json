@@ -1,0 +1,29 @@
+{
+  "case_id": "case-001",
+  "run_id": "run-02",
+  "condition": "curupira",
+  "hermes_exit": 0,
+  "wall_s": 23.1,
+  "session_id": "20260816_225231_0ea6e1",
+  "work_dir": "/tmp/cs-ab/case-001-run-02-curupira",
+  "artifact": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/v1/curupira/case-001-run-02/procedimento.md",
+  "residual": {
+    "exit_code": 0,
+    "findings_n": 0,
+    "diagnostics": []
+  },
+  "skills": [
+    "curupira-preflight"
+  ],
+  "session": {
+    "messages": 11,
+    "tool_calls": 5,
+    "api_calls": 5,
+    "input_tokens": 29771,
+    "output_tokens": 535,
+    "model": "grok-4.5"
+  },
+  "curupira_invoked": true,
+  "requirements_ok": true,
+  "artifact_chars": 142
+}

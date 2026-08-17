@@ -1,0 +1,336 @@
+{
+  "schema_version": "hermes-case-study-report-5d/v1",
+  "report_id": "y2-lightning-paid-run-01",
+  "generated_at": "2026-08-17T01:17:25.724685-03:00",
+  "model": "nvidia/nemotron-3.5-lightning",
+  "supersedes_free_smoke": true,
+  "free_model_kept_for_integrity": "nvidia/nemotron-3.5-lightning:free",
+  "paid": {
+    "name": "lightning",
+    "n": 3,
+    "median_din": -13054,
+    "median_dout": -2540,
+    "median_dtot": -66825,
+    "residual0_c": 3,
+    "residual0_t": 3,
+    "lint_inv": 1,
+    "gate_pass": 1,
+    "median_S_c": 8,
+    "median_S_t": 4,
+    "pref": {
+      "control": 2,
+      "cli": 0,
+      "tie": 1
+    },
+    "rows": [
+      {
+        "case_id": "case-007",
+        "run_id": "run-01",
+        "control": {
+          "input_tokens": 57219,
+          "output_tokens": 5478,
+          "reasoning_tokens": 3815,
+          "cache_read_tokens": 180608,
+          "total_tokens": 243305,
+          "api_calls": 7,
+          "model": "nvidia/nemotron-3.5-lightning",
+          "provider": "openrouter",
+          "session_id": "20260817_011309_d278dd"
+        },
+        "cli": {
+          "input_tokens": 22678,
+          "output_tokens": 2938,
+          "reasoning_tokens": 1349,
+          "cache_read_tokens": 178432,
+          "total_tokens": 204048,
+          "api_calls": 6,
+          "model": "nvidia/nemotron-3.5-lightning",
+          "provider": "openrouter",
+          "session_id": "20260817_011331_bee29e"
+        },
+        "delta": {
+          "input_tokens": -34541,
+          "output_tokens": -2540,
+          "total_tokens": -39257
+        },
+        "residual_c": 0,
+        "residual_t": 0,
+        "gate": {
+          "treatment_lint_invoked": true,
+          "residual_n": 0,
+          "residual_zero": true,
+          "operational_pass": true
+        },
+        "wall_c": 21.5,
+        "wall_t": 14.8,
+        "art_c": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning/control/case-007-run-01/procedimento.md",
+        "art_t": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning/cli/case-007-run-01/procedimento.md",
+        "S_c": 8,
+        "S_t": 7,
+        "pref": "control",
+        "lint_inv": true,
+        "gate_pass": true
+      },
+      {
+        "case_id": "case-008",
+        "run_id": "run-01",
+        "control": {
+          "input_tokens": 37675,
+          "output_tokens": 5845,
+          "reasoning_tokens": 3765,
+          "cache_read_tokens": 304640,
+          "total_tokens": 348160,
+          "api_calls": 10,
+          "model": "nvidia/nemotron-3.5-lightning",
+          "provider": "openrouter",
+          "session_id": "20260817_011345_1c94df"
+        },
+        "cli": {
+          "input_tokens": 24621,
+          "output_tokens": 2568,
+          "reasoning_tokens": 1706,
+          "cache_read_tokens": 208896,
+          "total_tokens": 236085,
+          "api_calls": 7,
+          "model": "nvidia/nemotron-3.5-lightning",
+          "provider": "openrouter",
+          "session_id": "20260817_011411_d1f95a"
+        },
+        "delta": {
+          "input_tokens": -13054,
+          "output_tokens": -3277,
+          "total_tokens": -112075
+        },
+        "residual_c": 0,
+        "residual_t": 0,
+        "gate": {
+          "treatment_lint_invoked": false,
+          "residual_n": 0,
+          "residual_zero": true,
+          "operational_pass": false
+        },
+        "wall_c": 24.9,
+        "wall_t": 16.7,
+        "art_c": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning/control/case-008-run-01/mitigacao.md",
+        "art_t": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning/cli/case-008-run-01/mitigacao.md",
+        "S_c": 8,
+        "S_t": 4,
+        "pref": "control",
+        "lint_inv": false,
+        "gate_pass": false
+      },
+      {
+        "case_id": "case-012",
+        "run_id": "run-01",
+        "control": {
+          "input_tokens": 23561,
+          "output_tokens": 3343,
+          "reasoning_tokens": 2567,
+          "cache_read_tokens": 208896,
+          "total_tokens": 235800,
+          "api_calls": 8,
+          "model": "nvidia/nemotron-3.5-lightning",
+          "provider": "openrouter",
+          "session_id": "20260817_011427_a5abf6"
+        },
+        "cli": {
+          "input_tokens": 17510,
+          "output_tokens": 3497,
+          "reasoning_tokens": 2634,
+          "cache_read_tokens": 147968,
+          "total_tokens": 168975,
+          "api_calls": 5,
+          "model": "nvidia/nemotron-3.5-lightning",
+          "provider": "openrouter",
+          "session_id": "20260817_011616_d783f2"
+        },
+        "delta": {
+          "input_tokens": -6051,
+          "output_tokens": 154,
+          "total_tokens": -66825
+        },
+        "residual_c": 0,
+        "residual_t": 0,
+        "gate": {
+          "treatment_lint_invoked": false,
+          "residual_n": 0,
+          "residual_zero": true,
+          "operational_pass": false
+        },
+        "wall_c": 108.2,
+        "wall_t": 17.9,
+        "art_c": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning/control/case-012-run-01/acao.md",
+        "art_t": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning/cli/case-012-run-01/acao.md",
+        "S_c": 4,
+        "S_t": 4,
+        "pref": "tie",
+        "lint_inv": false,
+        "gate_pass": false
+      }
+    ]
+  },
+  "free_compare": {
+    "name": "lightning:free",
+    "n": 3,
+    "median_din": 848,
+    "median_dout": 57,
+    "median_dtot": 114747,
+    "residual0_c": 3,
+    "residual0_t": 3,
+    "lint_inv": 1,
+    "gate_pass": 1,
+    "median_S_c": 4,
+    "median_S_t": 7,
+    "pref": {
+      "control": 1,
+      "cli": 2,
+      "tie": 0
+    },
+    "rows": [
+      {
+        "case_id": "case-007",
+        "run_id": "run-01",
+        "control": {
+          "input_tokens": 74586,
+          "output_tokens": 3978,
+          "reasoning_tokens": 2448,
+          "cache_read_tokens": 128384,
+          "total_tokens": 206948,
+          "api_calls": 6,
+          "model": "nvidia/nemotron-3.5-lightning:free",
+          "provider": "openrouter",
+          "session_id": "20260817_005817_35a8e7"
+        },
+        "cli": {
+          "input_tokens": 15196,
+          "output_tokens": 4035,
+          "reasoning_tokens": 2643,
+          "cache_read_tokens": 302464,
+          "total_tokens": 321695,
+          "api_calls": 9,
+          "model": "nvidia/nemotron-3.5-lightning:free",
+          "provider": "openrouter",
+          "session_id": "20260817_005848_ef106a"
+        },
+        "delta": {
+          "input_tokens": -59390,
+          "output_tokens": 57,
+          "total_tokens": 114747
+        },
+        "residual_c": 0,
+        "residual_t": 0,
+        "gate": {
+          "treatment_lint_invoked": false,
+          "residual_n": 0,
+          "residual_zero": true,
+          "operational_pass": false
+        },
+        "wall_c": 31.9,
+        "wall_t": 34.5,
+        "art_c": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/control/case-007-run-01/procedimento.md",
+        "art_t": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/cli/case-007-run-01/procedimento.md",
+        "S_c": 7,
+        "S_t": 3,
+        "pref": "control",
+        "lint_inv": false,
+        "gate_pass": false
+      },
+      {
+        "case_id": "case-008",
+        "run_id": "run-01",
+        "control": {
+          "input_tokens": 14042,
+          "output_tokens": 3631,
+          "reasoning_tokens": 2414,
+          "cache_read_tokens": 274176,
+          "total_tokens": 291849,
+          "api_calls": 10,
+          "model": "nvidia/nemotron-3.5-lightning:free",
+          "provider": "openrouter",
+          "session_id": "20260817_005923_ff9b89"
+        },
+        "cli": {
+          "input_tokens": 27314,
+          "output_tokens": 5978,
+          "reasoning_tokens": 3571,
+          "cache_read_tokens": 604928,
+          "total_tokens": 638220,
+          "api_calls": 18,
+          "model": "nvidia/nemotron-3.5-lightning:free",
+          "provider": "openrouter",
+          "session_id": "20260817_010334_9cc426"
+        },
+        "delta": {
+          "input_tokens": 13272,
+          "output_tokens": 2347,
+          "total_tokens": 346371
+        },
+        "residual_c": 0,
+        "residual_t": 0,
+        "gate": {
+          "treatment_lint_invoked": true,
+          "residual_n": 0,
+          "residual_zero": true,
+          "operational_pass": true
+        },
+        "wall_c": 250.2,
+        "wall_t": 59.0,
+        "art_c": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/control/case-008-run-01/mitigacao.md",
+        "art_t": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/cli/case-008-run-01/mitigacao.md",
+        "S_c": 4,
+        "S_t": 8,
+        "pref": "cli",
+        "lint_inv": true,
+        "gate_pass": true
+      },
+      {
+        "case_id": "case-012",
+        "run_id": "run-01",
+        "control": {
+          "input_tokens": 6813,
+          "output_tokens": 2978,
+          "reasoning_tokens": 1709,
+          "cache_read_tokens": 158848,
+          "total_tokens": 168639,
+          "api_calls": 5,
+          "model": "nvidia/nemotron-3.5-lightning:free",
+          "provider": "openrouter",
+          "session_id": "20260817_010433_10596c"
+        },
+        "cli": {
+          "input_tokens": 7661,
+          "output_tokens": 1696,
+          "reasoning_tokens": 965,
+          "cache_read_tokens": 191488,
+          "total_tokens": 200845,
+          "api_calls": 6,
+          "model": "nvidia/nemotron-3.5-lightning:free",
+          "provider": "openrouter",
+          "session_id": "20260817_010533_eb2e7b"
+        },
+        "delta": {
+          "input_tokens": 848,
+          "output_tokens": -1282,
+          "total_tokens": 32206
+        },
+        "residual_c": 0,
+        "residual_t": 0,
+        "gate": {
+          "treatment_lint_invoked": false,
+          "residual_n": 0,
+          "residual_zero": true,
+          "operational_pass": false
+        },
+        "wall_c": 59.8,
+        "wall_t": 23.6,
+        "art_c": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/control/case-012-run-01/acao.md",
+        "art_t": "/home/jorge/dev/linter-curupira/artifacts/hermes-case-study/matrix-y4-smoke/nvidia_nemotron-3.5-lightning_free/cli/case-012-run-01/acao.md",
+        "S_c": 4,
+        "S_t": 7,
+        "pref": "cli",
+        "lint_inv": false,
+        "gate_pass": false
+      }
+    ]
+  }
+}

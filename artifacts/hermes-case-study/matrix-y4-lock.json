@@ -1,0 +1,62 @@
+{
+  "schema_version": "matrix-y4/v1",
+  "locked_at": "2026-08-17T01:12:58.319540-03:00",
+  "requested_original": [
+    "qwen/qwen3.8-27b",
+    "nvidia/nemotron-3.5-asr-streaming-multilingual-0.6b",
+    "meta/muse-glimmer-30b",
+    "thinkingmachines/inkling-small"
+  ],
+  "Y": [
+    {
+      "slot": "Y1",
+      "model": "qwen/qwen3.8-27b",
+      "status": "eligible_chat",
+      "route": "openrouter-cloud"
+    },
+    {
+      "slot": "Y2",
+      "model": "nvidia/nemotron-3.5-lightning",
+      "status": "eligible_chat",
+      "route": "openrouter-cloud",
+      "replaced_chain": [
+        "nvidia/nemotron-3.5-asr-streaming-multilingual-0.6b",
+        "nvidia/nemotron-3.5-lightning:free"
+      ],
+      "replace_reason": "user chose non-free lightning id"
+    },
+    {
+      "slot": "Y3",
+      "model": "meta/muse-glimmer-30b",
+      "status": "eligible_chat",
+      "route": "openrouter-cloud"
+    },
+    {
+      "slot": "Y4",
+      "model": "thinkingmachines/inkling-small",
+      "status": "eligible_chat",
+      "route": "openrouter-cloud"
+    }
+  ],
+  "superseded": [
+    {
+      "model": "nvidia/nemotron-3.5-asr-streaming-multilingual-0.6b",
+      "code": "Y2_ASR_NOT_CHAT"
+    },
+    {
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "code": "Y2_SUPERSEDED_BY_PAID_ID",
+      "note": "smoke run-01 kept under matrix-y4-smoke for integrity"
+    }
+  ],
+  "cloud_only": true,
+  "smoke_cases": [
+    "case-007",
+    "case-008",
+    "case-012"
+  ],
+  "arms": [
+    "control",
+    "cli"
+  ]
+}

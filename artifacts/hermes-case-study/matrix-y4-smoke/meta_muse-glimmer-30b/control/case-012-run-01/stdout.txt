@@ -1,0 +1,3 @@
+Path: /tmp/cs-y4/meta_muse-glimmer-30b/case-012-run-01-control/acao.md
+Chars: 304
+Resumo: Ação TIC-77 criada com sintoma, ação, verify, escala e restrição de bypass proibido sem ponto e vírgula.

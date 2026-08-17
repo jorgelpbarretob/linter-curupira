@@ -1,0 +1,3 @@
+Arquivo: /tmp/cs-y4/qwen_qwen3.8-27b/case-012-run-01-control/acao.md
+Chars: 358
+Resumo: AÇÃO TIC-77 em HI — sintoma, ação (checar sensor/válvula, bypass proibido), verify e escala SEV3 em 15 min, sem ponto e vírgula.

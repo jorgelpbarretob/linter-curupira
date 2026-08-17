@@ -1,0 +1,18 @@
+{
+  "estimated_cost_usd": 0.0,
+  "cost_status": "unknown",
+  "cost_source": "none",
+  "input_tokens": 4992,
+  "output_tokens": 4295,
+  "cache_read_tokens": 175232,
+  "cache_write_tokens": 0,
+  "reasoning_tokens": 3115,
+  "total_tokens": 184519,
+  "api_calls": 7,
+  "model": "qwen3.8-max",
+  "provider": "custom",
+  "session_id": "20260816_234614_71baf8",
+  "completed": true,
+  "failed": false,
+  "service_tier": null
+}

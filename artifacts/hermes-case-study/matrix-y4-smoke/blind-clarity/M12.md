@@ -1,0 +1,1 @@
+TIC-77: alarme HI desde 02:10. Sintoma: aumento vazão sem efeito claro. Ação: checar sensor e válvula água resfriamento. Verify: confirmar leitura painel. Escala: se não cair em 15 min → SEV3. NÃO usar bypass de interlock.
