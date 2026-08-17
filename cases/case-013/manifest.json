@@ -1,0 +1,28 @@
+{
+  "schema_version": "hermes-case-study-case/v1",
+  "case_id": "case-013",
+  "type": "transformacao-dificil",
+  "title": "Converter notas sanitizadas com horários em procedimento Markdown",
+  "provenance": "synthetic",
+  "language": "pt-BR",
+  "package_sha256": "05cee89b9fe037587ac24ce64ade7df7cd94cb6448200582b72499daa665ae8f",
+  "artifact_name": "procedimento-sanitizacao.md",
+  "input_rel": "inputs/notas-sanitizacao.md",
+  "product_goals": [
+    "lower_session_tokens",
+    "operator_readability",
+    "residual_lint"
+  ],
+  "input_residual_findings_n": 10,
+  "input_residual_lint_exit": 1,
+  "input_chars": 634,
+  "curupira_rules_in_acceptance": [
+    "CURUPIRA-PT-PONT-001"
+  ],
+  "curupira_version_target": "0.3.0",
+  "created_at": "2026-08-17",
+  "status": "frozen-draft",
+  "difficulty": "hard",
+  "package_hash_convention": "sha256(sorted relpath\\x00bytes\\x00, excluding manifest.json)",
+  "notes": "Sucesso primário: tokens de sessão e legibilidade. Residual 0 no tratamento é gate, não o único KPI."
+}

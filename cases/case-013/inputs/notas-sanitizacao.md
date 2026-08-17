@@ -1,0 +1,3 @@
+Notas sanitização SD-8 (turno manhã):
+
+06:10 início circulação; XV-302 fechada antes de partir P-410; pressão ok no CT-15; sem vazamentos visíveis. 06:40 troca de solução conforme ficha; operador confirmou concentração no rótulo; enxágue começou logo depois; condutividade ainda alta na primeira medição; repetir até cair dentro da faixa conforme praxe do setor. 07:05 fim do ciclo; liberar SD-8 para envase somente após assinatura do responsável; se alguém abrir XV-302 antes disso, repetir o enxágue e registrar o ocorro no boletim. Obs.: mangueira auxiliar ficou fora do suporte; guardar após o uso para não atrapalhar a passagem.

@@ -1,0 +1,26 @@
+{
+  "schema_version": "hermes-case-study-case/v1",
+  "case_id": "case-010",
+  "type": "atualizacao-dificil",
+  "title": "Runbook longo legado → CLI nova + prosa limpa",
+  "provenance": "synthetic",
+  "language": "pt-BR",
+  "package_sha256": "87ddd062bfe0bd7af3c3bf9884ae70c5204d4487b69a54925b3fd79aabe75f36",
+  "artifact_name": "runbook.md",
+  "input_rel": "inputs/runbook.md",
+  "product_goals": [
+    "lower_session_tokens",
+    "operator_readability",
+    "residual_lint"
+  ],
+  "input_residual_findings_n": 8,
+  "input_chars": 592,
+  "curupira_rules_in_acceptance": [
+    "CURUPIRA-PT-PONT-001"
+  ],
+  "curupira_version_target": "0.3.0",
+  "created_at": "2026-08-16",
+  "status": "frozen-draft",
+  "difficulty": "hard",
+  "notes": "Sucesso primário: tokens de sessão e legibilidade. Residual 0 no tratamento é gate, não o único KPI."
+}

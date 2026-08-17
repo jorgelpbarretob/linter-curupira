@@ -1,0 +1,6 @@
+notas turno — migração db
+preciso fazer backup antes
+depois rodar migrate
+no fim verificar select count na tabela jobs
+se count menor que antes, parar e chamar DBA
+host: db-synth-01

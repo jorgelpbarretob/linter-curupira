@@ -1,0 +1,28 @@
+{
+  "schema_version": "hermes-case-study-case/v1",
+  "case_id": "case-016",
+  "type": "incidente-dificil",
+  "title": "Produzir instrução curta de mitigação a partir de timeline densa",
+  "provenance": "synthetic",
+  "language": "pt-BR",
+  "package_sha256": "c48626b89f2c5b1453100da8bd47498a083ca534faee9266a2b4fb442aba1f12",
+  "artifact_name": "mitigacao-parada.md",
+  "input_rel": "inputs/timeline-incidente.md",
+  "product_goals": [
+    "lower_session_tokens",
+    "operator_readability",
+    "residual_lint"
+  ],
+  "input_residual_findings_n": 12,
+  "input_residual_lint_exit": 1,
+  "input_chars": 908,
+  "curupira_rules_in_acceptance": [
+    "CURUPIRA-PT-PONT-001"
+  ],
+  "curupira_version_target": "0.3.0",
+  "created_at": "2026-08-17",
+  "status": "frozen-draft",
+  "difficulty": "hard",
+  "package_hash_convention": "sha256(sorted relpath\\x00bytes\\x00, excluding manifest.json)",
+  "notes": "Sucesso primário: tokens de sessão e legibilidade. Residual 0 no tratamento é gate, não o único KPI."
+}

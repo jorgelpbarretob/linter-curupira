@@ -1,0 +1,16 @@
+{
+  "schema_version": "hermes-case-study-case/v1",
+  "case_id": "case-005",
+  "type": "transformacao",
+  "title": "Converter notas em procedimento",
+  "provenance": "synthetic",
+  "language": "pt-BR",
+  "package_sha256": "b663787915484bc76e8ddc07d14dbda9474d790f60852a9a25e4d8e9865fbce1",
+  "curupira_rules_in_acceptance": [
+    "CURUPIRA-PT-PONT-001"
+  ],
+  "curupira_version_target": "0.3.0",
+  "created_at": "2026-08-16",
+  "status": "frozen-draft",
+  "notes": "Seed inicial do estudo pareado Hermes×Curupira"
+}

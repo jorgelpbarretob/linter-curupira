@@ -1,0 +1,28 @@
+{
+  "schema_version": "hermes-case-study-case/v1",
+  "case_id": "case-014",
+  "type": "revisao-dificil",
+  "title": "Corrigir ambiguidade e ponto e vírgula preservando fatos",
+  "provenance": "synthetic",
+  "language": "pt-BR",
+  "package_sha256": "8efbedcf2f95582490ee06f700e484c05cc0427a0cb85d64d9e3d238bb9f56d7",
+  "artifact_name": "instrucao-transferencia.md",
+  "input_rel": "inputs/instrucao-transferencia.md",
+  "product_goals": [
+    "lower_session_tokens",
+    "operator_readability",
+    "residual_lint"
+  ],
+  "input_residual_findings_n": 4,
+  "input_residual_lint_exit": 1,
+  "input_chars": 593,
+  "curupira_rules_in_acceptance": [
+    "CURUPIRA-PT-PONT-001"
+  ],
+  "curupira_version_target": "0.3.0",
+  "created_at": "2026-08-17",
+  "status": "frozen-draft",
+  "difficulty": "hard",
+  "package_hash_convention": "sha256(sorted relpath\\x00bytes\\x00, excluding manifest.json)",
+  "notes": "Sucesso primário: tokens de sessão e legibilidade. Residual 0 no tratamento é gate, não o único KPI."
+}

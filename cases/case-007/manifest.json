@@ -1,0 +1,26 @@
+{
+  "schema_version": "hermes-case-study-case/v1",
+  "case_id": "case-007",
+  "type": "revisao-dificil",
+  "title": "Desdensificar procedimento longo com vários ponto e vírgula",
+  "provenance": "synthetic",
+  "language": "pt-BR",
+  "package_sha256": "7c169bb893d099ca89bfa189237892450a1be8848f3c49c378568811bd7cd145",
+  "artifact_name": "procedimento.md",
+  "input_rel": "inputs/procedimento.md",
+  "product_goals": [
+    "lower_session_tokens",
+    "operator_readability",
+    "residual_lint"
+  ],
+  "input_residual_findings_n": 8,
+  "input_chars": 787,
+  "curupira_rules_in_acceptance": [
+    "CURUPIRA-PT-PONT-001"
+  ],
+  "curupira_version_target": "0.3.0",
+  "created_at": "2026-08-16",
+  "status": "frozen-draft",
+  "difficulty": "hard",
+  "notes": "Sucesso primário: tokens de sessão e legibilidade. Residual 0 no tratamento é gate, não o único KPI."
+}

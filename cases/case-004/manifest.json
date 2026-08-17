@@ -1,0 +1,16 @@
+{
+  "schema_version": "hermes-case-study-case/v1",
+  "case_id": "case-004",
+  "type": "atualizacao",
+  "title": "Atualizar runbook após mudança de CLI",
+  "provenance": "synthetic",
+  "language": "pt-BR",
+  "package_sha256": "d352670c1950a4674de308592f11c4ad7c56f25309122b63bde76d18e39fbecb",
+  "curupira_rules_in_acceptance": [
+    "CURUPIRA-PT-PONT-001"
+  ],
+  "curupira_version_target": "0.3.0",
+  "created_at": "2026-08-16",
+  "status": "frozen-draft",
+  "notes": "Seed inicial do estudo pareado Hermes×Curupira"
+}

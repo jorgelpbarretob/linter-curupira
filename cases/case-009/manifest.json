@@ -1,0 +1,26 @@
+{
+  "schema_version": "hermes-case-study-case/v1",
+  "case_id": "case-009",
+  "type": "transformacao-dificil",
+  "title": "Notas de laboratório densas → POP curto",
+  "provenance": "synthetic",
+  "language": "pt-BR",
+  "package_sha256": "540b15981af854a5a05aefb919c3209119636aeecc1d4a961ed569034fdae144",
+  "artifact_name": "pop.md",
+  "input_rel": "inputs/notas-lab.md",
+  "product_goals": [
+    "lower_session_tokens",
+    "operator_readability",
+    "residual_lint"
+  ],
+  "input_residual_findings_n": 9,
+  "input_chars": 364,
+  "curupira_rules_in_acceptance": [
+    "CURUPIRA-PT-PONT-001"
+  ],
+  "curupira_version_target": "0.3.0",
+  "created_at": "2026-08-16",
+  "status": "frozen-draft",
+  "difficulty": "hard",
+  "notes": "Sucesso primário: tokens de sessão e legibilidade. Residual 0 no tratamento é gate, não o único KPI."
+}

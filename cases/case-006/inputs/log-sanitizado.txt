@@ -1,0 +1,4 @@
+2026-08-16T10:01:02Z WARN worker-queue timeout on job batch-77
+2026-08-16T10:01:10Z ERROR worker-queue stalled. supervisor restarted unit worker-queue.service
+2026-08-16T10:01:40Z INFO worker-queue healthy after restart
+nota: se stall repetir em 15 min, abrir incidente SEV3 com o trecho do log

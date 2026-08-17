@@ -6,6 +6,13 @@
   },
   "alpha": 0.05,
   "analysis_unit": "task (median over runs)",
+  "approval": {
+    "approved_at": "2026-08-17",
+    "approver": "Jorge Bezerra (mantenedor)",
+    "note": "Aprovado via chat como v1. Primário: achados residuais. Secundários com Holm. Unidade: tarefa.",
+    "status": "approved",
+    "version": "v1"
+  },
   "generated_at": "2026-08-16T23:04:24-0300",
   "n_tasks_proposed": 16,
   "power": 0.8,

@@ -1,0 +1,16 @@
+{
+  "schema_version": "hermes-case-study-case/v1",
+  "case_id": "case-006",
+  "type": "incidente",
+  "title": "Instrução de mitigação a partir de log sanitizado",
+  "provenance": "synthetic",
+  "language": "pt-BR",
+  "package_sha256": "fc2d6ac586bb88812e3ab6b12ad3f395810b6622ae86f91573008706949af9c5",
+  "curupira_rules_in_acceptance": [
+    "CURUPIRA-PT-PONT-001"
+  ],
+  "curupira_version_target": "0.3.0",
+  "created_at": "2026-08-16",
+  "status": "frozen-draft",
+  "notes": "Seed inicial do estudo pareado Hermes×Curupira"
+}
