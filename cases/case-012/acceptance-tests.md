@@ -1,4 +1,4 @@
-# Acceptance tests case-012
+# Tests
 
 ```bash
 curupira lint ARTIFACT --enable-rule CURUPIRA-PT-PONT-001 --format json

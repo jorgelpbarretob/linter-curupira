@@ -23,13 +23,15 @@ Alvo do protocolo: 12–20 casos. Banco atual: 16 casos.
 ## Lote difícil 2 (tokens + legibilidade)
 
 Gerado por `tools/curupira/make_case_hard.py` (2026-08-17).
+Cases 011–014 reautorados para o estudo v2 (bateria `run-v2-01`); definições
+anteriores constam no histórico git.
 
 | ID | Tipo | Residual input | Chars input | Foco |
 |---|---|---:|---:|---|
-| case-011 | criacao-dificil | 9 | 734 | notas cruas → procedimento |
-| case-012 | regressao-dificil | 11 | 1194 | desdensificar SOP longo |
-| case-013 | transformacao-dificil | 10 | 634 | notas com horários → procedimento |
-| case-014 | revisao-dificil | 4 | 593 | ambiguidade sem mudar fatos |
+| case-011 | revisao-dificil | 5 | 308 | partida de bomba com intertravamentos |
+| case-012 | incidente-dificil | 6 | 262 | alarme denso → ação curta |
+| case-013 | atualizacao-dificil | 5 | 300 | checklist CI → curupira lint |
+| case-014 | transformacao-dificil | 7 | 330 | rascunho calibração → POP |
 | case-015 | atualizacao-dificil | 6 | 678 | troca de tag + enxugar |
 | case-016 | incidente-dificil | 12 | 908 | timeline densa → mitigação curta |
 

@@ -1,28 +1,25 @@
 {
   "schema_version": "hermes-case-study-case/v1",
   "case_id": "case-014",
-  "type": "revisao-dificil",
-  "title": "Corrigir ambiguidade e ponto e vírgula preservando fatos",
+  "type": "transformacao-dificil",
+  "title": "Rascunho de calibração → POP enxuto",
   "provenance": "synthetic",
   "language": "pt-BR",
-  "package_sha256": "8efbedcf2f95582490ee06f700e484c05cc0427a0cb85d64d9e3d238bb9f56d7",
-  "artifact_name": "instrucao-transferencia.md",
-  "input_rel": "inputs/instrucao-transferencia.md",
+  "package_sha256": "c1e0e69e4d329d321b163936f6cc649cb42e66729b1c5063ede144c1357098a6",
+  "artifact_name": "pop.md",
+  "input_rel": "inputs/rascunho.md",
   "product_goals": [
     "lower_session_tokens",
     "operator_readability",
     "residual_lint"
   ],
-  "input_residual_findings_n": 4,
-  "input_residual_lint_exit": 1,
-  "input_chars": 593,
+  "input_residual_findings_n": 7,
+  "input_chars": 330,
   "curupira_rules_in_acceptance": [
     "CURUPIRA-PT-PONT-001"
   ],
-  "curupira_version_target": "0.3.0",
-  "created_at": "2026-08-17",
+  "created_at": "2026-08-16",
   "status": "frozen-draft",
   "difficulty": "hard",
-  "package_hash_convention": "sha256(sorted relpath\\x00bytes\\x00, excluding manifest.json)",
-  "notes": "Sucesso primário: tokens de sessão e legibilidade. Residual 0 no tratamento é gate, não o único KPI."
+  "study_version": "v2"
 }

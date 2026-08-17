@@ -1,3 +1,0 @@
-# Passagem de turno — CIP-3
-
-Operador relata que o CIP-3 terminou a circulação alcalina perto das 22h; a condutividade caiu dentro da faixa; porém ficou pendente confirmar o enxágue final porque o TI-77 oscilou durante a noite; ninguém anotou o valor final; verificar antes de liberar. A válvula XV-210 ficou em posição fechada conforme orientação do técnico; se a pressão subir na partida abrir devagar e observar o P-301; em caso de alarme parar a bomba e chamar o técnico de plantão. O tanque estava com nível baixo no início; completaram com água de processo; falta registrar o volume no formulário. Se o TI-77 voltar a oscilar repetir a leitura em outro ponto da linha antes de concluir que é falha do sensor; só depois escalar.

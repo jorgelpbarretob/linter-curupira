@@ -1,23 +1,11 @@
-# Tarefa case-013 — transformação de notas em procedimento
+# Tarefa case-013
 
-## Objetivo de produto
-Transformar notas soltas em procedimento enxuto e legível, baixando tokens
-de leitura. Não é só passar no lint.
-
-## Entrada
-`notas-sanitizacao.md` (notas de sanitização com horários e tags).
-
-## Entregar
-Procedimento em `procedimento-sanitizacao.md`.
+## Mudança
+Trocar hermes-lint/HERMES-PT por curupira lint/CURUPIRA-PT-PONT-001.
+Manter: fail job, upload JSON, bloquear merge.
 
 ## Pronto quando
-1. Tags preservadas: SD-8, XV-302, P-410, CT-15.
-2. Horários das notas preservados como referência.
-3. Frases curtas. Uma ação principal por passo quando possível.
-4. Sem ponto e vírgula em prosa.
-5. Texto final mais curto em caracteres de prosa que as notas.
-6. Braço com Curupira: `curupira lint` exit 0 nas regras do aceite.
-
-## Restrições
-- Não invente etapas ausentes nas notas.
-- Não envie a APIs.
+1. Zero hermes-lint/HERMES-PT.
+2. Comando com subcomando lint.
+3. Prosa em passos curtos sem ponto e vírgula.
+4. CLI: lint exit 0.

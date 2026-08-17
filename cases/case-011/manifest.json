@@ -1,28 +1,25 @@
 {
   "schema_version": "hermes-case-study-case/v1",
   "case_id": "case-011",
-  "type": "criacao-dificil",
-  "title": "Criar procedimento CIP a partir de notas cruas de passagem de turno",
+  "type": "revisao-dificil",
+  "title": "Partida de bomba com intertravamentos densos",
   "provenance": "synthetic",
   "language": "pt-BR",
-  "package_sha256": "124f5c95f513dd7633e9f9955a949dbda771f6d9c4c7bccb8f267ea2353d8b28",
-  "artifact_name": "procedimento-cip.md",
-  "input_rel": "inputs/notas-turno.md",
+  "package_sha256": "2d747a0cd02c6b170394d60739f761f7af6f771460e89cd2a56f670e3ddb9dfc",
+  "artifact_name": "procedimento.md",
+  "input_rel": "inputs/procedimento.md",
   "product_goals": [
     "lower_session_tokens",
     "operator_readability",
     "residual_lint"
   ],
-  "input_residual_findings_n": 9,
-  "input_residual_lint_exit": 1,
-  "input_chars": 734,
+  "input_residual_findings_n": 5,
+  "input_chars": 308,
   "curupira_rules_in_acceptance": [
     "CURUPIRA-PT-PONT-001"
   ],
-  "curupira_version_target": "0.3.0",
-  "created_at": "2026-08-17",
+  "created_at": "2026-08-16",
   "status": "frozen-draft",
   "difficulty": "hard",
-  "package_hash_convention": "sha256(sorted relpath\\x00bytes\\x00, excluding manifest.json)",
-  "notes": "Sucesso primário: tokens de sessão e legibilidade. Residual 0 no tratamento é gate, não o único KPI."
+  "study_version": "v2"
 }

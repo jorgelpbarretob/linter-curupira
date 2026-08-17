@@ -1,28 +1,25 @@
 {
   "schema_version": "hermes-case-study-case/v1",
   "case_id": "case-012",
-  "type": "regressao-dificil",
-  "title": "Desdensificar SOP longo de mosturação com 10+ ponto e vírgula",
+  "type": "incidente-dificil",
+  "title": "Alarme de temperatura denso → ação curta",
   "provenance": "synthetic",
   "language": "pt-BR",
-  "package_sha256": "4df69842da20c881c07e951457d3afbf3215bd7c4ccdf7cc90c51ab3653cfbd7",
-  "artifact_name": "sop-mosturacao.md",
-  "input_rel": "inputs/sop-mosturacao.md",
+  "package_sha256": "ac7e451e4f545ad534baea29d1bed0422a9546c51eae7d91c3fe41ece0f974aa",
+  "artifact_name": "acao.md",
+  "input_rel": "inputs/notas.md",
   "product_goals": [
     "lower_session_tokens",
     "operator_readability",
     "residual_lint"
   ],
-  "input_residual_findings_n": 11,
-  "input_residual_lint_exit": 1,
-  "input_chars": 1194,
+  "input_residual_findings_n": 6,
+  "input_chars": 262,
   "curupira_rules_in_acceptance": [
     "CURUPIRA-PT-PONT-001"
   ],
-  "curupira_version_target": "0.3.0",
-  "created_at": "2026-08-17",
+  "created_at": "2026-08-16",
   "status": "frozen-draft",
   "difficulty": "hard",
-  "package_hash_convention": "sha256(sorted relpath\\x00bytes\\x00, excluding manifest.json)",
-  "notes": "Sucesso primário: tokens de sessão e legibilidade. Residual 0 no tratamento é gate, não o único KPI."
+  "study_version": "v2"
 }
