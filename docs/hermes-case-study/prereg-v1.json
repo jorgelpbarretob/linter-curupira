@@ -1,0 +1,21 @@
+{
+  "accept_mcnemar_pairs": 65,
+  "accept_premises": {
+    "p01": 0.25,
+    "p10": 0.06
+  },
+  "alpha": 0.05,
+  "analysis_unit": "task (median over runs)",
+  "generated_at": "2026-08-16T23:04:24-0300",
+  "n_tasks_proposed": 16,
+  "power": 0.8,
+  "primary_outcome": "residual_findings_enabled_rules",
+  "residual_mcnemar_pairs": 12,
+  "residual_premises": {
+    "p01": 0.63,
+    "p10": 0.02
+  },
+  "rubric_mde_dz": 0.749,
+  "schema_version": "curupira-case-study-prereg/v1",
+  "secondary_correction": "holm"
+}
