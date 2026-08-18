@@ -4,14 +4,18 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import time
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+from uuid import uuid4
 
 SCHEMA_VERSION = "curupira-hermes-preflight/v1"
-WRAPPER_VERSION = "1.0.0"
+TELEMETRY_SCHEMA_VERSION = "curupira-hermes-preflight-telemetry/v1"
+WRAPPER_VERSION = "1.1.0"
 RULE_ID = "CURUPIRA-PT-PONT-001"
 SUPPORTED_SUFFIXES = frozenset({".md", ".markdown", ".txt"})
 CURUPIRA_TIMEOUT_SECONDS = 30
@@ -22,9 +26,9 @@ def handle_curupira_lint(arguments: dict[str, Any], **kwargs: object) -> str:
     del kwargs
     started = time.monotonic_ns()
     try:
-        return _handle_curupira_lint(arguments, started=started)
+        event = _handle_curupira_lint(arguments, started=started)
     except Exception:
-        return _event(
+        event = _event(
             started=started,
             status="blocked",
             exit_code=2,
@@ -36,6 +40,25 @@ def handle_curupira_lint(arguments: dict[str, Any], **kwargs: object) -> str:
                 }
             ],
         )
+    try:
+        _persist_telemetry(json.loads(event))
+    except Exception:
+        parsed_event = json.loads(event)
+        versions = parsed_event.get("versions", {})
+        curupira_version = versions.get("curupira") if isinstance(versions, dict) else None
+        return _event(
+            started=started,
+            status="blocked",
+            exit_code=2,
+            curupira_version=curupira_version,
+            operational_errors=[
+                {
+                    "code": "telemetry_write_error",
+                    "message": "a evidência do preflight Curupira não pôde ser persistida",
+                }
+            ],
+        )
+    return event
 
 
 def _handle_curupira_lint(arguments: dict[str, Any], *, started: int) -> str:
@@ -276,6 +299,83 @@ def _file_result(
         "exit_code": exit_code,
         "duration_ms": _elapsed_ms(started),
         "diagnostics": diagnostics or [],
+    }
+
+
+def _persist_telemetry(event: dict[str, Any]) -> None:
+    hermes_home = Path(os.environ.get("HERMES_HOME", Path.home() / ".hermes")).resolve()
+    telemetry_path = hermes_home / "cron" / "state" / "curupira-usage" / "preflight-events.jsonl"
+    telemetry_path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+    record = _telemetry_record(event)
+    encoded = (json.dumps(record, ensure_ascii=False, sort_keys=True) + "\n").encode()
+    descriptor = os.open(telemetry_path, os.O_APPEND | os.O_CREAT | os.O_WRONLY, 0o600)
+    try:
+        os.chmod(telemetry_path, 0o600)
+        written = os.write(descriptor, encoded)
+        if written != len(encoded):
+            raise OSError("incomplete telemetry write")
+    finally:
+        os.close(descriptor)
+
+
+def _telemetry_record(event: dict[str, Any]) -> dict[str, Any]:
+    files = []
+    for item in event.get("files", []):
+        diagnostics = []
+        for diagnostic in item.get("diagnostics", []):
+            if not isinstance(diagnostic, dict):
+                continue
+            raw_location = diagnostic.get("location")
+            location = None
+            if isinstance(raw_location, dict):
+                location = {
+                    key: raw_location[key]
+                    for key in ("start_line", "start_column", "end_line", "end_column")
+                    if isinstance(raw_location.get(key), int)
+                }
+            diagnostics.append(
+                {
+                    "rule_id": diagnostic.get("rule_id"),
+                    "severity": diagnostic.get("severity"),
+                    "location": location if isinstance(location, dict) else None,
+                }
+            )
+        files.append(
+            {
+                "path": item.get("path"),
+                "sha256": item.get("sha256"),
+                "size_bytes": item.get("size_bytes"),
+                "exit_code": item.get("exit_code"),
+                "duration_ms": item.get("duration_ms"),
+                "diagnostics": diagnostics,
+            }
+        )
+    operational_errors = [
+        {key: error[key] for key in ("code", "path") if key in error}
+        for error in event.get("operational_errors", [])
+        if isinstance(error, dict)
+    ]
+    executable = shutil.which("curupira")
+    return {
+        "schema_version": TELEMETRY_SCHEMA_VERSION,
+        "event": "preflight_completed",
+        "recorded_at": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+        "invocation_id": str(uuid4()),
+        "tool": event.get("tool"),
+        "status": event.get("status"),
+        "exit_code": event.get("exit_code"),
+        "rules": event.get("rules", []),
+        "versions": event.get("versions", {}),
+        "duration_ms": event.get("duration_ms"),
+        "files": files,
+        "skipped": event.get("skipped", []),
+        "config": event.get("config"),
+        "operational_errors": operational_errors,
+        "runtime": {
+            "pid": os.getpid(),
+            "ppid": os.getppid(),
+            "curupira_executable": str(Path(executable).resolve()) if executable else None,
+        },
     }
 
 

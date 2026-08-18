@@ -7,7 +7,14 @@ import sys
 from pathlib import Path
 from types import ModuleType
 
+import pytest
+
 PLUGIN_ROOT = Path(__file__).parents[2] / "integrations" / "hermes-agent" / "curupira-lint"
+
+
+@pytest.fixture(autouse=True)
+def _isolate_telemetry_home(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setenv("HERMES_HOME", str(tmp_path / ".hermes"))
 
 
 def _load_plugin_tools() -> ModuleType:
@@ -50,7 +57,7 @@ def test_curupira_lint_returns_auditable_passed_event_for_clean_document(
     assert payload["status"] == "passed"
     assert payload["exit_code"] == 0
     assert payload["rules"] == ["CURUPIRA-PT-PONT-001"]
-    assert payload["versions"] == {"wrapper": "1.0.0", "curupira": "0.3.0"}
+    assert payload["versions"] == {"wrapper": "1.1.0", "curupira": "0.3.0"}
     assert payload["duration_ms"] >= 0
     assert payload["operational_errors"] == []
     assert payload["files"] == [
@@ -84,6 +91,100 @@ def test_curupira_lint_returns_needs_review_with_diagnostics(
     assert payload["files"][0]["exit_code"] == 1
     assert [item["rule_id"] for item in payload["files"][0]["diagnostics"]] == [
         "CURUPIRA-PT-PONT-001"
+    ]
+
+
+def test_curupira_lint_persists_sanitized_telemetry_without_the_cli_shim(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    source = tmp_path / "procedimento.txt"
+    source.write_text("Feche a válvula; prossiga.\n", encoding="utf-8")
+    executable = tmp_path / "curupira"
+    executable.write_text(
+        "#!/bin/sh\n"
+        'if [ "$1" = "--version" ]; then echo "curupira 0.3.0"; exit 0; fi\n'
+        'printf \'%s\\n\' \'{"schema_version":"1.0","diagnostics":[{'
+        '"rule_id":"CURUPIRA-PT-PONT-001","severity":"info",'
+        '"location":{"start_line":1,"start_column":16,'
+        '"excerpt":"Feche a válvula; prossiga."},'
+        '"message":"Ponto e vírgula em prosa lintável.",'
+        '"evidence":"Feche a válvula; prossiga."}]} \'\n'
+        "exit 1\n",
+        encoding="utf-8",
+    )
+    executable.chmod(0o755)
+    hermes_home = tmp_path / ".hermes"
+    monkeypatch.setenv("HERMES_HOME", str(hermes_home))
+    monkeypatch.setenv("PATH", str(tmp_path))
+
+    payload = json.loads(_load_plugin_tools().handle_curupira_lint({"paths": [str(source)]}))
+
+    assert payload["status"] == "needs_review"
+    telemetry_path = hermes_home / "cron" / "state" / "curupira-usage" / "preflight-events.jsonl"
+    records = [json.loads(line) for line in telemetry_path.read_text(encoding="utf-8").splitlines()]
+    assert records == [
+        {
+            "schema_version": "curupira-hermes-preflight-telemetry/v1",
+            "event": "preflight_completed",
+            "recorded_at": records[0]["recorded_at"],
+            "invocation_id": records[0]["invocation_id"],
+            "tool": "curupira_lint",
+            "status": "needs_review",
+            "exit_code": 1,
+            "rules": ["CURUPIRA-PT-PONT-001"],
+            "versions": {"wrapper": "1.1.0", "curupira": "0.3.0"},
+            "duration_ms": records[0]["duration_ms"],
+            "files": [
+                {
+                    "path": str(source.resolve()),
+                    "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+                    "size_bytes": len(source.read_bytes()),
+                    "exit_code": 1,
+                    "duration_ms": records[0]["files"][0]["duration_ms"],
+                    "diagnostics": [
+                        {
+                            "rule_id": "CURUPIRA-PT-PONT-001",
+                            "severity": "info",
+                            "location": {"start_line": 1, "start_column": 16},
+                        }
+                    ],
+                }
+            ],
+            "skipped": [],
+            "config": None,
+            "operational_errors": [],
+            "runtime": {
+                "pid": os.getpid(),
+                "ppid": os.getppid(),
+                "curupira_executable": str(executable.resolve()),
+            },
+        }
+    ]
+    assert records[0]["recorded_at"].endswith("Z")
+    assert len(records[0]["invocation_id"]) == 36
+    assert "Feche a válvula" not in telemetry_path.read_text(encoding="utf-8")
+
+
+def test_curupira_lint_blocks_when_telemetry_cannot_be_persisted(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    source = tmp_path / "module.py"
+    source.write_text("print('fora do preflight')\n", encoding="utf-8")
+    invalid_home = tmp_path / "not-a-directory"
+    invalid_home.write_text("occupied", encoding="utf-8")
+    monkeypatch.setenv("HERMES_HOME", str(invalid_home))
+
+    payload = json.loads(_load_plugin_tools().handle_curupira_lint({"paths": [str(source)]}))
+
+    assert payload["status"] == "blocked"
+    assert payload["exit_code"] == 2
+    assert payload["operational_errors"] == [
+        {
+            "code": "telemetry_write_error",
+            "message": "a evidência do preflight Curupira não pôde ser persistida",
+        }
     ]
 
 
@@ -490,7 +591,7 @@ def test_curupira_lint_blocks_when_the_cli_version_cannot_be_proven(
 
     assert payload["status"] == "blocked"
     assert payload["exit_code"] == 2
-    assert payload["versions"] == {"wrapper": "1.0.0", "curupira": None}
+    assert payload["versions"] == {"wrapper": "1.1.0", "curupira": None}
     assert payload["files"] == []
     assert payload["operational_errors"] == [
         {
@@ -514,7 +615,7 @@ def test_curupira_lint_recovers_version_from_a_python_console_script(
 
     payload = json.loads(_load_plugin_tools().handle_curupira_lint({"paths": [str(source)]}))
 
-    assert payload["versions"] == {"wrapper": "1.0.0", "curupira": "0.3.0"}
+    assert payload["versions"] == {"wrapper": "1.1.0", "curupira": "0.3.0"}
     assert payload["operational_errors"][0]["code"] == "curupira_operational_error"
 
 
